@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `questions` (
 `Form Number` varchar(6) COLLATE utf8_bin NOT NULL,
-`Version Number` int(2) NOT NULL,
+`Version Number` int(3) NOT NULL AUTO_INCREMENT,
 `Date` date NOT NULL,
 `Q1` varchar(300) COLLATE utf8_bin NOT NULL,
 `Q2` varchar(300) COLLATE utf8_bin NOT NULL,
@@ -98,10 +98,15 @@ CREATE TABLE `questions` (
 -- Dumping data for table `questions`
 --
 
-INSERT INTO `questions` (`Form Number`, `Version Number`, `Date`, `Q1`, `Q2`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q9`,
-`Q10`) VALUES
-('Form1A', 1, '2020-03-03', 'What is your name?', 'What is your name?', 'What is your name?', 'What is your name?',
-'What is your name?', '', '', '', '', '');
+-- INSERT INTO `questions` (`Form Number`, `Version Number`, `Date`, `Q1`, `Q2`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q9`,`Q10`,`Q11`, `Q12`, `Q13`, `Q14`, `Q15`, `Q16`, `Q17`, 
+-- `Q18`, `Q19`,`Q20`,`Q21`, `Q22`, `Q23`, `Q24`, `Q25`, `Q26`, `Q27`, `Q28`, `Q29`,`Q30`,`Q31`, `Q32`, `Q33`, `Q34`, `Q35`, `Q36`, `Q37`, `Q38`, `Q39`,`Q40`,`Q41`, `Q42`, `Q43`, 
+-- `Q44`, `Q45`, `Q46`, `Q47`, `Q48`, `Q49`,`Q50`,`Q51`, `Q52`, `Q53`, `Q54`, `Q55`, `Q56`, `Q57`, `Q58`, `Q59`,`Q60`) VALUES
+-- ('Form1A', 1, '2020-03-03', 'What is your name?', 'What is your name?', 'What is your name?', 'What is your name?',
+-- 'What is your name?', '', '', '', '', '');
+
+INSERT INTO `questions` (`Form Number`, `Version Number`, `Date`, `Q1`, `Q2`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q9`,`Q10`,`Q11`, `Q12`) VALUES
+('Form1A', 1, '2020-03-03', 'Courses taught by you ?', 'What is your name?', 'What is your name 2?', 'What is your name 3?',
+'What is your name 4?', 'Whatis your name 5', 'What is your name 6', 'What is your name 7', 'What is your name 8', 'What is your name 9','What is your name 10','What is your name 11','What is your name 12',);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
