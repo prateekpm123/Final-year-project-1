@@ -9,22 +9,73 @@ if($db) {
     // echo "sucess h1";
 }
 
-$hostname = "localhost";
-$db = "final_year_project";
-$username = "root";
-$password = "";
+if (isset($_POST['submit']))
+{   
+    $Q1 =$_POST['points'];
+    $Q2 =$_POST['points1'];
+    $Q3 =$_POST['points2'];
+    $Q4 =$_POST['points3'];
+    $Q5 =$_POST['points4'];
+    $Q6 =$_POST['points5'];
+    $Q7 =$_POST['points6'];
+    $Q8 =$_POST['points7'];
+    $Q9 =$_POST['points8'];
+    $Q10 =$_POST['points9']; 
+    $Q11 =$_POST['points10'];
 
-$conn2 = new PDO("mysql:host=$hostname;dbname=$db", $username, $password);
+    $query = "INSERT INTO `teachers_answers` (`Q1`,`Q2`,`Q3`,`Q4`,`Q5`,`Q6`,`Q7`,`Q8`,`Q9`,`Q10`,`Q11`) VALUES ('$Q1','$Q2','$Q3','$Q4','$Q5','$Q6','$Q7','$Q8','$Q9','$Q10','$Q11')";
 
-if(isset($_POST['submit']))
-{
-    $answers = $_POST['answers'];
-    $sql = $conn2 -> prepare("insert into teachers_answers (Q1) values (:answers)");
-    $conn2 -> beginTransaction();
-    $sql -> execute(array(':answers'=>$answers));
-    // echo "<h2>Data entired</h2>";
-    $conn2 ->commit();
+    $query_run = mysqli_query($con, $query);
+    if($query_run)
+    {
+        // echo "done";
+    }
+    else 
+    {
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+    }
 }
+
+// #####################  Dont know how this works  #########################
+
+// $hostname = "localhost";
+// $db = "final_year_project";
+// $username = "root";
+// $password = "";
+
+// $conn2 = new PDO("mysql:host=$hostname;dbname=$db", $username, $password);
+
+// if(isset($_POST['submit']))
+// {
+//     $Q1 =$_POST['points'];
+//     $Q2 =$_POST['points1'];
+//     $Q3 =$_POST['points2'];
+//     $Q4 =$_POST['points3'];
+//     $Q5 =$_POST['points4'];
+//     $Q6 =$_POST['points5'];
+//     $Q7 =$_POST['points6'];
+//     $Q8 =$_POST['points7'];
+//     $Q9 =$_POST['points8'];
+//     $Q10 =$_POST['points9']; 
+//     $Q11 =$_POST['points10'];
+//     // $sql = $conn2 -> prepare("insert into teachers_answers (Q1,Q2) values (:answers)");
+//     $sql = $conn2 -> prepare("INSERT INTO `teachers_answers` (`Q1`,`Q2`,`Q3`,`Q4`,`Q5`,`Q6`,`Q7`,`Q8`,`Q9`,`Q10`,`Q11`) VALUES (:Q1,:Q2,:Q3,:Q4,:Q5,:Q6,:Q7,:Q8,:Q9,:Q10,:Q11)");
+
+//     $conn2 -> beginTransaction();
+//     // $sql -> execute();
+//     // $sql -> execute(array(':answers'=>$answers));
+//     // $sql -> execute(array(':Q1:Q2:Q3:Q4:Q5:Q6:Q7:Q8:Q9:Q10:Q11'=>$Q1,$Q2,$Q3,$Q4,$Q5,$Q6,$Q7,$Q8,$Q9,$Q10,$Q11));
+
+//     // echo "<h2>Data entired</h2>";
+
+//     // $answers1 = $_POST['points1'];
+//     // $sql = $conn2 -> prepare("insert into teachers_answers (Q2) values (:answers1)");
+//     // // $conn2 -> beginTransaction();
+//     // $sql -> execute(array(':answers1'=>$answers1));
+
+//     $conn2 ->commit();
+// }
 
    
 
@@ -103,26 +154,7 @@ if(isset($_POST['submit']))
                     <label for="3">3</label>
                     <input type="radio" value="4" class="radio" name="points">
                     <label for="4">4</label>
-                    <!-- <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineRadio1">1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineRadio2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">3</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">4</label>
-                    </div> -->
+                
 
                     <!--  Q2 -->
                     <h5>
@@ -302,26 +334,14 @@ if(isset($_POST['submit']))
                             echo "{$desc['Q10']}";
                         ?>
                     </h5>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineRadio1">1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineRadio2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">3</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">4</label>
-                    </div>
+                    <input type="radio" value="1" class="radio" name="points9">
+                    <label for="1">1</label>
+                    <input type="radio" value="2" class="radio" name="points9">
+                    <label for="2">2</label>
+                    <input type="radio" value="3" class="radio" name="points9">
+                    <label for="3">3</label>
+                    <input type="radio" value="4" class="radio" name="points9">
+                    <label for="4">4</label>
 
 
                     <!--  Q11 -->
@@ -335,30 +355,18 @@ if(isset($_POST['submit']))
                             echo "{$desc['Q11']}";
                         ?>
                     </h5>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineRadio1">1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineRadio2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">3</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">4</label>
-                    </div>
+                    <input type="radio" value="1" class="radio" name="points10">
+                    <label for="1">1</label>
+                    <input type="radio" value="2" class="radio" name="points10">
+                    <label for="2">2</label>
+                    <input type="radio" value="3" class="radio" name="points10">
+                    <label for="3">3</label>
+                    <input type="radio" value="4" class="radio" name="points10">
+                    <label for="4">4</label>
 
                     <br><br>    
-                    <button class="btn btn-primary" type="submit" name="submit">Submit</button>
-
+                    <!-- <button class="btn btn-primary" type="submit" name="submit">Submit</button> -->
+                    <input type="submit" name="submit" value="Submit">    
                 </form>
             </div>
         </div>
