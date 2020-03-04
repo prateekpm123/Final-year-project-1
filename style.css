@@ -1,11 +1,16 @@
 .form-row {
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
 }
 
 h5 {
     margin-top: 4rem;
+    /* color: blue !important; */
 }
 
 body {
-    background-color: aqua;
+    /* background-color: aqua; */
+}
+
+.form-row {
+    margin-bottom: 4rem;
 }
