@@ -9,6 +9,25 @@ if($db) {
     // echo "sucess h1";
 }
 
+$hostname = "localhost";
+$db = "final_year_project";
+$username = "root";
+$password = "";
+
+$conn2 = new PDO("mysql:host=$hostname;dbname=$db", $username, $password);
+
+if(isset($_POST['submit']))
+{
+    $answers = $_POST['answers'];
+    $sql = $conn2 -> prepare("insert into teachers_answers (Q1) values (:answers)");
+    $conn2 -> beginTransaction();
+    $sql -> execute(array(':answers'=>$answers));
+    // echo "<h2>Data entired</h2>";
+    $conn2 ->commit();
+}
+
+   
+
 ?>
 
 
@@ -63,7 +82,7 @@ if($db) {
             <h2></h2>
 
             <div class="row form-row">
-                <form>
+                <form method="post">
 
                     <!--  Q1 -->
                     <h5>
@@ -76,7 +95,15 @@ if($db) {
                             echo "{$desc['Q1']}";
                         ?>
                     </h5>
-                    <div class="form-check form-check-inline">
+                    <input type="radio" value="1" class="radio" name="points">
+                    <label for="1">1</label>
+                    <input type="radio" value="2" class="radio" name="points">
+                    <label for="2">2</label>
+                    <input type="radio" value="3" class="radio" name="points">
+                    <label for="3">3</label>
+                    <input type="radio" value="4" class="radio" name="points">
+                    <label for="4">4</label>
+                    <!-- <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
                             value="option1">
                         <label class="form-check-label" for="inlineRadio1">1</label>
@@ -92,10 +119,10 @@ if($db) {
                         <label class="form-check-label" for="inlineRadio3">3</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4"
                             value="option3" >
                         <label class="form-check-label" for="inlineRadio3">4</label>
-                    </div>
+                    </div> -->
 
                     <!--  Q2 -->
                     <h5>
@@ -108,26 +135,14 @@ if($db) {
                             echo "{$desc['Q2']}";
                         ?>
                     </h5>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineRadio1">1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineRadio2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">3</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">4</label>
-                    </div>
+                    <input type="radio" value="1" class="radio" name="points1">
+                    <label for="1">1</label>
+                    <input type="radio" value="2" class="radio" name="points1">
+                    <label for="2">2</label>
+                    <input type="radio" value="3" class="radio" name="points1">
+                    <label for="3">3</label>
+                    <input type="radio" value="4" class="radio" name="points1">
+                    <label for="4">4</label>
 
                     <!--  Q3 -->
                     <h5>
@@ -140,26 +155,14 @@ if($db) {
                             echo "{$desc['Q3']}";
                         ?>
                     </h5>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineRadio1">1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineRadio2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">3</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">4</label>
-                    </div>                    
+                    <input type="radio" value="1" class="radio" name="points2">
+                    <label for="1">1</label>
+                    <input type="radio" value="2" class="radio" name="points2">
+                    <label for="2">2</label>
+                    <input type="radio" value="3" class="radio" name="points2">
+                    <label for="3">3</label>
+                    <input type="radio" value="4" class="radio" name="points2">
+                    <label for="4">4</label>                
                     
 
                     <!--  Q4 -->
@@ -173,26 +176,14 @@ if($db) {
                             echo "{$desc['Q4']}";
                         ?>
                     </h5>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineRadio1">1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineRadio2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">3</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">4</label>
-                    </div>
+                    <input type="radio" value="1" class="radio" name="points3">
+                    <label for="1">1</label>
+                    <input type="radio" value="2" class="radio" name="points3">
+                    <label for="2">2</label>
+                    <input type="radio" value="3" class="radio" name="points3">
+                    <label for="3">3</label>
+                    <input type="radio" value="4" class="radio" name="points3">
+                    <label for="4">4</label>
 
 
                     <!--  Q5 -->
@@ -206,26 +197,14 @@ if($db) {
                             echo "{$desc['Q5']}";
                         ?>
                     </h5>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineRadio1">1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineRadio2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">3</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">4</label>
-                    </div>
+                    <input type="radio" value="1" class="radio" name="points4">
+                    <label for="1">1</label>
+                    <input type="radio" value="2" class="radio" name="points4">
+                    <label for="2">2</label>
+                    <input type="radio" value="3" class="radio" name="points4">
+                    <label for="3">3</label>
+                    <input type="radio" value="4" class="radio" name="points4">
+                    <label for="4">4</label>
 
 
                     <!--  Q6 -->
@@ -239,26 +218,14 @@ if($db) {
                             echo "{$desc['Q6']}";
                         ?>
                     </h5>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineRadio1">1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineRadio2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">3</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">4</label>
-                    </div>
+                    <input type="radio" value="1" class="radio" name="points5">
+                    <label for="1">1</label>
+                    <input type="radio" value="2" class="radio" name="points5">
+                    <label for="2">2</label>
+                    <input type="radio" value="3" class="radio" name="points5">
+                    <label for="3">3</label>
+                    <input type="radio" value="4" class="radio" name="points5">
+                    <label for="4">4</label>
 
 
                     <!--  Q7 -->
@@ -272,26 +239,14 @@ if($db) {
                             echo "{$desc['Q7']}";
                         ?>
                     </h5>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineRadio1">1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineRadio2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">3</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">4</label>
-                    </div>
+                    <input type="radio" value="1" class="radio" name="points6">
+                    <label for="1">1</label>
+                    <input type="radio" value="2" class="radio" name="points6">
+                    <label for="2">2</label>
+                    <input type="radio" value="3" class="radio" name="points6">
+                    <label for="3">3</label>
+                    <input type="radio" value="4" class="radio" name="points6">
+                    <label for="4">4</label>
 
 
                     <!--  Q8 -->
@@ -305,26 +260,14 @@ if($db) {
                             echo "{$desc['Q8']}";
                         ?>
                     </h5>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineRadio1">1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineRadio2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">3</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">4</label>
-                    </div>       
+                    <input type="radio" value="1" class="radio" name="points7">
+                    <label for="1">1</label>
+                    <input type="radio" value="2" class="radio" name="points7">
+                    <label for="2">2</label>
+                    <input type="radio" value="3" class="radio" name="points7">
+                    <label for="3">3</label>
+                    <input type="radio" value="4" class="radio" name="points7">
+                    <label for="4">4</label>     
 
 
                     <!--  Q9 -->
@@ -338,26 +281,14 @@ if($db) {
                             echo "{$desc['Q9']}";
                         ?>
                     </h5>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineRadio1">1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineRadio2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">3</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" >
-                        <label class="form-check-label" for="inlineRadio3">4</label>
-                    </div>
+                    <input type="radio" value="1" class="radio" name="points8">
+                    <label for="1">1</label>
+                    <input type="radio" value="2" class="radio" name="points8">
+                    <label for="2">2</label>
+                    <input type="radio" value="3" class="radio" name="points8">
+                    <label for="3">3</label>
+                    <input type="radio" value="4" class="radio" name="points8">
+                    <label for="4">4</label>
 
 
                     <!--  Q10 -->
@@ -424,6 +355,9 @@ if($db) {
                             value="option3" >
                         <label class="form-check-label" for="inlineRadio3">4</label>
                     </div>
+
+                    <br><br>    
+                    <button class="btn btn-primary" type="submit" name="submit">Submit</button>
 
                 </form>
             </div>

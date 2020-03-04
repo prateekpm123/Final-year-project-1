@@ -14,3 +14,7 @@ body {
 .form-row {
     margin-bottom: 4rem;
 }
+
+label {
+    padding-right: 5px;
+}
