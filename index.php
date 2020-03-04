@@ -1,3 +1,18 @@
+<?php
+
+$con = mysqli_connect('localhost','root');
+if($con) {
+    // echo "sucess";
+}
+$db = mysqli_select_db($con, 'final_year_project');
+if($db) {
+    // echo "sucess h1";
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +26,7 @@
 </head>
 
 <body>
-<!-- /*
+    <!-- /*
 -- INSERT INTO `questions` (`Form Number`, `Version Number`, `Date`, `Q1`, `Q2`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q9`,`Q10`,`Q11`, `Q12`, `Q13`, `Q14`, `Q15`, `Q16`, `Q17`, 
 -- `Q18`, `Q19`,`Q20`,`Q21`, `Q22`, `Q23`, `Q24`, `Q25`, `Q26`, `Q27`, `Q28`, `Q29`,`Q30`,`Q31`, `Q32`, `Q33`, `Q34`, `Q35`, `Q36`, `Q37`, `Q38`, `Q39`,`Q40`,`Q41`, `Q42`, `Q43`, 
 -- `Q44`, `Q45`, `Q46`, `Q47`, `Q48`, `Q49`,`Q50`,`Q51`, `Q52`, `Q53`, `Q54`, `Q55`, `Q56`, `Q57`, `Q58`, `Q59`,`Q60`) VALUES
@@ -46,30 +61,370 @@
         <div class="col-lg-3 col-md-2"></div>
         <div class="col-md-8 col-lg-6">
             <h2></h2>
+
             <div class="row form-row">
                 <form>
-                    <h5>Some sample questions</h5>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                            value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            Default radio
-                        </label>
+
+                    <!--  Q1 -->
+                    <h5>
+                        <?php
+
+                            $q = "SELECT Q1 FROM `questions`";
+                            $result = mysqli_query($con, $q);
+                            $desc = mysqli_fetch_assoc($result);                                  
+                            // echo $desc;
+                            echo "{$desc['Q1']}";
+                        ?>
+                    </h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
                             value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Second default radio
-                        </label>
+                        <label class="form-check-label" for="inlineRadio2">2</label>
                     </div>
-                    <div class="form-check disabled">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"
-                            value="option3" disabled>
-                        <label class="form-check-label" for="exampleRadios3">
-                            Disabled radio
-                        </label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">3</label>
                     </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">4</label>
+                    </div>
+
+                    <!--  Q2 -->
+                    <h5>
+                        <?php
+
+                            $q = "SELECT Q2 FROM `questions`";
+                            $result = mysqli_query($con, $q);
+                            $desc = mysqli_fetch_assoc($result);                                  
+                            // echo $desc;
+                            echo "{$desc['Q2']}";
+                        ?>
+                    </h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">4</label>
+                    </div>
+
+                    <!--  Q3 -->
+                    <h5>
+                        <?php
+
+                            $q = "SELECT Q3 FROM `questions`";
+                            $result = mysqli_query($con, $q);
+                            $desc = mysqli_fetch_assoc($result);                                  
+                            // echo $desc;
+                            echo "{$desc['Q3']}";
+                        ?>
+                    </h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">4</label>
+                    </div>                    
+                    
+
+                    <!--  Q4 -->
+                    <h5>
+                        <?php
+
+                            $q = "SELECT Q4 FROM `questions`";
+                            $result = mysqli_query($con, $q);
+                            $desc = mysqli_fetch_assoc($result);                                  
+                            // echo $desc;
+                            echo "{$desc['Q4']}";
+                        ?>
+                    </h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">4</label>
+                    </div>
+
+
+                    <!--  Q5 -->
+                    <h5>
+                        <?php
+
+                            $q = "SELECT Q5 FROM `questions`";
+                            $result = mysqli_query($con, $q);
+                            $desc = mysqli_fetch_assoc($result);                                  
+                            // echo $desc;
+                            echo "{$desc['Q5']}";
+                        ?>
+                    </h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">4</label>
+                    </div>
+
+
+                    <!--  Q6 -->
+                    <h5>
+                        <?php
+
+                            $q = "SELECT Q6 FROM `questions`";
+                            $result = mysqli_query($con, $q);
+                            $desc = mysqli_fetch_assoc($result);                                  
+                            // echo $desc;
+                            echo "{$desc['Q6']}";
+                        ?>
+                    </h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">4</label>
+                    </div>
+
+
+                    <!--  Q7 -->
+                    <h5>
+                        <?php
+
+                            $q = "SELECT Q7 FROM `questions`";
+                            $result = mysqli_query($con, $q);
+                            $desc = mysqli_fetch_assoc($result);                                  
+                            // echo $desc;
+                            echo "{$desc['Q7']}";
+                        ?>
+                    </h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">4</label>
+                    </div>
+
+
+                    <!--  Q8 -->
+                    <h5>
+                        <?php
+
+                            $q = "SELECT Q8 FROM `questions`";
+                            $result = mysqli_query($con, $q);
+                            $desc = mysqli_fetch_assoc($result);                                  
+                            // echo $desc;
+                            echo "{$desc['Q8']}";
+                        ?>
+                    </h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">4</label>
+                    </div>       
+
+
+                    <!--  Q9 -->
+                    <h5>
+                        <?php
+
+                            $q = "SELECT Q9 FROM `questions`";
+                            $result = mysqli_query($con, $q);
+                            $desc = mysqli_fetch_assoc($result);                                  
+                            // echo $desc;
+                            echo "{$desc['Q9']}";
+                        ?>
+                    </h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">4</label>
+                    </div>
+
+
+                    <!--  Q10 -->
+                    <h5>
+                        <?php
+
+                            $q = "SELECT Q10 FROM `questions`";
+                            $result = mysqli_query($con, $q);
+                            $desc = mysqli_fetch_assoc($result);                                  
+                            // echo $desc;
+                            echo "{$desc['Q10']}";
+                        ?>
+                    </h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">4</label>
+                    </div>
+
+
+                    <!--  Q11 -->
+                    <h5>
+                        <?php
+
+                            $q = "SELECT Q11 FROM `questions`";
+                            $result = mysqli_query($con, $q);
+                            $desc = mysqli_fetch_assoc($result);                                  
+                            // echo $desc;
+                            echo "{$desc['Q11']}";
+                        ?>
+                    </h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" >
+                        <label class="form-check-label" for="inlineRadio3">4</label>
+                    </div>
+
                 </form>
             </div>
         </div>
