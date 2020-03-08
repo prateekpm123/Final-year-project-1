@@ -1,24 +1,96 @@
-.form-row {
-    /* margin-top: 3rem; */
-}
-
-h5 {
+input.searchs-box {
+    padding: 4px;
+    width: 90%;
+    border: none;
+    height: 3.4rem;
     margin-top: 4rem;
-    /* color: blue !important; */
-}
-
-body {
-    /* background-color: aqua; */
-}
-
-.form-row {
     margin-bottom: 4rem;
+    top: 200px;
+    border-bottom: 2px;
+    border-color:none !important;
+    font-size: 20px;
 }
 
-label {
-    padding-right: 10px;
+input.searchs-box:hover{
+    color: black;
+    border-color: none;
 }
 
-input.submit {
+input:hover {
+    border-bottom: 2px;
+    border-color: black;
+    /* border-color: none; */
+    /* background-color: aquamarine; */
     
+}
+
+.item {
+    text-align: center;
+}
+
+li a{
+    font-size: large;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+li.accordion-list {
+    padding: 0.6rem;
+    margin: none;
+    background-color: rgb(235, 235, 235);
+}
+
+li.accordion-list:hover {
+    background-color: rgb(179, 178, 178);
+}
+
+/* ##### ACCORDIAN STYLING #### */
+
+.ui-accordion .ui-accordion-header {
+    padding: 1rem;
+    font-size: large;
+    background-color: brown;
+}
+
+.ui-accordion .ui-accordion-content {
+    background-color: rgb(235, 235, 235);
+    padding: none !important;
+    /* overflow: hidden; */
+    height: auto;
+
+}
+
+ .ui-accordion-content:hover {
+    /* background-color: rgb(194, 47, 47); */
+}
+
+.ui-accordion .ui-accordion-content {
+    padding: none;
+}
+
+
+
+/* // Extra small devices (portrait phones, less than 576px) */
+/* // No media query for `xs` since this is the default in Bootstrap */
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    ...
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    ...
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    ...
 }
