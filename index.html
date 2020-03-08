@@ -16,7 +16,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-header">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,41 +43,174 @@
         </div>
     </nav>
     <!-- <div class="container-fluid">  -->
-        <div class="row">
-            <div class="col-lg-6 col-md-12 left-side">
-                <div class="row">
-                    <div class="col"></div>
-                    <div class="col-10 item">
-                        <input type="text" placeholder="Search here ..." class="searchs-box">
-                    </div>
-                    <div class="col"></div>
+    <div class="row">
+        <div class="col-lg-6 col-md-12 left-side" id="left-sideid">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-10 item">
+                    <input type="text" id="filterInput" placeholder="Search here ..." class="searchs-box"
+                        onmouseover="inputgrab()" onmouseout="make_normal()">
+                        <ul id="names" class="collection with-header">
+                            <!-- <li class="collection-header">
+                                <h5>Admission</h5>
+                            </li> -->
+                            <li class="collection-item">
+                                <a href="teacherform.php">
+                                    Teacher review on infrastructure
+                                </a>
+                            </li>
+                            <li class="collection-item">
+                                <a href="#">
+                                    There was some problem with the admission of through the
+                                </a>
+                            </li>
+                            <li class="collection-item">
+                                <a href="#">Admission process was not proper</a>
+                            </li>
+                            <li class="collection-item">
+                                <a href="#">There was a non refund during the admission process</a>
+                            </li>
+                            <li class="collection-item">
+                                <a href="#">Anna</a>
+                            </li>
+                            <!-- <li class="collection-header">
+                                <h5>University</h5>
+                            </li> -->
+                            <li class="collection-item">
+                                <a href="#">
+                                    I wanna make a about complaint about the paper correction of the University, I made
+                                    a
+                                </a>
+                            </li>
+                            <li class="collection-item">
+                                <a href="#">University delayed timetable</a>
+                            </li>
+                            <!-- <li class="collection-header">
+                                <h5>B</h5>
+                            </li> -->
+                            <li class="collection-item">
+                                <a href="#">College is unfair with the attendence</a>
+                            </li>
+                            <li class="collection-item">
+                                <a href="#">Bill</a>
+                            </li>
+                            <li class="collection-item">
+                                <a href="#">Bob</a>
+                            </li>
+                            <li class="collection-item">
+                                <a href="#">Brad</a>
+                            </li>
+                            <!-- <li class="collection-header">
+                                <h5>C</h5>
+                            </li> -->
+                            <li class="collection-item">
+                                <a href="#">Carrie</a>
+                            </li>
+                            <li class="collection-item">
+                                <a href="#">Cathy</a>
+                            </li>
+                            <li class="collection-item">
+                                <a href="#">Courtney</a>
+                            </li>
+                        </ul>
                 </div>
+                <div class="col"></div>
             </div>
-            <div class="col-lg-6 col-md-12 right-side">
-                <div id="accordion">
-                    <h3>On Institute</h3>
-                    <div>
 
-                        <li class="accordion-list"><a href="teacherform.php">Teacher Form</a></li>
-                        <li class="accordion-list"><a href="#">Student Form</a></li>
-                        <li class="accordion-list"><a href="#">Teacher Form</a></li>
-                        <li class="accordion-list"><a href="#">Teacher Form</a></li>
-                    </div>
-
-
-                    <h3>On Department</h3>
-                    <div>
-
-                        <li class="accordion-list"><a href="#">Teacher Form</a></li>
-                        <li class="accordion-list"><a href="#">Student form</a></li>
-                        <li class="accordion-list"><a href="#">Teacher Form</a></li>
-                        <li class="accordion-list"><a href="#">Teacher Form</a></li>
-                    </div>
-
-                </div>
-
-            </div>
         </div>
+        <div class="col-lg-6 col-md-12 right-side" id="right-sideid">
+            <div>
+                <h3>On Institute</h3>
+                <div>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                </div>
+
+
+                <h3>On Department</h3>
+                <div>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                </div>
+                <h3>On Department</h3>
+                <div>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                </div>
+                <h3>On Department</h3>
+                <div>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                    <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Form</li>
+                    </a>
+                </div>
+
+            </div>
+            <!-- <div class="side-menu">
+                    <ul id="verticalmenu">
+                        <li><a href="">Rome</a>
+                            <ul>
+                                <li><a href="">Early</a></li>
+                                <li><a href="">Middle</a></li>
+                                <li><a href="">late</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Italy</a>
+                            <ul>
+                                <li><a href="">Early</a></li>
+                                <li><a href="">Middle</a></li>
+                                <li><a href="">late</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Greece</a>
+                            <ul>
+                                <li><a href="">Early</a></li>
+                                <li><a href="">Middle</a></li>
+                                <li><a href="">late</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div> -->
+        </div>
+    </div>
     <!-- </div>  -->
 
     <!-- ##### Bootstrap libraries ##### -->
@@ -91,10 +224,36 @@
     <!--  ###### Jquery libraries ##### -->
     <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="main.js"></script>
     <script>
         $("#accordion").accordion({
             active: 0
+        }, {
+            heighStyle: "content"
         });
+
+        function inputgrab() {
+            $(".right-side").hide();
+            $(".right-side").fadeOut("slow");
+            $("#right-sideid").removeClass("col-lg-6");
+            $("#right-sideid").removeClass("col-md-12");
+            $("#left-sideid").removeClass("col-lg-6");
+            $("#left-sideid").removeClass("col-md-6");
+            $("#right-sideid").addClass("col-lg-12");
+            $("#right-sideid").addClass("col-md-12");
+        }
+
+        function make_normal() {
+            $(".right-side").show();
+            $(".right-side").fadeIn("slow");
+            $("#right-sideid").addClass("col-lg-6");
+            $("#right-sideid").addClass("col-md-12");
+            $("#left-sideid").addClass("col-lg-6");
+            $("#left-sideid").addClass("col-md-6");
+            $("#right-sideid").removeClass("col-lg-12");
+            $("#right-sideid").removeClass("col-md-12");
+        }
+        // $("#verticalmenu").menu();
     </script>
 </body>
 

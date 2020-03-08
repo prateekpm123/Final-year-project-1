@@ -1,19 +1,44 @@
+li.nav-item {
+    font-size: larger;
+}
+
 input.searchs-box {
-    padding: 4px;
-    width: 90%;
+    background-color: transparent;
     border: none;
-    height: 3.4rem;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-    top: 200px;
-    border-bottom: 2px;
-    border-color:none !important;
-    font-size: 20px;
+    border-radius: 0;
+    outline: none;
+    height: 4rem;
+    width: 100%;
+    font-size: 1.2rem;
+    margin: 4rem 0 4rem 0;
+    padding-left: 10px;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all 0.3s;
+    -webkit-box-shadow: -1px -2px 56px -4px rgba(166, 166, 166, 0.87);
+    -moz-box-shadow: -1px -2px 56px -4px rgba(166, 166, 166, 0.87);
+    box-shadow: -1px -2px 56px -4px rgba(166, 166, 166, 0.87);
 }
 
 input.searchs-box:hover{
-    color: black;
-    border-color: none;
+    background-color: transparent;
+    border: none;
+    /* border: 3px solid #35c6ff; */
+    border-radius: 0;
+    outline: none;
+    height: 5rem;
+    width: 100%;
+    font-size: 1.2rem;
+    margin: 0 0 20px 0;
+    padding-left: 10px;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all 0.3s;
+    margin: 4rem 0 4rem 0;
+    -webkit-box-shadow: -1px -2px 56px -4px rgba(166, 166, 166, 0.87);
+    -moz-box-shadow: -1px -2px 56px -4px rgba(166, 166, 166, 0.87);
+    box-shadow: -1px -2px 56px -4px rgba(166, 166, 166, 0.87);
+
 }
 
 input:hover {
@@ -24,26 +49,54 @@ input:hover {
     
 }
 
+.collection-item {
+    display:none;
+    background-color: rgba(155, 155, 155, 0.075);
+    padding: 10px;
+}
+.collection-header {
+    display:none;
+}
+
+
 .item {
     text-align: center;
 }
 
-li a{
+h3 {
+    background-color: rgb(165, 0, 0);
+    padding: 10px;
+    margin: 0;
+    color: white;
+}
+
+
+li {
+    text-decoration: none;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
     font-size: large;
 }
 
-a:hover {
-    text-decoration: none;
-}
-
-li.accordion-list {
-    padding: 0.6rem;
+a li.accordion-list {
+    padding: 0.8rem;
     margin: none;
     background-color: rgb(235, 235, 235);
+    font-size: larger;
+    font-weight: 500;
+    color: rgb(94, 94, 94);
+    text-decoration: none;
+    list-style: none;
 }
 
-li.accordion-list:hover {
+a li.accordion-list:hover {
     background-color: rgb(179, 178, 178);
+    color: black;
+    text-decoration: none;
+    list-style: none;
 }
 
 /* ##### ACCORDIAN STYLING #### */
@@ -64,6 +117,8 @@ li.accordion-list:hover {
 
  .ui-accordion-content:hover {
     /* background-color: rgb(194, 47, 47); */
+    /* background-color: rgb(179, 178, 178); */
+
 }
 
 .ui-accordion .ui-accordion-content {
