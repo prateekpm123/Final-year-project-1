@@ -111,18 +111,21 @@ if (isset($_POST['submit']))
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">Home </a>
+                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Forms <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#"></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                <li class="nav-item  right">
+                    <a class="nav-link" href="web/index.php">Admin panel</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </nav>
@@ -366,7 +369,7 @@ if (isset($_POST['submit']))
 
                     <br><br>    
                     <!-- <button class="btn btn-primary" type="submit" name="submit">Submit</button> -->
-                    <input type="submit" name="submit" value="Submit">    
+                    <input type="submit" class="btn btn-primary" name="submit" value="Submit">    
                 </form>
             </div>
         </div>
