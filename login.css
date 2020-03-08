@@ -1,0 +1,27 @@
+.form {
+    padding-top: 4rem;
+    text-align: center;
+}
+
+input {
+        background-color: transparent;
+        border:none;
+        border-bottom: 1px solid black;
+        border-radius: 0;
+        outline: none;
+        height: 2rem;
+        width: 100%;
+        font-size: 1.2rem;
+        margin: 0.6rem 0 0.6rem 0;
+        padding-left: 10px;
+        box-shadow: none;
+        box-sizing: content-box;
+        transition: all 0.3s;
+        /* -webkit-box-shadow: -1px -2px 56px -4px rgba(166, 166, 166, 0.87);
+        -moz-box-shadow: -1px -2px 56px -4px rgba(166, 166, 166, 0.87);
+        box-shadow: -1px -2px 56px -4px rgba(166, 166, 166, 0.87); */
+}
+
+.submit {
+    width: 100px;
+}
