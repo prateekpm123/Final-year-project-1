@@ -177,10 +177,12 @@
 	position: relative;
 	margin: 2px 0 0 0;
 	padding: .5em .5em .5em .7em;
+	/* padding: none; */
 	font-size: 100%;
 }
 .ui-accordion .ui-accordion-content {
-	padding: 1em 2.2em;
+	/* padding: 1em 2.2em; */
+	padding: none;
 	border-top: 0;
 	overflow: auto;
 }
