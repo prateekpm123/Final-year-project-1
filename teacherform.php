@@ -89,20 +89,14 @@ if (isset($_POST['submit']))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home/First form</title>
+    <title>Teacher Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="teacherform.css">
 </head>
 
 <body>
-    <!-- /*
--- INSERT INTO `questions` (`Form Number`, `Version Number`, `Date`, `Q1`, `Q2`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q9`,`Q10`,`Q11`, `Q12`, `Q13`, `Q14`, `Q15`, `Q16`, `Q17`, 
--- `Q18`, `Q19`,`Q20`,`Q21`, `Q22`, `Q23`, `Q24`, `Q25`, `Q26`, `Q27`, `Q28`, `Q29`,`Q30`,`Q31`, `Q32`, `Q33`, `Q34`, `Q35`, `Q36`, `Q37`, `Q38`, `Q39`,`Q40`,`Q41`, `Q42`, `Q43`, 
--- `Q44`, `Q45`, `Q46`, `Q47`, `Q48`, `Q49`,`Q50`,`Q51`, `Q52`, `Q53`, `Q54`, `Q55`, `Q56`, `Q57`, `Q58`, `Q59`,`Q60`) VALUES
--- ('Form1A', 1, '2020-03-03', 'What is your name?', 'What is your name?', 'What is your name?', 'What is your name?',
--- 'What is your name?', '', '', '', '', '');
-*/ -->
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -112,10 +106,10 @@ if (isset($_POST['submit']))
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">Home </a>
+                    <a class="nav-link" href="index.php">Home </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Forms <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="forms.php">Forms <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"></a>
@@ -129,6 +123,7 @@ if (isset($_POST['submit']))
             </ul>
         </div>
     </nav>
+
 
     <div class="row">
         <div class="col-lg-3 col-md-2"></div>
