@@ -1,3 +1,45 @@
+<?php
+// ######## Code to check USER IS LOGGED IN OR NOT #########
+
+// if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE) 
+// {
+    // session_start();
+    // $username = $_SESSION['uname']; 
+
+if((isset($_SESSION['loggedin'])))
+{
+    if($_SESSION['loggedin'] == TRUE)
+    {
+        session_start();
+        $username = $_SESSION['uname']; 
+    }
+    else
+    {
+        echo "not working";
+    }
+        
+}
+    // echo "$username";
+// } 
+// else 
+// {
+//     echo "not working";
+// }
+
+// if ( is_user_logged_in() ) {
+//     // your code for logged in user 
+//     session_start();
+//     $username = $_SESSION['uname']; 
+//     echo "$username";    
+// } else {
+//    // your code for logged out user 
+//    echo "not working";
+// }
+
+// echo "$username";
+                       
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,9 +47,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
     <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
     <link href="jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -30,11 +74,31 @@
                 <li class="nav-item">
                     <a class="nav-link" href="forms.php">Forms </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                </li>
                 <li class="nav-item  right">
                     <a class="nav-link" href="web/index.php">Admin panel</a>
+                </li>
+                <li class="nav-item dropdown" id="user_dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?php
+                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
+                            {
+                                echo "$username"; 
+                            } 
+                            else 
+                            {
+                                // echo "Please log in first to see this page.";
+                            }
+                        ?>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
+                        <a class="dropdown-item" href="logout.php">Logout</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php">Login</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link disabled" href="#">Disabled</a>
@@ -219,6 +283,9 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
     <!--  ###### Jquery libraries ##### -->

@@ -20,7 +20,9 @@ if($hitnumber == TRUE)
 {   
     session_start();
     $_SESSION['uname']=$taken_uname;
-    echo "<script>location.href='welcome.php'</script>";
+    $_SESSION['loggedin'] = TRUE;
+    // $_SESSION['username'] = $taken_uname;
+    echo "<script>location.href='index.php'</script>";
 }
 else 
 {
