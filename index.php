@@ -6,19 +6,19 @@
     // session_start();
     // $username = $_SESSION['uname']; 
 
-if((isset($_SESSION['loggedin'])))
-{
-    if($_SESSION['loggedin'] == TRUE)
-    {
+// if((isset($_SESSION['loggedin'])))
+// {
+//     if($_SESSION['loggedin'] == TRUE)
+    // {
         session_start();
         $username = $_SESSION['uname']; 
-    }
-    else
-    {
-        echo "not working";
-    }
+//     }
+//     else
+//     {
+//         echo "not working";
+//     }
         
-}
+// }
     // echo "$username";
 // } 
 // else 
@@ -81,14 +81,14 @@ if((isset($_SESSION['loggedin'])))
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?php
-                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
-                            {
+                            // if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
+                            // {
                                 echo "$username"; 
-                            } 
-                            else 
-                            {
-                                // echo "Please log in first to see this page.";
-                            }
+                            // } 
+                            // else 
+                            // {
+                            //     // echo "Please log in first to see this page.";
+                            // }
                         ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">

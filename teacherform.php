@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+$username = $_SESSION['uname'];
+ 
 $con = mysqli_connect('localhost','root');
 if($con) {
     // echo "sucess";
