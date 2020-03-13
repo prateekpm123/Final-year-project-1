@@ -140,8 +140,8 @@ if (isset($_POST['submit']))
 
 
     <div class="row">
-        <div class="col-lg-3 col-md-2"></div>
-        <div class="col-md-8 col-lg-6">
+        <div class="col-lg-3 col-md-2 col-sm-1"></div>
+        <div class="col-md-8 col-lg-6 col-sm-10">
             <h2></h2>
 
             <div class="row form-row">
@@ -382,7 +382,7 @@ if (isset($_POST['submit']))
                 </form>
             </div>
         </div>
-        <div class="col-lg-3 col-md-2"></div>
+        <div class="col-lg-3 col-md-2 col-sm-1"></div>
 
     </div>
 

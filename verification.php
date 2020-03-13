@@ -15,7 +15,7 @@ $taken_pwd = $_POST['pwd'];
 
 $check_from_db = mysqli_query($con ,"select * from login where username ='$taken_uname' && password='$taken_pwd' ");
 $hitnumber = mysqli_num_rows($check_from_db);
-echo "$hitnumber";
+echo $hitnumber;
 if($hitnumber == TRUE)
 {   
     session_start();
@@ -25,7 +25,7 @@ if($hitnumber == TRUE)
     echo "<script>location.href='index.php'</script>";
 }
 else 
-{
+{ 
     echo "<script>alert('username or password incorrect!' )</script>";
     echo "<script>location.href='login.php'</script>";
 }
