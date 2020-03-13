@@ -45,13 +45,21 @@
 
     <div class="row">
         <div class="col-lg-6 left-side">
-            <textarea name="question" id="" cols="30" rows="10" class="question-area">
+            <textarea name="question" placeholder="Enter the questions..." id="area-increase" onmouseover="test()" onkeypress="area_increase()" cols="30" rows="10" class="question-area">
 
             </textarea>
-            <span> <button class="btn btn-primary textarea-btn" type="submit">+</button>  Add the item</span>
+            <span> <button class="btn btn-primary textarea-btn" type="submit" onclick="enter_into_database()">+</button>  Add the item</span>
         </div>
         <div class="col-lg-6 right-side">
 
+        </div>
+    </div>
+    <div class="pop">
+        <div class="row">
+            <!-- <div class="col-lg-1"></div> -->
+            <div class="col-lg-2">
+                <button class="btn btn-primary pop-btn" onclick="goback()">Back</button>
+            </div>
         </div>
     </div>
 
@@ -66,7 +74,7 @@
     <!--  ###### Jquery libraries ##### -->
     <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-    <script src="#"></script>
+    <script src="admin-control-form.js"></script>
 
 </body>
 
