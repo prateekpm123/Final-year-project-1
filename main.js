@@ -13,7 +13,7 @@ function filterNames() {
     let ul = document.getElementById('names');
     // Get lis from ul
     let li = ul.querySelectorAll('li.collection-item');
-    let header = ul.querySelectorAll('li.collection-header');
+    let header = ul.querySelectorAll('li.collection-header');   
 
     // Loop through collection-item lis
     for (let i = 0; i < li.length; i++) {

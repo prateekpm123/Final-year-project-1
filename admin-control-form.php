@@ -1,3 +1,39 @@
+<?php
+
+session_start();
+$username = $_SESSION['uname'];
+ 
+$con = mysqli_connect('localhost','root');
+if($con) {
+    // echo "sucess";
+}
+$db = mysqli_select_db($con, 'final_year_project');
+if($db) {
+    // echo "sucess h1";
+}
+
+if (isset($_POST['submit']))
+{   
+    $Q1 =$_POST['question'];
+
+    // $query = "INSERT INTO `questions` (`Q1`) VALUES ('$Q1') WHERE `Form Number`='Form2'";
+    $query = "UPDATE `questions` SET `Q2`='$Q1' WHERE `Form Number`='Form2'";
+
+    // UPDATE `questions` SET `Q1`=$Q1 WHERE `Form Number`='Form2';
+    $query_run = mysqli_query($con, $query);
+    if($query_run)
+    {
+        // echo "done";
+    }
+    else 
+    {
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,13 +79,32 @@
     </nav>
     <div class="row">
         <div class="col-lg-6 left-side">
-            <textarea name="question" placeholder="Enter the questions..." id="area-increase" onmouseover="test()" onkeypress="area_increase()" cols="30" rows="10" class="question-area">
+            <form method="post">
+            
+                <textarea name="question" placeholder="Enter the questions..." id="area-increase" onmouseover="test()" onkeypress="area_increase()" cols="30" rows="10" class="question-area">
 
-            </textarea>
-            <span> <button class="btn btn-primary textarea-btn" type="submit" onclick="enter_into_database()">+</button>  Add the item</span>
+                </textarea>
+                <input type="submit" class="btn btn-primary" name="submit" value="Submit" onclick="createNewArea()">    
+
+                <!-- <span> <input class="btn btn-primary textarea-btn" type="submit" name='submit' value='submit'>+</input>  Add the item</span> -->
+            </form>
         </div>
         <div class="col-lg-6 right-side">
+            <?php
 
+                $q = "SELECT Q1 FROM `questions`";
+                $result = mysqli_query($con, $q);
+                $desc = mysqli_fetch_assoc($result);
+
+            ?>
+            <h5>
+                <?php
+                        
+                        // echo $desc;
+                        echo "{$desc['Q1']}";
+
+                ?>
+            </h5>
         </div>
     </div>
     <div class="pop">
