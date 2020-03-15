@@ -3,14 +3,20 @@ $(document).ready(
     {
         $('#create').click(function ()
         {
-            $('#makingArea').append('<textarea name="question" placeholder="Enter the questions..."  onmouseover="" onkeypress="area_increase()" cols="30" rows="10" class="questionarea">');
+            $('#makingArea').append('<textarea name="question" placeholder="Enter the questions..."  onmouseover="" onkeypress="" cols="30" rows="10" class="questionarea">');
 
         });
 
-        // $('#delete').on('click','.questionarea', function() 
-        // {
-        //     $(this).remove('.questionarea');
-        // });
+        let i = 0;
+
+        $('#delete').click(function () {
+            let textareaarr = [];
+            textareaarr = $('textarea');
+            i = textareaarr.length;
+            textareaarr[i - 1].remove();
+            console.log(textareaarr[i]);
+            i--;
+        });
         // function appear() {
         //     $('.pop').show();
         // }
@@ -19,6 +25,7 @@ $(document).ready(
         //     $('.pop').hide();
         // } 
 
+        //############### CODE TO INCREASE THE SIZE OF THE TEXT AREA ################
         // function area_increase() {
 
         //     $('#area-increase').keypress(function () {
@@ -37,9 +44,7 @@ $(document).ready(
         //             $c.css({ width: $c.width() + 10 }); //It adds 10 pixels here.
 
         //         }
-        //     }
-
-        //     );
+        //     });
 
         //     function test() {
         //         alert('in mouse over');
@@ -66,16 +71,3 @@ $(document).ready(
 // }
 
 
-
-// function toremove() 
-// {
-    // $('#makingArea').on('click', '.questionarea', function () {
-        // $(this).remove();
-    // });
-// }
-
-$('#delete').click(function()
-{
-    // $('body').css('background-color','black');
-    $('.questionarea').remove();
-});
