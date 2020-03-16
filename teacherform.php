@@ -378,14 +378,20 @@ if (isset($_POST['submit']))
 
                     <br><br>    
                     <!-- <button class="btn btn-primary" type="submit" name="submit">Submit</button> -->
-                    <input type="submit" class="btn btn-primary" name="submit" value="Submit">    
+                    <input type="submit" class="btn btn-primary" name="submit" value="Submit">  
+                    <br>
+                    <button class='btn btn-primary' onclick="print()">Print</button>  
                 </form>
             </div>
         </div>
         <div class="col-lg-3 col-md-2 col-sm-1"></div>
 
     </div>
-
+    <script type="text/javascript">    
+        function print() {
+            window.print();
+        }
+    </script>
 </body>
 
 
