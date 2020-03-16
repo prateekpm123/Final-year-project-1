@@ -1,8 +1,7 @@
 <?php
 
 session_start();
-$username = $_SESSION['uname'];
- 
+//$username = $_SESSION['uname'];
 $con = mysqli_connect('localhost','root');
 if($con) {
     // echo "sucess";
@@ -96,55 +95,19 @@ if (isset($_POST['submit']))
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="teacherform.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-header">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Home </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="forms.php">Forms </a>
-                </li>
-                <li class="nav-item  right">
-                    <a class="nav-link" href="web/index.php">Admin panel</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?php
-                        echo "$username";
-                        ?>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="logout.php">Logout</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                
-                <!-- <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li> -->
-            </ul>
-        </div>
-    </nav>
+    
 
-
-    <div class="row">
-        <div class="col-lg-3 col-md-2 col-sm-1"></div>
-        <div class="col-md-8 col-lg-6 col-sm-10">
+<div class="container">
+    <div class="row col-md-6 offset-md-3" id="contentToPrint" >
+        
             <h2></h2>
 
-            <div class="row form-row">
+            
                 <form method="post">
 
                     <!--  Q1 -->
@@ -375,33 +338,35 @@ if (isset($_POST['submit']))
                     <label for="3">3</label>
                     <input type="radio" value="4" class="radio" name="points10">
                     <label for="4">4</label>
-
-                    <br><br>    
+                    </div>
+                    <div class="col-md-6 offset-md-3">      
                     <!-- <button class="btn btn-primary" type="submit" name="submit">Submit</button> -->
-                    <input type="submit" class="btn btn-primary" name="submit" value="Submit">    
-                </form>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-1"></div>
+                    <input type="submit" class="btn btn-primary" name="submit" value="Submit" id="first" > 
+                    <button onclick="myfun()" class="btn btn-primary" id= "second" >Print</button> 
+                    </div>
+                    
+                    </form>
+                    
+                
+        </div>       
+            
+        
 
-    </div>
+    
+    
+    
+    <script type="text/javascript">
+        function myfun(){
+            var printDiv = document.getElementById("contentToPrint").innerHTML;
+            document.body.innerHTML = printDiv;
+            window.print();
+
+            
+
+        }
+    </script>
+    
 
 </body>
-
-
-
-
-
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-</script>
 
 </html>
