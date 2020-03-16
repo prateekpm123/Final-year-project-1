@@ -4,6 +4,8 @@ $(document).ready(
         let questionAreaCounter = 1;
         let i = 0;
 
+
+        // TO CREATE A NEW QUESTION AREA
         $('#create').click(function ()
         {
             questionAreaCounter++;
@@ -12,16 +14,8 @@ $(document).ready(
             // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
             }
         );
-        
-        
 
-        // function provideId(questionAreaCounter)
-        // {
-        //     $('.questionarea').each(function(index, element){
-
-        //     });
-        // }
-
+        // TO DELETE A NEW QUESTION AREA
         $('#delete').click(function () {
             let textareaarr = [];
             textareaarr = $('textarea');
@@ -31,6 +25,21 @@ $(document).ready(
             i--;
             questionAreaCounter--;
         });
+
+        // AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING 
+         $('#sub').click(function () {
+             var data = $("#form-page :input").serializeArray();
+             $.post($("#form-page").attr("action"), data, function (info) {
+                 $("#result").html(info);
+             });
+             // alert('in sub function');
+         });
+
+         $("#form-page").submit(function () {
+             return false;
+             alert('in false function');
+         });
+
 
 
         // function appear() {
@@ -80,18 +89,18 @@ $(document).ready(
     }
 );
 
-// $('#sub').click(function () {
-//     alert('in sub function');
-//     var data = $("#form-page :input").serializeArray();
-//     $.post($("#form-page").attr("action"), data, function (info) {
-//         $("#results").html(info);
-//     });
-// });
+    // $('#sub').click(function () {
+    //     alert('in sub function');
+    //     var data = $("#form-page :input").serializeArray();
+    //     $.post($("#form-page").attr("action"), data, function (info) {
+    //         $("#results").html(info);
+    //     });
+    // });
 
-// $("#form-page").submit(function () {
-//     alert('in false function');
-//     return false;
-// });
+    // $("#form-page").submit(function () {
+    //     alert('in false function');
+    //     return false;
+    // });
 
 // function deleting() {
 //     $('#delete').on('click', '.questionarea',

@@ -133,21 +133,9 @@
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <script src="admin-control-form.js"></script>
 
-    <!-- ####### AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING ####### -->
     
     <script>
-        $('#sub').click(function () {
-            var data = $("#form-page :input").serializeArray();
-            $.post($("#form-page").attr("action"), data, function(info) {
-                $("#result").html(info);
-            });
-            // alert('in sub function');
-        });
-
-        $("#form-page").submit(function () {
-            return false;
-            alert('in false function');
-        });
+       
     </script>
     
 </body>
