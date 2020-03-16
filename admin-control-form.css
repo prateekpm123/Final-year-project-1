@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 textarea.questionarea {
     width: 100%;
     /* margin: 2%; */
@@ -5,7 +9,8 @@ textarea.questionarea {
     height: 10rem;
     outline-style: none;
     padding-left: 50px;
-    padding-top: 20px;
+    padding-top: 20px; 
+    /* display: block; */
     /* border: 1px solid gray; */
     /* border-radius: 10px; */
     /* -webkit-box-shadow: 0px 0px 5px 0px rgb(170, 170, 170); */
@@ -36,6 +41,8 @@ textarea.questionarea:hover {
     box-shadow: 0px 0px 5px 0px rgb(170, 170, 170);
     height: 100vh;
     padding: 0;
+    /* margin-left: 10px; */
+    /* display: inline-block; */
 }
 
 .right-side {
@@ -44,6 +51,7 @@ textarea.questionarea:hover {
     box-shadow: 0px 0px 5px 0px rgb(170, 170, 170);
     height: 100vh;
     padding: 0;
+    /* display: inline-block; */
 }
 
 div.pop {

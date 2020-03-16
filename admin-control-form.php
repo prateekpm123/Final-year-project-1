@@ -1,38 +1,40 @@
-<!-- <?php
+<?php
 
-session_start();
-$username = $_SESSION['uname'];
+// session_start();
+// $username = $_SESSION['uname'];
  
-$con = mysqli_connect('localhost','root');
-if($con) {
-    // echo "sucess";
-}
-$db = mysqli_select_db($con, 'final_year_project');
-if($db) {
-    // echo "sucess h1";
-}
+// $con = mysqli_connect('localhost','root');
+// if($con) {
+//     // echo "sucess";
+// }
+// $db = mysqli_select_db($con, 'final_year_project');
+// if($db) {
+//     // echo "sucess h1";
+// }
 
-if (isset($_POST['submit']))
-{   
-    $Q1 =$_POST['question'];
+// include_once("mydb.php");
 
-    // $query = "INSERT INTO `questions` (`Q1`) VALUES ('$Q1') WHERE `Form Number`='Form2'";
-    $query = "UPDATE `questions` SET `Q2`='$Q1' WHERE `Form Number`='Form2'";
+// if (isset($_POST['submit']))
+// {   
+    // $Q1 =$_POST['question'];
 
-    // UPDATE `questions` SET `Q1`=$Q1 WHERE `Form Number`='Form2';
-    $query_run = mysqli_query($con, $query);
-    if($query_run)
-    {
-        // echo "done";
-    }
-    else 
-    {
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
-    }
-} 
+    // // $query = "INSERT INTO `questions` (`Q1`) VALUES ('$Q1') WHERE `Form Number`='Form2'";
+    // $query = "UPDATE `questions` SET `Q2`='$Q1' WHERE `Form Number`='Form2'";
+    
+    // // UPDATE `questions` SET `Q1`=$Q1 WHERE `Form Number`='Form2';
+    // $query_run = mysqli_query($con, $query);
+    // if($query_run)
+    // {
+    //     // echo "done";
+    // }
+    // else 
+    // {
+    //     error_reporting(E_ALL);
+    //     ini_set('display_errors', 1);
+    // }
+// } 
 
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -79,40 +81,39 @@ if (isset($_POST['submit']))
     </nav>
     <div class="row">
         <div class="col-lg-6 left-side">
-            <!-- <form method="post" id='form-page'> -->
-            <div id='makingArea'>
-                <textarea name="question" placeholder="Enter the questions..." id="area-increase" onmouseover="" onkeypress="" cols="30" rows="10" class="questionarea">
+            <form method="post" id="form-page" action="userinfo.php">
+                <div id='makingArea'>
+                    <textarea name="question" placeholder="Enter the questions..." id="1" onmouseover="" onkeypress=""
+                        cols="30" rows="10" class="questionarea">
+                    </textarea>
+                    <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
+                    <button id="sub"> save</button>
+                    <span id="result"></span>
+                    <!-- <span> <input class="btn btn-primary textarea-btn" type="submit" name='submit' value='submit'>+</input>  Add the item</span> -->
+                </div>
 
-                </textarea>
-                <!-- <input type="submit" class="btn btn-primary" name="submit" value="Submit" onclick="createNewArea()">     -->
-                <!-- <span> <input class="btn btn-primary textarea-btn" type="submit" name='submit' value='submit'>+</input>  Add the item</span> -->
-            </div>
+            </form>
             <button id="create" class="btn btn-primary">Create</button>
             <button id="delete" class="btn btn-primary">Delete</button>
 
-            <!-- </form> -->
         </div>
         <div class="col-lg-6 right-side">
-            <!-- <?php
-
-                $q = "SELECT Q1 FROM `questions`";
-                $result = mysqli_query($con, $q);
-                $desc = mysqli_fetch_assoc($result);
-
+            <?php
+                // $q = "SELECT Q1 FROM `questions`";
+                // $result = mysqli_query($con, $q);
+                // $desc = mysqli_fetch_assoc($result);
             ?>
+
             <h5>
                 <?php
-                        
-                        // echo $desc;
-                        echo "{$desc['Q1']}";
-
-                ?> -->
-            <!-- </h5> -->
+                    // echo $desc; 
+                    // echo "{$desc['Q1']}"; 
+                ?>
+            </h5>
         </div>
     </div>
     <div class="pop">
         <div class="row">
-            <!-- <div class="col-lg-1"></div> -->
             <div class="col-lg-2">
                 <button class="btn btn-primary pop-btn" onclick="goback()">Back</button>
             </div>
@@ -132,6 +133,23 @@ if (isset($_POST['submit']))
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <script src="admin-control-form.js"></script>
 
+    <!-- ####### AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING ####### -->
+    
+    <script>
+        $('#sub').click(function () {
+            var data = $("#form-page :input").serializeArray();
+            $.post($("#form-page").attr("action"), data, function(info) {
+                $("#result").html(info);
+            });
+            // alert('in sub function');
+        });
+
+        $("#form-page").submit(function () {
+            return false;
+            alert('in false function');
+        });
+    </script>
+    
 </body>
 
 </html>

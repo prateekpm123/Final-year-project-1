@@ -1,13 +1,26 @@
 $(document).ready(
     function()
     {
+        let questionAreaCounter = 1;
+        let i = 0;
+
         $('#create').click(function ()
         {
-            $('#makingArea').append('<textarea name="question" placeholder="Enter the questions..."  onmouseover="" onkeypress="" cols="30" rows="10" class="questionarea">');
+            questionAreaCounter++;
+            $('#makingArea').append('<textarea name="question" '+questionAreaCounter+'" placeholder="Enter the questions..."  onmouseover="" onkeypress="" cols="30" rows="10" id="'+ questionAreaCounter+'" class="questionarea">');
+            // provideId(questionAreaCounter);
+            // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
+            }
+        );
+        
+        
 
-        });
+        // function provideId(questionAreaCounter)
+        // {
+        //     $('.questionarea').each(function(index, element){
 
-        let i = 0;
+        //     });
+        // }
 
         $('#delete').click(function () {
             let textareaarr = [];
@@ -16,7 +29,10 @@ $(document).ready(
             textareaarr[i - 1].remove();
             console.log(textareaarr[i]);
             i--;
+            questionAreaCounter--;
         });
+
+
         // function appear() {
         //     $('.pop').show();
         // }
@@ -28,7 +44,7 @@ $(document).ready(
         //############### CODE TO INCREASE THE SIZE OF THE TEXT AREA ################
         // function area_increase() {
 
-        //     $('#area-increase').keypress(function () {
+        //     $('#1').keypress(function () {
         //         var keyvalue = this.value;
         //         // alert('in keypress function');
         //         return (keyvalue);
@@ -36,7 +52,7 @@ $(document).ready(
         //             alert('working');
 
 
-        //             var c = document.getElementById('area-increase');
+        //             var c = document.getElementById('1');
         //             // Q1. Why is it different from above one. This is 324 while earlier it was 320. See the output.
         //             // console.log(c.clientWidth);
 
@@ -49,7 +65,7 @@ $(document).ready(
         //     function test() {
         //         alert('in mouse over');
 
-        //         var c = document.getElementById('area-increase');
+        //         var c = document.getElementById('1');
         //         // Q1. Why is it different from above one. This is 324 while earlier it was 320. See the output.
         //         // console.log(c.clientWidth);
 
@@ -63,6 +79,19 @@ $(document).ready(
 
     }
 );
+
+// $('#sub').click(function () {
+//     alert('in sub function');
+//     var data = $("#form-page :input").serializeArray();
+//     $.post($("#form-page").attr("action"), data, function (info) {
+//         $("#results").html(info);
+//     });
+// });
+
+// $("#form-page").submit(function () {
+//     alert('in false function');
+//     return false;
+// });
 
 // function deleting() {
 //     $('#delete').on('click', '.questionarea',
