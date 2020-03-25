@@ -1,0 +1,134 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+body{
+	background: linear-gradient(rgba(0, 0, 50, 0.5),rgba(0, 0, 50, 0.5)),url(Images/image.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+
+
+
+
+/*----------Navigation------------*/
+#nav-bar
+{
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+
+.navbar-brand img
+{
+	height: 40px;
+	padding-left: 30px;
+}
+
+.navbar-nav li
+{
+	padding: 0 10px;
+}
+
+.navbar-nav li a
+{
+	float: right;
+	text-align: left;
+}
+
+#nav-bar ul li a:hover
+{
+	color: #007bff!important;
+}
+
+.navbar
+{
+	background: #fff;
+}
+.navbar-toggler
+{
+	border: none!important;
+}
+.nav-link
+{
+	color: #555!important;
+	font-weight: 600;
+	font-size: 16px;
+}
+
+
+.login-box{
+	max-width: 700px;
+	float: none;
+	margin: 150px auto;
+}
+
+.login-left{
+	background: rgba(211, 211, 211, 0.5);
+	padding: 30px;
+}
+
+.login-right{
+	background: #fff;
+	padding: 30px;
+}
+
+.form-control{
+	background-color: transparent !important;
+}
+
+#pqr{
+	color: #fff !important;
+	margin-top: -200px !important;
+}
+
+#abc{	
+	color: #fff !important;
+	margin-top: 200px !important;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+
+#footer
+{
+	margin-top: 80px;
+	padding: 100px;
+	background-color: #efefef;
+	color: #013f7e;
+}
+
+.footer-logo
+{
+	width: 150px;
+	margin-top: 25px;
+	margin-bottom: 15px;
+}
+
+#footer h1
+{
+	font-size: 15px;
+	text-align: left;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+#footer p
+{
+	font-size: 12px;
+	text-align: left;
+}
+
+#footer .city
+{
+	margin-left: 37px;
+}
+
+#footer .fa
+{
+	padding-right: 20px;
+	font-size: 15px;
+}
