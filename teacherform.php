@@ -341,7 +341,6 @@ if (isset($_POST['submit']))
                     </div>
                     <div class="col-md-6 offset-md-3">      
                     <!-- <button class="btn btn-primary" type="submit" name="submit">Submit</button> -->
-<<<<<<< HEAD
                     <input type="submit" class="btn btn-primary" name="submit" value="Submit">  
                     <br>
                     <button class='btn btn-primary' onclick="print()">Print</button>  
@@ -360,18 +359,6 @@ if (isset($_POST['submit']))
 
 
 
-=======
-                    <input type="submit" class="btn btn-primary" name="submit" value="Submit" id="first" > 
-                    <button onclick="myfun()" class="btn btn-primary" id= "second" >Print</button> 
-                    </div>
-                    
-                    </form>
-                    
-                
-        </div>       
-            
-        
->>>>>>> eded93fed0bed9d0694efe56920823debce6a1ad
 
     
     
