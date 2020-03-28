@@ -4,11 +4,11 @@ session_start();
 //$username = $_SESSION['uname'];
 $con = mysqli_connect('localhost','root');
 if($con) {
-    // echo "sucess";
+    // echo "success";
 }
 $db = mysqli_select_db($con, 'final_year_project');
 if($db) {
-    // echo "sucess h1";
+    // echo "success h1";
 }
 
 if (isset($_POST['submit']))
@@ -78,16 +78,9 @@ if (isset($_POST['submit']))
 
 //     $conn2 ->commit();
 // }
-
-   
-
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -130,249 +123,246 @@ if (isset($_POST['submit']))
         </div>
     </nav>
     <div class="row col-md-6 offset-md-3" id="contentToPrint" >
-        
-            <h2></h2>
+        <form method="post">
+            <ul>
+                <!--  Q1 -->
+                <h5>
+                    <li><?php
 
-            
-                <form method="post">
-
-                    <!--  Q1 -->
-                    <h5>
-                        <?php
-
-                            $q = "SELECT Q1 FROM `questions`";
-                            $result = mysqli_query($con, $q);
-                            $desc = mysqli_fetch_assoc($result);                                  
-                            // echo $desc;
-                            echo "{$desc['Q1']}";
-                        ?>
-                    </h5>
-                    <input type="radio" value="1" class="radio" name="points">
-                    <label for="1">1</label>
-                    <input type="radio" value="2" class="radio" name="points">
-                    <label for="2">2</label>
-                    <input type="radio" value="3" class="radio" name="points">
-                    <label for="3">3</label>
-                    <input type="radio" value="4" class="radio" name="points">
-                    <label for="4">4</label>
+                        $q = "SELECT Q1 FROM `questions`";
+                        $result = mysqli_query($con, $q);
+                        $desc = mysqli_fetch_assoc($result);                                  
+                        // echo $desc;
+                        echo "{$desc['Q1']}";
+                    ?></li>
+                </h5>
+                <input type="radio" value="1" class="radio" name="points">
+                <label for="1">1</label>
+                <input type="radio" value="2" class="radio" name="points">
+                <label for="2">2</label>
+                <input type="radio" value="3" class="radio" name="points">
+                <label for="3">3</label>
+                <input type="radio" value="4" class="radio" name="points">
+                <label for="4">4</label>
                 
 
-                    <!--  Q2 -->
-                    <h5>
-                        <?php
+                <!--  Q2 -->
+                <h5>
+                    <li><?php
 
-                            $q = "SELECT Q2 FROM `questions`";
-                            $result = mysqli_query($con, $q);
-                            $desc = mysqli_fetch_assoc($result);                                  
-                            // echo $desc;
-                            echo "{$desc['Q2']}";
-                        ?>
-                    </h5>
-                    <input type="radio" value="1" class="radio" name="points1">
-                    <label for="1">1</label>
-                    <input type="radio" value="2" class="radio" name="points1">
-                    <label for="2">2</label>
-                    <input type="radio" value="3" class="radio" name="points1">
-                    <label for="3">3</label>
-                    <input type="radio" value="4" class="radio" name="points1">
-                    <label for="4">4</label>
+                        $q = "SELECT Q2 FROM `questions`";
+                        $result = mysqli_query($con, $q);
+                        $desc = mysqli_fetch_assoc($result);                                  
+                        // echo $desc;
+                        echo "{$desc['Q2']}";
+                    ?></li>
+                </h5>
+                <input type="radio" value="1" class="radio" name="points1">
+                <label for="1">1</label>
+                <input type="radio" value="2" class="radio" name="points1">
+                <label for="2">2</label>
+                <input type="radio" value="3" class="radio" name="points1">
+                <label for="3">3</label>
+                <input type="radio" value="4" class="radio" name="points1">
+                <label for="4">4</label>
 
-                    <!--  Q3 -->
-                    <h5>
-                        <?php
+                <!--  Q3 -->
+                <h5>
+                    <li><?php
 
-                            $q = "SELECT Q3 FROM `questions`";
-                            $result = mysqli_query($con, $q);
-                            $desc = mysqli_fetch_assoc($result);                                  
-                            // echo $desc;
-                            echo "{$desc['Q3']}";
-                        ?>
-                    </h5>
-                    <input type="radio" value="1" class="radio" name="points2">
-                    <label for="1">1</label>
-                    <input type="radio" value="2" class="radio" name="points2">
-                    <label for="2">2</label>
-                    <input type="radio" value="3" class="radio" name="points2">
-                    <label for="3">3</label>
-                    <input type="radio" value="4" class="radio" name="points2">
-                    <label for="4">4</label>                
-                    
+                        $q = "SELECT Q3 FROM `questions`";
+                        $result = mysqli_query($con, $q);
+                        $desc = mysqli_fetch_assoc($result);                                  
+                        // echo $desc;
+                        echo "{$desc['Q3']}";
+                    ?></li>
+                </h5>
+                <input type="radio" value="1" class="radio" name="points2">
+                <label for="1">1</label>
+                <input type="radio" value="2" class="radio" name="points2">
+                <label for="2">2</label>
+                <input type="radio" value="3" class="radio" name="points2">
+                <label for="3">3</label>
+                <input type="radio" value="4" class="radio" name="points2">
+                <label for="4">4</label>                
+                
 
-                    <!--  Q4 -->
-                    <h5>
-                        <?php
+                <!--  Q4 -->
+                <h5>
+                    <li><?php
 
-                            $q = "SELECT Q4 FROM `questions`";
-                            $result = mysqli_query($con, $q);
-                            $desc = mysqli_fetch_assoc($result);                                  
-                            // echo $desc;
-                            echo "{$desc['Q4']}";
-                        ?>
-                    </h5>
-                    <input type="radio" value="1" class="radio" name="points3">
-                    <label for="1">1</label>
-                    <input type="radio" value="2" class="radio" name="points3">
-                    <label for="2">2</label>
-                    <input type="radio" value="3" class="radio" name="points3">
-                    <label for="3">3</label>
-                    <input type="radio" value="4" class="radio" name="points3">
-                    <label for="4">4</label>
-
-
-                    <!--  Q5 -->
-                    <h5>
-                        <?php
-
-                            $q = "SELECT Q5 FROM `questions`";
-                            $result = mysqli_query($con, $q);
-                            $desc = mysqli_fetch_assoc($result);                                  
-                            // echo $desc;
-                            echo "{$desc['Q5']}";
-                        ?>
-                    </h5>
-                    <input type="radio" value="1" class="radio" name="points4">
-                    <label for="1">1</label>
-                    <input type="radio" value="2" class="radio" name="points4">
-                    <label for="2">2</label>
-                    <input type="radio" value="3" class="radio" name="points4">
-                    <label for="3">3</label>
-                    <input type="radio" value="4" class="radio" name="points4">
-                    <label for="4">4</label>
+                        $q = "SELECT Q4 FROM `questions`";
+                        $result = mysqli_query($con, $q);
+                        $desc = mysqli_fetch_assoc($result);                                  
+                        // echo $desc;
+                        echo "{$desc['Q4']}";
+                    ?></li>
+                </h5>
+                <input type="radio" value="1" class="radio" name="points3">
+                <label for="1">1</label>
+                <input type="radio" value="2" class="radio" name="points3">
+                <label for="2">2</label>
+                <input type="radio" value="3" class="radio" name="points3">
+                <label for="3">3</label>
+                <input type="radio" value="4" class="radio" name="points3">
+                <label for="4">4</label>
 
 
-                    <!--  Q6 -->
-                    <h5>
-                        <?php
+                <!--  Q5 -->
+                <h5>
+                    <li><?php
 
-                            $q = "SELECT Q6 FROM `questions`";
-                            $result = mysqli_query($con, $q);
-                            $desc = mysqli_fetch_assoc($result);                                  
-                            // echo $desc;
-                            echo "{$desc['Q6']}";
-                        ?>
-                    </h5>
-                    <input type="radio" value="1" class="radio" name="points5">
-                    <label for="1">1</label>
-                    <input type="radio" value="2" class="radio" name="points5">
-                    <label for="2">2</label>
-                    <input type="radio" value="3" class="radio" name="points5">
-                    <label for="3">3</label>
-                    <input type="radio" value="4" class="radio" name="points5">
-                    <label for="4">4</label>
-
-
-                    <!--  Q7 -->
-                    <h5>
-                        <?php
-
-                            $q = "SELECT Q7 FROM `questions`";
-                            $result = mysqli_query($con, $q);
-                            $desc = mysqli_fetch_assoc($result);                                  
-                            // echo $desc;
-                            echo "{$desc['Q7']}";
-                        ?>
-                    </h5>
-                    <input type="radio" value="1" class="radio" name="points6">
-                    <label for="1">1</label>
-                    <input type="radio" value="2" class="radio" name="points6">
-                    <label for="2">2</label>
-                    <input type="radio" value="3" class="radio" name="points6">
-                    <label for="3">3</label>
-                    <input type="radio" value="4" class="radio" name="points6">
-                    <label for="4">4</label>
+                        $q = "SELECT Q5 FROM `questions`";
+                        $result = mysqli_query($con, $q);
+                        $desc = mysqli_fetch_assoc($result);                                  
+                        // echo $desc;
+                        echo "{$desc['Q5']}";
+                    ?></li>
+                </h5>
+                <input type="radio" value="1" class="radio" name="points4">
+                <label for="1">1</label>
+                <input type="radio" value="2" class="radio" name="points4">
+                <label for="2">2</label>
+                <input type="radio" value="3" class="radio" name="points4">
+                <label for="3">3</label>
+                <input type="radio" value="4" class="radio" name="points4">
+                <label for="4">4</label>
 
 
-                    <!--  Q8 -->
-                    <h5>
-                        <?php
+                <!--  Q6 -->
+                <h5>
+                    <li><?php
 
-                            $q = "SELECT Q8 FROM `questions`";
-                            $result = mysqli_query($con, $q);
-                            $desc = mysqli_fetch_assoc($result);                                  
-                            // echo $desc;
-                            echo "{$desc['Q8']}";
-                        ?>
-                    </h5>
-                    <input type="radio" value="1" class="radio" name="points7">
-                    <label for="1">1</label>
-                    <input type="radio" value="2" class="radio" name="points7">
-                    <label for="2">2</label>
-                    <input type="radio" value="3" class="radio" name="points7">
-                    <label for="3">3</label>
-                    <input type="radio" value="4" class="radio" name="points7">
-                    <label for="4">4</label>     
-
-
-                    <!--  Q9 -->
-                    <h5>
-                        <?php
-
-                            $q = "SELECT Q9 FROM `questions`";
-                            $result = mysqli_query($con, $q);
-                            $desc = mysqli_fetch_assoc($result);                                  
-                            // echo $desc;
-                            echo "{$desc['Q9']}";
-                        ?>
-                    </h5>
-                    <input type="radio" value="1" class="radio" name="points8">
-                    <label for="1">1</label>
-                    <input type="radio" value="2" class="radio" name="points8">
-                    <label for="2">2</label>
-                    <input type="radio" value="3" class="radio" name="points8">
-                    <label for="3">3</label>
-                    <input type="radio" value="4" class="radio" name="points8">
-                    <label for="4">4</label>
+                        $q = "SELECT Q6 FROM `questions`";
+                        $result = mysqli_query($con, $q);
+                        $desc = mysqli_fetch_assoc($result);                                  
+                        // echo $desc;
+                        echo "{$desc['Q6']}";
+                    ?></li>
+                </h5>
+                <input type="radio" value="1" class="radio" name="points5">
+                <label for="1">1</label>
+                <input type="radio" value="2" class="radio" name="points5">
+                <label for="2">2</label>
+                <input type="radio" value="3" class="radio" name="points5">
+                <label for="3">3</label>
+                <input type="radio" value="4" class="radio" name="points5">
+                <label for="4">4</label>
 
 
-                    <!--  Q10 -->
-                    <h5>
-                        <?php
+                <!--  Q7 -->
+                <h5>
+                    <li><?php
 
-                            $q = "SELECT Q10 FROM `questions`";
-                            $result = mysqli_query($con, $q);
-                            $desc = mysqli_fetch_assoc($result);                                  
-                            // echo $desc;
-                            echo "{$desc['Q10']}";
-                        ?>
-                    </h5>
-                    <input type="radio" value="1" class="radio" name="points9">
-                    <label for="1">1</label>
-                    <input type="radio" value="2" class="radio" name="points9">
-                    <label for="2">2</label>
-                    <input type="radio" value="3" class="radio" name="points9">
-                    <label for="3">3</label>
-                    <input type="radio" value="4" class="radio" name="points9">
-                    <label for="4">4</label>
+                        $q = "SELECT Q7 FROM `questions`";
+                        $result = mysqli_query($con, $q);
+                        $desc = mysqli_fetch_assoc($result);                                  
+                        // echo $desc;
+                        echo "{$desc['Q7']}";
+                    ?></li>
+                </h5>
+                <input type="radio" value="1" class="radio" name="points6">
+                <label for="1">1</label>
+                <input type="radio" value="2" class="radio" name="points6">
+                <label for="2">2</label>
+                <input type="radio" value="3" class="radio" name="points6">
+                <label for="3">3</label>
+                <input type="radio" value="4" class="radio" name="points6">
+                <label for="4">4</label>
 
 
-                    <!--  Q11 -->
-                    <h5>
-                        <?php
+                <!--  Q8 -->
+                <h5>
+                    <li><?php
 
-                            $q = "SELECT Q11 FROM `questions`";
-                            $result = mysqli_query($con, $q);
-                            $desc = mysqli_fetch_assoc($result);                                  
-                            // echo $desc;
-                            echo "{$desc['Q11']}";
-                        ?>
-                    </h5>
-                    <input type="radio" value="1" class="radio" name="points10">
-                    <label for="1">1</label>
-                    <input type="radio" value="2" class="radio" name="points10">
-                    <label for="2">2</label>
-                    <input type="radio" value="3" class="radio" name="points10">
-                    <label for="3">3</label>
-                    <input type="radio" value="4" class="radio" name="points10">
-                    <label for="4">4</label>
-                    </div>
-                    <div class="col-md-6 offset-md-3">      
+                        $q = "SELECT Q8 FROM `questions`";
+                        $result = mysqli_query($con, $q);
+                        $desc = mysqli_fetch_assoc($result);                                  
+                        // echo $desc;
+                        echo "{$desc['Q8']}";
+                    ?></li>
+                </h5>
+                <input type="radio" value="1" class="radio" name="points7">
+                <label for="1">1</label>
+                <input type="radio" value="2" class="radio" name="points7">
+                <label for="2">2</label>
+                <input type="radio" value="3" class="radio" name="points7">
+                <label for="3">3</label>
+                <input type="radio" value="4" class="radio" name="points7">
+                <label for="4">4</label>     
+
+
+                <!--  Q9 -->
+                <h5>
+                    <li><?php
+
+                        $q = "SELECT Q9 FROM `questions`";
+                        $result = mysqli_query($con, $q);
+                        $desc = mysqli_fetch_assoc($result);                                  
+                        // echo $desc;
+                        echo "{$desc['Q9']}";
+                    ?></li>
+                </h5>
+                <input type="radio" value="1" class="radio" name="points8">
+                <label for="1">1</label>
+                <input type="radio" value="2" class="radio" name="points8">
+                <label for="2">2</label>
+                <input type="radio" value="3" class="radio" name="points8">
+                <label for="3">3</label>
+                <input type="radio" value="4" class="radio" name="points8">
+                <label for="4">4</label>
+
+
+                <!--  Q10 -->
+                <h5>
+                    <li><?php
+
+                        $q = "SELECT Q10 FROM `questions`";
+                        $result = mysqli_query($con, $q);
+                        $desc = mysqli_fetch_assoc($result);                                  
+                        // echo $desc;
+                        echo "{$desc['Q10']}";
+                    ?></li>
+                </h5>
+                <input type="radio" value="1" class="radio" name="points9">
+                <label for="1">1</label>
+                <input type="radio" value="2" class="radio" name="points9">
+                <label for="2">2</label>
+                <input type="radio" value="3" class="radio" name="points9">
+                <label for="3">3</label>
+                <input type="radio" value="4" class="radio" name="points9">
+                <label for="4">4</label>
+
+
+                <!--  Q11 -->
+                <h5>
+                    <li><?php
+
+                        $q = "SELECT Q11 FROM `questions`";
+                        $result = mysqli_query($con, $q);
+                        $desc = mysqli_fetch_assoc($result);                                  
+                        // echo $desc;
+                        echo "{$desc['Q11']}";
+                    ?></li>
+                </h5>
+                <input type="radio" value="1" class="radio" name="points10">
+                <label for="1">1</label>
+                <input type="radio" value="2" class="radio" name="points10">
+                <label for="2">2</label>
+                <input type="radio" value="3" class="radio" name="points10">
+                <label for="3">3</label>
+                <input type="radio" value="4" class="radio" name="points10">
+                <label for="4">4</label>
+            </ul>
+                </div>
+
+                <div class="col-md-6 offset-md-3">      
                     <!-- <button class="btn btn-primary" type="submit" name="submit">Submit</button> -->
                     <input type="submit" class="btn btn-primary" name="submit" value="Submit" id="first" > 
                     <button onclick="myfun()" class="btn btn-primary" id= "second" >Print</button> 
-                    </div>
+                </div>
                     
-                    </form>
-                    
+<<<<<<< HEAD
                 
         </div>       
             
@@ -381,14 +371,15 @@ if (isset($_POST['submit']))
     
     
     
+=======
+        </form>        
+    </div>           
+>>>>>>> a5288906e92b7e3d0e70b5a26343ddc59e58acf2
     <script type="text/javascript">
         function myfun(){
             var printDiv = document.getElementById("contentToPrint").innerHTML;
             document.body.innerHTML = printDiv;
             window.print();
-
-            
-
         }
     </script>
     
