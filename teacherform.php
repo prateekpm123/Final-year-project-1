@@ -93,6 +93,7 @@ if (isset($_POST['submit']))
 
 <body>
 
+<<<<<<< HEAD
 <!--Header Division--->
 <div style="width:800px;height:150px;border:transparent;margin:0px auto;">
 <!--Image Division---->
@@ -358,19 +359,8 @@ if (isset($_POST['submit']))
     <script type="text/javascript">    
         function myPrint() {
             window.print();
-        }
-    </script>
-</body>
 
-
-
-
-    
-    
-    
-    
-    
-
-
-
+        }     
+     </script>       
+        </body>
 </html>
