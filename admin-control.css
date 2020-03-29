@@ -1,5 +1,5 @@
 body, * {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 .left-side {
@@ -29,8 +29,8 @@ h5 {
 }
 
 .my-card-body {
-    margin: 
-    width: 220px;
+    margin: 10px 0px 10px 10px ;
+    width: 100%;
     text-align: center;
     align-items: center;
     background-color: rgb(255, 255, 249);
@@ -38,6 +38,13 @@ h5 {
     border-radius: 5%;
     border: 1px solid rgb(202, 202, 202);
 
+}
+
+.new {
+    position: relative;
+    /* margin: 50% auto; */
+    box-sizing: border-box;
+    top: 80px;    
 }
 
 .card-col-1 {

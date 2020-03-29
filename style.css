@@ -63,7 +63,7 @@ input:hover {
     text-align: center;
 }
 
-h3 {
+h3, h4 {
     background-color: rgb(165, 0, 0);
     padding: 10px;
     margin: 0;

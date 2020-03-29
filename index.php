@@ -1,30 +1,30 @@
 <?php
 // ######## Code to check USER IS LOGGED IN OR NOT #########
 
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE) 
-{
+// if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE) 
+// {
     session_start();
 //    $username = $_SESSION['uname']; 
-}
-if((isset($_SESSION['loggedin'])))
-{
-    if($_SESSION['loggedin'] == TRUE)
-    {   
+// }
+// if((isset($_SESSION['loggedin'])))
+// {
+//     if($_SESSION['loggedin'] == TRUE)
+//     {   
         // session_start();
         // $username = $_SESSION['uname']; 
-    }
-    else
-    { 
-        echo "not working";
-    }
+//     }
+//     else
+//     { 
+//         echo "not working";
+//     }
         
-}
-    // echo "$username";
+// }
+//     // echo "$username";
 
-else 
-{
-    echo "not working";
-}
+// else 
+// {
+//     echo "not working";
+// }
 
 // if ( is_user_logged_in() ) {
 //     // your code for logged in user 
@@ -71,11 +71,19 @@ else
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php">Home </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="forms.php">Forms </a>
-                </li>
-                <li class="nav-item  right">
-                    <a class="nav-link" href="web/index.php">Admin panel</a>
+                </li> -->
+                <li class="nav-item dropdown" id="user_dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin panel
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
+                        <a class="dropdown-item" href="web/index.php">Stats</a>
+                        <a class="dropdown-item" href="admin-control.html">Forms creation</a>
+                        <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                    </div>
                 </li>
                 <li class="nav-item dropdown" id="user_dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -113,7 +121,7 @@ else
             <div class="row">
                 <div class="col"></div>
                 <div class="col-10 item">
-                    <input type="text" id="filterInput" placeholder="Search here ..." class="searchs-box"
+                    <input type="text" id="filterInput" placeholder="Search forms here ..." class="searchs-box"
                         onmouseover="inputgrab()" onmouseout="make_normal()">
                         <ul id="names" class="collection with-header">
                             <!-- <li class="collection-header">
@@ -125,8 +133,8 @@ else
                                 </a>
                             </li>
                             <li class="collection-item">
-                                <a href="#">
-                                    There was some problem with the admission of through the
+                                <a href="Teacher_event.php">
+                                    Teacher review on event
                                 </a>
                             </li>
                             <li class="collection-item">
@@ -186,25 +194,27 @@ else
         <div class="col-lg-6 col-md-12 right-side" id="right-sideid">
             <div>
                 <h3>On Institute</h3>
+                <h4>Recent Forms</h4>
                 <div>
                     <a href="teacherform.php">
+                        <li class="accordion-list">Teacher Review on Infra-structure</li>
+                    </a>
+                    <a href="Teacher_event.php">
+                        <li class="accordion-list">Teacher review on events</li>
+                    </a>
+                    <!-- <a href="teacherform.php">
                         <li class="accordion-list">Teacher Form</li>
                     </a>
                     <a href="teacherform.php">
                         <li class="accordion-list">Teacher Form</li>
-                    </a>
-                    <a href="teacherform.php">
-                        <li class="accordion-list">Teacher Form</li>
-                    </a>
-                    <a href="teacherform.php">
-                        <li class="accordion-list">Teacher Form</li>
-                    </a>
+                    </a> -->
                 </div>
 
 
                 <h3>On Department</h3>
+                <h4>Recent Forms</h4>
                 <div>
-                    <a href="teacherform.php">
+                    <!-- <a href="teacherform.php">
                         <li class="accordion-list">Teacher Form</li>
                     </a>
                     <a href="teacherform.php">
@@ -215,11 +225,11 @@ else
                     </a>
                     <a href="teacherform.php">
                         <li class="accordion-list">Teacher Form</li>
-                    </a>
+                    </a> -->
                 </div>
-                <h3>On Department</h3>
+                <h3>On Teacher</h3>
                 <div>
-                    <a href="teacherform.php">
+                    <!-- <a href="teacherform.php">
                         <li class="accordion-list">Teacher Form</li>
                     </a>
                     <a href="teacherform.php">
@@ -230,11 +240,11 @@ else
                     </a>
                     <a href="teacherform.php">
                         <li class="accordion-list">Teacher Form</li>
-                    </a>
+                    </a> -->
                 </div>
-                <h3>On Department</h3>
+                <h3>On Students</h3>
                 <div>
-                    <a href="teacherform.php">
+                    <!-- <a href="teacherform.php">
                         <li class="accordion-list">Teacher Form</li>
                     </a>
                     <a href="teacherform.php">
@@ -245,7 +255,7 @@ else
                     </a>
                     <a href="teacherform.php">
                         <li class="accordion-list">Teacher Form</li>
-                    </a>
+                    </a> -->
                 </div>
 
             </div>
