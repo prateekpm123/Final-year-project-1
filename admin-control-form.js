@@ -9,7 +9,34 @@ $(document).ready(
         $('#create').click(function ()
         {
             questionAreaCounter++;
-            $('#makingArea').append('<textarea name="question" '+questionAreaCounter+'" placeholder="Enter the questions..."  onmouseover="" onkeypress="" cols="30" rows="10" id="'+ questionAreaCounter+'" class="questionarea">');
+            let div1 = document.createElement("div");
+            div1.setAttribute("id",  "makingArea1");
+
+            // textarea = document.createElement('textarea');
+            // textarea.setAttribute("class","questionarea");
+            // textarea.setAttribute("name", "question");
+            // textarea.setAttribute("placeholder", "Enter the questions...");
+            // textarea.setAttribute("onmouseover", "");
+            // textarea.setAttribute("cols", "30");
+            // textarea.setAttribute("rows", "10");
+            // textarea.setAttribute("id", "questionAreaCounter");
+            // var s;
+            // s = '<div id="makingArea">'
+            //     +'< textarea name = "question" placeholder = "Enter the questions..." id = "1" onmouseover = "" onkeypress = "" cols = "30" rows = "10" class="questionarea" >'
+            //     +'</textarea >'
+            //     +'<button id="sub" class="btn btn-primary"> Save</button>'
+            //     +'<span id="result"></span>'
+            //     +'</div >';
+            // let form_page = document.getElementById('form-page');
+            // form_page.appendChild(textarea);
+            // $('#makingarea1').append()
+            $('#form-page').append(
+                '<textarea name="question'+questionAreaCounter+'" placeholder="Enter the questions..."  onmouseover="" onkeypress="" cols="30" rows="10" id="'+ questionAreaCounter+'" class="questionarea">'
+                );
+            // $('#form-page').append(
+            //     '<button id="sub" class="btn btn-primary"> Save</button>'
+            //     );
+            // div1.appendChild(textarea);
             // provideId(questionAreaCounter);
             // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
             }
@@ -25,7 +52,7 @@ $(document).ready(
             i--;
             questionAreaCounter--;
         });
-
+ 
         // AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING 
          $('#sub').click(function () {
              var data = $("#form-page :input").serializeArray();
