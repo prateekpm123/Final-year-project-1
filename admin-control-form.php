@@ -2,17 +2,19 @@
 
 session_start();
 $username = $_SESSION['uname'];
- 
-$con = mysqli_connect('localhost','root');
-if($con) {
-    // echo "sucess";
-}
-$db = mysqli_select_db($con, 'final_year_project');
-if($db) {
-    // echo "sucess h1";
-}
 
-include_once("mydb.php");
+include("mydb.php");
+
+// $con = mysqli_connect('localhost','root');
+// if($con) {
+//     // echo "sucess";
+// }
+// $db = mysqli_select_db($con, 'final_year_project');
+// if($db) {
+//     // echo "sucess h1";
+// }
+
+// include_once("mydb.php");
 
 // if (isset($_POST['submit']))
 // {   
@@ -120,11 +122,11 @@ include_once("mydb.php");
                     <span id="result"></span>
                     <!-- <span> <input class="btn btn-primary textarea-btn" type="submit" name='submit' value='submit'>+</input>  Add the item</span> -->
                 <!-- </div> -->
-
+                    hey
             </form>
-            <button id="create" class="btn btn-primary">Create</button>
+            <button id="create" class="btn btn-danger">Create</button>
             <button id="delete" class="btn btn-primary">Delete</button>
-
+                            
         </div>
         <div class="col-lg-6 right-side">
             <?php
