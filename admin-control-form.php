@@ -122,8 +122,8 @@ include_once("mydb.php");
                 <!-- </div> -->
 
             </form>
-            <button id="create" class="btn btn-primary">Create</button>
-            <button id="delete" class="btn btn-primary">Delete</button>
+            <button id="create" class="btn btn-secondary">Create</button>
+            <button id="delete" class="btn btn-secondary">Delete</button>
 
         </div>
         <div class="col-lg-6 right-side">
