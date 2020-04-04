@@ -9,8 +9,8 @@ $(document).ready(
         $('#create').click(function ()
         {
             questionAreaCounter++;
-            let div1 = document.createElement("div");
-            div1.setAttribute("id",  "makingArea1");
+            // let div1 = document.createElement("div");
+            // div1.setAttribute("id",  "makingArea1");
 
             // textarea = document.createElement('textarea');
             // textarea.setAttribute("class","questionarea");
@@ -31,11 +31,11 @@ $(document).ready(
             // form_page.appendChild(textarea);
             // $('#makingarea1').append()
             $('#form-page').append(
-                '<textarea name="question'+questionAreaCounter+'" placeholder="Enter the questions..."  onmouseover="" onkeypress="" cols="30" rows="10" id="'+ questionAreaCounter+'" class="questionarea">'
+                '<textarea name="question'+questionAreaCounter+'" placeholder="Enter the questions..."  onmouseover="" onkeypress="" cols="30" rows="10" id="Q'+ questionAreaCounter+'" class="questionarea">'
                 );
-            // $('#form-page').append(
-            //     '<button id="sub" class="btn btn-primary"> Save</button>'
-            //     );
+            $('#form-page').append(
+                '<button id="sub" class="btn btn-primary savebtn"> Save</button>'
+                );
             // div1.appendChild(textarea);
             // provideId(questionAreaCounter);
             // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
@@ -46,10 +46,16 @@ $(document).ready(
         $('#delete').click(function () {
             let textareaarr = [];
             textareaarr = $('textarea');
+            let savebtn = [];
+            savebtn = $('.savebtn');
             i = textareaarr.length;
+            j = savebtn.length;
             textareaarr[i - 1].remove();
-            console.log(textareaarr[i]);
+            savebtn[j-1].remove();
+            // console.log(textareaarr[i]);
+            console.log(textareaarr[j]);
             i--;
+            // j--;
             questionAreaCounter--;
         });
  

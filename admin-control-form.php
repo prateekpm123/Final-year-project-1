@@ -1,18 +1,18 @@
 <?php
 
 session_start();
-// $username = $_SESSION['uname'];
+$username = $_SESSION['uname'];
  
-// $con = mysqli_connect('localhost','root');
-// if($con) {
-//     // echo "sucess";
-// }
-// $db = mysqli_select_db($con, 'final_year_project');
-// if($db) {
-//     // echo "sucess h1";
-// }
+$con = mysqli_connect('localhost','root');
+if($con) {
+    // echo "sucess";
+}
+$db = mysqli_select_db($con, 'final_year_project');
+if($db) {
+    // echo "sucess h1";
+}
 
-// include_once("mydb.php");
+include_once("mydb.php");
 
 // if (isset($_POST['submit']))
 // {   
@@ -111,15 +111,15 @@ session_start();
     <div class="row">
         <div class="col-lg-6 left-side">
             <form method="post" id="form-page" action="userinfo.php">
-                <div id='makingArea'>
+                <!-- <div id='makingArea'> -->
                     <textarea name="question" placeholder="Enter the questions..." id="1" onmouseover="" onkeypress=""
                         cols="30" rows="10" class="questionarea">
                     </textarea>
                     <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
-                    <button id="sub" class="btn btn-primary"> Save</button>
+                    <button id="sub" class="btn btn-primary savebtn"> Save</button>
                     <span id="result"></span>
                     <!-- <span> <input class="btn btn-primary textarea-btn" type="submit" name='submit' value='submit'>+</input>  Add the item</span> -->
-                </div>
+                <!-- </div> -->
 
             </form>
             <button id="create" class="btn btn-primary">Create</button>
@@ -128,15 +128,29 @@ session_start();
         </div>
         <div class="col-lg-6 right-side">
             <?php
-                // $q = "SELECT Q1 FROM `questions`";
-                // $result = mysqli_query($con, $q);
-                // $desc = mysqli_fetch_assoc($result);
+                $q = "SELECT Q1 FROM `questions` WHERE `Form Number`='Form2'";
+                $result = mysqli_query($con, $q);
+                $desc = mysqli_fetch_assoc($result);
             ?>
-
+            <h5 class="question_display">
+                <?php
+                    // while($rows = mysqli_fetch_assoc($result))
+                    // {
+                        // if(is_null())
+                    // }
+                    // echo "{$result}"; 
+                    echo "{$desc['Q1']}"; 
+                ?>
+            </h5>
+            <?php
+                $q = "SELECT Q2 FROM `questions` WHERE `Form Number`='Form2'";
+                // SELECT Q2 FROM `questions` WHERE `Form Number`="Form2"
+                $result = mysqli_query($con, $q);
+                $desc = mysqli_fetch_assoc($result);
+            ?>
             <h5>
                 <?php
-                    // echo $desc; 
-                    // echo "{$desc['Q1']}"; 
+                    echo "{$desc['Q2']}"; 
                 ?>
             </h5>
         </div>
