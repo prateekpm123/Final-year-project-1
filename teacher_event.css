@@ -1,24 +1,11 @@
-<<<<<<< HEAD
 body{
-    /* padding: 100px; */
-    /* margin:100px; */
-    /* background-color:pink; */
+    padding: 100px; 
+    margin:100px; 
+    background-color:pink;
 }
 
-.container{
+.container.center{
 background-color:orange;
 padding: 100px;
 margin: 100px;
-=======
-body{
-    /* padding: 100px; */
-    /* margin:100px; */
-    /* background-color:pink; */
-}
-
-.container{
-background-color:orange;
-padding: 100px;
-margin: 100px;
->>>>>>> f0e9ae3665fb0c77db13aa0222a725eca4b30898
 }

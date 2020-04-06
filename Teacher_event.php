@@ -1,8 +1,7 @@
 <?php
-
 session_start();
 //$username = $_SESSION['uname'];
-$con = mysqli_connect('localhost','root','','final_year_project');
+$con = mysqli_connect('localhost','root');
 if($con) {
     // echo "success";
 }
@@ -23,12 +22,12 @@ if (isset($_POST['submit']))
     $Q8 =$_POST['Rate8'];
     $Q9 =$_POST['text'];
 
-    $query = "INSERT INTO `teacher_event_ans` (`Q1`,`Q2`,`Q3`,`Q4`,`Q5`,`Q6`,`Q7`,`Q8`,`Q9`) VALUES ('$Q1','$Q2','$Q3','$Q4','$Q5','$Q6','$Q7','$Q8','$Q9')";
+    $query1 = "INSERT INTO `teacher_event_ans` (`Q1`,`Q2`,`Q3`,`Q4`,`Q5`,`Q6`,`Q7`,`Q8`,`Q9`) VALUES ('$Q1','$Q2','$Q3','$Q4','$Q5','$Q6','$Q7','$Q8','$Q9')";
 
-    $query_run = mysqli_query($con, $query);
+    $query_run = mysqli_query($con, $query1);
     if($query_run)
     {
-        // echo "done";zxdfczf
+        // echo "done";
     }
     else 
     {
