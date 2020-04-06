@@ -1,8 +1,10 @@
 <?php
 
-// session_start();
-// $username = $_SESSION['uname'];
- 
+session_start();
+$username = $_SESSION['uname'];
+
+include("mydb.php");
+
 // $con = mysqli_connect('localhost','root');
 // if($con) {
 //     // echo "sucess";
@@ -28,7 +30,7 @@
     //     // echo "done";
     // }
     // else 
-    // {
+    // { 
     //     error_reporting(E_ALL);
     //     ini_set('display_errors', 1);
     // }
@@ -64,14 +66,43 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php">Home </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="forms.php">Forms </a>
+                </li> -->
+                <li class="nav-item dropdown" id="user_dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin panel
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
+                        <a class="dropdown-item" href="web/index.php">Stats</a>
+                        <a class="dropdown-item" href="admin-control.html">Forms creation</a>
+                        <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                    </div>
+                </li>
+                <li class="nav-item dropdown" id="user_dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?php
+                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
+                            {
+                                // echo "$username"; 
+                                echo $_SESSION['uname'];
+                            } 
+                            else 
+                            {
+                                echo "Please log in first to see this page.";
+                            }
+                        ?>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
+                        <a class="dropdown-item" href="logout.php">Logout</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                </li>
-                <li class="nav-item  right">
-                    <a class="nav-link" href="web/index.php">Admin panel</a>
+                    <a class="nav-link" href="login.php">Login</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link disabled" href="#">Disabled</a>
@@ -82,32 +113,46 @@
     <div class="row">
         <div class="col-lg-6 left-side">
             <form method="post" id="form-page" action="userinfo.php">
-                <div id='makingArea'>
+                <!-- <div id='makingArea'> -->
                     <textarea name="question" placeholder="Enter the questions..." id="1" onmouseover="" onkeypress=""
                         cols="30" rows="10" class="questionarea">
                     </textarea>
                     <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
-                    <button id="sub"> save</button>
+                    <button id="sub" class="btn btn-primary savebtn"> Save</button>
                     <span id="result"></span>
                     <!-- <span> <input class="btn btn-primary textarea-btn" type="submit" name='submit' value='submit'>+</input>  Add the item</span> -->
-                </div>
-
+                <!-- </div> -->
+                    hey
             </form>
-            <button id="create" class="btn btn-primary">Create</button>
-            <button id="delete" class="btn btn-primary">Delete</button>
+            <button id="create" class="btn btn-secondary">Create</button>
+            <button id="delete" class="btn btn-secondary">Delete</button>
 
         </div>
         <div class="col-lg-6 right-side">
             <?php
-                // $q = "SELECT Q1 FROM `questions`";
-                // $result = mysqli_query($con, $q);
-                // $desc = mysqli_fetch_assoc($result);
+                $q = "SELECT Q1 FROM `questions` WHERE `Form Number`='Form2'";
+                $result = mysqli_query($con, $q);
+                $desc = mysqli_fetch_assoc($result);
             ?>
-
+            <h5 class="question_display">
+                <?php
+                    // while($rows = mysqli_fetch_assoc($result))
+                    // {
+                        // if(is_null())
+                    // }
+                    // echo "{$result}"; 
+                    echo "{$desc['Q1']}"; 
+                ?>
+            </h5>
+            <?php
+                $q = "SELECT Q2 FROM `questions` WHERE `Form Number`='Form2'";
+                // SELECT Q2 FROM `questions` WHERE `Form Number`="Form2"
+                $result = mysqli_query($con, $q);
+                $desc = mysqli_fetch_assoc($result);
+            ?>
             <h5>
                 <?php
-                    // echo $desc; 
-                    // echo "{$desc['Q1']}"; 
+                    echo "{$desc['Q2']}"; 
                 ?>
             </h5>
         </div>

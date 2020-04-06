@@ -92,8 +92,80 @@ if (isset($_POST['submit']))
 </head>
 
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-header">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.php">Home </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="forms.php">Forms </a>
+                </li> -->
+                <li class="nav-item dropdown" id="user_dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin panel
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
+                        <a class="dropdown-item" href="web/index.php">Stats</a>
+                        <a class="dropdown-item" href="admin-control.html">Forms creation</a>
+                        <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                    </div>
+                </li>
+                <li class="nav-item dropdown" id="user_dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?php
+                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
+                            {
+                                // echo "$username"; 
+                                echo $_SESSION['uname'];
+                            } 
+                            else 
+                            {
+                                echo "Please log in first to see this page.";
+                            }
+                        ?>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
+                        <a class="dropdown-item" href="logout.php">Logout</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php">Login</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+<!--Header Division--->
+<div style="width:800px;height:150px;border:transparent;margin:0px auto;">
+<!--Image Division---->
+<div style="width:150px;height:150px;border:transparent;float:left;">
+<img src="logo.jpg">
+</div>
+<!---Text Division------>
+<div style="width:650px;height:150x;border:transparent;margin-left:150px;">
+<br>
+<h5 align="center">Mahavir Education Trust's</h5>
+<h4 align="center">SHAH & ANCHOR KUTCHHI ENGINEERING COLLEGE</h4>
+<h5 align="center">Chembur, Mumbai - 400 088</h5>
+<h5 align="center">Teacher Feedback Form  Academic year 2020-21</h5>
+</div>
+</div>
+<br><br>
 <div class="container">
-    <div class="row col-md-6 offset-md-3" id="contentToPrint" >
+    <div class="row col-md-6 offset-md-3"  >
         <form method="post">
             <ul>
                 <!--  Q1 -->
@@ -329,21 +401,20 @@ if (isset($_POST['submit']))
 
                 <div class="col-md-6 offset-md-3">      
                     <!-- <button class="btn btn-primary" type="submit" name="submit">Submit</button> -->
-                    <input type="submit" class="btn btn-primary" name="submit" value="Submit" id="first" > 
-                    <button onclick="myfun()" class="btn btn-primary" id= "second" >Print</button> 
-                </div>
-                    
-        </form>        
-    </div>           
-    <script type="text/javascript">
-        function myfun(){
-            var printDiv = document.getElementById("contentToPrint").innerHTML;
-            document.body.innerHTML = printDiv;
+                    <input type="submit" class="btn btn-primary" name="submit" value="Submit">  
+                    <br>
+                    <button class='btn btn-primary' onclick="myPrint()">Print</button>  
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-2 col-sm-1"></div>
+
+    </div>
+    <script type="text/javascript">    
+        function myPrint() {
             window.print();
-        }
-    </script>
-    
 
-</body>
-
+        }     
+     </script>       
+        </body>
 </html>

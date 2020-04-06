@@ -38,29 +38,88 @@ if (isset($_POST['submit']))
 ?>
 
 <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>event and workshop form</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event and workshop form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="teacher_event.css">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    </head>
-    <body>
-        <div class="container center">
+    <link rel="stylesheet" href="teacher_event.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-header">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.php">Home </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="forms.php">Forms </a>
+                </li> -->
+                <li class="nav-item dropdown" id="user_dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin panel
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
+                        <a class="dropdown-item" href="web/index.php">Stats</a>
+                        <a class="dropdown-item" href="admin-control.html">Forms creation</a>
+                        <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                    </div>
+                </li>
+                <li class="nav-item dropdown" id="user_dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?php
+                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
+                            {
+                                // echo "$username"; 
+                                echo $_SESSION['uname'];
+                            } 
+                            else 
+                            {
+                                echo "Please log in first to see this page.";
+                            }
+                        ?>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
+                        <a class="dropdown-item" href="logout.php">Logout</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php">Login</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+    <div class="container center">
         <form method="POST">
             <h1>Event/Workshop form</h1>
             <hr>
             <ul type="square">
                 <!-- Q1 -->
-                <li><h4><?php
+                <li>
+                    <h4><?php
                             $q = "SELECT Q1 FROM `teacher_event`";
                             $result = mysqli_query($con, $q);
                             $desc = mysqli_fetch_assoc($result);                                  
                             // echo $desc;
                             echo "{$desc['Q1']}";
-                        ?></h4></li>
+                        ?></h4>
+                </li>
                 <input type="radio" id="r" name="Rate1" value="BAD"><label>1</label><br>
                 <input type="radio" id="r" name="Rate1" value="OK"><label>2</label><br>
                 <input type="radio" id="r" name="Rate1" value="AVERAGE"><label>3</label><br>
@@ -69,13 +128,15 @@ if (isset($_POST['submit']))
                 <br>
 
                 <!-- Q2 -->
-                <li><h4><?php
+                <li>
+                    <h4><?php
                             $q = "SELECT Q2 FROM `teacher_event`";
                             $result = mysqli_query($con, $q);
                             $desc = mysqli_fetch_assoc($result);                                  
                             // echo $desc;
                             echo "{$desc['Q2']}";
-                        ?></h4></li>
+                        ?></h4>
+                </li>
                 <input type="radio" id="r" name="Rate2" value="BAD"><label>1</label> &nbsp; &nbsp;&nbsp;
                 <input type="radio" id="r" name="Rate2" value="OK"><label>2</label>&nbsp; &nbsp; &nbsp;
                 <input type="radio" id="r" name="Rate2" value="AVERAGE"><label>3</label>&nbsp; &nbsp; &nbsp;
@@ -84,13 +145,15 @@ if (isset($_POST['submit']))
                 <br>
 
                 <!-- Q3 -->
-                <li><h4><?php
+                <li>
+                    <h4><?php
                             $q = "SELECT Q3 FROM `teacher_event`";
                             $result = mysqli_query($con, $q);
                             $desc = mysqli_fetch_assoc($result);                                  
                             // echo $desc;
                             echo "{$desc['Q3']}";
-                        ?></h4></li>
+                        ?></h4>
+                </li>
                 <input type="radio" id="r" name="Rate3" value="BAD"><label>1</label><br>
                 <input type="radio" id="r" name="Rate3" value="OK"><label>2</label><br>
                 <input type="radio" id="r" name="Rate3" value="AVERAGE"><label>3</label><br>
@@ -99,13 +162,15 @@ if (isset($_POST['submit']))
                 <br>
 
                 <!-- Q4 -->
-                <li><h4><?php
+                <li>
+                    <h4><?php
                             $q = "SELECT Q4 FROM `teacher_event`";
                             $result = mysqli_query($con, $q);
                             $desc = mysqli_fetch_assoc($result);                                  
                             // echo $desc;
                             echo "{$desc['Q4']}";
-                        ?></h4></li>
+                        ?></h4>
+                </li>
                 <input type="radio" id="r" name="Rate4" value="BAD"><label>1</label><br>
                 <input type="radio" id="r" name="Rate4" value="OK"><label>2</label><br>
                 <input type="radio" id="r" name="Rate4" value="AVERAGE"><label>3</label><br>
@@ -114,13 +179,15 @@ if (isset($_POST['submit']))
                 <br>
 
                 <!-- Q5 -->
-                <li><h4><?php
+                <li>
+                    <h4><?php
                             $q = "SELECT Q5 FROM `teacher_event`";
                             $result = mysqli_query($con, $q);
                             $desc = mysqli_fetch_assoc($result);                                  
                             // echo $desc;
                             echo "{$desc['Q5']}";
-                        ?></h4></li>
+                        ?></h4>
+                </li>
                 <input type="radio" id="r" name="Rate5" value="BAD"><label>1</label><br>
                 <input type="radio" id="r" name="Rate5" value="OK"><label>2</label><br>
                 <input type="radio" id="r" name="Rate5" value="AVERAGE"><label>3</label><br>
@@ -129,13 +196,15 @@ if (isset($_POST['submit']))
                 <br>
 
                 <!-- Q6 -->
-                <li><h4><?php
+                <li>
+                    <h4><?php
                             $q = "SELECT Q6 FROM `teacher_event`";
                             $result = mysqli_query($con, $q);
                             $desc = mysqli_fetch_assoc($result);                                  
                             // echo $desc;
                             echo "{$desc['Q6']}";
-                        ?></h4></li>
+                        ?></h4>
+                </li>
                 <input type="radio" id="r" name="Rate6" value="BAD"><label>1</label><br>
                 <input type="radio" id="r" name="Rate6" value="OK"><label>2</label><br>
                 <input type="radio" id="r" name="Rate6" value="AVERAGE"><label>3</label><br>
@@ -144,45 +213,52 @@ if (isset($_POST['submit']))
                 <br>
 
                 <!-- Q7 -->
-                <li><h4><?php
+                <li>
+                    <h4><?php
                             $q = "SELECT Q7 FROM `teacher_event`";
                             $result = mysqli_query($con, $q);
                             $desc = mysqli_fetch_assoc($result);                                  
                             // echo $desc;
                             echo "{$desc['Q7']}";
-                        ?></h4></li>
+                        ?></h4>
+                </li>
                 <input type="radio" id="r" name="Rate7" value="YES"><label>YES</label><br>
                 <input type="radio" id="r" name="Rate7" value="NO"><label>NO</label><br>
                 <br>
 
                 <!-- Q8 -->
-                <li><h4><?php
+                <li>
+                    <h4><?php
                             $q = "SELECT Q8 FROM `teacher_event`";
                             $result = mysqli_query($con, $q);
                             $desc = mysqli_fetch_assoc($result);                                  
                             // echo $desc;
                             echo "{$desc['Q8']}";
-                        ?></h4></li>
+                        ?></h4>
+                </li>
                 <input type="radio" id="r" name="Rate8" value="YES"><label>YES</label><br>
                 <input type="radio" id="r" name="Rate8" value="NO"><label>NO</label><br>
                 <br>
 
                 <!-- Q9 -->
-                <li><h4><?php
+                <li>
+                    <h4><?php
                             $q = "SELECT Q9 FROM `teacher_event`";
                             $result = mysqli_query($con, $q);
                             $desc = mysqli_fetch_assoc($result);                                  
                             // echo $desc;
                             echo "{$desc['Q9']}";
-                        ?></h4></li>
+                        ?></h4>
+                </li>
                 <textarea name="text" rows="5" cols="50"></textarea>
                 <br>
-                
+
             </ul>
             <button type="submit" class="btn btn-primary" value="submit">SUBMIT</button>
             <button type="reset" class="btn btn-primary" value="Reset">RESET</button>
-            <input type="button"  class="btn btn-primary" value="Print this page" onClick="window.print()">
+            <input type="button" class="btn btn-primary" value="Print this page" onClick="window.print()">
         </form>
-        </div>
-    </body>
+    </div>
+</body>
+
 </html>
