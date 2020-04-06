@@ -124,7 +124,7 @@ include("mydb.php");
                 <!-- </div> -->
                     hey
             </form>
-            <button id="create" class="btn btn-secondary">Create</button>
+            <button id="create" class="btn btn-primary">Create</button>
             <button id="delete" class="btn btn-secondary">Delete</button>
 
         </div>
