@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 session_start();
 $username = $_SESSION['uname'];
@@ -8,6 +8,7 @@ include("mydb.php");
 // $con = mysqli_connect('localhost','root');
 // if($con) {
 //     // echo "sucess";
+
 // }
 // $db = mysqli_select_db($con, 'final_year_project');
 // if($db) {
@@ -36,7 +37,7 @@ include("mydb.php");
     // }
 // } 
 
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +45,7 @@ include("mydb.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -120,11 +121,13 @@ include("mydb.php");
                     <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
                     <button id="sub" class="btn btn-primary savebtn"> Save</button>
                     <span id="result"></span>
-                    <span> <input class="btn btn-primary textarea-btn" type="submit" name='submit' value='+'></input>  Add the item</span>
+                    <span> <input class="btn btn-primary dropdown-toggle" data-toggle="dropdown" name='submit' value='+'></input>  Add the item</span>
                 <!-- </div> -->
-                    <li class="options"><a href=""> Options</a></li>
-                    <li class="options"><a href=""> Ratings</a></li>
-                    <li class="options"><a href=""> Answers</a></li>
+                    <div class="dropdown-menu">
+                        <li class="options"><a href=""> Options</a></li>
+                        <li class="options"><a href=""> Ratings</a></li>
+                        <li class="options"><a href=""> Answers</a></li>
+                    </div>
             </form>
             <button id="create" class="btn btn-primary">Create</button>
             <button id="delete" class="btn btn-secondary">Delete</button>
