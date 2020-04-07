@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+.mainBody {
+    padding-left: 10px;
+}
+
 textarea.questionarea {
     width: 100%;
     /* margin: 2%; */
@@ -45,15 +49,43 @@ textarea.questionarea:hover {
     /* display: inline-block; */
 }
 
-li.options {
-    padding: 10px;
-    background-color: aqua;
-    width: 20%;
+div#optionsarea {
+    display: none;
+    /* position: absolute; */
+    /* top: 100px; */
+    /* right: 130px; */
+
+    /* padding: 10px; */
+    border: rgb(180, 180, 180) solid 1px;
+    height: auto;
+    width: 40%;
 }
 
-li a {
+button.options {
+    padding: 10px;
+    /* background-color: aqua; */
+    width: 100%;
+    display: none;
+    position: block;
+    list-style: none;
+    text-align: center;
+    align-self: center;
     text-decoration: none;
+    border: none;
+    color: rgb(56, 56, 56);
 }
+
+button.options:hover {
+    background-color: rgb(199, 199, 199);
+    color: black;
+}
+
+button.options:active {
+    background-color: rgb(199, 199, 199);
+    box-shadow: 0 5px rgb(190, 190, 190);
+    transform: translateY(4px);
+}
+
 
 
 .right-side {

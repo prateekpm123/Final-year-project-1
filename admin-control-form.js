@@ -3,12 +3,40 @@ $(document).ready(
     {
         let questionAreaCounter = 1;
         let i = 0;
+        let optionsClick = 0;
+        // function optionsappear() {
 
+        //     $('.options').show();
+        // }
+
+        $("#optionsappear").click(function ()
+        {
+            var pos = $('#optionsappear').position();
+            // alert('in the option function');
+            // $('.options').css("top","pos.top");
+            // alert("pos.top"+pos.top+"position left"+pos.left);
+            optionsClick ++;
+            oddEven = optionsClick % 2;
+            if(oddEven == 1 )
+            {
+                $('#optionsarea').css({"display":"block",
+                 });
+                $('#optionsarea').show();
+                $('.options').show();
+            }
+            else 
+            {
+                $('#optionsarea').hide();
+                $('.options').hide();
+            }
+
+
+        });
 
         // TO CREATE A NEW QUESTION AREA
         $('#create').click(function ()
         {
-            alert('in create function');
+            // alert('in create function');
             questionAreaCounter++;
             // let div1 = document.createElement("div");
             // div1.setAttribute("id",  "makingArea1");

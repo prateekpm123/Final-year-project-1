@@ -110,7 +110,7 @@ include("mydb.php");
             </ul>
         </div>
     </nav>
-    <div class="row">
+    <div class="row mainBody">
         <div class="col-lg-6 left-side">
             <form method="post" id="form-page" action="userinfo.php">
                 <!-- <div id='makingArea'> -->
@@ -120,11 +120,14 @@ include("mydb.php");
                     <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
                     <button id="sub" class="btn btn-primary savebtn"> Save</button>
                     <span id="result"></span>
-                    <span> <input class="btn btn-primary textarea-btn" type="submit" name='submit' value='+'></input>  Add the item</span>
+                    <button class="btn btn-primary textarea-btn"  name='submit'  id="optionsappear">+</button>  
                 <!-- </div> -->
-                    <li class="options"><a href=""> Options</a></li>
-                    <li class="options"><a href=""> Ratings</a></li>
-                    <li class="options"><a href=""> Answers</a></li>
+                <div id="optionsarea">
+                    <button class="options"> Options</button>
+                    <button class="options">Ratings</button>
+                    <button class="options">Answers</button>
+                </div>
+
             </form>
             <button id="create" class="btn btn-primary">Create</button>
             <button id="delete" class="btn btn-secondary">Delete</button>
