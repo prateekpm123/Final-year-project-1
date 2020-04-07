@@ -8,6 +8,7 @@ $(document).ready(
         // TO CREATE A NEW QUESTION AREA
         $('#create').click(function ()
         {
+            alert('in create function');
             questionAreaCounter++;
             // let div1 = document.createElement("div");
             // div1.setAttribute("id",  "makingArea1");
