@@ -9,6 +9,10 @@ $(document).ready(
         //     $('.options').show();
         // }
 
+
+        
+
+        // ************* OPTION MENU ***************
         $("#optionsappear").click(function ()
         {
             var pos = $('#optionsappear').position();
@@ -31,6 +35,15 @@ $(document).ready(
             }
 
 
+        });
+
+        // ******** DYNAMICALLY CREATING OPTIONS MENu *********
+
+        $("#optionsappear").click(function()
+        {
+            // Write here the code to append the options list
+
+            
         });
 
         // TO CREATE A NEW QUESTION AREA
@@ -65,6 +78,10 @@ $(document).ready(
             $('#form-page').append(
                 '<button id="sub" class="btn btn-primary savebtn"> Save</button>'
                 );
+            $('#form-page').append(
+                // '< button class="btn btn-primary textarea-btn" name="submit" id="optionsappear" > + < /button>'
+                '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear">+</button>'
+            );
             // div1.appendChild(textarea);
             // provideId(questionAreaCounter);
             // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
@@ -170,4 +187,23 @@ $(document).ready(
 //     );
 // }
 
+// let optionsClick = 0;
 
+// function optionsappear() {
+//     var pos = $('#optionsappear').position();
+//     // alert('in the option function');
+//     // $('.options').css("top","pos.top");
+//     // alert("pos.top"+pos.top+"position left"+pos.left);
+//     optionsClick++;
+//     oddEven = optionsClick % 2;
+//     if (oddEven == 1) {
+//         $('#optionsarea').css({
+//             "display": "block",
+//         });
+//         $('#optionsarea').show();
+//         $('.options').show();
+//     } else {
+//         $('#optionsarea').hide();
+//         $('.options').hide();
+//     }
+// }
