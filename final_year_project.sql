@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2020 at 09:43 AM
+-- Generation Time: Apr 07, 2020 at 10:01 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -118,7 +118,8 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`Form Number`, `Version Number`, `Date`, `Q1`, `Q2`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q9`, `Q10`, `Q11`, `Q12`, `Q13`, `Q14`, `Q15`, `Q16`, `Q17`, `Q18`, `Q19`, `Q20`, `Q21`, `Q22`, `Q23`, `Q24`, `Q25`, `Q26`, `Q27`, `Q28`, `Q29`, `Q30`, `Q31`, `Q32`, `Q33`, `Q34`, `Q35`, `Q36`, `Q37`, `Q38`, `Q39`, `Q40`, `Q41`, `Q42`, `Q43`, `Q44`, `Q45`, `Q46`, `Q47`, `Q48`, `Q49`, `Q50`, `Q51`, `Q52`, `Q53`, `Q54`, `Q55`, `Q56`, `Q57`, `Q58`, `Q59`, `Q60`) VALUES
-('Form1A', 1, '2020-03-03', 'Courses taught by you in this academic year have good balance between theory and its applications.', 'The objectives of syllabus aer well defined.', 'All the books mentioned in syllabus are available in library and in enough numbers.', 'Practical mentioned in syllabus are proper and high standard.', 'Institute has givenfreedom and support for implementing new techniques in teaching and learning process.', 'College regularly sends you for various workshops and STTP for keeping always updates with latest technologies.', 'College has given you freedom for implementing advanced techniques in accessing the students.', 'Administration section of the college is teacher friendly.', 'Canteen facility is satisfactory.', 'Campus is clean and its regular maintenance is done.', 'Campus is ecofriendly.', 'What is your name 12', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+('Form1A', 1, '2020-03-03', 'Courses taught by you in this academic year have good balance between theory and its applications.', 'The objectives of syllabus aer well defined.', 'All the books mentioned in syllabus are available in library and in enough numbers.', 'Practical mentioned in syllabus are proper and high standard.', 'Institute has givenfreedom and support for implementing new techniques in teaching and learning process.', 'College regularly sends you for various workshops and STTP for keeping always updates with latest technologies.', 'College has given you freedom for implementing advanced techniques in accessing the students.', 'Administration section of the college is teacher friendly.', 'Canteen facility is satisfactory.', 'Campus is clean and its regular maintenance is done.', 'Campus is ecofriendly.', 'What is your name 12', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('Form2', 2, '0000-00-00', 'this ius just a test', 'hi there not a problem okay\r\n', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -212,7 +213,10 @@ INSERT INTO `teachers_answers` (`teach_id`, `teach_name`, `Form Number`, `Versio
 (11, NULL, '', 0, '0000-00-00', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (12, NULL, '', 0, '0000-00-00', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (13, NULL, '', 0, '0000-00-00', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(14, NULL, '', 0, '0000-00-00', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(14, NULL, '', 0, '0000-00-00', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(15, NULL, '', 0, '0000-00-00', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(16, NULL, '', 0, '0000-00-00', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(17, NULL, '', 0, '0000-00-00', '3', '', '3', '3', '3', '3', '3', '3', '3', '3', '3', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -244,13 +248,13 @@ ALTER TABLE `teachers_answers`
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `Version Number` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Version Number` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `teachers_answers`
 --
 ALTER TABLE `teachers_answers`
-  MODIFY `teach_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `teach_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
