@@ -115,20 +115,21 @@ include("mydb.php");
         <div class="col-lg-6 left-side">
             <form method="post" id="form-page" action="userinfo.php">
                 <!-- <div id='makingArea'> -->
-                    <textarea name="question" placeholder="Enter the questions..." id="1" onmouseover="" onkeypress=""
+                    <textarea name="question" placeholder="Enter questions..." id="1" onmouseover="" onkeypress=""
                         cols="30" rows="10" class="questionarea">
                     </textarea>
+                    <button class="btn btn-primary textarea-btn" name='submit' id="optionsappear">+</button>
+                        <div id="optionsarea">
+                            <button class="options"> Options</button>
+                            <button class="options">Ratings</button>
+                            <button class="options">Answers</button>
+                        </div>
+                        
+                        <br>
                     <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
                     <button id="sub" class="btn btn-primary savebtn"> Save</button>
                     <span id="result"></span>
-                    <button class="btn btn-primary textarea-btn"  name='submit'  id="optionsappear">+</button>  
-                <!-- </div> -->
-                <div id="optionsarea">
-                    <button class="options"> Options</button>
-                    <button class="options">Ratings</button>
-                    <button class="options">Answers</button>
-                </div>
-
+                    <!-- </div> -->
             </form>
             <button id="create" class="btn btn-primary">Create</button>
             <button id="delete" class="btn btn-secondary">Delete</button>
