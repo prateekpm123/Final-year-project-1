@@ -113,26 +113,28 @@ include("mydb.php");
     </nav>
     <div class="row mainBody">
         <div class="col-lg-6 left-side">
-            <form method="post" id="form-page" action="userinfo.php">
-                <!-- <div id='makingArea'> -->
+            <div class="addingQuestionBody">
+                <form method="post" id="form-page1" action="userinfo.php">
+                    <!-- <div id='makingArea'> -->
                     <textarea name="question" placeholder="Enter the questions..." id="1" onmouseover="" onkeypress=""
                         cols="30" rows="10" class="questionarea">
                     </textarea>
                     <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
                     <button id="sub" class="btn btn-primary savebtn"> Save</button>
                     <span id="result"></span>
-                    <button class="btn btn-primary textarea-btn"  name='submit'  
-                    id="optionsappear"  >+</button>  
-                <!-- </div> -->
-                <div id="optionsarea">
-                    <button class="options"> Options</button>
-                    <button class="options">Ratings</button>
-                    <button class="options">Answers</button>
-                </div>
+                    <button class="btn btn-primary textarea-btn" name='submit' id="optionsappear">+</button>
+                    <!-- </div> -->
+                    <div id="optionsarea">
+                        <button class="options"> Options</button>
+                        <button class="options">Ratings</button>
+                        <button class="options">Answers</button>
+                    </div>
 
-            </form>
-            <button id="create" class="btn btn-primary">Create</button>
-            <button id="delete" class="btn btn-secondary">Delete</button>
+                </form>
+                <button id="create" class="btn btn-primary">Create</button>
+                <button id="delete" class="btn btn-secondary">Delete</button>
+            </div>
+            '<form method="post" id="form-page2' + questionAreaCounter + '" action="userinfo.php"> </form>'
 
         </div>
         <div class="col-lg-6 right-side">
