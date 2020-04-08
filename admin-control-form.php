@@ -122,10 +122,9 @@ include("mydb.php");
                     <span id="result"></span>
                     <!-- <span> <input class="btn btn-primary textarea-btn" type="submit" name='submit' value='submit'>+</input>  Add the item</span> -->
                 <!-- </div> -->
-                    hey
             </form>
             <button id="create" class="btn btn-primary">Create</button>
-            <button id="delete" class="btn btn-secondary">Delete</button>
+            <button id="delete" class="btn btn-danger">Delete</button>
 
         </div>
         <div class="col-lg-6 right-side">
