@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 session_start();
 $username = $_SESSION['uname'];
@@ -8,6 +8,7 @@ include("mydb.php");
 // $con = mysqli_connect('localhost','root');
 // if($con) {
 //     // echo "sucess";
+
 // }
 // $db = mysqli_select_db($con, 'final_year_project');
 // if($db) {
@@ -36,7 +37,7 @@ include("mydb.php");
     // }
 // } 
 
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +45,7 @@ include("mydb.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -110,21 +111,30 @@ include("mydb.php");
             </ul>
         </div>
     </nav>
-    <div class="row">
+    <div class="row mainBody">
         <div class="col-lg-6 left-side">
             <form method="post" id="form-page" action="userinfo.php">
                 <!-- <div id='makingArea'> -->
-                    <textarea name="question" placeholder="Enter the questions..." id="1" onmouseover="" onkeypress=""
-                        cols="30" rows="10" class="questionarea">
+                <textarea name="question" placeholder="Enter questions..." id="1" onmouseover="" onkeypress="" cols="30"
+                    rows="10" class="questionarea">
                     </textarea>
-                    <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
-                    <button id="sub" class="btn btn-primary savebtn"> Save</button>
-                    <span id="result"></span>
-                    <!-- <span> <input class="btn btn-primary textarea-btn" type="submit" name='submit' value='submit'>+</input>  Add the item</span> -->
+                <button class="btn btn-primary textarea-btn" name='submit' id="optionsappear">+</button>
+                <div id="optionsarea">
+                    <button class="options"> Options</button>
+                    <button class="options">Ratings</button>
+                    <button class="options">Answers</button>
+                </div>
+
+                <br>
+                <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
+                <button id="sub" class="btn btn-primary savebtn"> Save</button>
+                <span id="result"></span>
                 <!-- </div> -->
             </form>
             <button id="create" class="btn btn-primary">Create</button>
+
             <button id="delete" class="btn btn-danger">Delete</button>
+
 
         </div>
         <div class="col-lg-6 right-side">
@@ -177,11 +187,11 @@ include("mydb.php");
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <script src="admin-control-form.js"></script>
 
-    
+
     <script>
-       
+
     </script>
-    
+
 </body>
 
 </html>
