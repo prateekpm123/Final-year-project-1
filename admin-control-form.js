@@ -79,8 +79,9 @@ $(document).ready(
                 '<button id="sub" class="btn btn-primary savebtn"> Save</button>'
                 );
             $('#form-page').append(
-                // '< button class="btn btn-primary textarea-btn" name="submit" id="optionsappear" > + < /button>'
-                '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear">+</button>'
+                // '< button class="btn btn-primary textarea-btn" name="submit" id="optionsappear" > + < /button>
+                '<button class="btn btn-primary textarea-btn" name="submit" id="optionsappear">+</button>'
+                    
             );
             // div1.appendChild(textarea);
             // provideId(questionAreaCounter);
