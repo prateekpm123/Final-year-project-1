@@ -5,27 +5,6 @@ $(document).ready(
         let optionsClick = 0;
 
 
-        // ************* OPTION MENU ***************
-        $("#optionsappear").click(function () {
-            var pos = $('#optionsappear').position();
-            // alert('in the option function');
-            // $('.options').css("top","pos.top");
-            // alert("pos.top"+pos.top+"position left"+pos.left);
-            optionsClick++;
-            oddEven = optionsClick % 2;
-            if (oddEven == 1) {
-                $('#optionsarea').css({
-                    "display": "block",
-                });
-                $('#optionsarea').show();
-                $('.options').show();
-            } else {
-                $('#optionsarea').hide();
-                $('.options').hide();
-            }
-
-
-        });
 
         // ******** DYNAMICALLY CREATING OPTIONS MENu *********
 
@@ -37,11 +16,13 @@ $(document).ready(
 
         });
 
-        // TO CREATE A NEW QUESTION AREA
+        // ************************* TO CREATE A NEW QUESTION AREA  *******************8
         $('#create').click(function ()
         {
 
-            // $('.addingQuestionBody').append(<br></br>);
+            // $('.addingQuestionBody').append(
+            //     '<form method="post" id="form-page2' + questionAreaCounter + '" action="userinfo.php"> </form>'
+            // );
 
             $('#form-page1').append(
                 '<textarea name="question' + questionAreaCounter + '" placeholder="Enter the questions..."  onmouseover="" onkeypress="" cols="30" rows="10" id="Q' + questionAreaCounter + '" class="questionarea">'
@@ -53,13 +34,53 @@ $(document).ready(
             
             $('#form-page1').append(
                 // '< button class="btn btn-primary textarea-btn" name="submit" id="optionsappear" > + < /button>'
-                '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear">+</button>'
+                '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear' + questionAreaCounter + '">+</button>'
             );
+
+            $('#form-page1').append(
+                '<div id="optionsarea' + questionAreaCounter + '" class="optionsareaclass"></div>'
+            );
+            let questionCounter = "#optionsarea"+questionAreaCounter; 
+            $(questionCounter).append(
+                '<button class="options' + questionAreaCounter + ' optionbtns"> Options</button>                <button class= "options' + questionAreaCounter + ' optionbtns"> Ratings</button>            <button class="options' + questionAreaCounter + ' optionbtns">Answers</button>'
+            );
+
+            questionAreaCounter ++;
                 // div1.appendChild(textarea);
                 // provideId(questionAreaCounter);
                 // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
             }
         );
+
+        // ************* OPTION MENU ***************
+        let optionsBtnsNo = "#optionsappear"+questionAreaCounter ; 
+        $(optionsBtnsNo).click(function () {
+            var pos = $(optionsBtnsNo).position();
+            // alert('in the option function');
+            // $('.options').css("top","pos.top");
+            // alert("pos.top"+pos.top+"position left"+pos.left);
+            optionsClick++;
+            oddEven = optionsClick % 2;
+
+            // Adding the counter values to the put the variables in the jquery
+
+            let optionsareaBtnsNo = "#optionsarea"+questionAreaCounter;
+
+            let optionsBtnsNo = ".options"+questionAreaCounter ;
+
+            if (oddEven == 1) {
+                $(optionsareaBtnsNo).css({
+                    "display": "block",
+                });
+                $(optionsareaBtnsNo).show();
+                $(optionsBtnsNo).show();
+            } else {
+                $(optionsareaBtnsNo).hide();
+                $(optionsBtnsNo).hide();
+            }
+
+
+        });
 
         // TO DELETE A NEW QUESTION AREA
         $('#delete').click(function () {
@@ -67,16 +88,25 @@ $(document).ready(
             textareaarr = $('textarea');
             let savebtn = [];
             savebtn = $('.savebtn');
+            let optionbtn = [];
+            optionbtn = $('.textarea-btn');
             i = textareaarr.length;
             j = savebtn.length;
+            k = optionbtn.length;
             textareaarr[i - 1].remove();
             savebtn[j - 1].remove();
+            optionbtn[k-1].remove();
             // console.log(textareaarr[i]);
-            console.log(textareaarr[j]);
-            i--;
+            // console.log(savebtn);
+            // console.log(optionbtn);
+            // i--;
             // j--;
+            // k--;
             questionAreaCounter--;
         });
+
+
+
 
         //************** / AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING ****************
         $('#sub').click(function () {

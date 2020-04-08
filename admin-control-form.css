@@ -61,7 +61,7 @@ div#optionsarea {
     width: 40%;
 }
 
-button.options {
+button.optionbtns, button.options {
     padding: 10px;
     /* background-color: aqua; */
     width: 100%;
@@ -75,11 +75,13 @@ button.options {
     color: rgb(56, 56, 56);
 }
 
+button.optionbtns:hover,
 button.options:hover {
     background-color: rgb(199, 199, 199);
     color: black;
 }
 
+button.optionbtns:active,
 button.options:active {
     background-color: rgb(199, 199, 199);
     box-shadow: 0 5px rgb(190, 190, 190);
