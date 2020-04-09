@@ -53,7 +53,7 @@
 
             // *************** Code for bootstrap dropdownbutton *****************
             $('#form-page1').append(
-                '<li class="nav-item dropdown myCustomization-li" id="user_dropdown">  <a class="nav-link dropdown-toggle myCustomization-a" href="#" id="navbarDropdownMenuLink" role="button"    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown"> <button class="dropdown-item options' + questionAreaCounter + '" href="#">Multiple choice</button> <button class="dropdown-item options' + questionAreaCounter + '" href="#">Ratings</button> <button class="dropdown-item options' + questionAreaCounter + '" onclick="createLongAnswer(this.className)">Long Answer</button> <button class="dropdown-item options' + questionAreaCounter + '" href="#">Short Answer</button> </div> </li>'
+                '<li class="nav-item dropdown myCustomization-li" id="user_dropdown">  <a class="nav-link dropdown-toggle myCustomization-a" href="#" id="navbarDropdownMenuLink" role="button"    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown"> <button class="dropdown-item options' + questionAreaCounter + '" onclick="createMultipleChoice(this.className)">Multiple choice</button> <button class="dropdown-item options' + questionAreaCounter + '" href="#">Ratings</button> <button class="dropdown-item options' + questionAreaCounter + '" onclick="createLongAnswer(this.className)">Long Answer</button> <button class="dropdown-item options' + questionAreaCounter + '" href="#">Short Answer</button> </div> </li>'
             );
 
  
@@ -101,27 +101,36 @@
 
 
         }
-        count = 1;
 
-        function longAnswerCounter(info) 
-        { 
-            let previousIdno;
+        
+        function createMultipleChoice(info) {
+            alert('in multiple choice');
             infolen = info.length;
             idno = info[infolen - 1];
-            console.log(info,"info");
-            if (previousIdno == idno) {
-                alert("in if condition");
-                return addOrRemoveCounter++;
-            } else {
-                return addOrRemoveCounter;
-            }
-            // previousIdno = idno;
+            console.log("idno = ", idno);
+
+
+            let questionsetdiv = "#questionset" + idno;
+            $(questionsetdiv).append(
+                '<div class="input-group mb-3"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice('+ info +')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
+            );
+
+        }
+
+        function addMultipleChoice(info) {
+            infolen = info.length;
+            idno = info[infolen - 1];
+            console.log("idno = ",idno);
+            let questionsetdiv = "#questionset" + idno;
+            $(questionsetdiv).append(
+                '<div class="input-group mb-3"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
+            );
         }
 
 
 
-
         // TO DELETE A NEW QUESTION AREA
+        
         function deleted() {
             let questionsetdiv = [];
             questionsetdiv = $('.question-set');
@@ -301,9 +310,22 @@ function AutoShrinkArea(textField) {
 
 
 
+// #################################################   Code for testing   ####################################################
 
-
-
+        // function longAnswerCounter(info) 
+        // { 
+        //     let previousIdno;
+        //     infolen = info.length;
+        //     idno = info[infolen - 1];
+        //     console.log(info,"info");
+        //     if (previousIdno == idno) {
+        //         alert("in if condition");
+        //         return addOrRemoveCounter++;
+        //     } else {
+        //         return addOrRemoveCounter;
+        //     }
+        //     // previousIdno = idno;
+        // }
 
 
 

@@ -122,13 +122,16 @@ include("mydb.php");
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
-                            <button class="dropdown-item options0" href="#">Multiple choice</button>
+                            <button class="dropdown-item options0" onclick="createMultipleChoice(this.className)">Multiple choice</button>
                             <button class="dropdown-item options0" href="#">Ratings</button>
-                            <button class="dropdown-item options0" onclick="longAnswerCounter(this.className)">Long
+                            <button class="dropdown-item options0" onclick="createLongAnswer(this.className)">Long
                                 Answer</button>
-                            <button class="dropdown-item options0" href="#">Short Answer</button>
+                            <button class="dropdown-item options0">Short Answer</button>
                         </div>
                     </li>
+
+                    <!-- <div class="input-group mb-3"> <input type="text" class="form-control" placeholder=" - " aria-label="Recipient's username" aria-describedby="multipleChoiceBtn0"> <div class="input-group-append"> <button class="btn btn-outline-secondary" type="button" id="multipleChoiceBtn0">+</button> </div> </div> -->
+
                     <!-- <input type="text" id="mytext"> -->
                     <!-- <?php
                         include("textarea-testing.html");
