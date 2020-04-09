@@ -11,9 +11,6 @@ $(document).ready(
         $("#optionsappear").click(function () {
             // Write here the code to append the options list
 
-
-
-
         });
 
         // ************************* TO CREATE A NEW QUESTION AREA  *******************8
@@ -53,8 +50,11 @@ $(document).ready(
         );
 
         // ************* OPTION MENU ***************
-        let optionsBtnsNo = "#optionsappear"+questionAreaCounter ; 
-        $(optionsBtnsNo).click(function () {
+         
+        function showOptions(id) {
+
+            let optionsBtnsNo = id + questionAreaCounter;
+            console.log(id)
             var pos = $(optionsBtnsNo).position();
             // alert('in the option function');
             // $('.options').css("top","pos.top");
@@ -66,7 +66,7 @@ $(document).ready(
 
             let optionsareaBtnsNo = "#optionsarea"+questionAreaCounter;
 
-            let optionsBtnsNo = ".options"+questionAreaCounter ;
+            optionsBtnsNo = ".options"+questionAreaCounter ;
 
             if (oddEven == 1) {
                 $(optionsareaBtnsNo).css({
@@ -80,7 +80,7 @@ $(document).ready(
             }
 
 
-        });
+        }
 
         // TO DELETE A NEW QUESTION AREA
         $('#delete').click(function () {
@@ -90,15 +90,29 @@ $(document).ready(
             savebtn = $('.savebtn');
             let optionbtn = [];
             optionbtn = $('.textarea-btn');
+            let options = [];
+            options = $('.optionbtns');
+            let optionsdiv = [];
+            optionsdiv = $('.optionsareaclass');
+            
             i = textareaarr.length;
             j = savebtn.length;
             k = optionbtn.length;
+            l = options.length;
+            m = optionsdiv.length;
+
             textareaarr[i - 1].remove();
             savebtn[j - 1].remove();
             optionbtn[k-1].remove();
+            for(a = 0;a<3; a++)
+            {
+                options[l-1-a].remove();
+            }
+            optionsdiv[m - 1].remove();
             // console.log(textareaarr[i]);
-            // console.log(savebtn);
-            // console.log(optionbtn);
+            console.log(savebtn);
+            console.log(optionbtn);
+            console.log(options);
             // i--;
             // j--;
             // k--;

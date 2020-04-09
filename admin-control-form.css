@@ -49,8 +49,8 @@ textarea.questionarea:hover {
     /* display: inline-block; */
 }
 
-div#optionsarea {
-    display: none;
+div.optionsareaclass {
+    /* display: none; */
     /* position: absolute; */
     /* top: 100px; */
     /* right: 130px; */
@@ -65,7 +65,7 @@ button.optionbtns, button.options {
     padding: 10px;
     /* background-color: aqua; */
     width: 100%;
-    display: none;
+    /* display: none; */
     position: block;
     list-style: none;
     text-align: center;

@@ -122,12 +122,12 @@ include("mydb.php");
                     <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
                     <button id="sub" class="btn btn-primary savebtn"> Save</button>
                     <span id="result"></span>
-                    <button class="btn btn-primary textarea-btn" name='submit' id="optionsappear">+</button>
+                    <button class="btn btn-primary textarea-btn" name='submit' id="optionsappear" onclick="showOptions(this.id)" >+</button>
                     <!-- </div> -->
-                    <div id="optionsarea1">
-                        <button class="options1 optionbtns"> Options</button>
-                        <button class="options1 optionbtns">Ratings</button>
-                        <button class="options1 optionbtns">Answers</button>
+                    <div id="optionsarea" class="optionsareaclass">
+                        <button class="options optionbtns">Options</button>
+                        <button class="options optionbtns">Ratings</button>
+                        <button class="options optionbtns">Answers</button>
                     </div>
                 </form>
                 <button id="create" class="btn btn-primary">Create</button>
