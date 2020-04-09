@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="mytext">
+    <script>
+        text = document.getElementById("mytext");
+
+        function getTheKeyCode(e) {
+        console.log(e.type + ' ' + e.keycode + ' ' + String.fromCharCode(e.keycode));
+        console.log( e.keycode );
+        alert(e.keycode);
+        }
+
+        window.addEventListener("keydown", getTheKeyCode, false);
+        text.addEventListener("keypress", getTheKeyCode, false);
+        text.addEventListener("keyup", getTheKeyCode, false);
+
+    </script>
+</body>
+</html>
