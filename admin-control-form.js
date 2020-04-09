@@ -5,7 +5,7 @@
         optionsClick = 0;
         addOrRemoveCounter = 0;
         // previousIdno = 0;
-
+        
 
 
         // ******** DYNAMICALLY CREATING OPTIONS MENu *********
@@ -86,7 +86,7 @@
 
             oneOrZero = addOrRemoveCounter % 2;
             let questionsetdiv = "#questionset"+idno;
-            let longTextAreaAns = "#longanswer"+idno;
+            let longTextAreaAns = "#longanswer"+idno+1;
 
             $(questionsetdiv).append(
                 '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' + questionAreaCounter + '" cols="30" rows="2" style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea"> </textarea>'
