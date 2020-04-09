@@ -31,7 +31,7 @@ $(document).ready(
             
             $('#form-page1').append(
                 // '< button class="btn btn-primary textarea-btn" name="submit" id="optionsappear" > + < /button>'
-                '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear' + questionAreaCounter + '">+</button>'
+                '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear' + questionAreaCounter + '" onclick=showOptions(this.id)>+</button>'
             );
 
             $('#form-page1').append(
@@ -49,38 +49,7 @@ $(document).ready(
             }
         );
 
-        // ************* OPTION MENU ***************
-         
-        function showOptions(id) {
 
-            let optionsBtnsNo = id + questionAreaCounter;
-            console.log(id)
-            var pos = $(optionsBtnsNo).position();
-            // alert('in the option function');
-            // $('.options').css("top","pos.top");
-            // alert("pos.top"+pos.top+"position left"+pos.left);
-            optionsClick++;
-            oddEven = optionsClick % 2;
-
-            // Adding the counter values to the put the variables in the jquery
-
-            let optionsareaBtnsNo = "#optionsarea"+questionAreaCounter;
-
-            optionsBtnsNo = ".options"+questionAreaCounter ;
-
-            if (oddEven == 1) {
-                $(optionsareaBtnsNo).css({
-                    "display": "block",
-                });
-                $(optionsareaBtnsNo).show();
-                $(optionsBtnsNo).show();
-            } else {
-                $(optionsareaBtnsNo).hide();
-                $(optionsBtnsNo).hide();
-            }
-
-
-        }
 
         // TO DELETE A NEW QUESTION AREA
         $('#delete').click(function () {
@@ -150,6 +119,77 @@ $(document).ready(
 
     }
 );
+
+
+        // ************* OPTION MENU ***************
+
+        function showOptions(id) {
+
+            let idno;
+            let idlen;
+            console.log(id.length);
+            if(id.length <= 13)
+            {
+                idno = "";
+            }
+            else
+            {
+                idlen = id.length;
+                idno = id[idlen - 1];
+                console.log(idno);
+            }
+            console.log(idno); 
+            // var pos = $(optionsBtnsNo).position();
+            // alert('in the option function');
+            // $('.options').css("top","pos.top");
+            // alert("pos.top"+pos.top+"position left"+pos.left);
+            let optionsClick
+            optionsClick++;
+            oddEven = optionsClick % 2;
+
+            // Adding the counter values to the put the variables in the jquery
+
+            // let optionsareaBtnsNo = "#optionsarea"+questionAreaCounter;
+
+            // optionsBtnsNo = ".options"+questionAreaCounter ;
+
+            let optionarea = "#optionarea"+idno;
+            let options = ".options"+idno;
+            if (oddEven == 1) {
+                $(optionarea).css({
+                    // "display": "block",
+                });
+                $(optionarea).show();
+                $(options).show();
+            } else {
+                $(optionarea).hide();
+                $(options).hide();
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // $('#sub').click(function () {
 //     alert('in sub function');
