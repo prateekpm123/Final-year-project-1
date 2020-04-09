@@ -113,27 +113,28 @@ include("mydb.php");
     </nav>
     <div class="row mainBody">
         <div class="col-lg-6 left-side">
-            <div class="addingQuestionBody">
-                <form method="post" id="form-page1" action="userinfo.php">
-                    <!-- <div id='makingArea'> -->
-                    <textarea name="question" placeholder="Enter the questions..." id="1" onmouseover="" onkeypress=""
-                        cols="30" rows="10" class="questionarea">
+            <form method="post" id="form-page" action="userinfo.php">
+                <!-- <div id='makingArea'> -->
+                <textarea name="question" placeholder="Enter questions..." id="1" onmouseover="" onkeypress="" cols="30"
+                    rows="10" class="questionarea">
                     </textarea>
-                    <button class="btn btn-primary textarea-btn" name='submit' id="optionsappear">+</button>
-                        <div id="optionsarea">
-                            <button class="options"> Options</button>
-                            <button class="options">Ratings</button>
-                            <button class="options">Answers</button>
-                        </div>
-                        <br>
-                    <button id="sub" class="btn btn-primary savebtn"> Save</button>
-                    <span id="result"></span>
-                </form>
+                <button class="btn btn-primary textarea-btn" name='submit' id="optionsappear">+</button>
+                <div id="optionsarea">
+                    <button class="options"> Options</button>
+                    <button class="options">Ratings</button>
+                    <button class="options">Answers</button>
+                </div>
+
                 <br>
-                <button id="create" class="btn btn-primary">Create</button> &nbsp;
-                <button id="delete" class="btn btn-secondary">Delete</button>
-            </div>
-            '<form method="post" id="form-page2' + questionAreaCounter + '" action="userinfo.php"> </form>'
+                <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
+                <button id="sub" class="btn btn-primary savebtn"> Save</button>
+                <span id="result"></span>
+                <!-- </div> -->
+            </form>
+            <button id="create" class="btn btn-primary">Create</button>
+
+            <button id="delete" class="btn btn-danger">Delete</button>
+
 
         </div>
         <div class="col-lg-6 right-side">
@@ -186,11 +187,11 @@ include("mydb.php");
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <script src="admin-control-form.js"></script>
 
-    
+
     <script>
-       
+
     </script>
-    
+
 </body>
 
 </html>
