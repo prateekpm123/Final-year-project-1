@@ -135,7 +135,7 @@ $(document).ready(
         });
 
 
-    // ******* CODE TO MAKE A WINDOW APPEAR AND DISAPPEAR *******
+// ******* CODE TO MAKE A WINDOW APPEAR AND DISAPPEAR *******
 
         // function appear() {
         //     $('.pop').show();

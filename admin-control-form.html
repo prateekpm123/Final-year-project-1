@@ -1,26 +1,19 @@
 <!-- <?php
-
 session_start();
 $username = $_SESSION['uname'];
-
 include("mydb.php");
-
 // $con = mysqli_connect('localhost','root');
 // if($con) {
 //     // echo "sucess";
-
 // }
 // $db = mysqli_select_db($con, 'final_year_project');
 // if($db) {
 //     // echo "sucess h1";
 // }
-
 // include_once("mydb.php");
-
 // if (isset($_POST['submit']))
 // {   
     // $Q1 =$_POST['question'];
-
     // // $query = "INSERT INTO `questions` (`Q1`) VALUES ('$Q1') WHERE `Form Number`='Form2'";
     // $query = "UPDATE `questions` SET `Q2`='$Q1' WHERE `Form Number`='Form2'";
     
@@ -36,7 +29,6 @@ include("mydb.php");
     //     ini_set('display_errors', 1);
     // }
 // } 
-
 ?> -->
 
 <!DOCTYPE html>
@@ -112,23 +104,24 @@ include("mydb.php");
     </nav>
     <div class="row mainBody">
         <div class="col-lg-6 left-side">
-            <form method="post" id="form-page" action="userinfo.php">
-                <!-- <div id='makingArea'> -->
-                <textarea name="question" placeholder="Enter questions..." id="1" onmouseover="" onkeypress="" cols="30"
-                    rows="10" class="questionarea">
+            <div class="addingQuestionBody">
+                <form method="post" id="form-page1" action="userinfo.php">
+                    <!-- <div id='makingArea'> -->
+                    <textarea name="question" placeholder="Enter the questions..." id="1" onmouseover="" onkeypress=""
+                        cols="30" rows="10" class="questionarea">
                     </textarea>
                     <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
                     <button id="sub" class="btn btn-primary savebtn"> Save</button>
                     <span id="result"></span>
                     <li class="nav-item dropdown myCustomization-li" id="user_dropdown">
-                        <a class="nav-link dropdown-toggle myCustomization-a" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+
+                        <a class="nav-link dropdown-toggle myCustomization-a" href="#" id="navbarDropdownMenuLink"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown"> 
-                            <a class="dropdown-item" href="#">Multiple choice</a> 
-                            <a class="dropdown-item" href="#">Ratings</a> 
-                            <a class="dropdown-item" href="#">Long Answer</a> 
-                            <a class="dropdown-item" href="#">Short Answer</a> 
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
+                            <a class="dropdown-item" href="#">Multiple choice</a>
+                            <a class="dropdown-item" href="#">Ratings</a>
+                            <a class="dropdown-item" href="#">Long Answer</a>
+                            <a class="dropdown-item" href="#">Short Answer</a>
                         </div>
                     </li>
                     <!-- </div> -->
@@ -184,13 +177,13 @@ include("mydb.php");
     <!-- ##### Bootstrap libraries ##### -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
+        </script>
 
     <!--  ###### Jquery libraries ##### -->
     <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
@@ -202,14 +195,6 @@ include("mydb.php");
     <script src="admin-control-form.js"></script>
 
 
-<<<<<<< HEAD
-=======
-
-    <script>
-
-    </script>
-
->>>>>>> fb301937324a6be36c9abe2304456bd60c05bead
 </body>
 
 </html>
