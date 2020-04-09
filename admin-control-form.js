@@ -1,5 +1,5 @@
-$(document).ready(
-    function () {
+// $(document).ready(
+    // function () {
         let questionAreaCounter = 1;
         let i = 0;
         let optionsClick = 0;
@@ -14,16 +14,17 @@ $(document).ready(
         });
 
         // ************************* TO CREATE A NEW QUESTION AREA  *******************8
-        $('#create').click(function ()
+        // $('#create').click(function ()
+        function create()      
         {
 
-            alert('in create');
+            // alert('in create');
             // $('.addingQuestionBody').append(
             //     '<form method="post" id="form-page2' + questionAreaCounter + '" action="userinfo.php"> </form>'
             // );
 
             $('#form-page1').append(
-                '<textarea name="question' + questionAreaCounter + '" placeholder="Enter the questions..."  onmouseover="" onkeypress="" cols="30" rows="10" id="Q' + questionAreaCounter + '" class="questionarea">'
+                '<textarea name="question' + questionAreaCounter + '" placeholder="Enter the questions..."  style="overflow:hidden"  onkeyup="AutoGrowTextArea(this)" cols="30" rows="3" id="Q' + questionAreaCounter + '" class="questionarea">'
             ); 
             
             $('#form-page1').append(
@@ -57,8 +58,8 @@ $(document).ready(
                 // div1.appendChild(textarea);
                 // provideId(questionAreaCounter);
                 // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
-            }
-        );
+        }
+        
 
 
 
@@ -137,17 +138,47 @@ $(document).ready(
 
 // ******* CODE TO MAKE A WINDOW APPEAR AND DISAPPEAR *******
 
-        // function appear() {
-        //     $('.pop').show();
-        // }
+    // function appear() 
+    // {
+    //     $('.pop').show();
+    // }
 
-        // function goback() {
-        //     $('.pop').hide();
-        // } 
+    // function goback() {
+    //     $('.pop').hide();
+    // } 
 
 
-    }
-);
+    // }    
+// );
+
+
+
+// ********************************  FUNCTION TO INCREASE SIZE OF THE TEXTAREA  *****************************************
+// function AutoGrowTextArea(textField) {
+//     // console.log(textField);
+//     // console.log("Client height ",textField.clientHeight);
+//     // console.log(textField.style.height);
+//     // console.log("Scroll height ",textField.scrollHeight);
+//     // console.log(rem);
+//     if (textField.clientHeight < textField.scrollHeight) {
+//         textField.style.height = textField.scrollHeight + "px";
+//         if (textField.clientHeight < textField.scrollHeight) {
+//             textField.style.height =
+//                 (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+//         }
+//     }
+// }
+
+// function AutoShrinkArea(textField) {
+//     if (textField.clientHeight > textField.scrollHeight) {
+//         textField.style.height = textField.clientHeight-14 + "px";
+//         if (textField.clientHeight > textField.scrollHeight) {
+//             textField.style.height =
+//                 (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+//         }
+//     }
+// }
+
 
 // ****** My made option buttons *******
 

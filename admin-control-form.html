@@ -107,8 +107,9 @@ include("mydb.php");
             <div class="addingQuestionBody">
                 <form method="post" id="form-page1" action="userinfo.php">
                     <!-- <div id='makingArea'> -->
-                    <textarea name="question" placeholder="Enter the questions..." id="1" onmouseover="" onkeypress=""
-                        cols="30" rows="10" class="questionarea">
+                    <textarea name="question" placeholder="Enter the questions..." id="1" 
+                        cols="30" rows="2" style="overflow:hidden"  onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)"
+                        class="questionarea">
                     </textarea>
                     <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
                     <button id="sub" class="btn btn-primary savebtn"> Save</button>
@@ -124,14 +125,20 @@ include("mydb.php");
                             <a class="dropdown-item" href="#">Short Answer</a>
                         </div>
                     </li>
+                    <!-- <input type="text" id="mytext"> -->
+                    <!-- <?php
+                        include("textarea-testing.html");
+                    ?> -->
+                    
+
                     <!-- </div> -->
-                    <div id="optionsarea" class="optionsareaclass">
+                    <!-- <div id="optionsarea" class="optionsareaclass">
                         <button class="options optionbtns">Options</button>
                         <button class="options optionbtns">Ratings</button>
                         <button class="options optionbtns">Answers</button>
-                    </div>
+                    </div> -->
                 </form>
-                <button id="create" class="btn btn-primary">Create</button>
+                <button id="create" onclick="create()" class="btn btn-primary">Create</button>
                 <button id="delete" class="btn btn-secondary">Delete</button>
             </div>
 

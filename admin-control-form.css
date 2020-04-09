@@ -11,7 +11,7 @@ textarea.questionarea {
     width: 100%;
     /* margin: 2%; */
     /* height: auto; */
-    height: 10rem;
+    /* height: 10rem; */
     outline-style: none;
     padding-left: 50px;
     padding-top: 20px; 
@@ -109,6 +109,13 @@ a.myCustomization-a {
 a.myCustomization-a:hover {
     background-color: rgb(228, 228, 228);
 }
+
+/* ###### Inputs ####### */
+input.inputs {
+    height: 300px;
+}
+
+
 
 
 .right-side {
