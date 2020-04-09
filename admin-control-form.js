@@ -1,8 +1,10 @@
 // $(document).ready(
     // function () {
-        let questionAreaCounter = 1;
-        let i = 0;
-        let optionsClick = 0;
+        questionAreaCounter = 1;
+        i = 0;
+        optionsClick = 0;
+        addOrRemoveCounter = 0;
+        // previousIdno = 0;
 
 
 
@@ -18,15 +20,17 @@
         function create()      
         {
 
-            // alert('in create');
-            // $('.addingQuestionBody').append(
-            //     '<form method="post" id="form-page2' + questionAreaCounter + '" action="userinfo.php"> </form>'
-            // );
-
             $('#form-page1').append(
+                '<div class="question-set" id="questionset' + questionAreaCounter + '"></div>'
+            );
+            
+            let questionsetno = "#questionset"+questionAreaCounter;
+
+            $(questionsetno).append(
                 '<textarea name="question' + questionAreaCounter + '" placeholder="Enter the questions..."  style="overflow:hidden"  onkeyup="AutoGrowTextArea(this)" cols="30" rows="3" id="Q' + questionAreaCounter + '" class="questionarea">'
             ); 
-            
+           
+
             $('#form-page1').append(
                 '<button id="sub" class="btn btn-primary savebtn"> Save</button>'
             ); 
@@ -49,7 +53,7 @@
 
             // *************** Code for bootstrap dropdownbutton *****************
             $('#form-page1').append(
-                '<li class="nav-item dropdown myCustomization-li" id="user_dropdown">  <a class="nav-link dropdown-toggle myCustomization-a" href="#" id="navbarDropdownMenuLink" role="button"    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown"> <a class="dropdown-item" href="#">Multiple choice</a> <a class="dropdown-item" href="#">Ratings</a>                  <a class="dropdown-item" href="#">Long Answer</a> <a class="dropdown-item" href="#">Short Answer</a> </div> </li>'
+                '<li class="nav-item dropdown myCustomization-li" id="user_dropdown">  <a class="nav-link dropdown-toggle myCustomization-a" href="#" id="navbarDropdownMenuLink" role="button"    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown"> <a class="dropdown-item options' + questionAreaCounter + '" href="#">Multiple choice</a> <a class="dropdown-item options' + questionAreaCounter + '" href="#">Ratings</a>                  <a class="dropdown-item options' + questionAreaCounter + '" href="#" onclick="createLongAnswer(this.className)">Long Answer</a> <a class="dropdown-item options' + questionAreaCounter + '" href="#">Short Answer</a> </div> </li>'
             );
 
  
@@ -60,11 +64,61 @@
                 // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
         }
         
+        function createLongAnswer(info) {
+            // alert("into create long answer");
+            console.log(info);
+            infolen = info.length;
+            idno = info[infolen - 1];
+            // console.log("idno "+idno);
+            // let previousIdno;
+            // // let count = longAnswerCounter(idno); 
+
+            // if (previousIdno == idno) {
+            //     alert("in if condition");
+            //     return addOrRemoveCounter++;
+            //     console.log("counter " + addOrRemoveCounter);   
+            // } else {
+            //     return addOrRemoveCounter;
+            //     console.log("counter " + addOrRemoveCounter);
+
+            // }
+            console.log("counter " + addOrRemoveCounter);
+
+            oneOrZero = addOrRemoveCounter % 2;
+            let questionsetdiv = "#questionset"+idno;
+            let longTextAreaAns = "#longanswer"+idno;
+
+            $(questionsetdiv).append(
+                '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' + questionAreaCounter + '" cols="30" rows="2" style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea"> </textarea>'
+            );
+        
+         
+            // $(longTextAreaAns).remove();
+            
+            previousIdno = idno;
+            console.log("previousidno "+ previousIdno);
+
+
+        }
+
+        // function longAnswerCounter(idno) {
+        //     let previousIdno;
+
+        //     if (previousIdno == idno) {
+        //         alert("in if condition");
+        //         return addOrRemoveCounter++;
+        //     } else {
+        //         return addOrRemoveCounter;
+        //     }
+        // }
+
 
 
 
         // TO DELETE A NEW QUESTION AREA
-        $('#delete').click(function () {
+        function deleted() {
+            let questionsetdiv = [];
+            questionsetdiv = $('.question-set');
             let textareaarr = [];
             textareaarr = $('textarea');
             let savebtn = [];
@@ -84,7 +138,7 @@
             // options = $('.optionbtns');
             // let optionsdiv = [];
             // optionsdiv = $('.optionsareaclass');
-            
+            h = questionsetdiv.length;
             i = textareaarr.length;
             j = savebtn.length;
 
@@ -93,6 +147,7 @@
             // l = options.length;
             // m = optionsdiv.length;
 
+            questionsetdiv[h-1].remove();
             textareaarr[i - 1].remove();
             savebtn[j - 1].remove();
 
@@ -115,7 +170,7 @@
             // j--;
             // k--;
             questionAreaCounter--;
-        });
+        }
 
 
 
@@ -154,30 +209,30 @@
 
 
 // ********************************  FUNCTION TO INCREASE SIZE OF THE TEXTAREA  *****************************************
-// function AutoGrowTextArea(textField) {
-//     // console.log(textField);
-//     // console.log("Client height ",textField.clientHeight);
-//     // console.log(textField.style.height);
-//     // console.log("Scroll height ",textField.scrollHeight);
-//     // console.log(rem);
-//     if (textField.clientHeight < textField.scrollHeight) {
-//         textField.style.height = textField.scrollHeight + "px";
-//         if (textField.clientHeight < textField.scrollHeight) {
-//             textField.style.height =
-//                 (textField.scrollHeight * 2 - textField.clientHeight) + "px";
-//         }
-//     }
-// }
+function AutoGrowTextArea(textField) {
+    // console.log(textField);
+    // console.log("Client height ",textField.clientHeight);
+    // console.log(textField.style.height);
+    // console.log("Scroll height ",textField.scrollHeight);
+    // console.log(rem);
+    if (textField.clientHeight < textField.scrollHeight) {
+        textField.style.height = textField.scrollHeight + "px";
+        if (textField.clientHeight < textField.scrollHeight) {
+            textField.style.height =
+                (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+        }
+    }
+}
 
-// function AutoShrinkArea(textField) {
-//     if (textField.clientHeight > textField.scrollHeight) {
-//         textField.style.height = textField.clientHeight-14 + "px";
-//         if (textField.clientHeight > textField.scrollHeight) {
-//             textField.style.height =
-//                 (textField.scrollHeight * 2 - textField.clientHeight) + "px";
-//         }
-//     }
-// }
+function AutoShrinkArea(textField) {
+    if (textField.clientHeight > textField.scrollHeight) {
+        textField.style.height = textField.clientHeight-14 + "px";
+        if (textField.clientHeight > textField.scrollHeight) {
+            textField.style.height =
+                (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+        }
+    }
+}
 
 
 // ****** My made option buttons *******

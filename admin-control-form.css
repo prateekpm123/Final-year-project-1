@@ -7,38 +7,7 @@
     padding-left: 10px;
 }
 
-textarea.questionarea {
-    width: 100%;
-    /* margin: 2%; */
-    /* height: auto; */
-    /* height: 10rem; */
-    outline-style: none;
-    padding-left: 50px;
-    padding-top: 20px; 
-    /* display: block; */
-    /* border: 1px solid gray; */
-    /* border-radius: 10px; */
-    /* -webkit-box-shadow: 0px 0px 5px 0px rgb(170, 170, 170); */
-    /* -moz-box-shadow: 0px 0px 5px 0px rgb(170, 170, 170); */
-    /* box-shadow: 0px 0px 5px 0px rgb(170, 170, 170); */
-    border-style: none;
-    box-sizing: border-box;
-    overflow: show;
-} 
 
-textarea.questionarea:hover {
-    background-color: rgb(228, 228, 228);
-}
-
-.textarea-btn {
-    margin:auto;
-    /* margin-left: 2%; */
-
-    font-size: larger;
-    /* padding: 1rem; */
-    border-radius: 50%;
-    background-color: rgb(59, 59, 59);
-}
 
 .left-side {
     -webkit-box-shadow: 0px 0px 5px 0px rgb(170, 170, 170);
@@ -50,6 +19,49 @@ textarea.questionarea:hover {
     /* margin-left: 10px; */
     /* display: inline-block; */
 }
+
+
+textarea.questionarea {
+    width: 100%;
+    /* margin: 2%; */
+    /* height: auto; */
+    /* height: 10rem; */
+    outline-style: none;
+    padding-left: 20px;
+    padding-top: 20px;
+    /* display: block; */
+    /* border: 1px solid gray; */
+    /* border-radius: 10px; */
+    /* -webkit-box-shadow: 0px 0px 5px 0px rgb(170, 170, 170); */
+    /* -moz-box-shadow: 0px 0px 5px 0px rgb(170, 170, 170); */
+    /* box-shadow: 0px 0px 5px 0px rgb(170, 170, 170); */
+    border-style: none;
+    box-sizing: border-box;
+    overflow: show;
+}
+
+textarea.questionarea:hover {
+    background-color: rgb(228, 228, 228);
+}
+
+textarea.answerarea {
+    background-color: rgb(238, 220, 208);
+}
+
+textarea.answerarea:hover {
+    background-color: rgb(236, 187, 150);
+}
+
+.textarea-btn {
+    margin: auto;
+    /* margin-left: 2%; */
+
+    font-size: larger;
+    /* padding: 1rem; */
+    border-radius: 50%;
+    background-color: rgb(59, 59, 59);
+}
+
 
 div.optionsareaclass {
     display: none;

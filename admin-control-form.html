@@ -106,12 +106,15 @@ include("mydb.php");
         <div class="col-lg-6 left-side">
             <div class="addingQuestionBody">
                 <form method="post" id="form-page1" action="userinfo.php">
-                    <!-- <div id='makingArea'> -->
-                    <textarea name="question" placeholder="Enter the questions..." id="1" 
-                        cols="30" rows="2" style="overflow:hidden"  onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)"
-                        class="questionarea">
-                    </textarea>
-                    <!-- <input type="button" class="btn btn-primary" id="sub" value="submit" onclick="">  -->
+                    <div class="question-set" id="questionset0">
+                        <textarea name="question" placeholder="Enter the questions..." id="1"
+                            cols="30" rows="2" style="overflow:hidden"
+                            onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)"
+                            class="questionarea">
+                        </textarea>     
+                    </div>
+
+
                     <button id="sub" class="btn btn-primary savebtn"> Save</button>
                     <span id="result"></span>
                     <li class="nav-item dropdown myCustomization-li" id="user_dropdown">
@@ -119,10 +122,10 @@ include("mydb.php");
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
-                            <a class="dropdown-item" href="#">Multiple choice</a>
-                            <a class="dropdown-item" href="#">Ratings</a>
-                            <a class="dropdown-item" href="#">Long Answer</a>
-                            <a class="dropdown-item" href="#">Short Answer</a>
+                            <a class="dropdown-item options0" href="#">Multiple choice</a>
+                            <a class="dropdown-item options0" href="#">Ratings</a>
+                            <a class="dropdown-item options0" href="#" onclick="createLongAnswer(this.className)">Long Answer</a>
+                            <a class="dropdown-item options0" href="#">Short Answer</a>
                         </div>
                     </li>
                     <!-- <input type="text" id="mytext"> -->
@@ -131,7 +134,6 @@ include("mydb.php");
                     ?> -->
                     
 
-                    <!-- </div> -->
                     <!-- <div id="optionsarea" class="optionsareaclass">
                         <button class="options optionbtns">Options</button>
                         <button class="options optionbtns">Ratings</button>
@@ -139,7 +141,7 @@ include("mydb.php");
                     </div> -->
                 </form>
                 <button id="create" onclick="create()" class="btn btn-primary">Create</button>
-                <button id="delete" class="btn btn-secondary">Delete</button>
+            <button id="delete" onclick="deleted()" class="btn btn-secondary">Delete</button>
             </div>
 
 
