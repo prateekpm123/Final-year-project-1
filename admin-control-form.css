@@ -61,6 +61,8 @@ div.optionsareaclass {
     width: 40%;
 }
 
+/* ####################### My custom code for creating buttons ########################## */
+/* ################### Currently not using ###################### */
 button.optionbtns, button.options {
     padding: 10px;
     /* background-color: aqua; */
@@ -88,6 +90,23 @@ button.options:active {
     transform: translateY(4px);
 }
 
+
+/* ################### Bootstrap dropdown feature ################### */
+li.myCustomization-li {
+    /* background-color: aqua; */
+    /* height: 40px; */
+}
+
+a.myCustomization-a {
+    color: black;
+    font-size: larger;
+    /* background-color: rgb(255, 255, 255); */
+    width: 80px;
+}
+
+a.myCustomization-a:hover {
+    background-color: rgb(228, 228, 228);
+}
 
 
 .right-side {

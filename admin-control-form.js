@@ -17,6 +17,7 @@ $(document).ready(
         $('#create').click(function ()
         {
 
+            alert('in create');
             // $('.addingQuestionBody').append(
             //     '<form method="post" id="form-page2' + questionAreaCounter + '" action="userinfo.php"> </form>'
             // );
@@ -28,19 +29,29 @@ $(document).ready(
             $('#form-page1').append(
                 '<button id="sub" class="btn btn-primary savebtn"> Save</button>'
             ); 
-            
+
+
+            // **************** My made option buttons *****************
+
+            // $('#form-page1').append(
+            //     // '< button class="btn btn-primary textarea-btn" name="submit" id="optionsappear" > + < /button>'
+            //     '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear' + questionAreaCounter + '" onclick=showOptions(this.id)>+</button>'
+            // );
+            // $('#form-page1').append(
+            //     '<div id="optionsarea' + questionAreaCounter + '" class="optionsareaclass"></div>'
+            // );
+            // let questionCounter = "#optionsarea"+questionAreaCounter; 
+            // $(questionCounter).append(
+            //     '<button class="options' + questionAreaCounter + ' optionbtns"> Options</button>                <button class= "options' + questionAreaCounter + ' optionbtns"> Ratings</button>            <button class="options' + questionAreaCounter + ' optionbtns">Answers</button>'
+            // );
+
+
+            // *************** Code for bootstrap dropdownbutton *****************
             $('#form-page1').append(
-                // '< button class="btn btn-primary textarea-btn" name="submit" id="optionsappear" > + < /button>'
-                '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear' + questionAreaCounter + '" onclick=showOptions(this.id)>+</button>'
+                '<li class="nav-item dropdown myCustomization-li" id="user_dropdown">  <a class="nav-link dropdown-toggle myCustomization-a" href="#" id="navbarDropdownMenuLink" role="button"    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown"> <a class="dropdown-item" href="#">Multiple choice</a> <a class="dropdown-item" href="#">Ratings</a>                  <a class="dropdown-item" href="#">Long Answer</a> <a class="dropdown-item" href="#">Short Answer</a> </div> </li>'
             );
 
-            $('#form-page1').append(
-                '<div id="optionsarea' + questionAreaCounter + '" class="optionsareaclass"></div>'
-            );
-            let questionCounter = "#optionsarea"+questionAreaCounter; 
-            $(questionCounter).append(
-                '<button class="options' + questionAreaCounter + ' optionbtns"> Options</button>                <button class= "options' + questionAreaCounter + ' optionbtns"> Ratings</button>            <button class="options' + questionAreaCounter + ' optionbtns">Answers</button>'
-            );
+ 
 
             questionAreaCounter ++;
                 // div1.appendChild(textarea);
@@ -57,31 +68,48 @@ $(document).ready(
             textareaarr = $('textarea');
             let savebtn = [];
             savebtn = $('.savebtn');
-            let optionbtn = [];
-            optionbtn = $('.textarea-btn');
-            let options = [];
-            options = $('.optionbtns');
-            let optionsdiv = [];
-            optionsdiv = $('.optionsareaclass');
+
+            // *************** Code for bootstrap dropdownbutton *****************
+            let dropdown = [];
+            dropdown = $('.dropdown');
+            dropdownLen = dropdown.length;
+            dropdown[dropdownLen-1].remove();
+
+
+            // ****** My made option buttons *******
+            // let optionbtn = [];
+            // optionbtn = $('.textarea-btn');
+            // let options = [];
+            // options = $('.optionbtns');
+            // let optionsdiv = [];
+            // optionsdiv = $('.optionsareaclass');
             
             i = textareaarr.length;
             j = savebtn.length;
-            k = optionbtn.length;
-            l = options.length;
-            m = optionsdiv.length;
+
+            // ****** My made option buttons *******
+            // k = optionbtn.length;
+            // l = options.length;
+            // m = optionsdiv.length;
 
             textareaarr[i - 1].remove();
             savebtn[j - 1].remove();
-            optionbtn[k-1].remove();
-            for(a = 0;a<3; a++)
-            {
-                options[l-1-a].remove();
-            }
-            optionsdiv[m - 1].remove();
+
+            // ****** My made option buttons *******
+            // optionbtn[k-1].remove();
+            // for(a = 0;a<3; a++)
+            // {
+            //     options[l-1-a].remove();
+            // }
+            // optionsdiv[m - 1].remove();
             // console.log(textareaarr[i]);
+
+
             console.log(savebtn);
-            console.log(optionbtn);
-            console.log(options);
+
+            // ****** My made option buttons *******
+            // console.log(optionbtn);
+            // console.log(options);
             // i--;
             // j--;
             // k--;
@@ -93,6 +121,7 @@ $(document).ready(
 
         //************** / AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING ****************
         $('#sub').click(function () {
+            alert('in save');
             var data = $("#form-page1 :input").serializeArray();
             $.post($("#form-page1").attr("action"), data, function (info) {
                 $("#result").html(info);
@@ -120,54 +149,55 @@ $(document).ready(
     }
 );
 
+// ****** My made option buttons *******
 
         // ************* OPTION MENU ***************
 
-        function showOptions(id) {
+        // function showOptions(id) {
 
-            let idno;
-            let idlen;
-            console.log(id.length);
-            if(id.length <= 13)
-            {
-                idno = "";
-            }
-            else
-            {
-                idlen = id.length;
-                idno = id[idlen - 1];
-                console.log(idno);
-            }
-            console.log(idno); 
-            // var pos = $(optionsBtnsNo).position();
-            // alert('in the option function');
-            // $('.options').css("top","pos.top");
-            // alert("pos.top"+pos.top+"position left"+pos.left);
-            let optionsClick
-            optionsClick++;
-            oddEven = optionsClick % 2;
+        //     let idno;
+        //     let idlen;
+        //     console.log(id.length);
+        //     if(id.length <= 13)
+        //     {
+        //         idno = "";
+        //     }
+        //     else
+        //     {
+        //         idlen = id.length;
+        //         idno = id[idlen - 1];
+        //         console.log(idno);
+        //     }
+        //     console.log(idno); 
+        //     // var pos = $(optionsBtnsNo).position();
+        //     // alert('in the option function');
+        //     // $('.options').css("top","pos.top");
+        //     // alert("pos.top"+pos.top+"position left"+pos.left);
+        //     let optionsClick
+        //     optionsClick++;
+        //     oddEven = optionsClick % 2;
 
-            // Adding the counter values to the put the variables in the jquery
+        //     // Adding the counter values to the put the variables in the jquery
 
-            // let optionsareaBtnsNo = "#optionsarea"+questionAreaCounter;
+        //     // let optionsareaBtnsNo = "#optionsarea"+questionAreaCounter;
 
-            // optionsBtnsNo = ".options"+questionAreaCounter ;
+        //     // optionsBtnsNo = ".options"+questionAreaCounter ;
 
-            let optionarea = "#optionarea"+idno;
-            let options = ".options"+idno;
-            if (oddEven == 1) {
-                $(optionarea).css({
-                    // "display": "block",
-                });
-                $(optionarea).show();
-                $(options).show();
-            } else {
-                $(optionarea).hide();
-                $(options).hide();
-            }
+        //     let optionarea = "#optionarea"+idno;
+        //     let options = ".options"+idno;
+        //     if (oddEven == 1) {
+        //         $(optionarea).css({
+        //             // "display": "block",
+        //         });
+        //         $(optionarea).show();
+        //         $(options).show();
+        //     } else {
+        //         $(optionarea).hide();
+        //         $(options).hide();
+        //     }
 
 
-        }
+        // }
 
 
 
