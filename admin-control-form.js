@@ -53,7 +53,7 @@
 
             // *************** Code for bootstrap dropdownbutton *****************
             $('#form-page1').append(
-                '<li class="nav-item dropdown myCustomization-li" id="user_dropdown">  <a class="nav-link dropdown-toggle myCustomization-a" href="#" id="navbarDropdownMenuLink" role="button"    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown"> <a class="dropdown-item options' + questionAreaCounter + '" href="#">Multiple choice</a> <a class="dropdown-item options' + questionAreaCounter + '" href="#">Ratings</a>                  <a class="dropdown-item options' + questionAreaCounter + '" href="#" onclick="createLongAnswer(this.className)">Long Answer</a> <a class="dropdown-item options' + questionAreaCounter + '" href="#">Short Answer</a> </div> </li>'
+                '<li class="nav-item dropdown myCustomization-li" id="user_dropdown">  <a class="nav-link dropdown-toggle myCustomization-a" href="#" id="navbarDropdownMenuLink" role="button"    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown"> <button class="dropdown-item options' + questionAreaCounter + '" href="#">Multiple choice</button> <button class="dropdown-item options' + questionAreaCounter + '" href="#">Ratings</button> <button class="dropdown-item options' + questionAreaCounter + '" onclick="createLongAnswer(this.className)">Long Answer</button> <button class="dropdown-item options' + questionAreaCounter + '" href="#">Short Answer</button> </div> </li>'
             );
 
  
@@ -66,7 +66,7 @@
         
         function createLongAnswer(info) {
             // alert("into create long answer");
-            console.log(info);
+            // console.log(info);
             infolen = info.length;
             idno = info[infolen - 1];
             // console.log("idno "+idno);
@@ -81,13 +81,14 @@
             //     return addOrRemoveCounter;
             //     console.log("counter " + addOrRemoveCounter);
 
-            // }
-            console.log("counter " + addOrRemoveCounter);
+            // // }
+            // console.log("counter " + addOrRemoveCounter);
 
-            oneOrZero = addOrRemoveCounter % 2;
+            // oneOrZero = addOrRemoveCounter % 2;
             let questionsetdiv = "#questionset"+idno;
             let longTextAreaAns = "#longanswer"+idno+1;
 
+            
             $(questionsetdiv).append(
                 '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' + questionAreaCounter + '" cols="30" rows="2" style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea"> </textarea>'
             );
@@ -95,22 +96,27 @@
          
             // $(longTextAreaAns).remove();
             
-            previousIdno = idno;
-            console.log("previousidno "+ previousIdno);
+            // previousIdno = idno;
+            // console.log("previousidno "+ previousIdno);
 
 
         }
+        count = 1;
 
-        // function longAnswerCounter(idno) {
-        //     let previousIdno;
-
-        //     if (previousIdno == idno) {
-        //         alert("in if condition");
-        //         return addOrRemoveCounter++;
-        //     } else {
-        //         return addOrRemoveCounter;
-        //     }
-        // }
+        function longAnswerCounter(info) 
+        { 
+            let previousIdno;
+            infolen = info.length;
+            idno = info[infolen - 1];
+            console.log(info,"info");
+            if (previousIdno == idno) {
+                alert("in if condition");
+                return addOrRemoveCounter++;
+            } else {
+                return addOrRemoveCounter;
+            }
+            // previousIdno = idno;
+        }
 
 
 

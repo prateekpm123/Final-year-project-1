@@ -122,10 +122,11 @@ include("mydb.php");
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
-                            <a class="dropdown-item options0" href="#">Multiple choice</a>
-                            <a class="dropdown-item options0" href="#">Ratings</a>
-                            <a class="dropdown-item options0" href="#" onclick="createLongAnswer(this.className)">Long Answer</a>
-                            <a class="dropdown-item options0" href="#">Short Answer</a>
+                            <button class="dropdown-item options0" href="#">Multiple choice</button>
+                            <button class="dropdown-item options0" href="#">Ratings</button>
+                            <button class="dropdown-item options0" onclick="longAnswerCounter(this.className)">Long
+                                Answer</button>
+                            <button class="dropdown-item options0" href="#">Short Answer</button>
                         </div>
                     </li>
                     <!-- <input type="text" id="mytext"> -->
