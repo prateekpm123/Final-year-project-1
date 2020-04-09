@@ -1,85 +1,183 @@
-$(document).ready(
-    function () {
-        let questionAreaCounter = 1;
-        let i = 0;
-        let optionsClick = 0;
+// $(document).ready(
+    // function () {
+        questionAreaCounter = 1;
+        i = 0;
+        optionsClick = 0;
+        addOrRemoveCounter = 0;
+        // previousIdno = 0;
 
 
-        // ************* OPTION MENU ***************
-        $("#optionsappear").click(function () {
-            var pos = $('#optionsappear').position();
-            // alert('in the option function');
-            // $('.options').css("top","pos.top");
-            // alert("pos.top"+pos.top+"position left"+pos.left);
-            optionsClick++;
-            oddEven = optionsClick % 2;
-            if (oddEven == 1) {
-                $('#optionsarea').css({
-                    "display": "block",
-                });
-                $('#optionsarea').show();
-                $('.options').show();
-            } else {
-                $('#optionsarea').hide();
-                $('.options').hide();
-            }
-
-
-        });
 
         // ******** DYNAMICALLY CREATING OPTIONS MENu *********
 
         $("#optionsappear").click(function () {
             // Write here the code to append the options list
 
-
-
-
         });
 
-        // TO CREATE A NEW QUESTION AREA
-        $('#create').click(function ()
+        // ************************* TO CREATE A NEW QUESTION AREA  *******************8
+        // $('#create').click(function ()
+        function create()      
         {
 
-            // $('.addingQuestionBody').append(<br></br>);
-
             $('#form-page1').append(
-                '<textarea name="question' + questionAreaCounter + '" placeholder="Enter the questions..."  onmouseover="" onkeypress="" cols="30" rows="10" id="Q' + questionAreaCounter + '" class="questionarea">'
-            ); 
+                '<div class="question-set" id="questionset' + questionAreaCounter + '"></div>'
+            );
             
+            let questionsetno = "#questionset"+questionAreaCounter;
+
+            $(questionsetno).append(
+                '<textarea name="question' + questionAreaCounter + '" placeholder="Enter the questions..."  style="overflow:hidden"  onkeyup="AutoGrowTextArea(this)" cols="30" rows="3" id="Q' + questionAreaCounter + '" class="questionarea">'
+            ); 
+           
+
             $('#form-page1').append(
                 '<button id="sub" class="btn btn-primary savebtn"> Save</button>'
             ); 
-            
+
+
+            // **************** My made option buttons *****************
+
+            // $('#form-page1').append(
+            //     // '< button class="btn btn-primary textarea-btn" name="submit" id="optionsappear" > + < /button>'
+            //     '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear' + questionAreaCounter + '" onclick=showOptions(this.id)>+</button>'
+            // );
+            // $('#form-page1').append(
+            //     '<div id="optionsarea' + questionAreaCounter + '" class="optionsareaclass"></div>'
+            // );
+            // let questionCounter = "#optionsarea"+questionAreaCounter; 
+            // $(questionCounter).append(
+            //     '<button class="options' + questionAreaCounter + ' optionbtns"> Options</button>                <button class= "options' + questionAreaCounter + ' optionbtns"> Ratings</button>            <button class="options' + questionAreaCounter + ' optionbtns">Answers</button>'
+            // );
+
+
+            // *************** Code for bootstrap dropdownbutton *****************
             $('#form-page1').append(
-                // '< button class="btn btn-primary textarea-btn" name="submit" id="optionsappear" > + < /button>'
-                '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear">+</button>'
+                '<li class="nav-item dropdown myCustomization-li" id="user_dropdown">  <a class="nav-link dropdown-toggle myCustomization-a" href="#" id="navbarDropdownMenuLink" role="button"    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown"> <a class="dropdown-item options' + questionAreaCounter + '" href="#">Multiple choice</a> <a class="dropdown-item options' + questionAreaCounter + '" href="#">Ratings</a>                  <a class="dropdown-item options' + questionAreaCounter + '" href="#" onclick="createLongAnswer(this.className)">Long Answer</a> <a class="dropdown-item options' + questionAreaCounter + '" href="#">Short Answer</a> </div> </li>'
             );
+
+ 
+
+            questionAreaCounter ++;
                 // div1.appendChild(textarea);
                 // provideId(questionAreaCounter);
                 // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
-            }
-        );
+        }
+        
+        function createLongAnswer(info) {
+            // alert("into create long answer");
+            console.log(info);
+            infolen = info.length;
+            idno = info[infolen - 1];
+            // console.log("idno "+idno);
+            // let previousIdno;
+            // // let count = longAnswerCounter(idno); 
+
+            // if (previousIdno == idno) {
+            //     alert("in if condition");
+            //     return addOrRemoveCounter++;
+            //     console.log("counter " + addOrRemoveCounter);   
+            // } else {
+            //     return addOrRemoveCounter;
+            //     console.log("counter " + addOrRemoveCounter);
+
+            // }
+            console.log("counter " + addOrRemoveCounter);
+
+            oneOrZero = addOrRemoveCounter % 2;
+            let questionsetdiv = "#questionset"+idno;
+            let longTextAreaAns = "#longanswer"+idno;
+
+            $(questionsetdiv).append(
+                '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' + questionAreaCounter + '" cols="30" rows="2" style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea"> </textarea>'
+            );
+        
+         
+            // $(longTextAreaAns).remove();
+            
+            previousIdno = idno;
+            console.log("previousidno "+ previousIdno);
+
+
+        }
+
+        // function longAnswerCounter(idno) {
+        //     let previousIdno;
+
+        //     if (previousIdno == idno) {
+        //         alert("in if condition");
+        //         return addOrRemoveCounter++;
+        //     } else {
+        //         return addOrRemoveCounter;
+        //     }
+        // }
+
+
+
 
         // TO DELETE A NEW QUESTION AREA
-        $('#delete').click(function () {
+        function deleted() {
+            let questionsetdiv = [];
+            questionsetdiv = $('.question-set');
             let textareaarr = [];
             textareaarr = $('textarea');
             let savebtn = [];
             savebtn = $('.savebtn');
+
+            // *************** Code for bootstrap dropdownbutton *****************
+            let dropdown = [];
+            dropdown = $('.dropdown');
+            dropdownLen = dropdown.length;
+            dropdown[dropdownLen-1].remove();
+
+
+            // ****** My made option buttons *******
+            // let optionbtn = [];
+            // optionbtn = $('.textarea-btn');
+            // let options = [];
+            // options = $('.optionbtns');
+            // let optionsdiv = [];
+            // optionsdiv = $('.optionsareaclass');
+            h = questionsetdiv.length;
             i = textareaarr.length;
             j = savebtn.length;
+
+            // ****** My made option buttons *******
+            // k = optionbtn.length;
+            // l = options.length;
+            // m = optionsdiv.length;
+
+            questionsetdiv[h-1].remove();
             textareaarr[i - 1].remove();
             savebtn[j - 1].remove();
+
+            // ****** My made option buttons *******
+            // optionbtn[k-1].remove();
+            // for(a = 0;a<3; a++)
+            // {
+            //     options[l-1-a].remove();
+            // }
+            // optionsdiv[m - 1].remove();
             // console.log(textareaarr[i]);
-            console.log(textareaarr[j]);
-            i--;
+
+
+            console.log(savebtn);
+
+            // ****** My made option buttons *******
+            // console.log(optionbtn);
+            // console.log(options);
+            // i--;
             // j--;
+            // k--;
             questionAreaCounter--;
-        });
+        }
+
+
+
 
         //************** / AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING ****************
         $('#sub').click(function () {
+            alert('in save');
             var data = $("#form-page1 :input").serializeArray();
             $.post($("#form-page1").attr("action"), data, function (info) {
                 $("#result").html(info);
@@ -93,19 +191,121 @@ $(document).ready(
         });
 
 
-    // ******* CODE TO MAKE A WINDOW APPEAR AND DISAPPEAR *******
+// ******* CODE TO MAKE A WINDOW APPEAR AND DISAPPEAR *******
 
-        // function appear() {
-        //     $('.pop').show();
+    // function appear() 
+    // {
+    //     $('.pop').show();
+    // }
+
+    // function goback() {
+    //     $('.pop').hide();
+    // } 
+
+
+    // }    
+// );
+
+
+
+// ********************************  FUNCTION TO INCREASE SIZE OF THE TEXTAREA  *****************************************
+function AutoGrowTextArea(textField) {
+    // console.log(textField);
+    // console.log("Client height ",textField.clientHeight);
+    // console.log(textField.style.height);
+    // console.log("Scroll height ",textField.scrollHeight);
+    // console.log(rem);
+    if (textField.clientHeight < textField.scrollHeight) {
+        textField.style.height = textField.scrollHeight + "px";
+        if (textField.clientHeight < textField.scrollHeight) {
+            textField.style.height =
+                (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+        }
+    }
+}
+
+function AutoShrinkArea(textField) {
+    if (textField.clientHeight > textField.scrollHeight) {
+        textField.style.height = textField.clientHeight-14 + "px";
+        if (textField.clientHeight > textField.scrollHeight) {
+            textField.style.height =
+                (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+        }
+    }
+}
+
+
+// ****** My made option buttons *******
+
+        // ************* OPTION MENU ***************
+
+        // function showOptions(id) {
+
+        //     let idno;
+        //     let idlen;
+        //     console.log(id.length);
+        //     if(id.length <= 13)
+        //     {
+        //         idno = "";
+        //     }
+        //     else
+        //     {
+        //         idlen = id.length;
+        //         idno = id[idlen - 1];
+        //         console.log(idno);
+        //     }
+        //     console.log(idno); 
+        //     // var pos = $(optionsBtnsNo).position();
+        //     // alert('in the option function');
+        //     // $('.options').css("top","pos.top");
+        //     // alert("pos.top"+pos.top+"position left"+pos.left);
+        //     let optionsClick
+        //     optionsClick++;
+        //     oddEven = optionsClick % 2;
+
+        //     // Adding the counter values to the put the variables in the jquery
+
+        //     // let optionsareaBtnsNo = "#optionsarea"+questionAreaCounter;
+
+        //     // optionsBtnsNo = ".options"+questionAreaCounter ;
+
+        //     let optionarea = "#optionarea"+idno;
+        //     let options = ".options"+idno;
+        //     if (oddEven == 1) {
+        //         $(optionarea).css({
+        //             // "display": "block",
+        //         });
+        //         $(optionarea).show();
+        //         $(options).show();
+        //     } else {
+        //         $(optionarea).hide();
+        //         $(options).hide();
+        //     }
+
+
         // }
 
-        // function goback() {
-        //     $('.pop').hide();
-        // } 
 
 
-    }
-);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // $('#sub').click(function () {
 //     alert('in sub function');

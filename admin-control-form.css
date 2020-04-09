@@ -7,14 +7,28 @@
     padding-left: 20px;
 }
 
+
+
+.left-side {
+    -webkit-box-shadow: 0px 0px 5px 0px rgb(170, 170, 170);
+    -moz-box-shadow: 0px 0px 5px 0px rgb(170, 170, 170);
+    box-shadow: 0px 0px 5px 0px rgb(170, 170, 170);
+    min-height: 100vh;
+    height: 100%;
+    padding: 0;
+    /* margin-left: 10px; */
+    /* display: inline-block; */
+}
+
+
 textarea.questionarea {
     width: 100%;
     /* margin: 2%; */
     /* height: auto; */
-    height: 10rem;
+    /* height: 10rem; */
     outline-style: none;
-    padding-left: 50px;
-    padding-top: 20px; 
+    padding-left: 20px;
+    padding-top: 20px;
     /* display: block; */
     /* border: 1px solid gray; */
     /* border-radius: 10px; */
@@ -24,14 +38,22 @@ textarea.questionarea {
     border-style: none;
     box-sizing: border-box;
     overflow: show;
-} 
+}
 
 textarea.questionarea:hover {
     background-color: rgb(228, 228, 228);
 }
 
+textarea.answerarea {
+    background-color: rgb(238, 220, 208);
+}
+
+textarea.answerarea:hover {
+    background-color: rgb(236, 187, 150);
+}
+
 .textarea-btn {
-    margin:auto;
+    margin: auto;
     /* margin-left: 2%; */
 
     font-size: larger;
@@ -40,17 +62,8 @@ textarea.questionarea:hover {
     background-color: rgb(59, 59, 59);
 }
 
-.left-side {
-    -webkit-box-shadow: 0px 0px 5px 0px rgb(170, 170, 170);
-    -moz-box-shadow: 0px 0px 5px 0px rgb(170, 170, 170);
-    box-shadow: 0px 0px 5px 0px rgb(170, 170, 170);
-    height: 100%;
-    padding: 0;
-    /* margin-left: 10px; */
-    /* display: inline-block; */
-}
 
-div#optionsarea {
+div.optionsareaclass {
     display: none;
     /* position: absolute; */
     /* top: 100px; */
@@ -62,11 +75,13 @@ div#optionsarea {
     width: 40%;
 }
 
-button.options {
+/* ####################### My custom code for creating buttons ########################## */
+/* ################### Currently not using ###################### */
+button.optionbtns, button.options {
     padding: 10px;
     /* background-color: aqua; */
     width: 100%;
-    display: none;
+    /* display: none; */
     position: block;
     list-style: none;
     text-align: center;
@@ -76,16 +91,42 @@ button.options {
     color: rgb(56, 56, 56);
 }
 
+button.optionbtns:hover,
 button.options:hover {
     background-color: rgb(199, 199, 199);
     color: black;
 }
 
+button.optionbtns:active,
 button.options:active {
     background-color: rgb(199, 199, 199);
     box-shadow: 0 5px rgb(190, 190, 190);
     transform: translateY(4px);
 }
+
+
+/* ################### Bootstrap dropdown feature ################### */
+li.myCustomization-li {
+    /* background-color: aqua; */
+    /* height: 40px; */
+}
+
+a.myCustomization-a {
+    color: black;
+    font-size: larger;
+    /* background-color: rgb(255, 255, 255); */
+    width: 80px;
+}
+
+a.myCustomization-a:hover {
+    background-color: rgb(228, 228, 228);
+}
+
+/* ###### Inputs ####### */
+input.inputs {
+    height: 300px;
+}
+
 
 
 
