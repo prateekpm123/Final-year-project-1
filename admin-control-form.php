@@ -105,7 +105,7 @@ include("mydb.php");
     <div class="row mainBody">
         <div class="col-lg-6 left-side">
             <div class="addingQuestionBody">
-                <form method="post" id="form-page1" action="userinfo.php">
+                <form method="post" id="form-page1">
                     <div class="question-set" id="questionset0">
                         <textarea name="question" placeholder="Enter the questions..." id="1"
                             cols="30" rows="2" style="overflow:hidden"
@@ -185,11 +185,11 @@ include("mydb.php");
 
 
         </div>
-        <div class="col-lg-6 right-side">
-            <?php
-                $q = "SELECT Q1 FROM `questions` WHERE `Form Number`='Form2'";
-                $result = mysqli_query($con, $q);
-                $desc = mysqli_fetch_assoc($result);
+        <div class="col-lg-6 right-side " id="display">
+             <?php
+                // $q = "SELECT Q1 FROM `questions` WHERE `Form Number`='Form2'";
+                // $result = mysqli_query($con, $q);
+                // $desc = mysqli_fetch_assoc($result);
             ?>
             <h5 class="question_display">
                 <?php
@@ -198,20 +198,20 @@ include("mydb.php");
                         // if(is_null())
                     // }
                     // echo "{$result}"; 
-                    echo "{$desc['Q1']}"; 
+                    // echo "{$desc['Q1']}"; 
                 ?>
             </h5>
             <?php
-                $q = "SELECT Q2 FROM `questions` WHERE `Form Number`='Form2'";
+                // $q = "SELECT Q2 FROM `questions` WHERE `Form Number`='Form2'";
                 // SELECT Q2 FROM `questions` WHERE `Form Number`="Form2"
-                $result = mysqli_query($con, $q);
-                $desc = mysqli_fetch_assoc($result);
+                // $result = mysqli_query($con, $q);
+                // $desc = mysqli_fetch_assoc($result);
             ?>
             <h5>
                 <?php
-                    echo "{$desc['Q2']}"; 
+                    // echo "{$desc['Q2']"; 
                 ?>
-            </h5>
+            </h5> 
         </div>
     </div>
     <div class="pop">
