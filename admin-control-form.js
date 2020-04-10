@@ -408,11 +408,17 @@ function deleted() {
 }
 
 //************** / AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING ****************
-$("#sub").click(function () {
-  $.post("submit.php", { question: $("#1").val() }, function (data) {
+function ajaxToSave() 
+{
+    alert('in the save button')
+  $.post("submit.php", 
+  { question: $("#1").val() }, 
+  function (data) 
+  {
     $("#display").html(data);
+    alert('in the function of the ajax');
   });
-});
+}
 
 // ******* CODE TO MAKE A WINDOW APPEAR AND DISAPPEAR *******
 
