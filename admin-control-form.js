@@ -132,6 +132,8 @@
             questionSetComponentsList = $(questionsetId); 
             questionSetComponentsListLen =  questionSetComponentsList.length;
             console.log('options count '+ questionSetComponentsListLen);
+            console.log('options objects ' + questionSetComponentsList);
+
             
             
             if( questionSetComponentsListLen == 0 || questionSetComponentsListLen == 1 )
@@ -146,10 +148,16 @@
             }
             else if ( questionSetComponentsListLen > 0)
             {
-                for( let c = 0; c < questionSetComponentsListLen; c++ )
+                for( let c = 0; c < questionSetComponentsListLen-1; c++ )
                 {
-                    questionSetComponentsList[ questionSetComponentsListLen - 1].remove();
+                    console.log("in for loop");
+                    // alert('in for loop');
+                    questionSetComponentsList[ questionSetComponentsListLen - c-1].remove();
                 }
+                let questionsetdiv = "#questionset" + idno;
+                $(questionsetdiv).append(
+                    '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' + questionAreaCounter + '" cols="30" rows="2"  style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea questionsetComponents' + questionAreaCounter + '"> </textarea>'
+                );
             }
             // console.log("idno "+idno);
             // let previousIdno;
@@ -183,16 +191,66 @@
         
         function createMultipleChoice(info) 
         {
-            alert('in multiple choice');
+            // alert('in multiple choice');
             infolen = info.length;
             idno = info[infolen - 1];
             console.log("idno = ", idno);
 
+            let idno2 = idno;
+            idno2++;
+            questionsetId = ".questionsetComponents" + idno2;
+            questionSetComponentsList = $(questionsetId);
+            questionSetComponentsListLen = questionSetComponentsList.length;
+            console.log('options count ' + questionSetComponentsListLen);
+            console.log('options objects ' + questionSetComponentsList);
+
+            multipleChoiceId = ".multipleChoiceOptions"+idno2;
+            multipleChoiceComponentsList = $(multipleChoiceId);
+            multipleChoiceComponentsListLen = multipleChoiceComponentsList.length;
 
             let questionsetdiv = "#questionset" + idno;
-            $(questionsetdiv).append(
-                '<div class="input-group mb-3"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice('+ info +')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
-            );
+
+            // This condition checks if the set is empty or not
+            if (questionSetComponentsListLen == 1) {
+                $(questionsetdiv).append(
+                    '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
+                );
+            }
+
+            // This tells us, there are more components then just question area
+            else if (questionSetComponentsListLen > 1) 
+            {
+
+                // This Condition checks weather, there are any multiple choice questions in the set or not
+                let questionSetComponentsListLen2 = questionSetComponentsListLen;
+                questionSetComponentsListLen2 = questionSetComponentsListLen2 -1;
+                if (multipleChoiceComponentsListLen == questionSetComponentsListLen2)
+                {
+                    alert('in checking are the components multiple choice or not');
+                    $(questionsetdiv).append(
+                        '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
+                    );
+                }
+
+                // This Condition checks are there any other components other than choices already in the set or not,
+                // For Ex: if there is already a Long Answer in the set, it'll first remove that Long Answer and then it'll add the Multiple choice options
+                else if ( multipleChoiceComponentsListLen == 0 )
+                {   
+                    console.log(" multiple components list "+multipleChoiceComponentsList)
+                    for (let c = 0; c < questionSetComponentsListLen - 1; c++) {
+                        console.log("in for loop");
+                        // alert('in for loop');
+                        questionSetComponentsList[questionSetComponentsListLen - c - 1].remove();
+                    }
+                    $(questionsetdiv).append(
+                        '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
+                    );
+                }
+                
+                
+            }
+
+           
 
         }
 
