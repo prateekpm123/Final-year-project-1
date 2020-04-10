@@ -113,22 +113,59 @@ include("mydb.php");
                             class="questionarea">
                         </textarea>     
                     </div>
+                    <div class="options-set" id="optionset0">
+                        <div class="row option-setrow" id="optionsetrow0">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-1-0">
+                                <button id="sub" class="btn btn-secondary savebtn"> Save</button>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-2-0">
+                                <!-- Add the new id 'result0' in the backend -->
+                                <span id="result0"></span>
+                                
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-5 col-xm-5" id="optionCol-3-0">
 
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-4-0">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle"
+                                        type="button" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">+</button>
+                                    <div class="dropdown-menu">
+                                        <button class="dropdown-item options0"
+                                            onclick="createMultipleChoice(this.className)">Multiple
+                                            choice</button>
+                                        <button class="dropdown-item options0" href="#">Ratings</button>
+                                        <button class="dropdown-item options0"
+                                            onclick="createLongAnswer(this.className)">Long
+                                            Answer</button>
+                                        <button class="dropdown-item options0">Short
+                                            Answer</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-5-0">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button"
+                                        data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Del</button>
+                                    <div class="dropdown-menu">
+                                        <button class="dropdown-item extraOptions0" >Delete Choice</button>
+                                        <button class="dropdown-item extraOptions0">Another action</button>
+                                        <button class="dropdown-item extraOptions0">Something else here</button>
+                                        <div role="separator" class="dropdown-divider"></div>
+                                        <button class="dropdown-item extraOptions0">Separated link</button>
+                                    </div>
+                                </div>
+                            </div>  
 
-                    <button id="sub" class="btn btn-primary savebtn"> Save</button>
-                    <span id="result"></span>
-                    <li class="nav-item dropdown myCustomization-li" id="user_dropdown">
-                        <a class="nav-link dropdown-toggle myCustomization-a" href="#" id="navbarDropdownMenuLink"
-                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
-                            <button class="dropdown-item options0" onclick="createMultipleChoice(this.className)">Multiple choice</button>
-                            <button class="dropdown-item options0" href="#">Ratings</button>
-                            <button class="dropdown-item options0" onclick="createLongAnswer(this.className)">Long
-                                Answer</button>
-                            <button class="dropdown-item options0">Short Answer</button>
+                            
                         </div>
-                    </li>
+     
+                    </div>
+
+
+
 
                     <!-- <div class="input-group mb-3"> <input type="text" class="form-control" placeholder=" - " aria-label="Recipient's username" aria-describedby="multipleChoiceBtn0"> <div class="input-group-append"> <button class="btn btn-outline-secondary" type="button" id="multipleChoiceBtn0">+</button> </div> </div> -->
 

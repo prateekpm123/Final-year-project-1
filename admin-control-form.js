@@ -31,9 +31,65 @@
             ); 
            
 
+            let optionset = "#optionset" + questionAreaCounter
+            
+            let rowOptionset = "#optionsetrow" + questionAreaCounter;
+
+            let col1Optionset = "#optionCol-1-" + questionAreaCounter;
+            let col2Optionset = "#optionCol-2-" + questionAreaCounter;
+            let col3Optionset = "#optionCol-3-" + questionAreaCounter;
+            let col4Optionset = "#optionCol-4-" + questionAreaCounter;
+            let col5Optionset = "#optionCol-5-" + questionAreaCounter;
+
+            // $('#form-page1').append(
+            //         '<div class="options-set" id="optionset' + questionAreaCounter + '"> <div class="row option-setrow" id="optionsetrow' + questionAreaCounter + '"> <div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-1-' + questionAreaCounter + '"> </div> <div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-2-' + questionAreaCounter + '"> </div> <div class="col-lg-5 col-md-5 col-sm-5 col-xm-5" id="optionCol-3-' + questionAreaCounter + '"> </div> <div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-4-' + questionAreaCounter + '"> </div> <div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-5-' + questionAreaCounter + '"> </div></div></div>'
+            // );
+
             $('#form-page1').append(
+                '<div class="options-set" id="optionset' + questionAreaCounter + '"></div>'
+            );
+
+            $(optionset).append(
+                '<div class="row option-setrow" id="optionsetrow' + questionAreaCounter + '"></div>'
+            );
+
+            $(rowOptionset).append(
+                '<div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-1-' + questionAreaCounter + '"></div>'
+            );
+            $(col1Optionset).append(
                 '<button id="sub" class="btn btn-primary savebtn"> Save</button>'
-            ); 
+            );
+
+
+            $(rowOptionset).append(
+                '<div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-2-' + questionAreaCounter + '"></div>'                
+            );
+            $(col2Optionset).append(
+                '<span id="result0"></span>'
+            );
+
+
+            $(rowOptionset).append(
+                '<div class="col-lg-5 col-md-5 col-sm-5 col-xm-5" id="optionCol-3-' + questionAreaCounter + '"></div>'
+            );
+
+
+            $(rowOptionset).append(
+                '<div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-4-' + questionAreaCounter + '"></div>'
+            );
+            // *************** Code for bootstrap dropdownbutton *****************
+            $(col4Optionset).append(
+                '<div class="input-group-prepend"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</button> <div class="dropdown-menu"> <button class="dropdown-item options' + questionAreaCounter + '" onclick="createMultipleChoice(this.className)">Multiple choice</button> <button class="dropdown-item options' + questionAreaCounter + '" href="#">Ratings</button> <button class="dropdown-item options' + questionAreaCounter + '" onclick="createLongAnswer(this.className)">Long Answer</button> <button class="dropdown-item options' + questionAreaCounter + '">Short Answer</button> </div> </div > '
+            );
+
+
+            $(rowOptionset).append(
+                '<div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-5-' + questionAreaCounter + '"></div>'
+            );
+            $(col5Optionset).append(
+                '<div class="input-group-prepend"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Del</button> <div class="dropdown-menu"> <button class="dropdown-item extraOptions' + questionAreaCounter + '">Delete Choice</button> <button class="dropdown-item extraOptions' + questionAreaCounter + '">Another action</button> <button class="dropdown-item extraOptions' + questionAreaCounter + '">Something else here</button> <div role="separator" class="dropdown-divider"></div> <button class="dropdown-item extraOptions' + questionAreaCounter + '">Separated link</button> </div> </div>'
+            );
+
 
 
             // **************** My made option buttons *****************
@@ -51,11 +107,9 @@
             // );
 
 
-            // *************** Code for bootstrap dropdownbutton *****************
-            $('#form-page1').append(
-                '<li class="nav-item dropdown myCustomization-li" id="user_dropdown">  <a class="nav-link dropdown-toggle myCustomization-a" href="#" id="navbarDropdownMenuLink" role="button"    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown"> <button class="dropdown-item options' + questionAreaCounter + '" onclick="createMultipleChoice(this.className)">Multiple choice</button> <button class="dropdown-item options' + questionAreaCounter + '" href="#">Ratings</button> <button class="dropdown-item options' + questionAreaCounter + '" onclick="createLongAnswer(this.className)">Long Answer</button> <button class="dropdown-item options' + questionAreaCounter + '" href="#">Short Answer</button> </div> </li>'
-            );
+            
 
+            
  
 
             questionAreaCounter ++;
@@ -136,14 +190,16 @@
             questionsetdiv = $('.question-set');
             let textareaarr = [];
             textareaarr = $('textarea');
-            let savebtn = [];
-            savebtn = $('.savebtn');
+            let optionset = [];
+            optionset = $('.options-set');
+            // let savebtn = [];
+            // savebtn = $('.savebtn');
 
             // *************** Code for bootstrap dropdownbutton *****************
-            let dropdown = [];
-            dropdown = $('.dropdown');
-            dropdownLen = dropdown.length;
-            dropdown[dropdownLen-1].remove();
+            // let dropdown = [];
+            // dropdown = $('.dropdown');
+            // dropdownLen = dropdown.length;
+            // dropdown[dropdownLen-1].remove();
 
 
             // ****** My made option buttons *******
@@ -155,7 +211,8 @@
             // optionsdiv = $('.optionsareaclass');
             h = questionsetdiv.length;
             i = textareaarr.length;
-            j = savebtn.length;
+            optionsetLen = optionset.length;
+            // j = savebtn.length;
 
             // ****** My made option buttons *******
             // k = optionbtn.length;
@@ -164,7 +221,8 @@
 
             questionsetdiv[h-1].remove();
             textareaarr[i - 1].remove();
-            savebtn[j - 1].remove();
+            optionset[optionsetLen-1].remove();
+            // savebtn[j - 1].remove();
 
             // ****** My made option buttons *******
             // optionbtn[k-1].remove();
@@ -176,7 +234,7 @@
             // console.log(textareaarr[i]);
 
 
-            console.log(savebtn);
+            // console.log(savebtn);
 
             // ****** My made option buttons *******
             // console.log(optionbtn);

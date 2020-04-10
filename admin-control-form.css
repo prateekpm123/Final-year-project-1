@@ -75,6 +75,10 @@ div.optionsareaclass {
     width: 40%;
 }
 
+button.optionbtn-toggle {
+    margin-right: 30px;
+}
+
 /* ####################### My custom code for creating buttons ########################## */
 /* ################### Currently not using ###################### */
 button.optionbtns, button.options {
