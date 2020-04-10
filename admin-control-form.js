@@ -75,10 +75,12 @@
                 '<div class="col-lg-5 col-md-5 col-sm-5 col-xm-5" id="optionCol-3-' + questionAreaCounter + '"></div>'
             );
             $(col3Optionset).append(
-                '<button class="btn btn-primary options' + questionAreaCounter + '" onclick="addMultipleChoice(this.className)">Add Multiple choice</button>'
+                '<button class="btn btn-primary options' + questionAreaCounter + '" onclick="addMultipleChoice(this.className)" id="createMultipleChoice' + questionAreaCounter + '">Add Multiple choice</button>'
                 
             );
 
+            let createMultipleChoice = "#createMultipleChoice"+questionAreaCounter;
+            $(createMultipleChoice).hide();
 
             $(rowOptionset).append(
                 '<div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-4-' + questionAreaCounter + '"></div>'
@@ -132,6 +134,12 @@
             console.log('idno ',idno )
             let idno2 = idno;
             idno2 ++;
+
+
+            let createMultipleChoice = "#createMultipleChoice" + idno;
+            $(createMultipleChoice).hide();
+
+
             questionsetId = ".questionsetComponents" + idno2;
             questionSetComponentsList = $(questionsetId); 
             questionSetComponentsListLen =  questionSetComponentsList.length;
@@ -195,6 +203,8 @@
         
         function createMultipleChoice(info) 
         {
+           
+
             // alert('in multiple choice');
             infolen = info.length;
             idno = info[infolen - 1];
@@ -202,6 +212,12 @@
 
             let idno2 = idno;
             idno2++;
+
+
+            let createMultipleChoice = "#createMultipleChoice" + idno;
+            $(createMultipleChoice).show();
+
+
             questionsetId = ".questionsetComponents" + idno2;
             questionSetComponentsList = $(questionsetId);
             questionSetComponentsListLen = questionSetComponentsList.length;
@@ -263,10 +279,20 @@
             idno = info[infolen - 1];
             console.log("idno = ",idno);
             alert('info add choice funciton')
+            let idno2 = idno ;
+            // idno2 = idno2 - 1;
             let questionsetdiv = "#questionset" + idno;
+        
+            // CreateMultipleChoice Function's Version of this button
             $(questionsetdiv).append(
-                '<div class="input-group mb-3"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
+                '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
             );
+
+            
+            // addMutiplechoice Function's Versions of buttons
+            // $(questionsetdiv).append(
+            //     '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
+            //     );
         }
 
 
