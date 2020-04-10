@@ -363,19 +363,19 @@
 
 
         //************** / AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING ****************
-        $('#sub').click(function () {
-            alert('in save');
-            var data = $("#form-page1 :input").serializeArray();
-            $.post($("#form-page1").attr("action"), data, function (info) {
-                $("#result").html(info);
-            });
-            // alert('in sub function');
-        });
+        // $('#sub').click(function () {
+        //     alert('in save');
+        //     var data = $("#form-page1 :input").serializeArray();
+        //     $.post($("#form-page1").attr("action"), data, function (info) {
+        //         $("#result").html(info);
+        //     });
+        //     // alert('in sub function');
+        // });
 
-        $("#form-page1").submit(function () {
-            return false;
-            alert('in false function');
-        });
+        // $("#form-page1").submit(function () {
+        //     return false;
+        //     alert('in false function');
+        // });
 
 
 // ******* CODE TO MAKE A WINDOW APPEAR AND DISAPPEAR *******

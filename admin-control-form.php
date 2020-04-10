@@ -124,7 +124,6 @@ include("mydb.php");
                                 
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xm-5" id="optionCol-3-0">
-
                             </div>
                             <div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-4-0">
                                 <div class="input-group-prepend" id="optionbtns0">
@@ -181,7 +180,7 @@ include("mydb.php");
                     </div> -->
                 </form>
                 <button id="create" onclick="create()" class="btn btn-primary">Create</button>
-            <button id="delete" onclick="deleted()" class="btn btn-secondary">Delete</button>
+                <button id="delete" onclick="deleted()" class="btn btn-secondary">Delete</button>
             </div>
 
 
