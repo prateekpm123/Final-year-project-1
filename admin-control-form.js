@@ -26,8 +26,10 @@
             
             let questionsetno = "#questionset"+questionAreaCounter;
 
+            let questionAreaCounter2 = questionAreaCounter;
+            questionAreaCounter2++;
             $(questionsetno).append(
-                '<textarea name="question' + questionAreaCounter + '" placeholder="Enter the questions..."  style="overflow:hidden"  onkeyup="AutoGrowTextArea(this)" cols="30" rows="3" id="Q' + questionAreaCounter + '" class="questionarea">'
+                '<textarea name="question' + questionAreaCounter + '" placeholder="Enter the questions..."  style="overflow:hidden"  onkeyup="AutoGrowTextArea(this)" cols="30" rows="3" id="Q' + questionAreaCounter + '" class="questionarea questionsetComponents' + questionAreaCounter2 + '"></textarea>'
             ); 
            
 
@@ -79,7 +81,7 @@
             );
             // *************** Code for bootstrap dropdownbutton *****************
             $(col4Optionset).append(
-                '<div class="input-group-prepend"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</button> <div class="dropdown-menu"> <button class="dropdown-item options' + questionAreaCounter + '" onclick="createMultipleChoice(this.className)">Multiple choice</button> <button class="dropdown-item options' + questionAreaCounter + '" href="#">Ratings</button> <button class="dropdown-item options' + questionAreaCounter + '" onclick="createLongAnswer(this.className)">Long Answer</button> <button class="dropdown-item options' + questionAreaCounter + '">Short Answer</button> </div> </div > '
+                '<div class="input-group-prepend" id="optionbtns' + questionAreaCounter + '"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</button> <div class="dropdown-menu"> <button class="dropdown-item options' + questionAreaCounter + '" onclick="createMultipleChoice(this.className)">Multiple choice</button> <button class="dropdown-item options' + questionAreaCounter + '" href="#">Ratings</button> <button class="dropdown-item options' + questionAreaCounter + '" onclick="createLongAnswer(this.className)">Long Answer</button> <button class="dropdown-item options' + questionAreaCounter + '">Short Answer</button> </div> </div > '
             );
 
 
@@ -123,6 +125,32 @@
             // console.log(info);
             infolen = info.length;
             idno = info[infolen - 1];
+            console.log('idno ',idno )
+            let idno2 = idno;
+            idno2 ++;
+            questionsetId = ".questionsetComponents" + idno2;
+            questionSetComponentsList = $(questionsetId); 
+            questionSetComponentsListLen =  questionSetComponentsList.length;
+            console.log('options count '+ questionSetComponentsListLen);
+            
+            
+            if( questionSetComponentsListLen == 0 || questionSetComponentsListLen == 1 )
+            {
+                let questionsetdiv = "#questionset"+idno;
+                let longTextAreaAns = "#longanswer"+idno+1;
+
+            
+                $(questionsetdiv).append(
+                    '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' + questionAreaCounter + '" cols="30" rows="2"  style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea questionsetComponents' + questionAreaCounter + '"> </textarea>'
+                );
+            }
+            else if ( questionSetComponentsListLen > 0)
+            {
+                for( let c = 0; c < questionSetComponentsListLen; c++ )
+                {
+                    questionSetComponentsList[ questionSetComponentsListLen - 1].remove();
+                }
+            }
             // console.log("idno "+idno);
             // let previousIdno;
             // // let count = longAnswerCounter(idno); 
@@ -139,14 +167,10 @@
             // console.log("counter " + addOrRemoveCounter);
 
             // oneOrZero = addOrRemoveCounter % 2;
-            let questionsetdiv = "#questionset"+idno;
-            let longTextAreaAns = "#longanswer"+idno+1;
-
             
-            $(questionsetdiv).append(
-                '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' + questionAreaCounter + '" cols="30" rows="2" style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea"> </textarea>'
-            );
-        
+                
+            let optionbtns = "#optionbtns"+idno;
+            // $(optionbtns).hide();
          
             // $(longTextAreaAns).remove();
             
@@ -157,7 +181,8 @@
         }
 
         
-        function createMultipleChoice(info) {
+        function createMultipleChoice(info) 
+        {
             alert('in multiple choice');
             infolen = info.length;
             idno = info[infolen - 1];
