@@ -74,6 +74,10 @@
             $(rowOptionset).append(
                 '<div class="col-lg-5 col-md-5 col-sm-5 col-xm-5" id="optionCol-3-' + questionAreaCounter + '"></div>'
             );
+            $(col3Optionset).append(
+                '<button class="btn btn-primary options' + questionAreaCounter + '" onclick="addMultipleChoice(this.className)">Add Multiple choice</button>'
+                
+            );
 
 
             $(rowOptionset).append(
@@ -226,7 +230,7 @@
                 questionSetComponentsListLen2 = questionSetComponentsListLen2 -1;
                 if (multipleChoiceComponentsListLen == questionSetComponentsListLen2)
                 {
-                    alert('in checking are the components multiple choice or not');
+                    // alert('in checking are the components multiple choice or not');
                     $(questionsetdiv).append(
                         '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
                     );
@@ -243,7 +247,7 @@
                         questionSetComponentsList[questionSetComponentsListLen - c - 1].remove();
                     }
                     $(questionsetdiv).append(
-                        '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
+                        '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')"  type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
                     );
                 }
                 
@@ -258,6 +262,7 @@
             infolen = info.length;
             idno = info[infolen - 1];
             console.log("idno = ",idno);
+            alert('info add choice funciton')
             let questionsetdiv = "#questionset" + idno;
             $(questionsetdiv).append(
                 '<div class="input-group mb-3"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
