@@ -1,4 +1,4 @@
 <?php 
-$question = $_POST['question'];
+$question = $_POST['question1'];
 echo $question;
 ?> 

@@ -116,7 +116,7 @@ include("mydb.php");
                     <div class="options-set" id="optionset0">
                         <div class="row option-setrow" id="optionsetrow0">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-1-0">
-                                <button id="sub" class="btn btn-secondary savebtn" onclick="ajaxToSave()"> Save</button>
+                                <button id="sub0" class="btn btn-secondary savebtn" onclick="ajaxToSave(this.id)"> Save</button>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-2-0">
                                 <!-- Add the new id 'result0' in the backend -->
@@ -124,6 +124,7 @@ include("mydb.php");
                                 
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xm-5" id="optionCol-3-0">
+                                <button style="display:none;" class="btn btn-primary options0" onclick="addMultipleChoice(this.className)" id="createMultipleChoice">Add Multiple choice</button>
                             </div>
                             <div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-4-0">
                                 <div class="input-group-prepend" id="optionbtns0">
