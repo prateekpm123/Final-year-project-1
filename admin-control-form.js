@@ -1,6 +1,7 @@
 // $(document).ready(
 // function () {
 questionAreaCounter = 1;
+multipleChoiceCounter = 1;
 i = 0;
 optionsClick = 0;
 addOrRemoveCounter = 0;
@@ -15,6 +16,10 @@ $("#optionsappear").click(function () {
 // ************************* TO CREATE A NEW QUESTION AREA  *******************8
 // $('#create').click(function ()
 function create() {
+
+    // This is to rest the counter for the multiple choice inputs spaces and for creating their UNIQUE ID's 
+    multipleChoiceCounter = 1;
+
     $("#form-page1").append(
         '<div class="question-set" id="questionset' +
         questionAreaCounter +
@@ -67,7 +72,7 @@ function create() {
     $(col1Optionset).append(
         '<button id="sub' +
         questionAreaCounter +
-        '" class="btn btn-primary savebtn"> Save</button>'
+        '" class="btn btn-primary savebtn" onclick="ajaxToSave(this.id)"> Save</button>'
     );
 
     $(rowOptionset).append(
@@ -253,7 +258,9 @@ function createMultipleChoice(info) {
             questionAreaCounter +
             '"> <input type="text" class="form-control multipleChoiceInput' +
             questionAreaCounter +
-            '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
+            '" placeholder=" - " id="multipleChoiceid'+
+            questionAreaCounter +multipleChoiceCounter+
+            '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
             questionAreaCounter +
             '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
             info +
@@ -277,7 +284,9 @@ function createMultipleChoice(info) {
                 questionAreaCounter +
                 '"> <input type="text" class="form-control multipleChoiceInput' +
                 questionAreaCounter +
-                '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
+                '" placeholder=" - " id="multipleChoiceid' +
+                questionAreaCounter + multipleChoiceCounter +
+                '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
                 questionAreaCounter +
                 '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
                 info +
@@ -303,16 +312,19 @@ function createMultipleChoice(info) {
                 questionAreaCounter +
                 '"> <input type="text" class="form-control multipleChoiceInput' +
                 questionAreaCounter +
-                '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
+                '" placeholder=" - " id="multipleChoiceid' +
+                questionAreaCounter + multipleChoiceCounter +
+                '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
                 questionAreaCounter +
                 '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
                 info +
-                ')"  type="button" id="multipleChoiceBtn' +
+                ')" type="button" id="multipleChoiceBtn' +
                 questionAreaCounter +
                 '">+</button> </div> </div>'
             );
         }
     }
+    multipleChoiceCounter++;
 }
 
 function addMultipleChoice(info) {
@@ -332,7 +344,9 @@ function addMultipleChoice(info) {
         questionAreaCounter +
         '"> <input type="text" class="form-control multipleChoiceInput' +
         questionAreaCounter +
-        '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
+        '" placeholder=" - " id="multipleChoiceid' +
+        questionAreaCounter + multipleChoiceCounter +
+        '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
         questionAreaCounter +
         '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
         info +
@@ -345,6 +359,8 @@ function addMultipleChoice(info) {
     // $(questionsetdiv).append(
     //     '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
     //     );
+    multipleChoiceCounter++;
+
 }
 
 // TO DELETE A NEW QUESTION AREA
@@ -420,23 +436,36 @@ function deleted() {
 // }
 
 // *********************** MY VERSION OF THE SAME ABOVE CODE *****************************
-function ajaxToSave() {
-    let textarea1 = $('#1').val();
- 
+function ajaxToSave(id) {
+
+    let idLen = id.length;
+    Id = id[idLen - 1];
+    AId = Id;
+    AId++;
+    let textareaId = "#Q"+Id;
+    let answerId = "#longAnswer"+AId;
+
+    console.log('id ',answerId );
+    let textarea = $(textareaId).val();
+    let answerarea = $(answerId).val();
+    console.log(answerarea);
     $.ajax({
 
         url: "submit.php",
         type: "post",
         data: {
-            question1 : textarea1
+            question : textarea,
+            answer : answerarea
+            // for()
         },
         success: function(data, status){
-            // $("#display").html(data);
+            // console.log(data);
+            $("#display").html(data);
         }
-
 
     });
 }
+
 
 
 

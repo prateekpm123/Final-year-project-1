@@ -107,27 +107,27 @@ include("mydb.php");
             <div class="addingQuestionBody">
                 <div id="form-page1">
                     <div class="question-set" id="questionset0">
-                        <textarea name="question" placeholder="Enter the questions..." id="1"
+                        <!-- <textarea name="question" placeholder="Enter the questions..." id="Q0"
                             cols="30" rows="2" style="overflow:hidden"
                             onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)"
                             class="questionarea questionsetComponents0 questionsetComponents1">
-                        </textarea>         
+                        </textarea>          -->
                     </div>
                     <div class="options-set" id="optionset0">
                         <div class="row option-setrow" id="optionsetrow0">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-1-0">
-                                <button id="sub0" class="btn btn-secondary savebtn" onclick="ajaxToSave(this.id)"> Save</button>
+                                <!-- <button id="sub0" class="btn btn-secondary savebtn" onclick="ajaxToSave(this.id)"> Save</button> -->
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-2-0">
                                 <!-- Add the new id 'result0' in the backend -->
-                                <span id="result0"></span>
+                                <!-- <span id="result0"></span> -->
                                 
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xm-5" id="optionCol-3-0">
-                                <button style="display:none;" class="btn btn-primary options0" onclick="addMultipleChoice(this.className)" id="createMultipleChoice">Add Multiple choice</button>
+                                <!-- <button style="display:none;" class="btn btn-primary options0" onclick="addMultipleChoice(this.className)" id="createMultipleChoice">Add Multiple choice</button> -->
                             </div>
                             <div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-4-0">
-                                <div class="input-group-prepend" id="optionbtns0">
+                                <!-- <div class="input-group-prepend" id="optionbtns0">
                                     <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" 
                                         type="button" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">+</button>
@@ -142,10 +142,10 @@ include("mydb.php");
                                         <button class="dropdown-item options0">Short
                                             Answer</button>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-5-0">
-                                <div class="input-group-prepend">
+                                <!-- <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button"
                                         data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">Del</button>
@@ -156,7 +156,7 @@ include("mydb.php");
                                         <div role="separator" class="dropdown-divider"></div>
                                         <button class="dropdown-item extraOptions0">Separated link</button>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>  
 
                             
@@ -172,6 +172,22 @@ include("mydb.php");
                     </div> -->
                 </div>
                 <button id="create" onclick="create()" class="btn btn-primary">Create</button>
+                <!-- <div class="input-group-prepend" id="optionbtns0">
+                    <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" 
+                        type="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Create</button>
+                    <div class="dropdown-menu">
+                        <button class="dropdown-item options0"
+                            onclick="create();createMultipleChoice(this.className);">Multiple
+                            choice</button>
+                        <button class="dropdown-item options0" href="#">Ratings</button>
+                        <button class="dropdown-item options0"
+                            onclick="createLongAnswer(this.className)">Long
+                            Answer</button>
+                        <button class="dropdown-item options0">Short
+                            Answer</button>
+                    </div>
+                </div> -->
                 <button id="delete" onclick="deleted()" class="btn btn-secondary">Delete</button>
             </div>
 
