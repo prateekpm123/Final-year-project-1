@@ -422,7 +422,7 @@ function deleted() {
 // *********************** MY VERSION OF THE SAME ABOVE CODE *****************************
 function ajaxToSave() {
     let textarea1 = $('#1').val();
-
+ 
     $.ajax({
 
         url: "submit.php",
