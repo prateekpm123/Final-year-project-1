@@ -10,7 +10,7 @@ addOrRemoveCounter = 0;
 // ******** DYNAMICALLY CREATING OPTIONS MENu *********
 
 $("#optionsappear").click(function () {
-    // Write here the code to append the options list
+  // Write here the code to append the options list
 });
 
 // ************************* TO CREATE A NEW QUESTION AREA  *******************8
@@ -95,157 +95,97 @@ function create() {
         '">Add Multiple choice</button>'
     );
 
-    let createMultipleChoice = "#createMultipleChoice" + questionAreaCounter;
-    $(createMultipleChoice).hide();
-
-    $(rowOptionset).append(
-        '<div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-4-' +
-        questionAreaCounter +
-        '"></div>'
-    );
-    // *************** Code for bootstrap dropdownbutton *****************
-    $(col4Optionset).append(
-        '<div class="input-group-prepend" id="optionbtns' +
-        questionAreaCounter +
-        '"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</button> <div class="dropdown-menu"> <button class="dropdown-item options' +
-        questionAreaCounter +
-        '" onclick="createMultipleChoice(this.className)">Multiple choice</button> <button class="dropdown-item options' +
-        questionAreaCounter +
-        '" href="#">Ratings</button> <button class="dropdown-item options' +
-        questionAreaCounter +
-        '" onclick="createLongAnswer(this.className)">Long Answer</button> <button class="dropdown-item options' +
-        questionAreaCounter +
-        '">Short Answer</button> </div> </div > '
-    );
-
-    $(rowOptionset).append(
-        '<div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-5-' +
-        questionAreaCounter +
-        '"></div>'
-    );
-    $(col5Optionset).append(
-        '<div class="input-group-prepend"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Del</button> <div class="dropdown-menu"> <button class="dropdown-item extraOptions' +
-        questionAreaCounter +
-        '">Delete Choice</button> <button class="dropdown-item extraOptions' +
-        questionAreaCounter +
-        '">Another action</button> <button class="dropdown-item extraOptions' +
-        questionAreaCounter +
-        '">Something else here</button> <div role="separator" class="dropdown-divider"></div> <button class="dropdown-item extraOptions' +
-        questionAreaCounter +
-        '">Separated link</button> </div> </div>'
-    );
-
-    // **************** My made option buttons *****************
-
-    // $('#form-page1').append(
-    //     // '< button class="btn btn-primary textarea-btn" name="submit" id="optionsappear" > + < /button>'
-    //     '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear' + questionAreaCounter + '" onclick=showOptions(this.id)>+</button>'
-    // );
-    // $('#form-page1').append(
-    //     '<div id="optionsarea' + questionAreaCounter + '" class="optionsareaclass"></div>'
-    // );
-    // let questionCounter = "#optionsarea"+questionAreaCounter;
-    // $(questionCounter).append(
-    //     '<button class="options' + questionAreaCounter + ' optionbtns"> Options</button>                <button class= "options' + questionAreaCounter + ' optionbtns"> Ratings</button>            <button class="options' + questionAreaCounter + ' optionbtns">Answers</button>'
-    // );
-
-    questionAreaCounter++;
-    // div1.appendChild(textarea);
-    // provideId(questionAreaCounter);
-    // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
-}
-
 function createLongAnswer(info) {
-    // alert("into create long answer");
-    // console.log(info);
-    infolen = info.length;
-    idno = info[infolen - 1];
-    console.log("idno ", idno);
-    let idno2 = idno;
-    idno2++;
+  // alert("into create long answer");
+  // console.log(info);
+  infolen = info.length;
+  idno = info[infolen - 1];
+  console.log("idno ", idno);
+  let idno2 = idno;
+  idno2++;
 
-    let createMultipleChoice = "#createMultipleChoice" + idno;
-    $(createMultipleChoice).hide();
+  let createMultipleChoice = "#createMultipleChoice" + idno;
+  $(createMultipleChoice).hide();
 
-    questionsetId = ".questionsetComponents" + idno2;
-    questionSetComponentsList = $(questionsetId);
-    questionSetComponentsListLen = questionSetComponentsList.length;
-    console.log("options count " + questionSetComponentsListLen);
-    console.log("options objects " + questionSetComponentsList);
+  questionsetId = ".questionsetComponents" + idno2;
+  questionSetComponentsList = $(questionsetId);
+  questionSetComponentsListLen = questionSetComponentsList.length;
+  console.log("options count " + questionSetComponentsListLen);
+  console.log("options objects " + questionSetComponentsList);
 
-    if (questionSetComponentsListLen == 0 || questionSetComponentsListLen == 1) {
-        let questionsetdiv = "#questionset" + idno;
-        let longTextAreaAns = "#longanswer" + idno + 1;
+  if (questionSetComponentsListLen == 0 || questionSetComponentsListLen == 1) {
+    let questionsetdiv = "#questionset" + idno;
+    let longTextAreaAns = "#longanswer" + idno + 1;
 
-        $(questionsetdiv).append(
-            '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' +
-            questionAreaCounter +
-            '" cols="30" rows="2"  style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea questionsetComponents' +
-            questionAreaCounter +
-            '"> </textarea>'
-        );
-    } else if (questionSetComponentsListLen > 0) {
-        for (let c = 0; c < questionSetComponentsListLen - 1; c++) {
-            console.log("in for loop");
-            // alert('in for loop');
-            questionSetComponentsList[questionSetComponentsListLen - c - 1].remove();
-        }
-        let questionsetdiv = "#questionset" + idno;
-        $(questionsetdiv).append(
-            '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' +
-            questionAreaCounter +
-            '" cols="30" rows="2"  style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea questionsetComponents' +
-            questionAreaCounter +
-            '"> </textarea>'
-        );
+    $(questionsetdiv).append(
+      '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' +
+        questionAreaCounter +
+        '" cols="30" rows="2"  style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea questionsetComponents' +
+        questionAreaCounter +
+        '"> </textarea>'
+    );
+  } else if (questionSetComponentsListLen > 0) {
+    for (let c = 0; c < questionSetComponentsListLen - 1; c++) {
+      console.log("in for loop");
+      // alert('in for loop');
+      questionSetComponentsList[questionSetComponentsListLen - c - 1].remove();
     }
-    // console.log("idno "+idno);
-    // let previousIdno;
-    // // let count = longAnswerCounter(idno);
+    let questionsetdiv = "#questionset" + idno;
+    $(questionsetdiv).append(
+      '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' +
+        questionAreaCounter +
+        '" cols="30" rows="2"  style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea questionsetComponents' +
+        questionAreaCounter +
+        '"> </textarea>'
+    );
+  }
+  // console.log("idno "+idno);
+  // let previousIdno;
+  // // let count = longAnswerCounter(idno);
 
-    // if (previousIdno == idno) {
-    //     alert("in if condition");
-    //     return addOrRemoveCounter++;
-    //     console.log("counter " + addOrRemoveCounter);
-    // } else {
-    //     return addOrRemoveCounter;
-    //     console.log("counter " + addOrRemoveCounter);
+  // if (previousIdno == idno) {
+  //     alert("in if condition");
+  //     return addOrRemoveCounter++;
+  //     console.log("counter " + addOrRemoveCounter);
+  // } else {
+  //     return addOrRemoveCounter;
+  //     console.log("counter " + addOrRemoveCounter);
 
-    // // }
-    // console.log("counter " + addOrRemoveCounter);
+  // // }
+  // console.log("counter " + addOrRemoveCounter);
 
-    // oneOrZero = addOrRemoveCounter % 2;
+  // oneOrZero = addOrRemoveCounter % 2;
 
-    let optionbtns = "#optionbtns" + idno;
-    // $(optionbtns).hide();
+  let optionbtns = "#optionbtns" + idno;
+  // $(optionbtns).hide();
 
-    // $(longTextAreaAns).remove();
+  // $(longTextAreaAns).remove();
 
-    // previousIdno = idno;
-    // console.log("previousidno "+ previousIdno);
+  // previousIdno = idno;
+  // console.log("previousidno "+ previousIdno);
 }
 
 function createMultipleChoice(info) {
-    // alert('in multiple choice');
-    infolen = info.length;
-    idno = info[infolen - 1];
-    console.log("idno = ", idno);
+  // alert('in multiple choice');
+  infolen = info.length;
+  idno = info[infolen - 1];
+  console.log("idno = ", idno);
 
-    let idno2 = idno;
-    idno2++;
+  let idno2 = idno;
+  idno2++;
 
-    let createMultipleChoice = "#createMultipleChoice" + idno;
-    $(createMultipleChoice).show();
+  let createMultipleChoice = "#createMultipleChoice" + idno;
+  $(createMultipleChoice).show();
 
-    questionsetId = ".questionsetComponents" + idno2;
-    questionSetComponentsList = $(questionsetId);
-    questionSetComponentsListLen = questionSetComponentsList.length;
-    console.log("options count " + questionSetComponentsListLen);
-    console.log("options objects " + questionSetComponentsList);
+  questionsetId = ".questionsetComponents" + idno2;
+  questionSetComponentsList = $(questionsetId);
+  questionSetComponentsListLen = questionSetComponentsList.length;
+  console.log("options count " + questionSetComponentsListLen);
+  console.log("options objects " + questionSetComponentsList);
 
-    multipleChoiceId = ".multipleChoiceOptions" + idno2;
-    multipleChoiceComponentsList = $(multipleChoiceId);
-    multipleChoiceComponentsListLen = multipleChoiceComponentsList.length;
+  multipleChoiceId = ".multipleChoiceOptions" + idno2;
+  multipleChoiceComponentsList = $(multipleChoiceId);
+  multipleChoiceComponentsListLen = multipleChoiceComponentsList.length;
 
     let questionsetdiv = "#questionset" + idno;
 
@@ -338,7 +278,7 @@ function addMultipleChoice(info) {
 
     // CreateMultipleChoice Function's Version of this button
     $(questionsetdiv).append(
-        '<div class="input-group mb-3 questionsetComponents' +
+      '<div class="input-group mb-3 questionsetComponents' +
         questionAreaCounter +
         " multipleChoiceOptions" +
         questionAreaCounter +
@@ -354,6 +294,61 @@ function addMultipleChoice(info) {
         questionAreaCounter +
         '">+</button> </div> </div>'
     );
+  }
+
+  // This tells us, there are more components then just question area
+  else if (questionSetComponentsListLen > 1) {
+    // This Condition checks weather, there are any multiple choice questions in the set or not
+    let questionSetComponentsListLen2 = questionSetComponentsListLen;
+    questionSetComponentsListLen2 = questionSetComponentsListLen2 - 1;
+    if (multipleChoiceComponentsListLen == questionSetComponentsListLen2) {
+      // alert('in checking are the components multiple choice or not');
+      $(questionsetdiv).append(
+        '<div class="input-group mb-3 questionsetComponents' +
+          questionAreaCounter +
+          " multipleChoiceOptions" +
+          questionAreaCounter +
+          '"> <input type="text" class="form-control multipleChoiceInput' +
+          questionAreaCounter +
+          '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
+          questionAreaCounter +
+          '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
+          info +
+          ')" type="button" id="multipleChoiceBtn' +
+          questionAreaCounter +
+          '">+</button> </div> </div>'
+      );
+    }
+
+    // This Condition checks are there any other components other than choices already in the set or not,
+    // For Ex: if there is already a Long Answer in the set, it'll first remove that Long Answer and then it'll add the Multiple choice options
+    else if (multipleChoiceComponentsListLen == 0) {
+      console.log(" multiple components list " + multipleChoiceComponentsList);
+      for (let c = 0; c < questionSetComponentsListLen - 1; c++) {
+        console.log("in for loop");
+        // alert('in for loop');
+        questionSetComponentsList[
+          questionSetComponentsListLen - c - 1
+        ].remove();
+      }
+      $(questionsetdiv).append(
+        '<div class="input-group mb-3 questionsetComponents' +
+          questionAreaCounter +
+          " multipleChoiceOptions" +
+          questionAreaCounter +
+          '"> <input type="text" class="form-control multipleChoiceInput' +
+          questionAreaCounter +
+          '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
+          questionAreaCounter +
+          '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
+          info +
+          ')"  type="button" id="multipleChoiceBtn' +
+          questionAreaCounter +
+          '">+</button> </div> </div>'
+      );
+    }
+  }
+}
 
     // addMutiplechoice Function's Versions of buttons
     // $(questionsetdiv).append(
@@ -366,61 +361,61 @@ function addMultipleChoice(info) {
 // TO DELETE A NEW QUESTION AREA
 
 function deleted() {
-    let questionsetdiv = [];
-    questionsetdiv = $(".question-set");
-    let textareaarr = [];
-    textareaarr = $("textarea");
-    let optionset = [];
-    optionset = $(".options-set");
-    // let savebtn = [];
-    // savebtn = $('.savebtn');
+  let questionsetdiv = [];
+  questionsetdiv = $(".question-set");
+  let textareaarr = [];
+  textareaarr = $("textarea");
+  let optionset = [];
+  optionset = $(".options-set");
+  // let savebtn = [];
+  // savebtn = $('.savebtn');
 
-    // *************** Code for bootstrap dropdownbutton *****************
-    // let dropdown = [];
-    // dropdown = $('.dropdown');
-    // dropdownLen = dropdown.length;
-    // dropdown[dropdownLen-1].remove();
+  // *************** Code for bootstrap dropdownbutton *****************
+  // let dropdown = [];
+  // dropdown = $('.dropdown');
+  // dropdownLen = dropdown.length;
+  // dropdown[dropdownLen-1].remove();
 
-    // ****** My made option buttons *******
-    // let optionbtn = [];
-    // optionbtn = $('.textarea-btn');
-    // let options = [];
-    // options = $('.optionbtns');
-    // let optionsdiv = [];
-    // optionsdiv = $('.optionsareaclass');
-    h = questionsetdiv.length;
-    i = textareaarr.length;
-    optionsetLen = optionset.length;
-    // j = savebtn.length;
+  // ****** My made option buttons *******
+  // let optionbtn = [];
+  // optionbtn = $('.textarea-btn');
+  // let options = [];
+  // options = $('.optionbtns');
+  // let optionsdiv = [];
+  // optionsdiv = $('.optionsareaclass');
+  h = questionsetdiv.length;
+  i = textareaarr.length;
+  optionsetLen = optionset.length;
+  // j = savebtn.length;
 
-    // ****** My made option buttons *******
-    // k = optionbtn.length;
-    // l = options.length;
-    // m = optionsdiv.length;
+  // ****** My made option buttons *******
+  // k = optionbtn.length;
+  // l = options.length;
+  // m = optionsdiv.length;
 
-    questionsetdiv[h - 1].remove();
-    textareaarr[i - 1].remove();
-    optionset[optionsetLen - 1].remove();
-    // savebtn[j - 1].remove();
+  questionsetdiv[h - 1].remove();
+  textareaarr[i - 1].remove();
+  optionset[optionsetLen - 1].remove();
+  // savebtn[j - 1].remove();
 
-    // ****** My made option buttons *******
-    // optionbtn[k-1].remove();
-    // for(a = 0;a<3; a++)
-    // {
-    //     options[l-1-a].remove();
-    // }
-    // optionsdiv[m - 1].remove();
-    // console.log(textareaarr[i]);
+  // ****** My made option buttons *******
+  // optionbtn[k-1].remove();
+  // for(a = 0;a<3; a++)
+  // {
+  //     options[l-1-a].remove();
+  // }
+  // optionsdiv[m - 1].remove();
+  // console.log(textareaarr[i]);
 
-    // console.log(savebtn);
+  // console.log(savebtn);
 
-    // ****** My made option buttons *******
-    // console.log(optionbtn);
-    // console.log(options);
-    // i--;
-    // j--;
-    // k--;
-    questionAreaCounter--;
+  // ****** My made option buttons *******
+  // console.log(optionbtn);
+  // console.log(options);
+  // i--;
+  // j--;
+  // k--;
+  questionAreaCounter--;
 }
 
 //************** / AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING ****************
@@ -466,7 +461,9 @@ function ajaxToSave(id) {
     });
 }
 
+// });
 
+// });
 
 
 // ******* CODE TO MAKE A WINDOW APPEAR AND DISAPPEAR *******
@@ -485,28 +482,28 @@ function ajaxToSave(id) {
 
 // ********************************  FUNCTION TO INCREASE SIZE OF THE TEXTAREA  *****************************************
 function AutoGrowTextArea(textField) {
-    // console.log(textField);
-    // console.log("Client height ",textField.clientHeight);
-    // console.log(textField.style.height);
-    // console.log("Scroll height ",textField.scrollHeight);
-    // console.log(rem);
+  // console.log(textField);
+  // console.log("Client height ",textField.clientHeight);
+  // console.log(textField.style.height);
+  // console.log("Scroll height ",textField.scrollHeight);
+  // console.log(rem);
+  if (textField.clientHeight < textField.scrollHeight) {
+    textField.style.height = textField.scrollHeight + "px";
     if (textField.clientHeight < textField.scrollHeight) {
-        textField.style.height = textField.scrollHeight + "px";
-        if (textField.clientHeight < textField.scrollHeight) {
-            textField.style.height =
-                textField.scrollHeight * 2 - textField.clientHeight + "px";
-        }
+      textField.style.height =
+        textField.scrollHeight * 2 - textField.clientHeight + "px";
     }
+  }
 }
 
 function AutoShrinkArea(textField) {
+  if (textField.clientHeight > textField.scrollHeight) {
+    textField.style.height = textField.clientHeight - 14 + "px";
     if (textField.clientHeight > textField.scrollHeight) {
-        textField.style.height = textField.clientHeight - 14 + "px";
-        if (textField.clientHeight > textField.scrollHeight) {
-            textField.style.height =
-                textField.scrollHeight * 2 - textField.clientHeight + "px";
-        }
+      textField.style.height =
+        textField.scrollHeight * 2 - textField.clientHeight + "px";
     }
+  }
 }
 
 // ****** My made option buttons *******
