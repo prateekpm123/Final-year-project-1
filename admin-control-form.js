@@ -65,7 +65,9 @@ function create() {
       '"></div>'
   );
   $(col1Optionset).append(
-    '<button id="sub" class="btn btn-primary savebtn"> Save</button>'
+    '<button id="sub' +
+      questionAreaCounter +
+      '" class="btn btn-primary savebtn"> Save</button>'
   );
 
   $(rowOptionset).append(
@@ -319,7 +321,7 @@ function addMultipleChoice(info) {
   infolen = info.length;
   idno = info[infolen - 1];
   console.log("idno = ", idno);
-  alert("info add choice funciton");
+  //   alert("info add choice funciton");
   let idno2 = idno;
   // idno2 = idno2 - 1;
   let questionsetdiv = "#questionset" + idno;
@@ -408,13 +410,32 @@ function deleted() {
 }
 
 //************** / AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING ****************
-$(document).ready(function () {
-  $("#sub").click(function () {
-    $.post("submit.php", { question: $("#1").val() }, function (data) {
-      $("#display").html(data);
-    });
+// function ajaxToSave() {
+//     // alert('in the save button')
+//     $.post("submit.php", {
+//             question: $("#1").val()
+//         },
+//         function (data) {
+//             $("#display").html(data);
+//             // alert('in the function of the ajax');
+//         });
+// }
+
+// *********************** MY VERSION OF THE SAME ABOVE CODE *****************************
+function ajaxToSave() {
+  let textarea1 = $("#1").val();
+
+  $.ajax({
+    url: "submit.php",
+    type: "post",
+    data: {
+      question1: textarea1,
+    },
+    success: function (data, status) {
+      // $("#display").html(data);
+    },
   });
-});
+}
 
 // ***Compare***
 // $(document).ready(function(){
