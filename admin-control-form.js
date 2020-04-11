@@ -216,7 +216,7 @@ function createLongAnswer(info) {
 
     // oneOrZero = addOrRemoveCounter % 2;
 
-    // let optionbtns = "#optionbtns" + idno;
+    let optionbtns = "#optionbtns" + idno;
     // $(optionbtns).hide();
 
     // $(longTextAreaAns).remove();
@@ -467,7 +467,30 @@ function ajaxToSave(id) {
 }
 
 
+// ####################### How to send the options data dynamically to the submit.php file  ##########################3
+// for(z=1;z<multiplechoice.length; z++) {
+//     answerid = answerid+z
+//     temp = "#multiplechoiceid" + answerid
 
+//     mutiplechoice = $(temp)
+
+
+//     $.ajax({
+
+//         url: "submit.php",
+//         type: "post",
+//         data: {
+//             option: multiplechoice,
+//             optionId: temp
+//             // for()
+//         },
+//         success: function (data, status) {
+//             // console.log(data);
+//             $("#display").html(data);
+//         }
+
+//     });
+// }
 
 // ******* CODE TO MAKE A WINDOW APPEAR AND DISAPPEAR *******
 
@@ -671,4 +694,3 @@ function AutoShrinkArea(textField) {
 //     }
 
 // }
-
