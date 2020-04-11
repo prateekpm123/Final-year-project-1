@@ -408,11 +408,31 @@ function deleted() {
 }
 
 //************** / AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING ****************
-$("#sub").click(function () {
-  $.post("submit.php", { question: $("#1").val() }, function (data) {
-    $("#display").html(data);
+$(document).ready(function () {
+  $("#sub").click(function () {
+    $.post("submit.php", { question: $("#1").val() }, function (data) {
+      $("#display").html(data);
+    });
   });
 });
+
+// ***Compare***
+// $(document).ready(function(){
+// $('#sub').click(function(){
+
+// $.post("submit.php",
+//  {
+// question: $('#question').val()
+//  },
+//  function(data){
+// $('#display').html(data);
+//   }
+
+//   );
+
+// });
+
+// });
 
 // ******* CODE TO MAKE A WINDOW APPEAR AND DISAPPEAR *******
 
