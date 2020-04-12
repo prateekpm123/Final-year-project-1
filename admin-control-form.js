@@ -218,12 +218,9 @@ function createLongAnswer(info) {
   // let optionbtns = "#optionbtns" + idno;
   // $(optionbtns).hide();
 
-<<<<<<< HEAD
   // $(longTextAreaAns).remove();
-=======
-    let optionbtns = "#optionbtns" + idno;
-    // $(optionbtns).hide();
->>>>>>> bbdd4f2442a1354a2b0ffb7555cdcc7c06de2c99
+  let optionbtns = "#optionbtns" + idno;
+  // $(optionbtns).hide();
 
   // previousIdno = idno;
   // console.log("previousidno "+ previousIdno);
@@ -472,14 +469,12 @@ function ajaxToSave(id) {
   });
 }
 
-
 // ####################### How to send the options data dynamically to the submit.php file  ##########################3
 // for(z=1;z<multiplechoice.length; z++) {
 //     answerid = answerid+z
 //     temp = "#multiplechoiceid" + answerid
 
 //     mutiplechoice = $(temp)
-
 
 //     $.ajax({
 
