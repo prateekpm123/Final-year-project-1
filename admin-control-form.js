@@ -10,342 +10,256 @@ addOrRemoveCounter = 0;
 // ******** DYNAMICALLY CREATING OPTIONS MENu *********
 
 $("#optionsappear").click(function () {
-    // Write here the code to append the options list
+  // Write here the code to append the options list
 });
 
 // ************************* TO CREATE A NEW QUESTION AREA  *******************8
 // $('#create').click(function ()
 function create() {
+  // This is to rest the counter for the multiple choice inputs spaces and for creating their UNIQUE ID's
+  multipleChoiceCounter = 1;
 
-    // This is to rest the counter for the multiple choice inputs spaces and for creating their UNIQUE ID's 
-    multipleChoiceCounter = 1;
+  $("#form-page1").append(
+    '<div class="question-set" id="questionset' +
+      questionAreaCounter +
+      '"></div>'
+  );
 
-    $("#form-page1").append(
-        '<div class="question-set" id="questionset' +
-        questionAreaCounter +
-        '"></div>'
-    );
+  let questionsetno = "#questionset" + questionAreaCounter;
 
-    let questionsetno = "#questionset" + questionAreaCounter;
+  let questionAreaCounter2 = questionAreaCounter;
+  questionAreaCounter2++;
+  $(questionsetno).append(
+    '<textarea name="question' +
+      questionAreaCounter +
+      '" placeholder="Enter the questions..."  style="overflow:hidden"  onkeyup="AutoGrowTextArea(this)" cols="30" rows="3" id="Q' +
+      questionAreaCounter +
+      '" class="questionarea questionsetComponents' +
+      questionAreaCounter2 +
+      '"></textarea>'
+  );
 
-    let questionAreaCounter2 = questionAreaCounter;
-    questionAreaCounter2++;
-    $(questionsetno).append(
-        '<textarea name="question' +
-        questionAreaCounter +
-        '" placeholder="Enter the questions..."  style="overflow:hidden"  onkeyup="AutoGrowTextArea(this)" cols="30" rows="3" id="Q' +
-        questionAreaCounter +
-        '" class="questionarea questionsetComponents' +
-        questionAreaCounter2 +
-        '"></textarea>'
-    );
+  let optionset = "#optionset" + questionAreaCounter;
 
-    let optionset = "#optionset" + questionAreaCounter;
+  let rowOptionset = "#optionsetrow" + questionAreaCounter;
 
-    let rowOptionset = "#optionsetrow" + questionAreaCounter;
+  let col1Optionset = "#optionCol-1-" + questionAreaCounter;
+  let col2Optionset = "#optionCol-2-" + questionAreaCounter;
+  let col3Optionset = "#optionCol-3-" + questionAreaCounter;
+  let col4Optionset = "#optionCol-4-" + questionAreaCounter;
+  let col5Optionset = "#optionCol-5-" + questionAreaCounter;
 
-    let col1Optionset = "#optionCol-1-" + questionAreaCounter;
-    let col2Optionset = "#optionCol-2-" + questionAreaCounter;
-    let col3Optionset = "#optionCol-3-" + questionAreaCounter;
-    let col4Optionset = "#optionCol-4-" + questionAreaCounter;
-    let col5Optionset = "#optionCol-5-" + questionAreaCounter;
+  // $('#form-page1').append(
+  //         '<div class="options-set" id="optionset' + questionAreaCounter + '"> <div class="row option-setrow" id="optionsetrow' + questionAreaCounter + '"> <div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-1-' + questionAreaCounter + '"> </div> <div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-2-' + questionAreaCounter + '"> </div> <div class="col-lg-5 col-md-5 col-sm-5 col-xm-5" id="optionCol-3-' + questionAreaCounter + '"> </div> <div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-4-' + questionAreaCounter + '"> </div> <div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-5-' + questionAreaCounter + '"> </div></div></div>'
+  // );
 
-    // $('#form-page1').append(
-    //         '<div class="options-set" id="optionset' + questionAreaCounter + '"> <div class="row option-setrow" id="optionsetrow' + questionAreaCounter + '"> <div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-1-' + questionAreaCounter + '"> </div> <div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-2-' + questionAreaCounter + '"> </div> <div class="col-lg-5 col-md-5 col-sm-5 col-xm-5" id="optionCol-3-' + questionAreaCounter + '"> </div> <div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-4-' + questionAreaCounter + '"> </div> <div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-5-' + questionAreaCounter + '"> </div></div></div>'
-    // );
+  $("#form-page1").append(
+    '<div class="options-set" id="optionset' + questionAreaCounter + '"></div>'
+  );
 
-    $("#form-page1").append(
-        '<div class="options-set" id="optionset' + questionAreaCounter + '"></div>'
-    );
+  $(optionset).append(
+    '<div class="row option-setrow" id="optionsetrow' +
+      questionAreaCounter +
+      '"></div>'
+  );
 
-    $(optionset).append(
-        '<div class="row option-setrow" id="optionsetrow' +
-        questionAreaCounter +
-        '"></div>'
-    );
+  $(rowOptionset).append(
+    '<div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-1-' +
+      questionAreaCounter +
+      '"></div>'
+  );
+  $(col1Optionset).append(
+    '<button id="sub' +
+      questionAreaCounter +
+      '" class="btn btn-primary savebtn" onclick="ajaxToSave(this.id)"> Save</button>'
+  );
 
-    $(rowOptionset).append(
-        '<div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-1-' +
-        questionAreaCounter +
-        '"></div>'
-    );
-    $(col1Optionset).append(
-        '<button id="sub' +
-        questionAreaCounter +
-        '" class="btn btn-primary savebtn" onclick="ajaxToSave(this.id)"> Save</button>'
-    );
+  $(rowOptionset).append(
+    '<div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-2-' +
+      questionAreaCounter +
+      '"></div>'
+  );
+  $(col2Optionset).append('<span id="result0"></span>');
 
-    $(rowOptionset).append(
-        '<div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-2-' +
-        questionAreaCounter +
-        '"></div>'
-    );
-    $(col2Optionset).append('<span id="result0"></span>');
+  $(rowOptionset).append(
+    '<div class="col-lg-5 col-md-5 col-sm-5 col-xm-5" id="optionCol-3-' +
+      questionAreaCounter +
+      '"></div>'
+  );
+  $(col3Optionset).append(
+    '<button class="btn btn-primary options' +
+      questionAreaCounter +
+      '" onclick="addMultipleChoice(this.className)" id="createMultipleChoice' +
+      questionAreaCounter +
+      '">Add Multiple choice</button>'
+  );
 
-    $(rowOptionset).append(
-        '<div class="col-lg-5 col-md-5 col-sm-5 col-xm-5" id="optionCol-3-' +
-        questionAreaCounter +
-        '"></div>'
-    );
-    $(col3Optionset).append(
-        '<button class="btn btn-primary options' +
-        questionAreaCounter +
-        '" onclick="addMultipleChoice(this.className)" id="createMultipleChoice' +
-        questionAreaCounter +
-        '">Add Multiple choice</button>'
-    );
+  let createMultipleChoice = "#createMultipleChoice" + questionAreaCounter;
+  $(createMultipleChoice).hide();
 
-    let createMultipleChoice = "#createMultipleChoice" + questionAreaCounter;
-    $(createMultipleChoice).hide();
+  $(rowOptionset).append(
+    '<div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-4-' +
+      questionAreaCounter +
+      '"></div>'
+  );
+  // *************** Code for bootstrap dropdownbutton *****************
+  $(col4Optionset).append(
+    '<div class="input-group-prepend" id="optionbtns' +
+      questionAreaCounter +
+      '"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</button> <div class="dropdown-menu"> <button class="dropdown-item options' +
+      questionAreaCounter +
+      '" onclick="createMultipleChoice(this.className)">Multiple choice</button> <button class="dropdown-item options' +
+      questionAreaCounter +
+      '" href="#">Ratings</button> <button class="dropdown-item options' +
+      questionAreaCounter +
+      '" onclick="createLongAnswer(this.className)">Long Answer</button> <button class="dropdown-item options' +
+      questionAreaCounter +
+      '">Short Answer</button> </div> </div > '
+  );
 
-    $(rowOptionset).append(
-        '<div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-4-' +
-        questionAreaCounter +
-        '"></div>'
-    );
-    // *************** Code for bootstrap dropdownbutton *****************
-    $(col4Optionset).append(
-        '<div class="input-group-prepend" id="optionbtns' +
-        questionAreaCounter +
-        '"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</button> <div class="dropdown-menu"> <button class="dropdown-item options' +
-        questionAreaCounter +
-        '" onclick="createMultipleChoice(this.className)">Multiple choice</button> <button class="dropdown-item options' +
-        questionAreaCounter +
-        '" href="#">Ratings</button> <button class="dropdown-item options' +
-        questionAreaCounter +
-        '" onclick="createLongAnswer(this.className)">Long Answer</button> <button class="dropdown-item options' +
-        questionAreaCounter +
-        '">Short Answer</button> </div> </div > '
-    );
+  $(rowOptionset).append(
+    '<div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-5-' +
+      questionAreaCounter +
+      '"></div>'
+  );
+  $(col5Optionset).append(
+    '<div class="input-group-prepend"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Del</button> <div class="dropdown-menu"> <button class="dropdown-item extraOptions' +
+      questionAreaCounter +
+      '">Delete Choice</button> <button class="dropdown-item extraOptions' +
+      questionAreaCounter +
+      '">Another action</button> <button class="dropdown-item extraOptions' +
+      questionAreaCounter +
+      '">Something else here</button> <div role="separator" class="dropdown-divider"></div> <button class="dropdown-item extraOptions' +
+      questionAreaCounter +
+      '">Separated link</button> </div> </div>'
+  );
 
-    $(rowOptionset).append(
-        '<div class="col-lg-1 col-md-1 col-sm-1 col-xm-1" id="optionCol-5-' +
-        questionAreaCounter +
-        '"></div>'
-    );
-    $(col5Optionset).append(
-        '<div class="input-group-prepend"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Del</button> <div class="dropdown-menu"> <button class="dropdown-item extraOptions' +
-        questionAreaCounter +
-        '">Delete Choice</button> <button class="dropdown-item extraOptions' +
-        questionAreaCounter +
-        '">Another action</button> <button class="dropdown-item extraOptions' +
-        questionAreaCounter +
-        '">Something else here</button> <div role="separator" class="dropdown-divider"></div> <button class="dropdown-item extraOptions' +
-        questionAreaCounter +
-        '">Separated link</button> </div> </div>'
-    );
+  // **************** My made option buttons *****************
 
-    // **************** My made option buttons *****************
+  // $('#form-page1').append(
+  //     // '< button class="btn btn-primary textarea-btn" name="submit" id="optionsappear" > + < /button>'
+  //     '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear' + questionAreaCounter + '" onclick=showOptions(this.id)>+</button>'
+  // );
+  // $('#form-page1').append(
+  //     '<div id="optionsarea' + questionAreaCounter + '" class="optionsareaclass"></div>'
+  // );
+  // let questionCounter = "#optionsarea"+questionAreaCounter;
+  // $(questionCounter).append(
+  //     '<button class="options' + questionAreaCounter + ' optionbtns"> Options</button>                <button class= "options' + questionAreaCounter + ' optionbtns"> Ratings</button>            <button class="options' + questionAreaCounter + ' optionbtns">Answers</button>'
+  // );
 
-    // $('#form-page1').append(
-    //     // '< button class="btn btn-primary textarea-btn" name="submit" id="optionsappear" > + < /button>'
-    //     '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear' + questionAreaCounter + '" onclick=showOptions(this.id)>+</button>'
-    // );
-    // $('#form-page1').append(
-    //     '<div id="optionsarea' + questionAreaCounter + '" class="optionsareaclass"></div>'
-    // );
-    // let questionCounter = "#optionsarea"+questionAreaCounter;
-    // $(questionCounter).append(
-    //     '<button class="options' + questionAreaCounter + ' optionbtns"> Options</button>                <button class= "options' + questionAreaCounter + ' optionbtns"> Ratings</button>            <button class="options' + questionAreaCounter + ' optionbtns">Answers</button>'
-    // );
-
-    questionAreaCounter++;
-    // div1.appendChild(textarea);
-    // provideId(questionAreaCounter);
-    // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
+  questionAreaCounter++;
+  // div1.appendChild(textarea);
+  // provideId(questionAreaCounter);
+  // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
 }
 
 function createLongAnswer(info) {
-    // alert("into create long answer");
-    // console.log(info);
-    infolen = info.length;
-    idno = info[infolen - 1];
-    console.log("idno ", idno);
-    let idno2 = idno;
-    idno2++;
+  // alert("into create long answer");
+  // console.log(info);
+  infolen = info.length;
+  idno = info[infolen - 1];
+  console.log("idno ", idno);
+  let idno2 = idno;
+  idno2++;
 
-    let createMultipleChoice = "#createMultipleChoice" + idno;
-    $(createMultipleChoice).hide();
+  let createMultipleChoice = "#createMultipleChoice" + idno;
+  $(createMultipleChoice).hide();
 
-    questionsetId = ".questionsetComponents" + idno2;
-    questionSetComponentsList = $(questionsetId);
-    questionSetComponentsListLen = questionSetComponentsList.length;
-    console.log("options count " + questionSetComponentsListLen);
-    console.log("options objects " + questionSetComponentsList);
+  questionsetId = ".questionsetComponents" + idno2;
+  questionSetComponentsList = $(questionsetId);
+  questionSetComponentsListLen = questionSetComponentsList.length;
+  console.log("options count " + questionSetComponentsListLen);
+  console.log("options objects " + questionSetComponentsList);
 
-    if (questionSetComponentsListLen == 0 || questionSetComponentsListLen == 1) {
-        let questionsetdiv = "#questionset" + idno;
-        let longTextAreaAns = "#longanswer" + idno + 1;
+  if (questionSetComponentsListLen == 0 || questionSetComponentsListLen == 1) {
+    let questionsetdiv = "#questionset" + idno;
+    let longTextAreaAns = "#longanswer" + idno + 1;
 
-        $(questionsetdiv).append(
-            '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' +
-            questionAreaCounter +
-            '" cols="30" rows="2"  style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea questionsetComponents' +
-            questionAreaCounter +
-            '"> </textarea>'
-        );
-    } else if (questionSetComponentsListLen > 0) {
-        for (let c = 0; c < questionSetComponentsListLen - 1; c++) {
-            console.log("in for loop");
-            // alert('in for loop');
-            questionSetComponentsList[questionSetComponentsListLen - c - 1].remove();
-        }
-        let questionsetdiv = "#questionset" + idno;
-        $(questionsetdiv).append(
-            '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' +
-            questionAreaCounter +
-            '" cols="30" rows="2"  style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea questionsetComponents' +
-            questionAreaCounter +
-            '"> </textarea>'
-        );
+    $(questionsetdiv).append(
+      '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' +
+        questionAreaCounter +
+        '" cols="30" rows="2"  style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea questionsetComponents' +
+        questionAreaCounter +
+        '"> </textarea>'
+    );
+  } else if (questionSetComponentsListLen > 0) {
+    for (let c = 0; c < questionSetComponentsListLen - 1; c++) {
+      console.log("in for loop");
+      // alert('in for loop');
+      questionSetComponentsList[questionSetComponentsListLen - c - 1].remove();
     }
-    // console.log("idno "+idno);
-    // let previousIdno;
-    // // let count = longAnswerCounter(idno);
+    let questionsetdiv = "#questionset" + idno;
+    $(questionsetdiv).append(
+      '<textarea name="longAnswer" placeholder="Enter your answer..." id="longAnswer' +
+        questionAreaCounter +
+        '" cols="30" rows="2"  style="overflow:hidden" onkeyup="AutoGrowTextArea(this)" onkeydown="AutoShrinkArea(this)" class="questionarea answerarea questionsetComponents' +
+        questionAreaCounter +
+        '"> </textarea>'
+    );
+  }
+  // console.log("idno "+idno);
+  // let previousIdno;
+  // // let count = longAnswerCounter(idno);
 
-    // if (previousIdno == idno) {
-    //     alert("in if condition");
-    //     return addOrRemoveCounter++;
-    //     console.log("counter " + addOrRemoveCounter);
-    // } else {
-    //     return addOrRemoveCounter;
-    //     console.log("counter " + addOrRemoveCounter);
+  // if (previousIdno == idno) {
+  //     alert("in if condition");
+  //     return addOrRemoveCounter++;
+  //     console.log("counter " + addOrRemoveCounter);
+  // } else {
+  //     return addOrRemoveCounter;
+  //     console.log("counter " + addOrRemoveCounter);
 
-    // // }
-    // console.log("counter " + addOrRemoveCounter);
+  // // }
+  // console.log("counter " + addOrRemoveCounter);
 
-    // oneOrZero = addOrRemoveCounter % 2;
+  // oneOrZero = addOrRemoveCounter % 2;
 
-    // let optionbtns = "#optionbtns" + idno;
-    // $(optionbtns).hide();
+  // let optionbtns = "#optionbtns" + idno;
+  // $(optionbtns).hide();
 
-    // $(longTextAreaAns).remove();
+  // $(longTextAreaAns).remove();
 
-    // previousIdno = idno;
-    // console.log("previousidno "+ previousIdno);
+  // previousIdno = idno;
+  // console.log("previousidno "+ previousIdno);
 }
 
 function createMultipleChoice(info) {
-    // alert('in multiple choice');
-    infolen = info.length;
-    idno = info[infolen - 1];
-    console.log("idno = ", idno);
+  // alert('in multiple choice');
+  infolen = info.length;
+  idno = info[infolen - 1];
+  console.log("idno = ", idno);
 
-    let idno2 = idno;
-    idno2++;
+  let idno2 = idno;
+  idno2++;
 
-    let createMultipleChoice = "#createMultipleChoice" + idno;
-    $(createMultipleChoice).show();
+  let createMultipleChoice = "#createMultipleChoice" + idno;
+  $(createMultipleChoice).show();
 
-    questionsetId = ".questionsetComponents" + idno2;
-    questionSetComponentsList = $(questionsetId);
-    questionSetComponentsListLen = questionSetComponentsList.length;
-    console.log("options count " + questionSetComponentsListLen);
-    console.log("options objects " + questionSetComponentsList);
+  questionsetId = ".questionsetComponents" + idno2;
+  questionSetComponentsList = $(questionsetId);
+  questionSetComponentsListLen = questionSetComponentsList.length;
+  console.log("options count " + questionSetComponentsListLen);
+  console.log("options objects " + questionSetComponentsList);
 
-    multipleChoiceId = ".multipleChoiceOptions" + idno2;
-    multipleChoiceComponentsList = $(multipleChoiceId);
-    multipleChoiceComponentsListLen = multipleChoiceComponentsList.length;
+  multipleChoiceId = ".multipleChoiceOptions" + idno2;
+  multipleChoiceComponentsList = $(multipleChoiceId);
+  multipleChoiceComponentsListLen = multipleChoiceComponentsList.length;
 
-    let questionsetdiv = "#questionset" + idno;
+  let questionsetdiv = "#questionset" + idno;
 
-    // This condition checks if the set is empty or not
-    if (questionSetComponentsListLen == 1) {
-        $(questionsetdiv).append(
-            '<div class="input-group mb-3 questionsetComponents' +
-            questionAreaCounter +
-            " multipleChoiceOptions" +
-            questionAreaCounter +
-            '"> <input type="text" class="form-control multipleChoiceInput' +
-            questionAreaCounter +
-            '" placeholder=" - " id="multipleChoiceid' +
-            questionAreaCounter + multipleChoiceCounter +
-            '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
-            questionAreaCounter +
-            '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
-            info +
-            ')" type="button" id="multipleChoiceBtn' +
-            questionAreaCounter +
-            '">+</button> </div> </div>'
-        );
-    }
-
-    // This tells us, there are more components then just question area
-    else if (questionSetComponentsListLen > 1) {
-        // This Condition checks weather, there are any multiple choice questions in the set or not
-        let questionSetComponentsListLen2 = questionSetComponentsListLen;
-        questionSetComponentsListLen2 = questionSetComponentsListLen2 - 1;
-        if (multipleChoiceComponentsListLen == questionSetComponentsListLen2) {
-            // alert('in checking are the components multiple choice or not');
-            $(questionsetdiv).append(
-                '<div class="input-group mb-3 questionsetComponents' +
-                questionAreaCounter +
-                " multipleChoiceOptions" +
-                questionAreaCounter +
-                '"> <input type="text" class="form-control multipleChoiceInput' +
-                questionAreaCounter +
-                '" placeholder=" - " id="multipleChoiceid' +
-                questionAreaCounter + multipleChoiceCounter +
-                '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
-                questionAreaCounter +
-                '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
-                info +
-                ')" type="button" id="multipleChoiceBtn' +
-                questionAreaCounter +
-                '">+</button> </div> </div>'
-            );
-        }
-
-        // This Condition checks are there any other components other than choices already in the set or not,
-        // For Ex: if there is already a Long Answer in the set, it'll first remove that Long Answer and then it'll add the Multiple choice options
-        else if (multipleChoiceComponentsListLen == 0) {
-            console.log(" multiple components list " + multipleChoiceComponentsList);
-            for (let c = 0; c < questionSetComponentsListLen - 1; c++) {
-                console.log("in for loop");
-                // alert('in for loop');
-                questionSetComponentsList[questionSetComponentsListLen - c - 1].remove();
-            }
-            $(questionsetdiv).append(
-                '<div class="input-group mb-3 questionsetComponents' +
-                questionAreaCounter +
-                " multipleChoiceOptions" +
-                questionAreaCounter +
-                '"> <input type="text" class="form-control multipleChoiceInput' +
-                questionAreaCounter +
-                '" placeholder=" - " id="multipleChoiceid' +
-                questionAreaCounter + multipleChoiceCounter +
-                '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
-                questionAreaCounter +
-                '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
-                info +
-                ')" type="button" id="multipleChoiceBtn' +
-                questionAreaCounter +
-                '">+</button> </div> </div>'
-            );
-        }
-    }
-    multipleChoiceCounter++;
-}
-
-function addMultipleChoice(info) {
-    infolen = info.length;
-    idno = info[infolen - 1];
-    console.log("idno = ", idno);
-    //   alert("info add choice funciton");
-    let idno2 = idno;
-    // idno2 = idno2 - 1;
-    let questionsetdiv = "#questionset" + idno;
-
-    // CreateMultipleChoice Function's Version of this button
+  // This condition checks if the set is empty or not
+  if (questionSetComponentsListLen == 1) {
     $(questionsetdiv).append(
-        '<div class="input-group mb-3 questionsetComponents' +
+      '<div class="input-group mb-3 questionsetComponents' +
         questionAreaCounter +
         " multipleChoiceOptions" +
         questionAreaCounter +
         '"> <input type="text" class="form-control multipleChoiceInput' +
         questionAreaCounter +
         '" placeholder=" - " id="multipleChoiceid' +
-        questionAreaCounter + multipleChoiceCounter +
+        questionAreaCounter +
+        multipleChoiceCounter +
         '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
         questionAreaCounter +
         '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
@@ -354,73 +268,163 @@ function addMultipleChoice(info) {
         questionAreaCounter +
         '">+</button> </div> </div>'
     );
+  }
 
-    // addMutiplechoice Function's Versions of buttons
-    // $(questionsetdiv).append(
-    //     '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
-    //     );
-    multipleChoiceCounter++;
+  // This tells us, there are more components then just question area
+  else if (questionSetComponentsListLen > 1) {
+    // This Condition checks weather, there are any multiple choice questions in the set or not
+    let questionSetComponentsListLen2 = questionSetComponentsListLen;
+    questionSetComponentsListLen2 = questionSetComponentsListLen2 - 1;
+    if (multipleChoiceComponentsListLen == questionSetComponentsListLen2) {
+      // alert('in checking are the components multiple choice or not');
+      $(questionsetdiv).append(
+        '<div class="input-group mb-3 questionsetComponents' +
+          questionAreaCounter +
+          " multipleChoiceOptions" +
+          questionAreaCounter +
+          '"> <input type="text" class="form-control multipleChoiceInput' +
+          questionAreaCounter +
+          '" placeholder=" - " id="multipleChoiceid' +
+          questionAreaCounter +
+          multipleChoiceCounter +
+          '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
+          questionAreaCounter +
+          '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
+          info +
+          ')" type="button" id="multipleChoiceBtn' +
+          questionAreaCounter +
+          '">+</button> </div> </div>'
+      );
+    }
 
+    // This Condition checks are there any other components other than choices already in the set or not,
+    // For Ex: if there is already a Long Answer in the set, it'll first remove that Long Answer and then it'll add the Multiple choice options
+    else if (multipleChoiceComponentsListLen == 0) {
+      console.log(" multiple components list " + multipleChoiceComponentsList);
+      for (let c = 0; c < questionSetComponentsListLen - 1; c++) {
+        console.log("in for loop");
+        // alert('in for loop');
+        questionSetComponentsList[
+          questionSetComponentsListLen - c - 1
+        ].remove();
+      }
+      $(questionsetdiv).append(
+        '<div class="input-group mb-3 questionsetComponents' +
+          questionAreaCounter +
+          " multipleChoiceOptions" +
+          questionAreaCounter +
+          '"> <input type="text" class="form-control multipleChoiceInput' +
+          questionAreaCounter +
+          '" placeholder=" - " id="multipleChoiceid' +
+          questionAreaCounter +
+          multipleChoiceCounter +
+          '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
+          questionAreaCounter +
+          '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
+          info +
+          ')" type="button" id="multipleChoiceBtn' +
+          questionAreaCounter +
+          '">+</button> </div> </div>'
+      );
+    }
+  }
+  multipleChoiceCounter++;
+}
+
+function addMultipleChoice(info) {
+  infolen = info.length;
+  idno = info[infolen - 1];
+  console.log("idno = ", idno);
+  //   alert("info add choice funciton");
+  let idno2 = idno;
+  // idno2 = idno2 - 1;
+  let questionsetdiv = "#questionset" + idno;
+
+  // CreateMultipleChoice Function's Version of this button
+  $(questionsetdiv).append(
+    '<div class="input-group mb-3 questionsetComponents' +
+      questionAreaCounter +
+      " multipleChoiceOptions" +
+      questionAreaCounter +
+      '"> <input type="text" class="form-control multipleChoiceInput' +
+      questionAreaCounter +
+      '" placeholder=" - " id="multipleChoiceid' +
+      questionAreaCounter +
+      multipleChoiceCounter +
+      '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
+      questionAreaCounter +
+      '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
+      info +
+      ')" type="button" id="multipleChoiceBtn' +
+      questionAreaCounter +
+      '">+</button> </div> </div>'
+  );
+
+  // addMutiplechoice Function's Versions of buttons
+  // $(questionsetdiv).append(
+  //     '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
+  //     );
+  multipleChoiceCounter++;
 }
 
 // TO DELETE A NEW QUESTION AREA
 
 function deleted() {
-    let questionsetdiv = [];
-    questionsetdiv = $(".question-set");
-    let textareaarr = [];
-    textareaarr = $("textarea");
-    let optionset = [];
-    optionset = $(".options-set");
-    // let savebtn = [];
-    // savebtn = $('.savebtn');
+  let questionsetdiv = [];
+  questionsetdiv = $(".question-set");
+  let textareaarr = [];
+  textareaarr = $("textarea");
+  let optionset = [];
+  optionset = $(".options-set");
+  // let savebtn = [];
+  // savebtn = $('.savebtn');
 
-    // *************** Code for bootstrap dropdownbutton *****************
-    // let dropdown = [];
-    // dropdown = $('.dropdown');
-    // dropdownLen = dropdown.length;
-    // dropdown[dropdownLen-1].remove();
+  // *************** Code for bootstrap dropdownbutton *****************
+  // let dropdown = [];
+  // dropdown = $('.dropdown');
+  // dropdownLen = dropdown.length;
+  // dropdown[dropdownLen-1].remove();
 
-    // ****** My made option buttons *******
-    // let optionbtn = [];
-    // optionbtn = $('.textarea-btn');
-    // let options = [];
-    // options = $('.optionbtns');
-    // let optionsdiv = [];
-    // optionsdiv = $('.optionsareaclass');
-    h = questionsetdiv.length;
-    i = textareaarr.length;
-    optionsetLen = optionset.length;
-    // j = savebtn.length;
+  // ****** My made option buttons *******
+  // let optionbtn = [];
+  // optionbtn = $('.textarea-btn');
+  // let options = [];
+  // options = $('.optionbtns');
+  // let optionsdiv = [];
+  // optionsdiv = $('.optionsareaclass');
+  h = questionsetdiv.length;
+  i = textareaarr.length;
+  optionsetLen = optionset.length;
+  // j = savebtn.length;
 
-    // ****** My made option buttons *******
-    // k = optionbtn.length;
-    // l = options.length;
-    // m = optionsdiv.length;
+  // ****** My made option buttons *******
+  // k = optionbtn.length;
+  // l = options.length;
+  // m = optionsdiv.length;
 
-    questionsetdiv[h - 1].remove();
-    textareaarr[i - 1].remove();
-    optionset[optionsetLen - 1].remove();
-    // savebtn[j - 1].remove();
+  questionsetdiv[h - 1].remove();
+  textareaarr[i - 1].remove();
+  optionset[optionsetLen - 1].remove();
+  // savebtn[j - 1].remove();
 
-    // ****** My made option buttons *******
-    // optionbtn[k-1].remove();
-    // for(a = 0;a<3; a++)
-    // {
-    //     options[l-1-a].remove();
-    // }
-    // optionsdiv[m - 1].remove();
-    // console.log(textareaarr[i]);
+  // ****** My made option buttons *******
+  // optionbtn[k-1].remove();
+  // for(a = 0;a<3; a++)
+  // {
+  //     options[l-1-a].remove();
+  // }
+  // optionsdiv[m - 1].remove();
+  // console.log(textareaarr[i]);
 
-    // console.log(savebtn);
+  // console.log(savebtn);
 
-    // ****** My made option buttons *******
-    // console.log(optionbtn);
-    // console.log(options);
-    // i--;
-    // j--;
-    // k--;
-    questionAreaCounter--;
+  // ****** My made option buttons *******
+  // console.log(optionbtn);
+  // console.log(options);
+  // i--;
+  // j--;
+  // k--;
+  questionAreaCounter--;
 }
 
 //************** / AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING ****************
@@ -437,37 +441,31 @@ function deleted() {
 
 // *********************** MY VERSION OF THE SAME ABOVE CODE *****************************
 function ajaxToSave(id) {
+  let idLen = id.length;
+  Id = id[idLen - 1];
+  AId = Id;
+  AId++;
+  let textareaId = "#Q" + Id;
+  let answerId = "#longAnswer" + AId;
 
-    let idLen = id.length;
-    Id = id[idLen - 1];
-    AId = Id;
-    AId++;
-    let textareaId = "#Q" + Id;
-    let answerId = "#longAnswer" + AId;
-
-    console.log('id ', answerId);
-    let textarea = $(textareaId).val();
-    let answerarea = $(answerId).val();
-    console.log(answerarea);
-    $.ajax({
-
-        url: "submit.php",
-        type: "post",
-        data: {
-            question: textarea,
-            answer: answerarea
-            // for()
-        },
-        success: function (data, status) {
-            // console.log(data);
-            $("#display").html(data);
-        }
-
-    });
+  console.log("id ", answerId);
+  let textarea = $(textareaId).val();
+  let answerarea = $(answerId).val();
+  console.log(answerarea);
+  $.ajax({
+    url: "submit.php",
+    type: "post",
+    data: {
+      question: textarea,
+      answer: answerarea,
+      // for()
+    },
+    success: function (data, status) {
+      // console.log(data);
+      $("#display").html(data);
+    },
+  });
 }
-
-
-
 
 // ******* CODE TO MAKE A WINDOW APPEAR AND DISAPPEAR *******
 
@@ -485,28 +483,28 @@ function ajaxToSave(id) {
 
 // ********************************  FUNCTION TO INCREASE SIZE OF THE TEXTAREA  *****************************************
 function AutoGrowTextArea(textField) {
-    // console.log(textField);
-    // console.log("Client height ",textField.clientHeight);
-    // console.log(textField.style.height);
-    // console.log("Scroll height ",textField.scrollHeight);
-    // console.log(rem);
+  // console.log(textField);
+  // console.log("Client height ",textField.clientHeight);
+  // console.log(textField.style.height);
+  // console.log("Scroll height ",textField.scrollHeight);
+  // console.log(rem);
+  if (textField.clientHeight < textField.scrollHeight) {
+    textField.style.height = textField.scrollHeight + "px";
     if (textField.clientHeight < textField.scrollHeight) {
-        textField.style.height = textField.scrollHeight + "px";
-        if (textField.clientHeight < textField.scrollHeight) {
-            textField.style.height =
-                textField.scrollHeight * 2 - textField.clientHeight + "px";
-        }
+      textField.style.height =
+        textField.scrollHeight * 2 - textField.clientHeight + "px";
     }
+  }
 }
 
 function AutoShrinkArea(textField) {
+  if (textField.clientHeight > textField.scrollHeight) {
+    textField.style.height = textField.clientHeight - 14 + "px";
     if (textField.clientHeight > textField.scrollHeight) {
-        textField.style.height = textField.clientHeight - 14 + "px";
-        if (textField.clientHeight > textField.scrollHeight) {
-            textField.style.height =
-                textField.scrollHeight * 2 - textField.clientHeight + "px";
-        }
+      textField.style.height =
+        textField.scrollHeight * 2 - textField.clientHeight + "px";
     }
+  }
 }
 
 // ****** My made option buttons *******
@@ -671,4 +669,3 @@ function AutoShrinkArea(textField) {
 //     }
 
 // }
-
