@@ -12,7 +12,7 @@ echo "Connected successfully";
 
 
 $question = $_POST['question'];
-// $answer = $_POST['answer'];
+$answer = $_POST['answer'];
 
 $add = "insert into questions(Questions) values ('$question')";
 // mysqli_query($con, $add);
@@ -26,4 +26,10 @@ if (mysqli_query($con, $add)) {
 // echo $answer;
 // echo "inserted successfully";
 
+$ans = "insert into answers(Answers) values ('$answer')";
+if (mysqli_query($con, $ans)) {
+  echo "Answer record created successfully";
+} else {
+  echo "Error: " . $ans . "<br>" . mysqli_error($con);
+}
 ?> 
