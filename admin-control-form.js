@@ -319,34 +319,9 @@ function create(btnclass, btnid) {
     $("#form-page1").append(
         questionsetDivTag
     );
-  }
 
-  // This tells us, there are more components then just question area
-  else if (questionSetComponentsListLen > 1) {
-    // This Condition checks weather, there are any multiple choice questions in the set or not
-    let questionSetComponentsListLen2 = questionSetComponentsListLen;
-    questionSetComponentsListLen2 = questionSetComponentsListLen2 - 1;
-    if (multipleChoiceComponentsListLen == questionSetComponentsListLen2) {
-      // alert('in checking are the components multiple choice or not');
-      $(questionsetdiv).append(
-        '<div class="input-group mb-3 questionsetComponents' +
-          questionAreaCounter +
-          " multipleChoiceOptions" +
-          questionAreaCounter +
-          '"> <input type="text" class="form-control multipleChoiceInput' +
-          questionAreaCounter +
-          '" placeholder=" - " id="multipleChoiceid' +
-          questionAreaCounter +
-          multipleChoiceCounter +
-          '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
-          questionAreaCounter +
-          '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
-          info +
-          ')" type="button" id="multipleChoiceBtn' +
-          questionAreaCounter +
-          '">+</button> </div> </div>'
-      );
-    }
+    // This tells us, there are more components then just question area
+
 
     // Options set Div tag Generations
     $("#form-page1").append(
@@ -364,7 +339,7 @@ function create(btnclass, btnid) {
     let col4Optionset = "#optionCol-4-" + questionAreaCounter;
     let col5Optionset = "#optionCol-5-" + questionAreaCounter;
 
-    
+
 
     // This is will create a div tag which will get appended to form-page1 div tag, and it will contain a textarea for writing the Questions and it options like Long answer and Multiple choice questions
     $(questionsetno).append(
@@ -437,28 +412,24 @@ function create(btnclass, btnid) {
     // $(questionCounter).append(
     //     '<button class="options' + questionAreaCounter + ' optionbtns"> Options</button>                <button class= "options' + questionAreaCounter + ' optionbtns"> Ratings</button>            <button class="options' + questionAreaCounter + ' optionbtns">Answers</button>'
     // );
-    
+
 
     // console.log("btnid ", btnid);
     // alert('before multiple choice');
 
-    
-    if(btnid == 1)
-    {
+
+    if (btnid == 1) {
         addMultipleChoice(questionAreaCounter);
         // alert('in if else condition of multiple choice');
     }
-    else if (btnid == 2)
-    {
+    else if (btnid == 2) {
 
     }
-    else if (btnid == 3)
-    {
+    else if (btnid == 3) {
         createLongAnswer(questionAreaCounter);
         // alert('in if else condition of long answer');
     }
-    else if (btnid == 4)
-    {
+    else if (btnid == 4) {
 
     }
 
@@ -470,6 +441,9 @@ function create(btnclass, btnid) {
     // provideId(questionAreaCounter);
     // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
 }
+  
+
+  
 
 
 

@@ -177,7 +177,7 @@ include("mydb.php");
                     <button id="delete" onclick="deleted()" class="btn btn-secondary">Deleted</button>
 
                 </div>
-                <div class="d-flex justify-content-end">
+                <!-- <div class="d-flex justify-content-end"> -->
                     <div class="input-group-prepend" id="optionbtns0">
                         <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" 
                             type="button" data-toggle="dropdown" aria-haspopup="true"
@@ -194,7 +194,7 @@ include("mydb.php");
                                 Answer</button>
                         </div>  
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
 
 
