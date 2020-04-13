@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2020 at 02:35 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.1.33
+-- Generation Time: Apr 13, 2020 at 04:30 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -53,6 +53,13 @@ CREATE TABLE `form_details` (
   `access_levels` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `form_details`
+--
+
+INSERT INTO `form_details` (`admin_id`, `id`, `form_id`, `form_name`, `form_version`, `form_date`, `access_levels`) VALUES
+(123, 1, '1A', 'Admin', 1, '0000-00-00', 'admin');
+
 -- --------------------------------------------------------
 
 --
@@ -64,6 +71,13 @@ CREATE TABLE `login` (
   `Admin_name` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`admin_id`, `Admin_name`, `Password`) VALUES
+(123, 'Aniket', 'singh');
 
 -- --------------------------------------------------------
 
@@ -87,6 +101,13 @@ CREATE TABLE `questions` (
   `Option9` varchar(255) NOT NULL,
   `Option10` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`id`, `q_no`, `Qdate`, `Questions`, `Option1`, `Option2`, `Option3`, `Option4`, `Option5`, `Option6`, `Option7`, `Option8`, `Option9`, `Option10`) VALUES
+(1, 5, '2020-04-13', 'hello', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -158,19 +179,19 @@ ALTER TABLE `answers`
 -- AUTO_INCREMENT for table `form_details`
 --
 ALTER TABLE `form_details`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `q_no` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `q_no` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
