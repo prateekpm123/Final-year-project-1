@@ -1,26 +1,27 @@
 <?php 
 
-
+// ##########  Collecting the variables from AJAX  ###########
+$questionCount = $_POST['id'];
 $question = $_POST['question'];
-$answer = $_POST['answer'];
+$option = $_POST['option'];
+$btnid = $_POST['btnid'];
 // $id = $_POST['id'];
-
 
 
 // printing these just for testing
 echo '</br>';
 echo '<h4>'.$question.'</h4>';
 echo '</br>';
-for( $i=0; $i < count($answer); $i++ )
+for( $i=0; $i < count($option); $i++ )
 {
-  echo '<h4>'.$answer[$i].'</h4>';
+  echo '<h4>'.$option[$i].'</h4>';
   echo '</br>';
 }
 echo '</br>';
 
-
+// ###########  Making a connection to the database  #############
 $con = mysqli_connect('localhost','root','');
-// mysqli_select_db($con, 'final_year_project');
+mysqli_select_db($con, 'final_year_project');
 // mysqli_select_db($con, 'test');
 
 if (!$con) {
@@ -28,28 +29,90 @@ if (!$con) {
 }
 
 echo "Connected successfully";
+echo "</br>";
 
 
+// #############   This whole is to check the get the primary key of the question table and if the same primary key is coming up then just update it !!  ##############
+$checkForPrimaryKey = "SELECT q_no FROM questions";
+if (mysqli_query($con, $checkForPrimaryKey)) 
+    {
+      echo "<h5>New record created successfully</h5>";
+    } 
+    else 
+    {
+      echo "Error: " . $checkForPrimaryKey . "<br>" . mysqli_error($con);
+    }
+
+$keys = mysqli_query($con, $checkForPrimaryKey);
 
 
+$yourArray = array(); // make a new array to hold all your data
 
-$add = "insert into questions(Questions) values ('$question')";
-// mysqli_query($con, $add);
-if (mysqli_query($con, $add)) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $add . "<br>" . mysqli_error($con);
+$index = 0;
+while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associative array.
+     $yourArray[$index] = $row;
+     $index++;
+}
+
+echo '<pre>'; print_r($yourArray); echo '</pre>';
+
+
+// #### This is not working ####
+// foreach($yourArray['array'] as $result) {
+//     echo $result['q_no'], '<br>';
+// }
+
+print_r($yourArray);
+
+// print_r(implode(" ",$yourArray));
+
+
+// echo ' <h4>'.$yourArray.'</h4> ';
+// for( $i=0; $i < count($yourArray); $i++ )
+// {
+//   echo '<h4>'.$yourArray[$i].'</h4>';
+//   echo '</br>';
+// }
+// echo '</br>';
+
+
+// This condition checks weather the entry is for long answer or not
+if ( $btnid == 3)
+{
+
+//   // function addingQuestionsToTheDatabase($con, $add, $questionCount, $question)
+//   // {
+
+    // ###################   Adding the question to the database   #####################
+    $add = "INSERT INTO `questions`(`id`, `q_no`, `Questions`) VALUES ('1','$questionCount','$question')";
+    // mysqli_query($con, $add);
+    if (mysqli_query($con, $add)) 
+    {
+      echo "<h5>New record created successfully</h5>";
+
+    } 
+    else 
+    {
+      echo "Error: " . $add . "<br>" . mysqli_error($con);
+    }
+//   // }
+
+// }
+//   addingQuestionsToTheDatabase($con, $add, $questionCount , $question);
+
 }
 
 
 
-echo "inserted successfully";
 
-$ans = "insert into answers(Answers) values ('$answer')";
-if (mysqli_query($con, $ans)) {
-  echo "Answer record created successfully";
-} else {
-  echo "Error: " . $ans . "<br>" . mysqli_error($con);
-}
+
+// echo "inserted successfully";
+
+// $ans = "insert into options(options) values ('$option')";
+// if (mysqli_query($con, $ans)) {
+//   echo "option record created successfully";
+// } else {
+//   echo "Error: " . $ans . "<br>" . mysqli_error($con);
+// }
 
 ?> 

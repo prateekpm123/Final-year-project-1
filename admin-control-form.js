@@ -546,9 +546,10 @@ function ajaxToSave(id,btnid) {
             url: "submit.php",
             type: "post",
             data: {
-                // id : questionAreaCounter,
+                id : Id,
                 question: textarea,
-                answer: answerarea
+                option: answerarea,
+                btnid: btnid
                 // for()
             },
             success: function (data, status) {
@@ -605,7 +606,8 @@ function ajaxToSave(id,btnid) {
             type: "post",
             data: {
                 question : textarea,
-                answer : optionValue
+                option : optionValue,
+                btnid : btnid
                 // for()
             },
             success: function (data, status) {
