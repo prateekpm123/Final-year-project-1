@@ -70,18 +70,14 @@ function createLongAnswer(info) {
     // let previousIdno;
     // // let count = longAnswerCounter(idno);
 
-    // if (previousIdno == idno) {
-    //     alert("in if condition");
-    //     return addOrRemoveCounter++;
-    //     console.log("counter " + addOrRemoveCounter);
-    // } else {
-    //     return addOrRemoveCounter;
-    //     console.log("counter " + addOrRemoveCounter);
+  // oneOrZero = addOrRemoveCounter % 2;
 
-    // // }
-    // console.log("counter " + addOrRemoveCounter);
+  // let optionbtns = "#optionbtns" + idno;
+  // $(optionbtns).hide();
 
-    // oneOrZero = addOrRemoveCounter % 2;
+  // $(longTextAreaAns).remove();
+  let optionbtns = "#optionbtns" + idno;
+  // $(optionbtns).hide();
 
     // let optionbtns = "#optionbtns" + idno;
     // $(optionbtns).hide();
@@ -162,23 +158,23 @@ function addMultipleChoice(info) {
     idno = info
     console.log("idno = ", idno);
 
-    let idno2 = idno;
-    idno2++;
+  let idno2 = idno;
+  idno2++;
 
-    let createMultipleChoice = "#createMultipleChoice" + idno;
-    $(createMultipleChoice).show();
+  let createMultipleChoice = "#createMultipleChoice" + idno;
+  $(createMultipleChoice).show();
 
-    questionsetId = ".questionsetComponents" + idno2;
-    questionSetComponentsList = $(questionsetId);
-    questionSetComponentsListLen = questionSetComponentsList.length;
-    console.log("options count " + questionSetComponentsListLen);
-    console.log("options objects " + questionSetComponentsList);
+  questionsetId = ".questionsetComponents" + idno2;
+  questionSetComponentsList = $(questionsetId);
+  questionSetComponentsListLen = questionSetComponentsList.length;
+  console.log("options count " + questionSetComponentsListLen);
+  console.log("options objects " + questionSetComponentsList);
 
-    multipleChoiceId = ".multipleChoiceOptions" + idno2;
-    multipleChoiceComponentsList = $(multipleChoiceId);
-    multipleChoiceComponentsListLen = multipleChoiceComponentsList.length;
+  multipleChoiceId = ".multipleChoiceOptions" + idno2;
+  multipleChoiceComponentsList = $(multipleChoiceId);
+  multipleChoiceComponentsListLen = multipleChoiceComponentsList.length;
 
-    let questionsetdiv = "#questionset" + idno;
+  let questionsetdiv = "#questionset" + idno;
 
     // This condition checks if the set is empty or not
     if (questionSetComponentsListLen == 1) {
@@ -323,6 +319,34 @@ function create(btnclass, btnid) {
     $("#form-page1").append(
         questionsetDivTag
     );
+  }
+
+  // This tells us, there are more components then just question area
+  else if (questionSetComponentsListLen > 1) {
+    // This Condition checks weather, there are any multiple choice questions in the set or not
+    let questionSetComponentsListLen2 = questionSetComponentsListLen;
+    questionSetComponentsListLen2 = questionSetComponentsListLen2 - 1;
+    if (multipleChoiceComponentsListLen == questionSetComponentsListLen2) {
+      // alert('in checking are the components multiple choice or not');
+      $(questionsetdiv).append(
+        '<div class="input-group mb-3 questionsetComponents' +
+          questionAreaCounter +
+          " multipleChoiceOptions" +
+          questionAreaCounter +
+          '"> <input type="text" class="form-control multipleChoiceInput' +
+          questionAreaCounter +
+          '" placeholder=" - " id="multipleChoiceid' +
+          questionAreaCounter +
+          multipleChoiceCounter +
+          '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
+          questionAreaCounter +
+          '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
+          info +
+          ')" type="button" id="multipleChoiceBtn' +
+          questionAreaCounter +
+          '">+</button> </div> </div>'
+      );
+    }
 
     // Options set Div tag Generations
     $("#form-page1").append(
@@ -452,61 +476,61 @@ function create(btnclass, btnid) {
 // TO DELETE A NEW QUESTION AREA
 
 function deleted() {
-    let questionsetdiv = [];
-    questionsetdiv = $(".question-set");
-    let textareaarr = [];
-    textareaarr = $("textarea");
-    let optionset = [];
-    optionset = $(".options-set");
-    // let savebtn = [];
-    // savebtn = $('.savebtn');
+  let questionsetdiv = [];
+  questionsetdiv = $(".question-set");
+  let textareaarr = [];
+  textareaarr = $("textarea");
+  let optionset = [];
+  optionset = $(".options-set");
+  // let savebtn = [];
+  // savebtn = $('.savebtn');
 
-    // *************** Code for bootstrap dropdownbutton *****************
-    // let dropdown = [];
-    // dropdown = $('.dropdown');
-    // dropdownLen = dropdown.length;
-    // dropdown[dropdownLen-1].remove();
+  // *************** Code for bootstrap dropdownbutton *****************
+  // let dropdown = [];
+  // dropdown = $('.dropdown');
+  // dropdownLen = dropdown.length;
+  // dropdown[dropdownLen-1].remove();
 
-    // ****** My made option buttons *******
-    // let optionbtn = [];
-    // optionbtn = $('.textarea-btn');
-    // let options = [];
-    // options = $('.optionbtns');
-    // let optionsdiv = [];
-    // optionsdiv = $('.optionsareaclass');
-    h = questionsetdiv.length;
-    i = textareaarr.length;
-    optionsetLen = optionset.length;
-    // j = savebtn.length;
+  // ****** My made option buttons *******
+  // let optionbtn = [];
+  // optionbtn = $('.textarea-btn');
+  // let options = [];
+  // options = $('.optionbtns');
+  // let optionsdiv = [];
+  // optionsdiv = $('.optionsareaclass');
+  h = questionsetdiv.length;
+  i = textareaarr.length;
+  optionsetLen = optionset.length;
+  // j = savebtn.length;
 
-    // ****** My made option buttons *******
-    // k = optionbtn.length;
-    // l = options.length;
-    // m = optionsdiv.length;
+  // ****** My made option buttons *******
+  // k = optionbtn.length;
+  // l = options.length;
+  // m = optionsdiv.length;
 
-    questionsetdiv[h - 1].remove();
-    textareaarr[i - 1].remove();
-    optionset[optionsetLen - 1].remove();
-    // savebtn[j - 1].remove();
+  questionsetdiv[h - 1].remove();
+  textareaarr[i - 1].remove();
+  optionset[optionsetLen - 1].remove();
+  // savebtn[j - 1].remove();
 
-    // ****** My made option buttons *******
-    // optionbtn[k-1].remove();
-    // for(a = 0;a<3; a++)
-    // {
-    //     options[l-1-a].remove();
-    // }
-    // optionsdiv[m - 1].remove();
-    // console.log(textareaarr[i]);
+  // ****** My made option buttons *******
+  // optionbtn[k-1].remove();
+  // for(a = 0;a<3; a++)
+  // {
+  //     options[l-1-a].remove();
+  // }
+  // optionsdiv[m - 1].remove();
+  // console.log(textareaarr[i]);
 
-    // console.log(savebtn);
+  // console.log(savebtn);
 
-    // ****** My made option buttons *******
-    // console.log(optionbtn);
-    // console.log(options);
-    // i--;
-    // j--;
-    // k--;
-    questionAreaCounter--;
+  // ****** My made option buttons *******
+  // console.log(optionbtn);
+  // console.log(options);
+  // i--;
+  // j--;
+  // k--;
+  questionAreaCounter--;
 }
 
 //************** / AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING ****************
@@ -552,14 +576,12 @@ function ajaxToSave(id) {
     });
 }
 
-
 // ####################### How to send the options data dynamically to the submit.php file  ##########################3
 // for(z=1;z<multiplechoice.length; z++) {
 //     answerid = answerid+z
 //     temp = "#multiplechoiceid" + answerid
 
 //     mutiplechoice = $(temp)
-
 
 //     $.ajax({
 
@@ -594,28 +616,28 @@ function ajaxToSave(id) {
 
 // ********************************  FUNCTION TO INCREASE SIZE OF THE TEXTAREA  *****************************************
 function AutoGrowTextArea(textField) {
-    // console.log(textField);
-    // console.log("Client height ",textField.clientHeight);
-    // console.log(textField.style.height);
-    // console.log("Scroll height ",textField.scrollHeight);
-    // console.log(rem);
+  // console.log(textField);
+  // console.log("Client height ",textField.clientHeight);
+  // console.log(textField.style.height);
+  // console.log("Scroll height ",textField.scrollHeight);
+  // console.log(rem);
+  if (textField.clientHeight < textField.scrollHeight) {
+    textField.style.height = textField.scrollHeight + "px";
     if (textField.clientHeight < textField.scrollHeight) {
-        textField.style.height = textField.scrollHeight + "px";
-        if (textField.clientHeight < textField.scrollHeight) {
-            textField.style.height =
-                textField.scrollHeight * 2 - textField.clientHeight + "px";
-        }
+      textField.style.height =
+        textField.scrollHeight * 2 - textField.clientHeight + "px";
     }
+  }
 }
 
 function AutoShrinkArea(textField) {
+  if (textField.clientHeight > textField.scrollHeight) {
+    textField.style.height = textField.clientHeight - 14 + "px";
     if (textField.clientHeight > textField.scrollHeight) {
-        textField.style.height = textField.clientHeight - 14 + "px";
-        if (textField.clientHeight > textField.scrollHeight) {
-            textField.style.height =
-                textField.scrollHeight * 2 - textField.clientHeight + "px";
-        }
+      textField.style.height =
+        textField.scrollHeight * 2 - textField.clientHeight + "px";
     }
+  }
 }
 
 // ****** My made option buttons *******
