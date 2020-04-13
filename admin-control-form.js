@@ -93,6 +93,8 @@ function createLongAnswer(info) {
 
 function createMultipleChoice(info) {
 
+    
+
     let multipleChoiceInputTag = '<div class="input-group mb-3 questionsetComponents' +
         questionAreaCounter +
         " multipleChoiceOptions" +
@@ -131,9 +133,11 @@ function createMultipleChoice(info) {
 }
 
 function addMultipleChoice(info) {
-
     // alert('in multiple choice');
 
+    // This questionAreaCounter3 is created to balance the questionAreaCounter in id="multiplceChoiceId" of the inputtag of the multiple choice option
+    let questionAreaCounter3 = questionAreaCounter;
+    questionAreaCounter3++;
     // This creates an input box for the multiple choice option
     let multipleChoiceInputTag = '<div class="input-group mb-3 questionsetComponents' +
         questionAreaCounter +
@@ -142,7 +146,7 @@ function addMultipleChoice(info) {
         '"> <input type="text" class="form-control multipleChoiceInput' +
         questionAreaCounter +
         '" placeholder=" - " id="multipleChoiceid' +
-        questionAreaCounter + multipleChoiceCounter +
+        questionAreaCounter3 + multipleChoiceCounter +
         '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
         questionAreaCounter +
         '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
@@ -215,6 +219,8 @@ function addMultipleChoice(info) {
 
 
 function create(btnclass, btnid) {
+    // let saveId = "sub"+questionAreaCounter;
+    // ajaxToSave(saveId, btnid);
 
     // ######################  All the common tags used for dynamically creating  ############################
 
@@ -254,7 +260,7 @@ function create(btnclass, btnid) {
     // This goes under the optionset1stColTag
     let saveButtonTag = '<button id="sub' +
         questionAreaCounter +
-        '" class="btn btn-primary savebtn" onclick="ajaxToSave(this.id)"> Save</button>';
+        '" class="btn btn-primary savebtn" onclick="ajaxToSave(this.id,'+ btnid +')"> Save</button>';
 
     // This is the 2nd column
     let optionset2ndColDivTag = '<div class="col-lg-2 col-md-2 col-sm-2 col-xm-2" id="optionCol-2-' +
@@ -520,34 +526,116 @@ function deleted() {
 // }
 
 // *********************** MY VERSION OF THE SAME ABOVE CODE *****************************
-function ajaxToSave(id) {
+function ajaxToSave(id,btnid) {
 
-    let idLen = id.length;
-    Id = id[idLen - 1];
-    AId = Id;
-    // AId++;
-    let textareaId = "#Q" + Id;
-    let answerId = "#longAnswer" + AId;
+    if ( btnid == 3) 
+    {
+        let idLen = id.length;
+        Id = id[idLen - 1];
+        AId = Id;
+        // AId++;
+        let textareaId = "#Q" + Id;
+        let answerId = "#longAnswer" + AId;
 
-    console.log('id ', answerId);
-    let textarea = $(textareaId).val();
-    let answerarea = $(answerId).val();
-    console.log(answerarea);
-    $.ajax({
+        console.log('id ', answerId);
+        let textarea = $(textareaId).val();
+        let answerarea = $(answerId).val();
+        console.log(answerarea);
+        $.ajax({
 
-        url: "submit.php",
-        type: "post",
-        data: {
-            question: textarea,
-            answer: answerarea
-            // for()
-        },
-        success: function (data, status) {
-            // console.log(data);
-            $("#display").html(data);
+            url: "submit.php",
+            type: "post",
+            data: {
+                // id : questionAreaCounter,
+                question: textarea,
+                answer: answerarea
+                // for()
+            },
+            success: function (data, status) {
+                // console.log(data);
+                $("#display").html(data);
+            }
+
+        });
+    }
+
+    if ( btnid == 1){
+        let idLen = id.length;
+        Id = id[idLen - 1];
+        Id2 = Id;
+        Id2++;
+        AId = Id;
+        // AId++;
+        let textareaId = "#Q" + Id;
+        // let answerId = "#longAnswer" + AId;
+
+        // Collecting Multiple choice options count
+        let multipleChoiceInputId1 = ".multipleChoiceInput"+Id;
+        let multipleChoiceInputId2 = ".multipleChoiceInput" + Id2; 
+
+        let multipleChoiceInputsCount1 = $(multipleChoiceInputId1);
+        let multipleChoiceInputsCount2 = $(multipleChoiceInputId2);
+
+        let multipleChoiceInputCountLen1 = multipleChoiceInputsCount1.length;
+        let multipleChoiceInputCountLen2 = multipleChoiceInputsCount2.length;
+
+        let totalMultipleChoiceInputCountLen = multipleChoiceInputCountLen1 + multipleChoiceInputCountLen2;
+        console.log('total no of multiple choices ',totalMultipleChoiceInputCountLen);
+        let optionValue = []; 
+
+        for (a = 1; a < totalMultipleChoiceInputCountLen+1; a++)
+        {
+            let optionId = "#multipleChoiceid" + Id2 + a;
+            console.log("option id = ".optionId);
+            optionValue.push($(optionId).val());
         }
 
-    });
+        console.log(optionValue);
+        let optionId1 = "#multipleChoiceid"+Id+"1";
+        console.log("option id ",optionId1);
+        let optionValue1 = $(optionId1).val();
+
+        // console.log('id ', answerId);
+        let textarea = $(textareaId).val();
+        // let answerarea = $(answerId).val();
+        // console.log(answerarea); 
+        $.ajax({
+
+            url: "submit.php",
+            type: "post",
+            data: {
+                question : textarea,
+                answer : optionValue
+                // for()
+            },
+            success: function (data, status) {
+                // console.log(data);
+                $("#display").html(data);
+            }
+
+        });
+
+        // for(a = 0; a<totalMultipleChoiceInputCountLen; a++)
+        // {   
+        //     // Collect the inputs entries from .val() function
+        //     let inputids = 
+        //     $.ajax({
+
+        //         url: "submit.php",
+        //         type: "post",
+        //         data: {
+        //             question: textarea
+        //             // for()
+        //         },
+        //         success: function (data, status) {
+        //             // console.log(data);
+        //             $("#display").html(data);
+        //         }
+
+        //     });
+        // }
+    }
+    
 }
 
 // ####################### How to send the options data dynamically to the submit.php file  ##########################3
