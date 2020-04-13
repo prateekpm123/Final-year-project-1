@@ -233,7 +233,7 @@ include("mydb.php");
                 <button class="btn btn-primary pop-btn" onclick="goback()">Back</button>
             </div>
         </div>
-    </div>
+    </div> 
 
     <!-- ##### Bootstrap libraries ##### -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
