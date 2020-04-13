@@ -93,7 +93,7 @@ function createLongAnswer(info) {
 
 
 
-}
+} 
 
 function createMultipleChoice(info) {
 
@@ -133,7 +133,6 @@ function createMultipleChoice(info) {
     //     );
     multipleChoiceCounter++;
 }
-
 
 function addMultipleChoice(info) {
 
