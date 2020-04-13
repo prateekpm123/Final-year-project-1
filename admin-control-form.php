@@ -174,7 +174,7 @@ include("mydb.php");
                 <!-- <button id="create" onclick="create(1,0)" class="btn btn-primary">Create</button> -->
                 
                 <div class="d-flex justify-content-start">
-                    <button id="delete" onclick="deleted()" class="btn btn-secondary">Delete</button>
+                    <button id="delete" onclick="deleted()" class="btn btn-secondary">Deleted</button>
                 </div>
                 <div class="d-flex justify-content-end">
                     <div class="input-group-prepend" id="optionbtns0">
