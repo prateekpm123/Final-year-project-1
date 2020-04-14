@@ -605,6 +605,7 @@ function ajaxToSave(id,btnid) {
             url: "submit.php",
             type: "post",
             data: {
+                id: Id,
                 question : textarea,
                 option : optionValue,
                 btnid : btnid

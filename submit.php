@@ -52,28 +52,22 @@ $index = 0;
 while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associative array.
      $yourArray[$index] = $row;
      $index++;
+}  
+
+// echo '<pre>'; print_r($yourArray); echo '</pre>';
+$isAlreadyThere = 0;
+// This is how we'll get the values of 
+for( $i=0; $i < count($yourArray); $i++ )
+{
+  echo '<h4>'.$yourArray[$i]["q_no"].'</h4>';
+  echo '</br>';
+  if ( $questionCount == $yourArray[$i]["q_no"])
+  {
+    $isAlreadyThere = 1;
+  }
+
 }
-
-echo '<pre>'; print_r($yourArray); echo '</pre>';
-
-
-// #### This is not working ####
-// foreach($yourArray['array'] as $result) {
-//     echo $result['q_no'], '<br>';
-// }
-
-print_r($yourArray);
-
-// print_r(implode(" ",$yourArray));
-
-
-// echo ' <h4>'.$yourArray.'</h4> ';
-// for( $i=0; $i < count($yourArray); $i++ )
-// {
-//   echo '<h4>'.$yourArray[$i].'</h4>';
-//   echo '</br>';
-// }
-// echo '</br>';
+echo '</br>';
 
 
 // This condition checks weather the entry is for long answer or not
@@ -82,7 +76,12 @@ if ( $btnid == 3)
 
 //   // function addingQuestionsToTheDatabase($con, $add, $questionCount, $question)
 //   // {
-
+  if( $isAlreadyThere == 1)
+  {
+    $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `q_no`=$questionCount";
+  }
+  else 
+  {
     // ###################   Adding the question to the database   #####################
     $add = "INSERT INTO `questions`(`id`, `q_no`, `Questions`) VALUES ('1','$questionCount','$question')";
     // mysqli_query($con, $add);
@@ -95,6 +94,8 @@ if ( $btnid == 3)
     {
       echo "Error: " . $add . "<br>" . mysqli_error($con);
     }
+  }
+    
 //   // }
 
 // }
