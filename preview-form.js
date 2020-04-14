@@ -7,6 +7,7 @@ function showNextQuestion()
     counter;
     getData(counter);
     setTimeout(displayQuestion(), 5000);
+    displayOption();
     // displayQuestion();
     counter++;
     
@@ -38,4 +39,9 @@ function displayQuestion() {
     $('#questionDisplayArea').html(questionIs);
 }
 
+function displayOption() 
+{
+    let option1Is = $('#option1').text();
+    $('#optionDisplayArea').html(option1Is);
+}
  

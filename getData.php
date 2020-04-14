@@ -62,10 +62,18 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
 
 // printing these values in the #hiddenDisplay Tag
 echo '<div id="questionIs">'.$yourArray[$counter]["Questions"].'</div>';
-echo '<div id="questionIs">'.$option1[$counter]["Option1"].'</div>';
+echo '<div id="option1">'.$option1[$counter]["Option1"].'</div>';
 echo '</br>';
 
-
+// if(isset($option1 == ""))
+// {
+//     echo "<p class="known">1</p>";
+//     alert('its a longanswer');
+// }
+// else {
+//     echo "<p class="known">2</p>";
+//     alert('its a multiple choice');
+// }
 
 
 // echo '<pre>'; print_r($yourArray); echo '</pre>';
