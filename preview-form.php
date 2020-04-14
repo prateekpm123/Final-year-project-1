@@ -87,7 +87,7 @@
                 <div class="displayArea">
                     <h2 class="questionArea" id="questionDisplayArea"></h2>
                     <div class="optionArea" id="optionDisplayArea">
-                        
+                       <p id="optionDisplayAreaPara"></p>  
                     </div>
                 </div>
                 <button class="btn btn-primary" id="next" onclick="showNextQuestion()"> Next </button>
