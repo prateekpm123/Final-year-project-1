@@ -7,7 +7,7 @@ $option = $_POST['option'];
 $btnid = $_POST['btnid'];
 // $id = $_POST['id'];
 
-
+ 
 // printing these just for testing
 echo '</br>';
 echo '<h4>'.$question.'</h4>';
@@ -165,6 +165,16 @@ else if ( $btnid == 3)
     }
     echo " <h3> </h3>";
 
+  $updateOptions = "UPDATE `questions` SET `Option1`='' ,`Option2`='' ,`Option3`='',`Option4`='' ,`Option5`='',`Option6`='',`Option7`='',`Option8`='',`Option9`='' ,`Option10`='' WHERE `id`=1 AND `q_no`=$questionCount"; 
+    if (mysqli_query($con, $updateOptions)) 
+    {
+      echo "<h5>Options removed Sucessfully</h5>";
+
+    } 
+    else  
+    {
+      echo "Error: " . $updateOptions . "<br>" . mysqli_error($con);
+    }
   }
   else 
   {
@@ -180,6 +190,18 @@ else if ( $btnid == 3)
     else  
     {
       echo "Error: " . $add . "<br>" . mysqli_error($con);
+    }
+
+
+    $updateOptions = "UPDATE `questions` SET `Option1`='' ,`Option2`='' ,`Option3`='',`Option4`='' ,`Option5`='',`Option6`='',`Option7`='',`Option8`='',`Option9`='' ,`Option10`='' WHERE `id`=1 AND `q_no`=$questionCount"; 
+    if (mysqli_query($con, $updateOptions)) 
+    {
+      echo "<h5>Options removed Sucessfully</h5>";
+
+    } 
+    else  
+    {
+      echo "Error: " . $updateOptions . "<br>" . mysqli_error($con);
     }
     
   }

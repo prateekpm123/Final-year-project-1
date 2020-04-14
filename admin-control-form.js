@@ -93,7 +93,7 @@ function createMultipleChoice(info) {
     questionAreaCounter +
     multipleChoiceCounter +
     '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
-    questionAreaCounter +
+    questionAreaCounter + 
     '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
     info +
     ')" type="button" id="multipleChoiceBtn' +

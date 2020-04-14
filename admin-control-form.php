@@ -206,7 +206,7 @@ include("mydb.php");
                 // $desc = mysqli_fetch_assoc($result);
             ?>
             <h5 class="question_display">
-                <?php
+                <?php 
                     // while($rows = mysqli_fetch_assoc($result))
                     // {
                         // if(is_null())
