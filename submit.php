@@ -79,11 +79,22 @@ if ( $btnid == 3)
   if( $isAlreadyThere == 1)
   {
     $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `q_no`=$questionCount";
+    if (mysqli_query($con, $add)) 
+    {
+      echo "<h5>Updated record created successfully</h5>";
+
+    } 
+    else 
+    {
+      echo "Error: " . $add . "<br>" . mysqli_error($con);
+    }
+    echo " <h3> </h3>";
   }
   else 
   {
     // ###################   Adding the question to the database   #####################
     $add = "INSERT INTO `questions`(`id`, `q_no`, `Questions`) VALUES ('1','$questionCount','$question')";
+    echo " <h3> in inset query </h3>";
     // mysqli_query($con, $add);
     if (mysqli_query($con, $add)) 
     {
