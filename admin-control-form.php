@@ -102,7 +102,7 @@ include("mydb.php");
             </ul>
         </div>
     </nav>
-    <div class="row mainBody">
+    <div class="row mainBody"> 
         <div class="col-lg-6 left-side">
             <div class="addingQuestionBody">
                 <div id="form-page1">
