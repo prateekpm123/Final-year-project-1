@@ -531,7 +531,7 @@ function ajaxToSave(id, btnid) {
       "total no of multiple choices ",
       totalMultipleChoiceInputCountLen
     );
-    let optionValue = [];
+    let optionValue = []; 
 
     for (a = 1; a < totalMultipleChoiceInputCountLen + 1; a++) {
       let optionId = "#multipleChoiceid" + Id2 + a;
