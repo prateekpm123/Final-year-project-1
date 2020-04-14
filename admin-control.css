@@ -16,7 +16,13 @@ body, * {
 
 .right-side {
     background-color: rgb(255, 253, 253);
-    padding: 0;
+    padding: 10px;
+    padding-left: 20px;
+    margin: 0;
+}
+.pooja{
+    padding-bottom: 0;
+    color: grey;
     margin: 0;
 }
 
@@ -24,7 +30,7 @@ body, * {
     margin: 0;
 }
 
-h5 {
+h5{
     padding: 20px;
 }
 
