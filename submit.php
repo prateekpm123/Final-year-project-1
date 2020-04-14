@@ -70,8 +70,8 @@ for( $i=0; $i < count($yourArray); $i++ )
 echo '</br>';
 
 
-// This condition checks weather the entry is for long answer or not
-if ( $btnid == 3)
+// // This condition checks weather the entry is for long answer or not
+if ( $btnid == 1)
 {
 
 //   // function addingQuestionsToTheDatabase($con, $add, $questionCount, $question)
@@ -89,6 +89,23 @@ if ( $btnid == 3)
       echo "Error: " . $add . "<br>" . mysqli_error($con);
     }
     echo " <h3> </h3>";
+
+    for ( $a = 0; $a < count($option); $a++)
+    {
+      $aPlus = $a + 1;
+      $optionSpace = $option[$a];
+      $temp = "Option".$aPlus;
+      $addOption = "UPDATE `questions` SET `$temp`='$optionSpace' WHERE `q_no`=$questionCount";
+      if (mysqli_query($con, $addOption)) 
+        {
+          echo "<h5>Added the option sucessfully</h5>";
+
+        } 
+        else 
+        {
+          echo "Error: " . $addOption . "<br>" . mysqli_error($con);
+        }
+    }
   }
   else 
   {
@@ -105,6 +122,66 @@ if ( $btnid == 3)
     {
       echo "Error: " . $add . "<br>" . mysqli_error($con);
     }
+    for ( $a = 0; $a < count($option); $a++)
+    {
+      $aPlus = $a + 1;
+      $optionSpace = $option[$a];
+      $temp = "Option".$aPlus;
+      $addOption = "UPDATE `questions` SET `$temp`='$optionSpace' WHERE `q_no`=$questionCount";
+      if (mysqli_query($con, $addOption)) 
+        {
+          echo "<h5>Added the option sucessfully</h5>";
+
+        } 
+        else 
+        {
+          echo "Error: " . $addOption . "<br>" . mysqli_error($con);
+        }
+    }
+  }
+    
+//   // }
+
+// }
+//   addingQuestionsToTheDatabase($con, $add, $questionCount , $question);
+
+}
+else if ( $btnid == 3)
+{
+
+//   // function addingQuestionsToTheDatabase($con, $add, $questionCount, $question)
+//   // {
+  if( $isAlreadyThere == 1)
+  {
+    $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `q_no`=$questionCount";
+    if (mysqli_query($con, $add)) 
+    {
+      echo "<h5>Updated record created successfully</h5>";
+
+    } 
+    else 
+    {
+      echo "Error: " . $add . "<br>" . mysqli_error($con);
+    }
+    echo " <h3> </h3>";
+
+  }
+  else 
+  {
+    // ###################   Adding the question to the database   #####################
+    $add = "INSERT INTO `questions`(`id`, `q_no`, `Questions`) VALUES ('1','$questionCount','$question')";
+    echo " <h3> in inset query </h3>";
+    // mysqli_query($con, $add);
+    if (mysqli_query($con, $add)) 
+    {
+      echo "<h5>New record created successfully</h5>";
+
+    } 
+    else 
+    {
+      echo "Error: " . $add . "<br>" . mysqli_error($con);
+    }
+    
   }
     
 //   // }
