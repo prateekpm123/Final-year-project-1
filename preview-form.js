@@ -4,9 +4,38 @@ counter = 0;
 
 function showNextQuestion() 
 {
-    let area = $('#questionDisplayArea');
-
-    $('#questionDisplayArea').html(questionsArray[counter]);
+    counter;
+    getData(counter);
+    setTimeout(displayQuestion(), 5000);
+    // displayQuestion();
     counter++;
+    
 }
 
+function getData(counter) {
+    $.ajax({
+        url: "getData.php",
+        type: "post",
+        data: {
+            counter : counter
+        },
+        success: function (data, status) {
+            // console.log(data);
+            $("#hiddenDisplay").html(data);
+            // alert(status);
+
+        },
+    }); 
+    // counter++;
+
+
+}
+
+function displayQuestion() {
+    // let questionIs = document.getElementById('questionIs')
+    let questionIs = $('#questionIs').text();
+    // alert("questionIs", questionIs);
+    $('#questionDisplayArea').html(questionIs);
+}
+
+ 

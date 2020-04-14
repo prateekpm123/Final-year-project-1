@@ -177,7 +177,7 @@ else if ( $btnid == 3)
       echo "<h5>New record created successfully</h5>";
 
     } 
-    else 
+    else  
     {
       echo "Error: " . $add . "<br>" . mysqli_error($con);
     }
