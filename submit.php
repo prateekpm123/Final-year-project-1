@@ -12,7 +12,7 @@ $btnid = $_POST['btnid'];
 echo '</br>';
 echo '<h4>'.$question.'</h4>';
 echo '</br>';
-for( $i=0; $i < count($option); $i++ )
+for( $i=0; $i <=count($option); $i++ )
 {
   echo '<h4>'.$option[$i].'</h4>';
   echo '</br>';
@@ -69,51 +69,5 @@ for( $i=0; $i < count($yourArray); $i++ )
 }
 echo '</br>';
 
-
-// This condition checks weather the entry is for long answer or not
-if ( $btnid == 3)
-{
-
-//   // function addingQuestionsToTheDatabase($con, $add, $questionCount, $question)
-//   // {
-  if( $isAlreadyThere == 1)
-  {
-    $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `q_no`=$questionCount";
-  }
-  else 
-  {
-    // ###################   Adding the question to the database   #####################
-    $add = "INSERT INTO `questions`(`id`, `q_no`, `Questions`) VALUES ('1','$questionCount','$question')";
-    // mysqli_query($con, $add);
-    if (mysqli_query($con, $add)) 
-    {
-      echo "<h5>New record created successfully</h5>";
-
-    } 
-    else 
-    {
-      echo "Error: " . $add . "<br>" . mysqli_error($con);
-    }
-  }
-    
-//   // }
-
-// }
-//   addingQuestionsToTheDatabase($con, $add, $questionCount , $question);
-
-}
-
-
-
-
-
-// echo "inserted successfully";
-
-// $ans = "insert into options(options) values ('$option')";
-// if (mysqli_query($con, $ans)) {
-//   echo "option record created successfully";
-// } else {
-//   echo "Error: " . $ans . "<br>" . mysqli_error($con);
-// }
-
-?> 
+$sql = "insert into questions(`Questions`,`Option1`,`Option2`,`Option3`,`Option4` ) values (`$question`,`$option[$i]`) ";
+mysqli_query($con, $sql);
