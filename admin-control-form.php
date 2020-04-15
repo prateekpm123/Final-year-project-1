@@ -7,7 +7,7 @@ include("mydb.php");
 //     // echo "sucess";
 // }
 // $db = mysqli_select_db($con, 'final_year_project');
-// if($db) {
+// if($db) { 
 //     // echo "sucess h1";
 // }
 // include_once("mydb.php");

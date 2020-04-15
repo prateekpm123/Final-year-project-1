@@ -5,9 +5,10 @@ $questionCount = $_POST['id'];
 $question = $_POST['question'];
 $option = $_POST['option'];
 $btnid = $_POST['btnid'];
+// $questionAreaCounter = $_POST['questionAreaCounter'];
 // $id = $_POST['id'];
 
- 
+// echo $option;
 // printing these just for testing
 echo '</br>';
 echo '<h4>'.$question.'</h4>';
@@ -78,7 +79,7 @@ if ( $btnid == 1)
 //   // {
   if( $isAlreadyThere == 1)
   {
-    $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `q_no`=$questionCount";
+    $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `id`=1 AND `q_no`=$questionCount";
     if (mysqli_query($con, $add)) 
     {
       echo "<h5>Updated record created successfully</h5>";
@@ -95,7 +96,7 @@ if ( $btnid == 1)
       $aPlus = $a + 1;
       $optionSpace = $option[$a];
       $temp = "Option".$aPlus;
-      $addOption = "UPDATE `questions` SET `$temp`='$optionSpace' WHERE `q_no`=$questionCount";
+      $addOption = "UPDATE `questions` SET `$temp`='$optionSpace' WHERE `id`=1 AND `q_no`=$questionCount";
       if (mysqli_query($con, $addOption)) 
         {
           echo "<h5>Added the option sucessfully</h5>";
@@ -127,7 +128,7 @@ if ( $btnid == 1)
       $aPlus = $a + 1;
       $optionSpace = $option[$a];
       $temp = "Option".$aPlus;
-      $addOption = "UPDATE `questions` SET `$temp`='$optionSpace' WHERE `q_no`=$questionCount";
+      $addOption = "UPDATE `questions` SET `$temp`='$optionSpace' WHERE `id`=1 AND `q_no`=$questionCount";
       if (mysqli_query($con, $addOption)) 
         {
           echo "<h5>Added the option sucessfully</h5>";
@@ -153,7 +154,7 @@ else if ( $btnid == 3)
 //   // {
   if( $isAlreadyThere == 1)
   {
-    $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `q_no`=$questionCount";
+    $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `id`=1 AND `q_no`=$questionCount";
     if (mysqli_query($con, $add)) 
     {
       echo "<h5>Updated record created successfully</h5>";
@@ -192,7 +193,7 @@ else if ( $btnid == 3)
       echo "Error: " . $add . "<br>" . mysqli_error($con);
     }
 
-
+ 
     $updateOptions = "UPDATE `questions` SET `Option1`='' ,`Option2`='' ,`Option3`='',`Option4`='' ,`Option5`='',`Option6`='',`Option7`='',`Option8`='',`Option9`='' ,`Option10`='' WHERE `id`=1 AND `q_no`=$questionCount"; 
     if (mysqli_query($con, $updateOptions)) 
     {

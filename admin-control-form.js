@@ -57,7 +57,7 @@ function createLongAnswer(info) {
       questionSetComponentsList[questionSetComponentsListLen - c - 1].remove();
     }
     let questionsetdiv = "#questionset" + idno;
-    $(questionsetdiv).append(answerTextareaTag);
+    // $(questionsetdiv).append(answerTextareaTag);
   }
   // console.log("idno "+idno);
   // let previousIdno;
@@ -481,9 +481,10 @@ function ajaxToSave(id, btnid) {
     Id = id[idLen - 1];
     AId = Id;
     // AId++;
-    let textareaId = "#Q" + Id;
-    let answerId = "#longAnswer" + AId;
+    let questionAreaCounterMinus1 = questionAreaCounter - 1;
 
+    let textareaId = "#Q" + questionAreaCounterMinus1;
+    let answerId = "#longAnswer" + questionAreaCounterMinus1;
     console.log("id ", answerId);
     let textarea = $(textareaId).val();
     let answerarea = $(answerId).val();
@@ -492,15 +493,18 @@ function ajaxToSave(id, btnid) {
       url: "submit.php",
       type: "post",
       data: {
-        id: Id,
+        id: questionAreaCounterMinus1,
         question: textarea,
         option: answerarea,
-        btnid: btnid,
+        btnid: btnid
         // for()
       },
       success: function (data, status) {
         // console.log(data);
         $("#display").html(data);
+        // alert('ajac to save ' + questionAreaCounterMinus1);
+        // alert('ajac id ' + Id);
+
       },
     });
   }
@@ -512,12 +516,16 @@ function ajaxToSave(id, btnid) {
     Id2++;
     AId = Id;
     // AId++;
-    let textareaId = "#Q" + Id;
+    let questionAreaCounterMinus1 = questionAreaCounter - 1;
+
+    let textareaId = "#Q" + questionAreaCounterMinus1;
     // let answerId = "#longAnswer" + AId;
 
+    
+
     // Collecting Multiple choice options count
-    let multipleChoiceInputId1 = ".multipleChoiceInput" + Id;
-    let multipleChoiceInputId2 = ".multipleChoiceInput" + Id2;
+    let multipleChoiceInputId1 = ".multipleChoiceInput" + questionAreaCounterMinus1;
+    let multipleChoiceInputId2 = ".multipleChoiceInput" + questionAreaCounter;
 
     let multipleChoiceInputsCount1 = $(multipleChoiceInputId1);
     let multipleChoiceInputsCount2 = $(multipleChoiceInputId2);
@@ -534,13 +542,13 @@ function ajaxToSave(id, btnid) {
     let optionValue = []; 
 
     for (a = 1; a < totalMultipleChoiceInputCountLen + 1; a++) {
-      let optionId = "#multipleChoiceid" + Id2 + a;
+      let optionId = "#multipleChoiceid" + questionAreaCounter + a;
       console.log("option id = ".optionId);
       optionValue.push($(optionId).val());
     }
 
     console.log(optionValue);
-    let optionId1 = "#multipleChoiceid" + Id + "1";
+    let optionId1 = "#multipleChoiceid" + questionAreaCounterMinus1 + "1";
     console.log("option id ", optionId1);
     let optionValue1 = $(optionId1).val();
 
@@ -552,7 +560,7 @@ function ajaxToSave(id, btnid) {
       url: "submit.php",
       type: "post",
       data: {
-        id: Id,
+        id: questionAreaCounterMinus1,
         question: textarea,
         option: optionValue,
         btnid: btnid,
