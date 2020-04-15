@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 session_start();
 $username = $_SESSION['uname'];
 include("mydb.php");
@@ -29,7 +29,7 @@ include("mydb.php");
     //     ini_set('display_errors', 1);
     // }
 // } 
-?> -->
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -204,6 +204,7 @@ include("mydb.php");
                 // $q = "SELECT Q1 FROM `questions` WHERE `Form Number`='Form2'";
                 // $result = mysqli_query($con, $q);
                 // $desc = mysqli_fetch_assoc($result);
+                // include("preview-form.php");
             ?>
             <h5 class="question_display">
                 <?php 
