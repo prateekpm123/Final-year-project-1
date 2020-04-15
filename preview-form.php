@@ -16,7 +16,7 @@
 </head>
 
 <body onload="onloading(0)">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-header">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-header">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,9 +27,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php">Home </a>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="forms.php">Forms </a>
-                </li> -->
+                </li>
                 <li class="nav-item dropdown" id="user_dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,7 +38,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
                         <a class="dropdown-item" href="web/index.php">Stats</a>
                         <a class="dropdown-item" href="admin-control.html">Forms creation</a>
-                        <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                        <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown" id="user_dropdown">
@@ -65,12 +65,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="login.php">Login</a>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link disabled" href="#">Disabled</a>
-                </li> -->
+                </li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
 
     <div class="container-fluid">
 
@@ -90,7 +90,7 @@
                     <h2 class="questionArea" id="questionDisplayArea"></h2>
                     <div class="optionArea" id="optionDisplayArea">
                         <div id="longArea">
-                            <textarea style="display:none;" name="" id="longAnswer" cols="30" rows="1"></textarea>
+                            <textarea editable-content="true" style="display:none;" name="" id="longAnswer" cols="30" rows="1"></textarea>
                         </div>
                         <div id="multipleChoiceArea" class="align-left">
                             <input type="checkbox" id="optionArea1" name="optionArea1" value="1" class="align-left">
@@ -120,7 +120,7 @@
             </div> 
         
             <div class="col-lg col-md col-sm">
-                <div id="hiddenDisplay" >
+                <div id="hiddenDisplay" style="display:none;">
                     
                 </div>
             </div> 

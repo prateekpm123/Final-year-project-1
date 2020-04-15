@@ -16,6 +16,7 @@ function showNextQuestion()
     {
         // alert('in if loop');
         // getData(counter);
+        $('#welcome').remove();
         displayQuestion();
         displayOption1();
         counter++;
@@ -36,9 +37,9 @@ function showNextQuestion()
     {
         // alert('in 3rd condition');
         $('#longAnswer').hide();
-        $('#end').append("<h1>Thank You</h1>");
+        $('#end').append("<h1 id='thankYou'>Thank You</h1>");
         $('#questionDisplayArea').html("");
-
+        $('#next').hide();
 
     }
     
@@ -47,6 +48,7 @@ function showNextQuestion()
 
 
 function onloading(counter) {
+    alert('in onload');
     $('#longAnswer').hide();
     $('#optionArea1').hide();
     $('#optionArea2').hide();
@@ -55,6 +57,7 @@ function onloading(counter) {
     $('#optionArea5').hide();
     getData(counter);
     counter++;
+    $('#end').append("<h1 id='welcome'>Welcome</h1>");
     // showNextQuestion();
     // showNextQuestion();
 

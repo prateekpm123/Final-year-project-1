@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 session_start();
 $username = $_SESSION['uname'];
 include("mydb.php");
@@ -29,7 +29,7 @@ include("mydb.php");
     //     ini_set('display_errors', 1);
     // }
 // } 
-?> 
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
