@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2020 at 04:30 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Apr 15, 2020 at 12:32 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -36,6 +36,24 @@ CREATE TABLE `answers` (
   `Adate` date NOT NULL DEFAULT current_timestamp(),
   `Answers` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `answers`
+--
+
+INSERT INTO `answers` (`id`, `user_id`, `q_no`, `ans_id`, `Adate`, `Answers`) VALUES
+(1, 1, 1, 1, '0000-00-00', ''),
+(1, 1, 2, 2, '0000-00-00', ''),
+(1, 1, 3, 3, '0000-00-00', ''),
+(1, 1, 4, 4, '0000-00-00', ''),
+(1, 1, 5, 5, '0000-00-00', ''),
+(1, 1, 6, 6, '0000-00-00', ''),
+(1, 1, 7, 7, '0000-00-00', ''),
+(1, 1, 8, 8, '0000-00-00', ''),
+(1, 1, 9, 9, '0000-00-00', ''),
+(1, 1, 10, 10, '0000-00-00', ''),
+(1, 1, 11, 11, '0000-00-00', ''),
+(1, 1, 12, 12, '0000-00-00', 'love love love');
 
 -- --------------------------------------------------------
 
@@ -107,7 +125,20 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`id`, `q_no`, `Qdate`, `Questions`, `Option1`, `Option2`, `Option3`, `Option4`, `Option5`, `Option6`, `Option7`, `Option8`, `Option9`, `Option10`) VALUES
-(1, 5, '2020-04-13', 'hello', '', '', '', '', '', '', '', '', '', '');
+(1, 1, '2020-04-14', 'ergetdsgdg', '', '', '', '', '', '', '', '', '', ''),
+(1, 2, '2020-04-14', 'sdfgsdfgdsg', '', '', '', '', '', '', '', '', '', ''),
+(1, 3, '2020-04-14', 'what r u thoughts on hinata', '', '', '', '', '', '', '', '', '', ''),
+(1, 4, '2020-04-14', 'what r u thoughts on bula', '', '', '', '', '', '', '', '', '', ''),
+(1, 5, '2020-04-13', 'what r u thoughts on elizabeth ?', '', '', '', '', '', '', '', '', '', ''),
+(1, 6, '2020-04-14', 'what r u thoughts on rese ?', '', '', '', '', '', '', '', '', '', ''),
+(1, 7, '2020-04-14', 'What are your thoughts on Lucy ?', '', '', '', '', '', '', '', '', '', ''),
+(1, 8, '2020-04-14', 'asdfasfsaf', '', '', '', '', '', '', '', '', '', ''),
+(1, 9, '2020-04-14', 'xasfa', '', '', '', '', '', '', '', '', '', ''),
+(1, 10, '2020-04-15', '', '', '', '', '', '', '', '', '', '', ''),
+(1, 11, '2020-04-15', '', '', '', '', '', '', '', '', '', '', ''),
+(1, 12, '2020-04-15', '', '', '', '', '', '', '', '', '', '', ''),
+(1, 13, '2020-04-15', '', '', '', '', '', '', '', '', '', '', ''),
+(1, 14, '2020-04-15', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -125,6 +156,13 @@ CREATE TABLE `user` (
   `Phone_no` int(15) NOT NULL,
   `Email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `Role`, `First_name`, `Middle_name`, `Last_name`, `Address`, `Phone_no`, `Email`) VALUES
+(1, 'Student', 'Raj', 'Raj', 'Raj', 'none', 12231212, 'raj@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -170,12 +208,6 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `answers`
---
-ALTER TABLE `answers`
-  MODIFY `ans_id` int(15) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `form_details`
 --
 ALTER TABLE `form_details`
@@ -191,13 +223,13 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `q_no` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `q_no` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
