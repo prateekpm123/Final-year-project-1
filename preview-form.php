@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body onload="onloading(0)">
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-header">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -85,16 +85,42 @@
 
             <div class="col-lg-8 col-md-7 col-sm-6 centerStuff">
                 <div class="displayArea">
+                    <div id="end"></div>
+
                     <h2 class="questionArea" id="questionDisplayArea"></h2>
                     <div class="optionArea" id="optionDisplayArea">
-                       <p id="optionDisplayAreaPara"></p>  
+                        <div id="longArea">
+                            <textarea style="display:none;" name="" id="longAnswer" cols="30" rows="1"></textarea>
+                        </div>
+                        <div id="multipleChoiceArea" class="align-left">
+                            <input type="checkbox" id="optionArea1" name="optionArea1" value="1" class="align-left">
+                            <label class="align-left" for="optionArea1" id="optionLabel1"></label><br>
+                            
+                            <input type="checkbox" id="optionArea2" name="optionArea2" value="2" class="align-left">
+                            <label class="align-left" for="optionArea2" id="optionLabel2"></label><br>
+
+                            <input type="checkbox" id="optionArea3" name="optionArea3" value="3" class="">
+                            <label for="optionArea3" id="optionLabel3"> </label><br>
+
+                            <input type="checkbox" id="optionArea4" name="optionArea4" value="4" class="">                            
+                            <label for="optionArea4" id="optionLabel4"> </label><br>
+
+                            <input type="checkbox" id="optionArea5" name="optionArea5" value="5" class="">
+                            <label for="optionArea5" id="optionLabel5"> </label><br><br>
+                        </div>
+                        
+                        <!-- <input type="submit" value="Submit"> -->
+                       <!-- <p id="optionDisplayAreaPara"></p>   -->
+                    </div>
+                    <div id="testDisplayArea">
+
                     </div>
                 </div>
                 <button class="btn btn-primary" id="next" onclick="showNextQuestion()"> Next </button>
             </div> 
         
             <div class="col-lg col-md col-sm">
-                <div id="hiddenDisplay">
+                <div id="hiddenDisplay" >
                     
                 </div>
             </div> 

@@ -12,6 +12,14 @@
     background-color: aqua;
 }
 
+.invisible1 {
+    display: none;
+}
+
+.align-left {
+    align-items: left!important;
+}
+
 /* h2.questionArea {
     animation: Slide_Up 3.2s ease;
     display: none;
