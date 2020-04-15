@@ -118,9 +118,9 @@
                 </div>
                 <button class="btn btn-primary" id="next" onclick="showNextQuestion()"> Next </button>
             </div> 
-        
+         
             <div class="col-lg col-md col-sm">
-                <div id="hiddenDisplay" style="display:none;">
+                <div id="hiddenDisplay" style="display: none;">
                     
                 </div>
             </div> 

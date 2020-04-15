@@ -4,14 +4,17 @@ counter = 0;
 
 function showNextQuestion() 
 {
+    // alert('in show question');
     counter;
     let questionCount = $('#questionCountIs').text();
-    questionCount--;
+    // questionCount--;
     // getData(counter);
     // setTimeout(displayQuestion(), 5000);
     // displayOption();
     // displayQuestion();
     // executeAsynchronously([getData(counter),displayQuestion(),displayOption1()],5000);
+    // alert('questionCount'+questionCount);
+    // alert('counter is '+counter);
     if( counter == 0)
     {
         // alert('in if loop');
@@ -19,8 +22,12 @@ function showNextQuestion()
         $('#welcome').remove();
         displayQuestion();
         displayOption1();
+        // saveAnswer(counter);
+
         counter++;
         getData(counter);
+        saveAnswer(counter);
+
         
     }
     else if (0 < counter && counter < questionCount)
@@ -30,8 +37,11 @@ function showNextQuestion()
         // getData(counter);
         displayQuestion();
         displayOption1();
+
         counter++;
         getData(counter);
+        saveAnswer(counter);
+
     }
     else
     {
@@ -42,13 +52,13 @@ function showNextQuestion()
         $('#next').hide();
 
     }
-    
+     
     
 }
 
 
 function onloading(counter) {
-    alert('in onload');
+    // alert('in onload');
     $('#longAnswer').hide();
     $('#optionArea1').hide();
     $('#optionArea2').hide();
@@ -56,6 +66,7 @@ function onloading(counter) {
     $('#optionArea4').hide();
     $('#optionArea5').hide();
     getData(counter);
+    saveAnswer(counter);
     counter++;
     $('#end').append("<h1 id='welcome'>Welcome</h1>");
     // showNextQuestion();
@@ -82,6 +93,28 @@ function getData(counter) {
 
     // displayQuestion();
 }
+
+
+function saveAnswer(counter) {
+    let answer = $('#longAnswer').val();
+    // alert('in saveData');
+    $.ajax({
+        url: "saveAnswer.php",
+        type: "post",
+        data: {
+            counter: counter,
+            answer: answer
+
+        },
+        success: function (data, status) {
+            // console.log(data);
+            $("#results").html(data);
+            // alert(status);
+
+        }
+    });
+}
+
 
 function displayQuestion() {
     // alert('in display question function');
