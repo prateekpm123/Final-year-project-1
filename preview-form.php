@@ -81,7 +81,7 @@
         </div>
 
         <div class="row question-row">
-            <div class="col-lg col-md col-sm"> </div>
+            <div class="col-lg col-md col-sm" id="results"> </div>
 
             <div class="col-lg-8 col-md-7 col-sm-6 centerStuff">
                 <div class="displayArea">
@@ -120,7 +120,7 @@
             </div> 
          
             <div class="col-lg col-md col-sm">
-                <div id="hiddenDisplay" style="display: none;">
+                <div id="hiddenDisplay" ">
                     
                 </div>
             </div> 

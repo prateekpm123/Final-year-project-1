@@ -4,7 +4,7 @@ $counter = $_POST['counter'];
 $answer = $_POST['answer'];
 
 
-// $counter = $counter - 1;
+$counterMinus1 = $counter - 1;
 // ###########  Making a connection to the database  #############
 $con = mysqli_connect('localhost','root','');
 mysqli_select_db($con, 'final_year_project');
@@ -58,31 +58,106 @@ echo '<pre>'; print_r($yourAnswerArray); echo '</pre>';
 
 // $answerCount = count($yourAnswerArray[0]['Answers']);
 
-if ($noOfRows == 1)
-{
-    $update = "UPDATE `answers` SET `Answers`='$answer' WHERE `id`=1 AND `q_no`=$counter AND `ans_id`=$counter";
-    if (mysqli_query($con, $update)) 
-    {
-        echo "<h5>Answer updated successfully</h5>";
-    } 
-    else 
-    {
-        echo "Error: " . $update . "<br>" . mysqli_error($con);
-    }
-}
-else if ($noOfRows == 0)
-{
-    #########################   Inserting the answers into the database if Empty   #################################
-    $insert = "INSERT INTO `answers`(`id`, `user_id`, `q_no`,`ans_id`, `Adate`, `Answers`) VALUES (1,1,$counter,$counter,'','$answer')";
-    if (mysqli_query($con, $insert)) 
-    {
-        echo "<h5>Answer inserted successfully</h5>";
-    } 
-    else 
-    {
-        echo "Error: " . $insert . "<br>" . mysqli_error($con);
-    }
 
+if($counter > 15 )
+{
+    if ($noOfRows == 1)
+    {   
+        echo " <h3>counter is </h3> ".$counter;
+        echo " <h3>counter-- is </h3> ".$counterMinus1;
+
+        $update = "UPDATE `answers` SET `Answers`='$answer' WHERE `id`=1 AND `q_no`=$counter AND `ans_id`=$counter";
+        if (mysqli_query($con, $update)) 
+        {
+            echo "<h5>Answer updated successfully</h5>";
+        } 
+        else 
+        {
+            echo "Error: " . $update . "<br>" . mysqli_error($con);
+        }
+    }
+    else if ($noOfRows == 0)
+    {
+        echo " <h3>counter is </h3> ".$counter;
+        echo " <h3>counter-- is </h3> ".$counterMinus1;
+        #########################   Inserting the answers into the database if Empty   #################################
+        $insert = "INSERT INTO `answers`(`id`, `user_id`, `q_no`,`ans_id`, `Adate`, `Answers`) VALUES (1,1,$counter,$counter,'','$answer')";
+        if (mysqli_query($con, $insert)) 
+        {
+            echo "<h5>Answer inserted successfully</h5>";
+        } 
+        else 
+        {
+            echo "Error: " . $insert . "<br>" . mysqli_error($con);
+        }
+
+    }
 }
+else {
+    if ($noOfRows == 1)
+    {   
+        echo " <h3>counter is </h3> ".$counter;
+        echo " <h3>counter-- is </h3> ".$counterMinus1;
+
+        $update = "UPDATE `answers` SET `Answers`='$answer' WHERE `id`=1 AND `q_no`=$counterMinus1 AND `ans_id`=$counterMinus1";
+        if (mysqli_query($con, $update)) 
+        {
+            echo "<h5>Answer updated successfully</h5>";
+        } 
+        else 
+        {
+            echo "Error: " . $update . "<br>" . mysqli_error($con);
+        }
+    }
+    else if ($noOfRows == 0)
+    {
+        echo " <h3>counter is </h3> ".$counter;
+        echo " <h3>counter-- is </h3> ".$counterMinus1;
+        #########################   Inserting the answers into the database if Empty   #################################
+        $insert = "INSERT INTO `answers`(`id`, `user_id`, `q_no`,`ans_id`, `Adate`, `Answers`) VALUES (1,1,$counterMinus1,$counterMinus1,'','$answer')";
+        if (mysqli_query($con, $insert)) 
+        {
+            echo "<h5>Answer inserted successfully</h5>";
+        } 
+        else 
+        {
+            echo "Error: " . $insert . "<br>" . mysqli_error($con);
+        }
+
+    }
+}
+
+// Extra optional code
+// if ($noOfRows == 1)
+// {   
+//     echo " <h3>counter is </h3> ".$counter;
+//     echo " <h3>counter-- is </h3> ".$counterMinus1;
+
+//     $update = "UPDATE `answers` SET `Answers`='$answer' WHERE `id`=1 AND `q_no`=$counterMinus1 AND `ans_id`=$counterMinus1";
+//     if (mysqli_query($con, $update)) 
+//     {
+//         echo "<h5>Answer updated successfully</h5>";
+//     } 
+//     else 
+//     {
+//         echo "Error: " . $update . "<br>" . mysqli_error($con);
+//     }
+// }
+// else if ($noOfRows == 0)
+// {
+//     echo " <h3>counter is </h3> ".$counter;
+//     echo " <h3>counter-- is </h3> ".$counterMinus1;
+//     #########################   Inserting the answers into the database if Empty   #################################
+//     $insert = "INSERT INTO `answers`(`id`, `user_id`, `q_no`,`ans_id`, `Adate`, `Answers`) VALUES (1,1,$counterMinus1,$counterMinus1,'','$answer')";
+//     if (mysqli_query($con, $insert)) 
+//     {
+//         echo "<h5>Answer inserted successfully</h5>";
+//     } 
+//     else 
+//     {
+//         echo "Error: " . $insert . "<br>" . mysqli_error($con);
+//     }
+
+// }
 
 ?>
