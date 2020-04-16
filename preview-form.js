@@ -1,6 +1,6 @@
 let questionsArray = ['What is your name ?', 'What is your age ?', 'Where do you stay ?', 'What is your favourite anime', 'Which are you currently watching ? '];
 
-counter = 0;
+counter = 1;
 
 
 // This function is called after pressing the button, it is calling all the functions and also incrementing the counter
@@ -10,6 +10,8 @@ function showNextQuestion()
     // alert('in show question');
     counter;
     let questionCount = $('#questionCountIs').text();
+
+    
     // questionCount--;
     // getData(counter);
     // setTimeout(displayQuestion(), 5000);
@@ -18,39 +20,67 @@ function showNextQuestion()
     // executeAsynchronously([getData(counter),displayQuestion(),displayOption1()],5000);
     // alert('questionCount'+questionCount);
     // alert('counter is '+counter);
-    if( counter == 0)
+    if( counter == 1)
     {
-        // alert('in if loop');
+        alert('in 1st if loop');
         // getData(counter);
         $('#welcome').remove();
-        displayQuestion();
-        displayOption1();
+        
         // saveAnswer(counter);
         // getData(counter);
         // saveAnswer(counter);
-        counter++;
+        let counterMinus1 = counter -1;
         getData(counter);
         saveAnswer(counter);
 
+        counter++;
+
+        displayQuestion();
+        displayOption1();
+        let option1 = $('#longAnswer').attr("name");
+        let option1Len = option1.length;
+        if(option1Len == 0)
+        {
+            alert('in saveanswer');
+            saveAnswer(counter);
+        }
+        else 
+        {
+            alert('in saveOption');
+            saveOptions(counter);
+        }
+ 
         
     }
-    else if (0 < counter && counter < questionCount)
+    else if (1 < counter && counter <= questionCount)
     {
-        // alert('in else loop and counter = '+counter);
+        alert('in 2nd if loop');
+        // alert('in else loop and counter = ' + counter);
 
         // getData(counter);
+        getData(counter);
+        counter++;
+        saveAnswer(counter);
+
         displayQuestion();
         displayOption1();
+        let option1 = $('#longAnswer').attr("name");
 
-        counter++;
-        getData(counter);
-        saveAnswer(counter);
+        let option1Len = option1.length;
+        if (option1Len == 0) {
+            alert('in saveanswer');
+            saveAnswer(counter);
+        } else {
+            alert('in saveOption');
+            saveOptions(counter);
+        }
 
     }
     else
     {
-        // alert('in 3rd condition');
+        alert('in 3rd condition');
         $('#longAnswer').hide();
+        $('#multipleChoiceArea').hide();
         $('#end').append("<h1 id='thankYou'>Thank You</h1>");
         $('#questionDisplayArea').html("");
         $('#next').hide();
@@ -71,7 +101,7 @@ function onloading(counter) {
     $('#optionArea4').hide();
     $('#optionArea5').hide();
     getData(counter);
-    saveAnswer(counter);
+    // saveAnswer(counter);
     counter++;
     $('#end').append("<h1 id='welcome'>Welcome</h1>");
     // showNextQuestion();
@@ -126,6 +156,20 @@ function saveAnswer(counter) {
 }
 
 
+function saveOptions(counter) {
+    alert('in save option');
+    var val = [];
+    $(':checkbox:checked').each(function (i) {
+        val[i] = $(this).val();
+    });
+
+    alert('value of checkbox is '+val);
+
+    
+}
+
+
+
 // ********* This displays the question taken from the hidden display tag
 
 function displayQuestion() {
@@ -170,6 +214,8 @@ function displayOption1() {
         // This is when we need a long answer
         // $('#multipleChoiceArea').remove();
         $('#longAnswer').show();
+        $('#longAnswer').attr("name","1");
+
         $('#optionArea1').hide();
         $('#optionArea2').hide();
         $('#optionArea3').hide();
@@ -188,7 +234,8 @@ function displayOption1() {
 
         console.log(option1);
         // alert(option1);
-        $('#longAnswer').hide();
+        $('#longAnswer').hide();    
+        $('#longAnswer').attr("name", "0");
 
         if(option1Len != 0){
             $('#optionArea1').show();

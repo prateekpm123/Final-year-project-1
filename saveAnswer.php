@@ -5,7 +5,7 @@ $counter = $_POST['counter'];
 $answer = $_POST['answer'];
 
 
-$counterMinus1 = $counter - 1;
+$counterMinus1 = $counter - 2;
 // ###########  Making a connection to the database  #############
 $con = mysqli_connect('localhost','root','');
 mysqli_select_db($con, 'final_year_project');
@@ -55,7 +55,7 @@ while($row = mysqli_fetch_assoc($answers)){ // loop to store the data in an asso
      $index++;
 }  
 // print_r($yourAnswerArray);
-echo '<pre>'; print_r($yourAnswerArray); echo '</pre>';
+// echo '<pre>'; print_r($yourAnswerArray); echo '</pre>';
 
 // echo " <h3>".$yourAnswerArray[0]['Answers']."</h3> ";
 
