@@ -2,6 +2,9 @@ let questionsArray = ['What is your name ?', 'What is your age ?', 'Where do you
 
 counter = 0;
 
+
+// This function is called after pressing the button, it is calling all the functions and also incrementing the counter
+
 function showNextQuestion() 
 {
     // alert('in show question');
@@ -23,7 +26,8 @@ function showNextQuestion()
         displayQuestion();
         displayOption1();
         // saveAnswer(counter);
-
+        // getData(counter);
+        // saveAnswer(counter);
         counter++;
         getData(counter);
         saveAnswer(counter);
@@ -56,6 +60,7 @@ function showNextQuestion()
     
 }
 
+// ********** This trigged when the page is loaded, its creates a welcome page, 
 
 function onloading(counter) {
     // alert('in onload');
@@ -73,6 +78,9 @@ function onloading(counter) {
     // showNextQuestion();
 
 }
+
+
+// ******** It gets the question and its options from the database and displays in a hidden DIV tag, from there we display it through "displayQuestion()" and "displayOption()" 
 
 function getData(counter) {
     // alert('in get data function');
@@ -95,6 +103,7 @@ function getData(counter) {
 }
 
 
+// This saves the answer in the database fetched from the textarea ?
 function saveAnswer(counter) {
     let answer = $('#longAnswer').val();
     // alert('in saveData');
@@ -108,6 +117,7 @@ function saveAnswer(counter) {
         },
         success: function (data, status) {
             // console.log(data);
+            // alert(noOfRows);
             $("#results").html(data);
             // alert(status);
 
@@ -115,6 +125,8 @@ function saveAnswer(counter) {
     });
 }
 
+
+// ********* This displays the question taken from the hidden display tag
 
 function displayQuestion() {
     // alert('in display question function');
@@ -126,75 +138,8 @@ function displayQuestion() {
 
 } 
 
-function displayOption() 
-{
-    // alert('in display option function');
-    // let option1Is = $('#option1').text();
-    // $('#optionDisplayArea').html(option1Is);
 
-    // let alloptions = $('.multipleChoiceOption');    
-    // let alloptionslen = alloptions.length;
-    // console.log('alloptions ',alloptionslen);
-    // console.log('in display options fucntionc');
-    // for( let all=0; all<alloptions.length; all++)
-    // {
-    //     console.log('alloptions ', alloptions[all]);
-    //     let all2 = all + 1;
-    //     console.log('options = ', alloptions[all]);
-
-        // ##############  Trying toa ccess the options values through this for Loop  ################
-        // for(let i=1; 1<alloptionslen; i++)
-        // {
-        //     let optionname = "option"+i;
-        //     optionname = $()
-        // }
-
-        let option = [];
-        let option1 = $('#option1').text();
-        let option2 = $('#option2').text();
-        let option3 = $('#option3').text();
-        let option4 = $('#option4').text();
-        let option5 = $('#option5').text();
-        console.log(option1);
-        let checkbox1 = '<input type="checkbox" id="option' + 1 + '" name="option' + 1 + '" value="' + option1 + '"><label for="option' + 1 + '"> ' + option1 + ' </label><br>'; 
-        $('#optionDisplayArea').append(checkbox1);
-        let checkbox2 = '<input type="checkbox" id="option' + 2 + '" name="option' + 2 + '" value="' + option2 + '"><label for="option' + 2 + '"> ' + option2 + ' </label><br>';
-        $('#optionDisplayArea').append(checkbox2);
-        // option.push(option1);
-        // option.push(option2);
-        // option.push(option3);
-        // option.push(option4);
-        // option.push(option5);
-
-
-        // let valueid = "#option" + all2;
-        // let value = $(valueid).text();
-        // console.log('options value', option);
-        // // console.log(option);
-        // if( option[all] != "" )
-        // {            
-        //     console.log('value is not empty');
-        //     console.log('options value', option[all]);
-        //     // $('#optionDisplayAreaPara').html(value);
-            let checkbox = '<input type="checkbox" id="option' + all2 + '" name="option' + all2 + '" value="' + option[all] + '"><label for="option' + all2 + '"> '+ option[all] +' </label><br>';
-
-        //     $('#optionDisplayArea').append(checkbox);
-            
-        // }
-    // }
-    // optionsCount = alloptions.length;
-    // alert('optionsCount ',optionsCount);
-    // console.log(optionsCount);
-
-
-
-    // ####################   Bootstrap CheckBox code   #########################
-    // <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-    // <label class="form-check-label" for="defaultCheck1">
-    //     Default checkbox
-    // </label>
-}
-
+// ********* This displays the Options taken from the hidden display tag
 
 function displayOption1() {
 
@@ -316,6 +261,8 @@ function displayOption1() {
     // $('#testDisplayArea').append(checkbox1); 
 }
  
+
+// Just tried to excute the functions using setTimeOut() with order but didn't worked
 function executeAsynchronously(functions, timeout) 
 {
     for (var i = 0; i < functions.length; i++) 

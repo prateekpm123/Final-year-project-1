@@ -120,7 +120,7 @@
             </div> 
          
             <div class="col-lg col-md col-sm">
-                <div id="hiddenDisplay" ">
+                <div id="hiddenDisplay" >
                     
                 </div>
             </div> 
