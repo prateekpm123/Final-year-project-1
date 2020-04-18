@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2020 at 12:32 PM
+-- Generation Time: Apr 18, 2020 at 06:58 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -42,18 +42,9 @@ CREATE TABLE `answers` (
 --
 
 INSERT INTO `answers` (`id`, `user_id`, `q_no`, `ans_id`, `Adate`, `Answers`) VALUES
-(1, 1, 1, 1, '0000-00-00', ''),
-(1, 1, 2, 2, '0000-00-00', ''),
-(1, 1, 3, 3, '0000-00-00', ''),
-(1, 1, 4, 4, '0000-00-00', ''),
-(1, 1, 5, 5, '0000-00-00', ''),
-(1, 1, 6, 6, '0000-00-00', ''),
-(1, 1, 7, 7, '0000-00-00', ''),
-(1, 1, 8, 8, '0000-00-00', ''),
-(1, 1, 9, 9, '0000-00-00', ''),
-(1, 1, 10, 10, '0000-00-00', ''),
-(1, 1, 11, 11, '0000-00-00', ''),
-(1, 1, 12, 12, '0000-00-00', 'love love love');
+(1, 1, 1, 1, '0000-00-00', 'asfasf'),
+(1, 1, 2, 2, '0000-00-00', '1 ,2'),
+(1, 1, 3, 3, '0000-00-00', 'asdfasf');
 
 -- --------------------------------------------------------
 
@@ -125,20 +116,25 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`id`, `q_no`, `Qdate`, `Questions`, `Option1`, `Option2`, `Option3`, `Option4`, `Option5`, `Option6`, `Option7`, `Option8`, `Option9`, `Option10`) VALUES
-(1, 1, '2020-04-14', 'ergetdsgdg', '', '', '', '', '', '', '', '', '', ''),
-(1, 2, '2020-04-14', 'sdfgsdfgdsg', '', '', '', '', '', '', '', '', '', ''),
+(1, 1, '2020-04-14', 'whay is', '', '', '', '', '', '', '', '', '', ''),
+(1, 2, '2020-04-14', 'hello there miss Elizabeth', 'How are you ?', 'Is everything okay ?', 'I hope your doing good !!', '', '', '', '', '', '', ''),
 (1, 3, '2020-04-14', 'what r u thoughts on hinata', '', '', '', '', '', '', '', '', '', ''),
-(1, 4, '2020-04-14', 'what r u thoughts on bula', '', '', '', '', '', '', '', '', '', ''),
-(1, 5, '2020-04-13', 'what r u thoughts on elizabeth ?', '', '', '', '', '', '', '', '', '', ''),
+(1, 4, '2020-04-14', 'How are you doing miss Lucy', 'I am doing good', 'How have you been ', 'Not much, just having fun in the guild hall', '', '', '', '', '', '', ''),
+(1, 5, '2020-04-13', 'I dont know much about that so i am sorry', '', '', '', '', '', '', '', '', '', ''),
 (1, 6, '2020-04-14', 'what r u thoughts on rese ?', '', '', '', '', '', '', '', '', '', ''),
 (1, 7, '2020-04-14', 'What are your thoughts on Lucy ?', '', '', '', '', '', '', '', '', '', ''),
 (1, 8, '2020-04-14', 'asdfasfsaf', '', '', '', '', '', '', '', '', '', ''),
 (1, 9, '2020-04-14', 'xasfa', '', '', '', '', '', '', '', '', '', ''),
-(1, 10, '2020-04-15', '', '', '', '', '', '', '', '', '', '', ''),
-(1, 11, '2020-04-15', '', '', '', '', '', '', '', '', '', '', ''),
-(1, 12, '2020-04-15', '', '', '', '', '', '', '', '', '', '', ''),
-(1, 13, '2020-04-15', '', '', '', '', '', '', '', '', '', '', ''),
-(1, 14, '2020-04-15', '', '', '', '', '', '', '', '', '', '', '');
+(1, 10, '2020-04-15', 'asfdsafasf', '', '', '', '', '', '', '', '', '', ''),
+(1, 11, '2020-04-15', 'Who will you choose', 'Lucy', 'Meow', 'Monogatari', '', '', '', '', '', '', ''),
+(1, 12, '2020-04-15', 'who is the what', '', '', '', '', '', '', '', '', '', ''),
+(1, 13, '2020-04-15', 'Idont know brother', '', '', '', '', '', '', '', '', '', ''),
+(1, 14, '2020-04-15', 'weeetwerte', '', '', '', '', '', '', '', '', '', ''),
+(1, 15, '2020-04-15', 'asdfasdf', '', '', '', '', '', '', '', '', '', ''),
+(1, 16, '2020-04-16', 'what is up with you my man ', '', '', '', '', '', '', '', '', '', ''),
+(1, 17, '2020-04-16', 'We lets talk with all the guild members what do you think Lucy', 'Yeah, I think its a good Idea', 'Yeah we should probably wait a while longer', '', '', '', '', '', '', '', ''),
+(1, 18, '2020-04-16', 'Yeah most likely ,what should we do Erza', '', '', '', '', '', '', '', '', '', ''),
+(1, 19, '2020-04-16', 'reertqwewrwerw', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -223,7 +219,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `q_no` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `q_no` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `user`
