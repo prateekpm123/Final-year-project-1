@@ -157,13 +157,13 @@ $option1Json = json_encode($option1);
  
 // ********** printing these values in the #hiddenDisplay Tag ***************
 
-echo '<div id="questionIs">'.json_encode($yourQuestionArray).'</div>';
-echo '<div id="questionCountIs">'.$yourQuestionArrayCount.'</div>';
-echo '<textarea id="option1" class="multipleChoiceOption">'.$option1Json.'</textarea>';
+// echo '<div id="questionIs">'.json_encode($yourQuestionArray).'</div>';
+// echo '<div id="questionCountIs">'.$yourQuestionArrayCount.'</div>';
+// echo '<textarea id="option1" class="multipleChoiceOption">'.$option1Json.'</textarea>';
 echo '<div id="option2" class="multipleChoiceOption">'.json_encode($option2).'</div>';
-echo '<div id="option3" class="multipleChoiceOption">'.json_encode($option3).'</div>';
-echo '<div id="option4" class="multipleChoiceOption">'.json_encode($option4).'</div>';
-echo '<div id="option5" class="multipleChoiceOption">'.json_encode($option5).'</div>';
+// echo '<div id="option3" class="multipleChoiceOption">'.json_encode($option3).'</div>';
+// echo '<div id="option4" class="multipleChoiceOption">'.json_encode($option4).'</div>';
+// echo '<div id="option5" class="multipleChoiceOption">'.json_encode($option5).'</div>';
 
 
 
@@ -677,7 +677,7 @@ echo '</br>';
                 success: function (data, status) {
                     // console.log(data);
                     // alert(noOfRows);
-                    $("#results").html(data);   
+                    // $("#results").html(data);   
                     // alert(status);
 
                 }
@@ -707,7 +707,7 @@ echo '</br>';
                 success: function (data, status) {
                     // console.log(data);
                     // alert(noOfRows);
-                    $("#results").html(data);
+                    // $("#results").html(data);
                     // alert(status);
 
                 }

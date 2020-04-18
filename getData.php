@@ -1,5 +1,5 @@
-<!-- ||****************************  This is backend for Preview-form.php  *********************************|| -->
 <?php
+//  ||****************************  This is backend for Preview-form.php  *********************************||
 
 // $counter = $_POST['counter'];
 
@@ -12,18 +12,18 @@ if (!$con) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-echo "Connected successfully";
+// echo "Connected successfully";
 
 
 // *************************  Getting the QUESTIONS from the table  ******************************
 $questionsArray = "SELECT Questions FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
-      echo "<h5>Got the question successfully</h5>";
+      // echo "<h5>Got the question successfully</h5>";
     } 
     else 
     {
-      echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+      // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -39,16 +39,17 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
 
 $yourQuestionArrayCount = count($yourQuestionArray);
 
+echo "<div id='questionCount' style='display:none;' >".$yourQuestionArrayCount."</div>";
 
 // **********************************  TO EXTRACT OPTIONS  **************************************
 $questionsArray = "SELECT Option1 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
-      echo "<h5>Got the option successfully</h5>";
+      // echo "<h5>Got the option successfully</h5>";
     } 
     else 
     {
-      echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+      // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -62,15 +63,18 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
      $index++;
 }  
 
+echo "<div id='option1' style='display:none;' >".$option1[0]['Option1']."</div>";
+
+
 // ************************  Extracting Option 2  **********************************
 $questionsArray = "SELECT Option2 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
-      echo "<h5>Got the option2 successfully</h5>";
+      // echo "<h5>Got the option2 successfully</h5>";
     } 
     else 
     {
-      echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+      // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -88,11 +92,11 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
 $questionsArray = "SELECT Option3 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
-      echo "<h5>Got the Option3 successfully</h5>";
+      // echo "<h5>Got the Option3 successfully</h5>";
     } 
     else 
     {
-      echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+      // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -111,11 +115,11 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
 $questionsArray = "SELECT Option4 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
-      echo "<h5>Got the Option4 successfully</h5>";
+      // echo "<h5>Got the Option4 successfully</h5>";
     } 
     else 
     {
-      echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+      // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -134,11 +138,11 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
 $questionsArray = "SELECT Option5 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
-      echo "<h5>Got the Option5 successfully</h5>";
+      // echo "<h5>Got the Option5 successfully</h5>";
     } 
     else 
     {
-      echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+      // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -157,13 +161,13 @@ $option1Json = json_encode($option1);
  
 // ********** printing these values in the #hiddenDisplay Tag ***************
 
-echo '<div id="questionIs">'.json_encode($yourQuestionArray).'</div>';
-echo '<div id="questionCountIs">'.$yourQuestionArrayCount.'</div>';
-echo '<textarea id="option1" class="multipleChoiceOption">'.$option1Json.'</textarea>';
-echo '<div id="option2" class="multipleChoiceOption">'.json_encode($option2).'</div>';
-echo '<div id="option3" class="multipleChoiceOption">'.json_encode($option3).'</div>';
-echo '<div id="option4" class="multipleChoiceOption">'.json_encode($option4).'</div>';
-echo '<div id="option5" class="multipleChoiceOption">'.json_encode($option5).'</div>';
+// echo '<div id="questionIs">'.json_encode($yourQuestionArray).'</div>';
+// echo '<div id="questionCountIs">'.$yourQuestionArrayCount.'</div>';
+// echo '<textarea id="option1" class="multipleChoiceOption">'.$option1Json.'</textarea>';
+// echo '<div id="option2" class="multipleChoiceOption">'.json_encode($option2).'</div>';
+// echo '<div id="option3" class="multipleChoiceOption">'.json_encode($option3).'</div>';
+// echo '<div id="option4" class="multipleChoiceOption">'.json_encode($option4).'</div>';
+// echo '<div id="option5" class="multipleChoiceOption">'.json_encode($option5).'</div>';
 
 
 
@@ -171,7 +175,7 @@ echo '<div id="option5" class="multipleChoiceOption">'.json_encode($option5).'</
 // $div = $dom->createElement($addElement);//Create new <br> tag
 // $dom->appendChild($div);//Add the style tag to document
 
-echo '</br>';
+// echo '</br>';
 
 // if(isset($option1 == ""))
 // {

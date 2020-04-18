@@ -7,7 +7,7 @@ $option = $_POST['option'];
 $btnid = $_POST['btnid'];
 // $questionAreaCounter = $_POST['questionAreaCounter'];
 // $id = $_POST['id'];
-
+$questionCount++;
 // echo $option;
 // printing these just for testing
 echo '</br>';

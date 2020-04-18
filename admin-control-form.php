@@ -2,6 +2,7 @@
 session_start();
 $username = $_SESSION['uname'];
 include("mydb.php");
+include("getData.php");
 // $con = mysqli_connect('localhost','root');
 // if($con) {
 //     // echo "sucess";
@@ -46,7 +47,7 @@ include("mydb.php");
 
 </head>
 
-<body>
+<body onload="getTheQuestionCount()">
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-header">
         <a class="navbar-brand" href="#">Navbar</a> 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -106,6 +107,7 @@ include("mydb.php");
         <div class="col-lg-6 left-side">
             <div class="addingQuestionBody">
                 <div id="form-page1">
+                    <div id="getDataContent"></div>
                     <!-- <div class="question-set" id="questionset0">
                         <textarea name="question" placeholder="Enter the questions..." id="Q0"
                             cols="30" rows="2" style="overflow:hidden"
@@ -254,7 +256,25 @@ include("mydb.php");
     <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <script src="admin-control-form.js"></script>
+    <script>
+        questionArray = <?php echo json_encode($yourQuestionArray)?>;
 
+        option1 = <?php echo json_encode($option1)?>;
+        option2 = <?php echo json_encode($option2)?>;
+        option3 = <?php echo json_encode($option3)?>;
+        option4 = <?php echo json_encode($option4)?>;
+        option5 = <?php echo json_encode($option5)?>; 
+        var globalVariable = {
+            questionArray : questionArray,
+            option1 : option1,
+            option2 : option2,
+            option3 : option3,
+            option4 : option4,
+            option5 : option5
+        };
+
+
+    </script>                   
 
 </body>
 

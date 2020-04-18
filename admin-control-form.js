@@ -1,10 +1,14 @@
 // $(document).ready(
 // function () {
-questionAreaCounter = 1;
+
+
+
+questionAreaCounter = 0;
 multipleChoiceCounter = 1;
 i = 0;
 optionsClick = 0;
 addOrRemoveCounter = 0;
+questionCount =0;
 // previousIdno = 0;
 
 // ******** DYNAMICALLY CREATING QUESTIONS AND OPTIONS MENu *********
@@ -204,7 +208,7 @@ function addMultipleChoice(info) {
 function create(btnclass, btnid) {
   // let saveId = "sub"+questionAreaCounter;
   // ajaxToSave(saveId, btnid);
-
+  console.log('QuestionAreaCounter is ',questionAreaCounter);
   // ######################  All the common tags used for dynamically creating  ############################
 
   // This creates the Questionset Div tag with gets appended to form-page1
@@ -226,7 +230,7 @@ function create(btnclass, btnid) {
     questionAreaCounter +
     '" class="questionarea questionsetComponents' +
     questionAreaCounter2 +
-    '"></textarea>';
+    '" value="">'+ globalVariable.questionArray[questionAreaCounter].Questions +'</textarea>';
 
   // *************** From here and down, we'll be creating a structure for other options to land *************
 
@@ -243,7 +247,7 @@ function create(btnclass, btnid) {
     '"></div>';
   // This goes under the optionset1stColTag
   let saveButtonTag =
-    '<button id="sub' +
+    '<button id="' +
     questionAreaCounter +
     '" class="btn btn-primary savebtn" onclick="ajaxToSave(this.id,' +
     btnid +
@@ -267,7 +271,7 @@ function create(btnclass, btnid) {
     '<button class="btn btn-primary options' +
     questionAreaCounter +
     '" onclick="createMultipleChoice(' +
-    questionAreaCounter +
+    this.id +
     ')" id="createMultipleChoice' +
     questionAreaCounter +
     '">Add Multiple choice</button>';
@@ -402,6 +406,65 @@ function create(btnclass, btnid) {
   // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
 }
 
+
+function getTheQuestionCount() {
+  $.ajax({
+    url: "getData.php",
+    type: "post",
+    data: {
+      
+    },
+    success: function (data, status) {
+      // console.log(data);
+      $("#getDataContent").html(data);
+      alert('status value is'+ status);
+      // alert('ajac to save ' + questionAreaCounterMinus1);
+      // alert('ajac id ' + Id);
+      if (status == "success") {
+        questionCount = $('#questionCount').text();
+        let option1 = $('#option1').text();
+        // alert('question count is ' + questionCount);
+        alert('option 1 is ' + option1);
+
+        // console.log(questionCount);
+      }
+      if (status == "success") {
+        creatingTheExistingContent(questionCount, status, option1);
+      }
+    },
+  });
+  
+  
+}
+
+function creatingTheExistingContent(questionCount, status,option1) {
+  alert(' in creation funciton');
+  if (status == "success") {
+    alert('question count is ' + questionCount);
+    
+  }
+  let option1Len = option1.length;
+  // alert("option is " + globalVariable.option2[1].Option2);
+
+
+
+  for ( let i=0; i<19;i++)
+  {
+    // alert(' in the for loop');
+    if (globalVariable.option1[i].Option1.length == 0) {
+      create(i, 3);
+    }
+    else if (globalVariable.option1[i].Option1.length == 1) {
+      // this is for rating
+    }
+    else if (globalVariable.option1[i].Option1.length > 1) {
+      // this is multiple choice
+      create(i, 1);
+
+    }
+  }
+}
+
 // TO DELETE A NEW QUESTION AREA
 
 function deleted() {
@@ -483,19 +546,19 @@ function ajaxToSave(id, btnid) {
     // AId++;
     let questionAreaCounterMinus1 = questionAreaCounter - 1;
 
-    let textareaId = "#Q" + questionAreaCounterMinus1;
-    let answerId = "#longAnswer" + questionAreaCounterMinus1;
-    console.log("id ", answerId);
+    let textareaId = "#Q" + id;
+    // let answerId = "#longAnswer" + questionAreaCounterMinus1;
+    // console.log("id ", answerId);
     let textarea = $(textareaId).val();
-    let answerarea = $(answerId).val();
-    console.log(answerarea);
+    // let answerarea = $(answerId).val();
+    // console.log(answerarea);
     $.ajax({
       url: "submit.php",
       type: "post",
       data: {
-        id: questionAreaCounterMinus1,
+        id: id,
         question: textarea,
-        option: answerarea,
+        option: 1,
         btnid: btnid
         // for()
       },
@@ -512,20 +575,20 @@ function ajaxToSave(id, btnid) {
   if (btnid == 1) {
     let idLen = id.length;
     Id = id[idLen - 1];
-    Id2 = Id;
+    Id2 = id +1;
     Id2++;
     AId = Id;
     // AId++;
     let questionAreaCounterMinus1 = questionAreaCounter - 1;
 
-    let textareaId = "#Q" + questionAreaCounterMinus1;
+    let textareaId = "#Q" + id;
     // let answerId = "#longAnswer" + AId;
 
     
 
     // Collecting Multiple choice options count
-    let multipleChoiceInputId1 = ".multipleChoiceInput" + questionAreaCounterMinus1;
-    let multipleChoiceInputId2 = ".multipleChoiceInput" + questionAreaCounter;
+    let multipleChoiceInputId1 = ".multipleChoiceInput" + id;
+    let multipleChoiceInputId2 = ".multipleChoiceInput" + Id2;
 
     let multipleChoiceInputsCount1 = $(multipleChoiceInputId1);
     let multipleChoiceInputsCount2 = $(multipleChoiceInputId2);
@@ -542,13 +605,13 @@ function ajaxToSave(id, btnid) {
     let optionValue = []; 
 
     for (a = 1; a < totalMultipleChoiceInputCountLen + 1; a++) {
-      let optionId = "#multipleChoiceid" + questionAreaCounter + a;
+      let optionId = "#multipleChoiceid" + id + a;
       console.log("option id = ".optionId);
       optionValue.push($(optionId).val());
     }
 
     console.log(optionValue);
-    let optionId1 = "#multipleChoiceid" + questionAreaCounterMinus1 + "1";
+    let optionId1 = "#multipleChoiceid" + id + "1";
     console.log("option id ", optionId1);
     let optionValue1 = $(optionId1).val();
 
@@ -560,7 +623,7 @@ function ajaxToSave(id, btnid) {
       url: "submit.php",
       type: "post",
       data: {
-        id: questionAreaCounterMinus1,
+        id: id,
         question: textarea,
         option: optionValue,
         btnid: btnid,
