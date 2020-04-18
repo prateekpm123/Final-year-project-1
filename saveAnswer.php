@@ -4,6 +4,16 @@
 $counter = $_POST['counter'];
 $answer = $_POST['answer'];
 
+echo "answer which is passes is ".$answer;
+echo "<br>";
+
+
+$dataType = gettype($answer);
+if($dataType == "array")
+{
+    $answer = implode(" ,",$answer); /* Note we glued it together with a space */
+}
+
 
 $counterMinus1 = $counter - 2;
 // ###########  Making a connection to the database  #############
@@ -138,7 +148,7 @@ if ($noOfRows == 1)
     echo " <h3>counter is </h3> ".$counter;
     echo " <h3>counter-- is </h3> ".$counterMinus1;
 
-    $update = "UPDATE `answers` SET `Answers`='$answer' WHERE `id`=1 AND `q_no`=$counterMinus1 AND `ans_id`=$counterMinus1";
+    $update = "UPDATE `answers` SET `Answers`='$answer' WHERE `id`=1 AND `q_no`=$counter AND `ans_id`=$counter";
     if (mysqli_query($con, $update)) 
     {
         echo "<h5>Answer updated successfully</h5>";
@@ -153,7 +163,7 @@ else if ($noOfRows == 0)
     echo " <h3>counter is </h3> ".$counter;
     echo " <h3>counter-- is </h3> ".$counterMinus1;
     #########################   Inserting the answers into the database if Empty   #################################
-    $insert = "INSERT INTO `answers`(`id`, `user_id`, `q_no`,`ans_id`, `Adate`, `Answers`) VALUES (1,1,$counterMinus1,$counterMinus1,'','$answer')";
+    $insert = "INSERT INTO `answers`(`id`, `user_id`, `q_no`,`ans_id`, `Adate`, `Answers`) VALUES (1,1,$counter,$counter,'','$answer')";
     if (mysqli_query($con, $insert)) 
     {
         echo "<h5>Answer inserted successfully</h5>";

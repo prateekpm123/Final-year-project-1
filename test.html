@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +11,13 @@
     <link href="jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
     <link rel="stylesheet" href="">
 </head>
+
 <body>
-    
+
     <!-- <input type="text" id="mytext" value="this is how it is ?"> -->
 
     <div class="container-fluid">
-        <div class="row" >
+        <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6" id="mainDisplayArea">
                 <div id="display">
@@ -38,14 +40,14 @@
     <!-- ##### Bootstrap libraries ##### -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-        </script>
-    
+    </script>
+
     <!--  ###### Jquery libraries ##### -->
     <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
@@ -54,31 +56,64 @@
     <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <script src=""></script>
-    
-    
-    
-    <script>
 
+
+
+    <script>
         array = ["this is first",
-                    "this is second","This is third", "this is fourth"];
-        jsonarray = [
-        {"Option1" : "What is your name 1 ?"},
-        {"Option1" : "What is your name 2 ?"},
-        {"Option1" : "What is your name 3 ?"},
-        {"Option1" : "What is your name 4 ?"},
-        {"Option1" : "What is your name 5 ?"}
+            "this is second", "This is third", "this is fourth"
         ];
+        jsonarray = [{
+            "Option1": ""
+        }, {
+            "Option1": "How are you ?"
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": "I am doing good"
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": "Lucy"
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": "Yeah, I think its a good Idea"
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }]
         // count is 0, because first the question wont be displayed, count is strictly the question number.
         count = 0;
 
-        
+
 
         function displayNext() {
 
             deletePrevious();
             count1 = count + 1;
             $("#display").append('<div class="questions" id="questionArea"></div>');
-            $("#questionArea").append('<p class="para" id="'+count1+'">' + jsonarray[count].Option1 + '</p>');
+            $("#questionArea").append('<p class="para" id="' + count1 + '">' + jsonarray[count].Option1 + '</p>');
+            alert("option is"+jsonarray[count].Option1);
 
             count++;
 
@@ -86,12 +121,12 @@
 
         function deletePrevious() {
             previousCount = count;
-            previousCountId = "#"+previousCount;
+            previousCountId = "#" + previousCount;
             $(previousCountId).remove();
         }
-        
-       
-        
+
+
+
 
         // TESTING FOR KEY VALUES
 
@@ -106,9 +141,7 @@
         // window.addEventListener("keydown", getTheKeyCode, false);
         // text.addEventListener("keypress", getTheKeyCode, false);
         // text.addEventListener("keyup", getTheKeyCode, false);
-
     </script>
 </body>
+
 </html>
-
-
