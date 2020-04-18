@@ -61,7 +61,13 @@
 
         array = ["this is first",
                     "this is second","This is third", "this is fourth"];
-
+        jsonarray = [
+        {"Option1" : "What is your name 1 ?"},
+        {"Option1" : "What is your name 2 ?"},
+        {"Option1" : "What is your name 3 ?"},
+        {"Option1" : "What is your name 4 ?"},
+        {"Option1" : "What is your name 5 ?"}
+        ];
         // count is 0, because first the question wont be displayed, count is strictly the question number.
         count = 0;
 
@@ -71,14 +77,8 @@
 
             deletePrevious();
             count1 = count + 1;
-            
-            // For Displaying the question
-            $("#display").append('<div class="questions" id="questionArea' + count1 +'"></div>');
-            $("#questionArea").append('<p class="para" id="'+count1+'">' + array[count] + '</p>');
-
-            // For displaying the option
-            $("#display").append('<div class="options" id="optionArea'+ count1 +'"></div>');
-            $
+            $("#display").append('<div class="questions" id="questionArea"></div>');
+            $("#questionArea").append('<p class="para" id="'+count1+'">' + jsonarray[count].Option1 + '</p>');
 
             count++;
 
@@ -86,8 +86,8 @@
 
         function deletePrevious() {
             previousCount = count;
-            previousParaCountId = "#"+previousCount;
-            $(previousParaCountId).remove();
+            previousCountId = "#"+previousCount;
+            $(previousCountId).remove();
         }
         
        
