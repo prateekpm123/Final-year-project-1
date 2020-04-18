@@ -325,13 +325,15 @@ echo '</br>';
                     <div class="col-lg-3"></div>
                     <div class="col-lg-6 centerStuff" id="mainDisplayArea">
                         <div id="display">
-                            <div class="questions" id="questionArea"></div>
+                            <div class="questions" id="questionArea">
+                                <h1 id="intro">Welcome</h1>
+                            </div>
                             <div id="answerArea" class="0">
                                 
                             </div>
                         </div>
                         <div>
-                            <button class="btn btn-primary" onclick="displayNext()">Next</button>
+                            <button class="btn btn-primary" id="next" onclick="displayNext()">Next</button>
                         </div>
                     </div>
 
@@ -400,6 +402,7 @@ echo '</br>';
 
     <script>
         let questionArray;
+        let questionArrayCount;
         let option1;
         let option2;
         let option3;
@@ -408,7 +411,8 @@ echo '</br>';
         let count = 0;
         function saveTheValues() {
             questionArray = <?php echo json_encode($yourQuestionArray)?>;
-            
+            questionArrayCount = questionArray.length;
+
             option1 = <?php echo json_encode($option1)?>;
                         
             // console.log('option1s 2nd value',option1[1].Option1);
@@ -434,7 +438,7 @@ echo '</br>';
 
             // This check wheather what we are giving is a textarea or an Option
             let whichOption = $('#answerArea').attr('class');
-            alert("which option is "+whichOption);
+            // alert("which option is "+whichOption);
             let ans;
             if(whichOption == 1)
             {
@@ -442,7 +446,7 @@ echo '</br>';
             }
             else {
                 ans = saveOption(count);
-                alert('not a textarea');
+                // alert('not a textarea');
             }
 
             if( ans == 1){
@@ -465,75 +469,71 @@ echo '</br>';
             let option5Len = option5[count].Option5; 
             
             // console.log("option1Len is ",option1Len);
-            if(option1[count].Option1 == 0)
-            {        
-                $('#answerArea').append('<textarea name="" class="" id="T' + count1 + '" cols="30" rows="3"></textarea>')
-                $('#answerArea').attr("class","1");
-
-            }
-            else if(option1[count].Option1 != 0)
+            if(count <= questionArrayCount)
             {
-                console.log('in 1st else if condition');
-                $('#answerArea').attr("class","2");
-                if(option1[count].Option1 != 0)
-                {
-                    console.log('in 1st else-if\'s 1st condition');
-                    $('#answerArea').append('<input type="checkbox" id="optionArea1' + count1 + '" name="optionArea1' + count1 + '" value="1" class="align-left"> <label class="align-left" for="optionArea1' + count1 + '" id="optionLabel1' + count1 + '" >'+ option1[count].Option1 +'</label> <br id="tag">');
-                    
-                }
-                else {}
-                if(option2[count].Option2 != 0)
-                {
+                if(option1[count].Option1 == 0)
+                {        
+                    $('#answerArea').append('<textarea name="" class="" id="T' + count1 + '" cols="30" rows="3"></textarea>')
+                    $('#answerArea').attr("class","1");
 
-                    $('#answerArea').append('<input type="checkbox" id="optionArea2' + count1 + '" name="optionArea2' + count1 + '" value="2" class="align-left"> <label class="align-left" for="optionArea2' + count1 + '" id="optionLabel2' + count1 + '" >'+ option2[count].Option2 +'</label> <br id="tag">');
-                    
                 }
-                else {}
-                if(option3[count].Option3 != 0)
+                else if(option1[count].Option1 != 0)
                 {
+                    console.log('in 1st else if condition');
+                    $('#answerArea').attr("class","2");
+                    if(option1[count].Option1 != 0)
+                    {
+                        console.log('in 1st else-if\'s 1st condition');
+                        $('#answerArea').append('<input type="checkbox" id="optionArea1' + count1 + '" name="optionArea1' + count1 + '" value="1" class="align-left"> <label class="align-left" for="optionArea1' + count1 + '" id="optionLabel1' + count1 + '" >'+ option1[count].Option1 +'</label> <br id="tag">');
+                        
+                    }
+                    else {}
+                    if(option2[count].Option2 != 0)
+                    {
 
-                    $('#answerArea').append('<input type="checkbox" id="optionArea3' + count1 + '" name="optionArea3' + count1 + '" value="3" class="align-left"> <label class="align-left" for="optionArea3' + count1 + '" id="optionLabel3' + count1 + '" >'+ option3[count].Option3 +'</label> <br id="tag">');
-                    
-                }
-                else {}
-                if(option4[count].Option4 != 0)
-                {
+                        $('#answerArea').append('<input type="checkbox" id="optionArea2' + count1 + '" name="optionArea2' + count1 + '" value="2" class="align-left"> <label class="align-left" for="optionArea2' + count1 + '" id="optionLabel2' + count1 + '" >'+ option2[count].Option2 +'</label> <br id="tag">');
+                        
+                    }
+                    else {}
+                    if(option3[count].Option3 != 0)
+                    {
 
-                    $('#answerArea').append('<input type="checkbox" id="optionArea4' + count1 + '" name="optionArea4' + count1 + '" value="4" class="align-left"> <label class="align-left" for="optionArea4' + count1 + '" id="optionLabel4' + count1 + '" >'+ option4[count].Option4 +'</label> <br id="tag">');
-                    
-                }
-                else {}
-                if(option5[count].Option5 != 0)
-                {
+                        $('#answerArea').append('<input type="checkbox" id="optionArea3' + count1 + '" name="optionArea3' + count1 + '" value="3" class="align-left"> <label class="align-left" for="optionArea3' + count1 + '" id="optionLabel3' + count1 + '" >'+ option3[count].Option3 +'</label> <br id="tag">');
+                        
+                    }
+                    else {}
+                    if(option4[count].Option4 != 0)
+                    {
 
-                    $('#answerArea').append('<input type="checkbox" id="optionArea5' + count1 + '" name="optionArea5' + count1 + '" value="5" class="align-left"> <label class="align-left" for="optionArea5' + count1 + '" id="optionLabel5' + count1 + '" >'+ option5[count].Option5 +'</label> <br id="tag">');
-                    
+                        $('#answerArea').append('<input type="checkbox" id="optionArea4' + count1 + '" name="optionArea4' + count1 + '" value="4" class="align-left"> <label class="align-left" for="optionArea4' + count1 + '" id="optionLabel4' + count1 + '" >'+ option4[count].Option4 +'</label> <br id="tag">');
+                        
+                    }
+                    else {}
+                    if(option5[count].Option5 != 0)
+                    {
+
+                        $('#answerArea').append('<input type="checkbox" id="optionArea5' + count1 + '" name="optionArea5' + count1 + '" value="5" class="align-left"> <label class="align-left" for="optionArea5' + count1 + '" id="optionLabel5' + count1 + '" >'+ option5[count].Option5 +'</label> <br id="tag">');
+                        
+                    }
+                    else {}
                 }
-                else {}
             }
-
-            // let whichOption = $('#answerArea').attr('class');
-            // alert("which option is "+whichOption);
-            // let ans;
-            // if(whichOption == 2)
-            // {
-            //     ans = saveAnswer(count);
-            // }
-            // else {
-            //     ans = saveAnswer(count);
-            // }
-
-            // if( ans == 1){
-            //     deletePrevious();
-            // }
+            else 
+            {   
+                alert('in the big else')
+                $('#answerArea').append('<h1>Thank You</h1>');
+                $('#next').remove();
+            }
+            
 
             count++;
 
         }
 
         function deletePrevious() {
-            alert('in delete');
+            // alert('in delete');
             previousCount = count;
+            $('#intro').remove();
             previousParaCountId = "#" + previousCount;
             previousTextareaCountId = "#T"+ previousCount;
 
@@ -579,7 +579,7 @@ echo '</br>';
             let count1 = count + 1;
             let textareaId = "#T"+count;
             let answer = $(textareaId).val();
-            alert('answer is '+answer);
+            // alert('answer is '+answer);
             // alert('in saveData');
             $.ajax({
                 url: "saveAnswer.php",
@@ -609,7 +609,7 @@ echo '</br>';
             $(':checkbox:checked').each(function (i) {
                 val[i] = $(this).val();
             });
-            alert('options answer is '+ val);
+            // alert('options answer is '+ val);
             // alert('in saveData');
             $.ajax({
                 url: "saveAnswer.php",
