@@ -390,7 +390,7 @@ function create(btnclass, btnid) {
     // alert('in if else condition of multiple choice');
   } else if (btnid == 2) {
   } else if (btnid == 3) {
-    createLongAnswer(questionAreaCounter);
+    // createLongAnswer(questionAreaCounter);
     // alert('in if else condition of long answer');
   } else if (btnid == 4) {
   }

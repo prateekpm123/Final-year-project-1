@@ -162,9 +162,7 @@ include("mydb.php");
                             
                         </div>     
                     </div> -->
-                    <?php
-                        // include("textarea-testing.html");
-                    ?>
+                    
                     <!-- <div id="optionsarea" class="optionsareaclass">
                         <button class="options optionbtns">Options</button>
                         <button class="options optionbtns">Ratings</button>
