@@ -277,86 +277,33 @@ echo '</br>';
     </nav> -->
 
     <div class="container-fluid">
-
         <div class="row">
-            <div class="col-lg col-md col-sm col-filler"></div>
-            <div class="col-lg-8 col-md-7 col-sm-6 col-filler"></div>
-            <div class="col-lg col-md col-sm col-filler"></div>
+            <div class="col-12 upperSpace"></div>
         </div>
-
-        <div class="row question-row">
-            <div class="col-lg col-md col-sm" id='results'> </div>
-
-            <div class="col-lg-8 col-md-7 col-sm-6 centerStuff">
-                <!-- <div class="displayArea">
-                    <div id="end"></div>
-
-                    <h2 class="questionArea" id="questionDisplayArea"></h2>
-                    <div class="optionArea" id="optionDisplayArea">
-                        <div id="longArea">
-                            <textarea editable-content="true" style="display:none;" name="" id="longAnswer" cols="30" rows="1"></textarea>
-                        </div>
-                        <div id="multipleChoiceArea" class="align-left" >
-                            <input type="checkbox" id="optionArea1" name="optionArea1" value="1" class="align-left" style="display:none;">
-                            <label class="align-left" for="optionArea1" id="optionLabel1" style="display:none;"></label><br>
-                            
-                            <input type="checkbox" id="optionArea2" name="optionArea2" value="2" class="align-left" style="display:none;">
-                            <label class="align-left" for="optionArea2" id="optionLabel2" style="display:none;"></label><br>
-
-                            <input type="checkbox" id="optionArea3" name="optionArea3" value="3" class="" style="display:none;">
-                            <label for="optionArea3" id="optionLabel3" style="display:none;"> </label><br>
-
-                            <input type="checkbox" id="optionArea4" name="optionArea4" value="4" class="" style="display:none;">                            
-                            <label for="optionArea4" id="optionLabel4" style="display:none;"> </label><br>
-
-                            <input type="checkbox" id="optionArea5" name="optionArea5" value="5" class="" style="display:none;">
-                            <label for="optionArea5" id="optionLabel5" style="display:none;"> </label><br><br>
-                        </div>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6 centerStuff" id="mainDisplayArea">
+                <div id="display">
+                    <div class="questions" id="questionArea">
+                        <h1 id="intro">Welcome</h1>
+                    </div>
+                    <div id="answerArea" class="0">
                         
-                        <input type="submit" value="Submit">
-                       <p id="optionDisplayAreaPara"></p>  
                     </div>
-                    <div id="testDisplayArea">
-
-                    </div>
-                </div> -->
-
-                <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div class="col-lg-6 centerStuff" id="mainDisplayArea">
-                        <div id="display">
-                            <div class="questions" id="questionArea">
-                                <h1 id="intro">Welcome</h1>
-                            </div>
-                            <div id="answerArea" class="0">
-                                
-                            </div>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary" id="next" onclick="displayNext()">Next</button>
-                            <!-- <button class="btn btn-primary" id="next" onclick="displayBack()">back</button> -->
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3"></div>
+                </div>
+                <div>
+                    <button class="btn btn-primary" id="next" onclick="displayNext()">Next</button>
+                    <!-- <button class="btn btn-primary" id="next" onclick="displayBack()">back</button> -->
 
                 </div>
-                <!-- <button class="btn btn-primary" id="next" onclick="showNextQuestion()"> Next </button> -->
-            </div> 
-         
-            <div class="col-lg col-md col-sm">
-                <div id="hiddenDisplay" >
-                    
-                </div>
-            </div> 
+            </div>
+            <div class="col-lg-3"></div>
         </div>
-
         <div class="row">
-            <div class="col-lg col-md col-sm col-filler"></div>
-            <div class="col-lg-8 col-md-7 col-sm-6 col-filler"></div>
-            <div class="col-lg col-md col-sm col-filler"></div>
+            <div class="col-12 upperSpace"></div>
         </div>
+         
+        
     </div>
 
 
@@ -646,7 +593,7 @@ echo '</br>';
         }
 
         function deletePrevious() {
-            alert('in delete');
+            // alert('in delete');
             previousCount = count;
             $('#intro').remove();
             previousParaCountId = "#" + previousCount;
@@ -690,7 +637,7 @@ echo '</br>';
         }
 
         function deleteCurrent() {
-            alert('in delete');
+            // alert('in delete');
             count;
             previousCount = count;
             $('#intro').remove();
@@ -752,7 +699,7 @@ echo '</br>';
                 success: function (data, status) {
                     // console.log(data);
                     // alert(noOfRows);
-                    $("#results").html(data);
+                    $("#results").html(data);   
                     // alert(status);
 
                 }
