@@ -4,24 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
+    <link href="jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="">
 </head>
 <body>
     
-    <input type="text" id="mytext" value="this is how it is ?">
+    <!-- <input type="text" id="mytext" value="this is how it is ?"> -->
+
+    <div class="container-fluid">
+        <div class="row" >
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6" id="mainDisplayArea">
+                <div id="display">
+
+                </div>
+                <div>
+                    <button class="btn btn-primary" onclick="displayNext()">Next</button>
+                </div>
+            </div>
+
+            <div class="col-lg-3"></div>
+
+        </div>
+    </div>
 
 
+
+
+
+    <!-- ##### Bootstrap libraries ##### -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+        </script>
+    
+    <!--  ###### Jquery libraries ##### -->
+    <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+    <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="admin-control-form.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+    <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src=""></script>
+    
+    
+    
     <script>
-        text = document.getElementById("mytext");
 
-        function getTheKeyCode(e) {
-        console.log(e.type + ' ' + e.keycode + ' ' + String.fromCharCode(e.keycode));
-        console.log( e.keycode );
-        alert(e.keycode);
+        array = ["this is first",
+                    "this is second","This is third", "this is fourth"];
+
+        // count is 0, because first the question wont be displayed, count is strictly the question number.
+        count = 0;
+
+        
+
+        function displayNext() {
+
+            deletePrevious();
+            count1 = count + 1;
+            
+            // For Displaying the question
+            $("#display").append('<div class="questions" id="questionArea' + count1 +'"></div>');
+            $("#questionArea").append('<p class="para" id="'+count1+'">' + array[count] + '</p>');
+
+            // For displaying the option
+            $("#display").append('<div class="options" id="optionArea'+ count1 +'"></div>');
+            $
+
+            count++;
+
         }
 
-        window.addEventListener("keydown", getTheKeyCode, false);
-        text.addEventListener("keypress", getTheKeyCode, false);
-        text.addEventListener("keyup", getTheKeyCode, false);
+        function deletePrevious() {
+            previousCount = count;
+            previousParaCountId = "#"+previousCount;
+            $(previousParaCountId).remove();
+        }
+        
+       
+        
+
+        // TESTING FOR KEY VALUES
+
+        // text = document.getElementById("mytext");
+
+        // function getTheKeyCode(e) {
+        // console.log(e.type + ' ' + e.keycode + ' ' + String.fromCharCode(e.keycode));
+        // console.log( e.keycode );
+        // alert(e.keycode);
+        // }
+
+        // window.addEventListener("keydown", getTheKeyCode, false);
+        // text.addEventListener("keypress", getTheKeyCode, false);
+        // text.addEventListener("keyup", getTheKeyCode, false);
 
     </script>
 </body>
