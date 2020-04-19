@@ -204,7 +204,7 @@ include("getData.php");
                 // $q = "SELECT Q1 FROM `questions` WHERE `Form Number`='Form2'";
                 // $result = mysqli_query($con, $q);
                 // $desc = mysqli_fetch_assoc($result);
-                // include("preview-form.php");
+                include("preview-form.php");
             ?>
             <h5 class="question_display">
                 <?php 

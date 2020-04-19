@@ -19,11 +19,11 @@ echo "Connected successfully";
 $questionsArray = "SELECT Questions FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
-      echo "<h5>Got the question successfully</h5>";
+    //   echo "<h5>Got the question successfully</h5>";
     } 
     else 
     {
-      echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+    //   echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -44,11 +44,11 @@ $yourQuestionArrayCount = count($yourQuestionArray);
 $questionsArray = "SELECT Option1 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
-      echo "<h5>Got the option successfully</h5>";
+    //   echo "<h5>Got the option successfully</h5>";
     } 
     else 
     {
-      echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+    //   echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -66,11 +66,11 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
 $questionsArray = "SELECT Option2 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
-      echo "<h5>Got the option2 successfully</h5>";
+    //   echo "<h5>Got the option2 successfully</h5>";
     } 
     else 
     {
-      echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+    //   echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -88,11 +88,11 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
 $questionsArray = "SELECT Option3 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
-      echo "<h5>Got the Option3 successfully</h5>";
+    //   echo "<h5>Got the Option3 successfully</h5>";
     } 
     else 
     {
-      echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+    //   echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -111,11 +111,11 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
 $questionsArray = "SELECT Option4 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
-      echo "<h5>Got the Option4 successfully</h5>";
+    //   echo "<h5>Got the Option4 successfully</h5>";
     } 
     else 
     {
-      echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+    //   echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -134,11 +134,11 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
 $questionsArray = "SELECT Option5 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
-      echo "<h5>Got the Option5 successfully</h5>";
+    //   echo "<h5>Got the Option5 successfully</h5>";
     } 
     else 
     {
-      echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+    //   echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -160,7 +160,7 @@ $option1Json = json_encode($option1);
 // echo '<div id="questionIs">'.json_encode($yourQuestionArray).'</div>';
 // echo '<div id="questionCountIs">'.$yourQuestionArrayCount.'</div>';
 // echo '<textarea id="option1" class="multipleChoiceOption">'.$option1Json.'</textarea>';
-echo '<div id="option2" class="multipleChoiceOption">'.json_encode($option2).'</div>';
+// echo '<div id="option2" class="multipleChoiceOption">'.json_encode($option2).'</div>';
 // echo '<div id="option3" class="multipleChoiceOption">'.json_encode($option3).'</div>';
 // echo '<div id="option4" class="multipleChoiceOption">'.json_encode($option4).'</div>';
 // echo '<div id="option5" class="multipleChoiceOption">'.json_encode($option5).'</div>';

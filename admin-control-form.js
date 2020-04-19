@@ -89,6 +89,7 @@ function createLongAnswer(info) {
 }
 
 function createMultipleChoice(info) {
+  alert("this.id is  "+info);
   let multipleChoiceInputTag =
     '<div class="input-group mb-3 questionsetComponents' +
     questionAreaCounter +
@@ -347,7 +348,7 @@ function create(btnclass, btnid) {
   let optionsetDivTag =
     '<div class="options-set" id="optionset' + questionAreaCounter + '"></div>';
 
-  let questionAreaCounter2 = questionAreaCounter;
+  let questionAreaCounter2 = parseInt(questionAreaCounter);
   questionAreaCounter2++;
   // This creates the textareatag for the question with gets appended to the questionset Div tag
   let questionTextareaTag =
@@ -396,11 +397,11 @@ function create(btnclass, btnid) {
   // This is the button which will appear when multiple choice options is clicked
   let addingMultipleChoiceBtnsButtonTag =
     '<button class="btn btn-primary options' +
-    questionAreaCounter +
-    '" onclick="createMultipleChoice(' +
-    questionAreaCounter +
-    ')" id="createMultipleChoice' +
-    questionAreaCounter +
+    questionAreaCounter2 +
+    '" onclick="createMultipleChoice('+
+    this.id +
+    ')" id="c' +
+    questionAreaCounter2 +
     '">Add Multiple choice</button>';
 
   // This the 4th Column
