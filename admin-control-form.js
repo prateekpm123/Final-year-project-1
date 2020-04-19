@@ -9,6 +9,9 @@ i = 0;
 optionsClick = 0;
 addOrRemoveCounter = 0;
 questionCount =0;
+
+ optionArray = [];
+ optioncount = 1;
 // previousIdno = 0;
 
 // ******** DYNAMICALLY CREATING QUESTIONS AND OPTIONS MENu *********
@@ -123,7 +126,47 @@ function createMultipleChoice(info) {
   multipleChoiceCounter++;
 }
 
-function addMultipleChoice(info) {
+
+function createMultipleChoiceBefore(a,i) {
+  let multipleChoiceInputTag =
+    '<div class="input-group mb-3 questionsetComponents' +
+    questionAreaCounter +
+    " multipleChoiceOptions" +
+    questionAreaCounter +
+    '"> <input type="text" class="form-control multipleChoiceInput' +
+    questionAreaCounter +
+    '" placeholder=" - " id="multipleChoiceid' +
+    questionAreaCounter +
+    multipleChoiceCounter +
+    '" aria-label="Recipient\'s username" value="'+ optionArray[a] +'" aria-describedby="multipleChoiceBtn' +
+    questionAreaCounter +
+    '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
+    i +
+    ')" type="button" id="multipleChoiceBtn' +
+    questionAreaCounter +
+    '">+</button> </div> </div>';
+
+  // infolen = info.length;
+  // idno = info[infolen - 1];
+  idno = i;
+  console.log("idno = ", idno);
+  //   alert("info add choice funciton");
+  let idno2 = idno;
+  // idno2 = idno2 - 1;
+  let questionsetdiv = "#questionset" + idno;
+
+  // CreateMultipleChoice Function's Version of this button
+  $(questionsetdiv).append(multipleChoiceInputTag);
+
+  // addMutiplechoice Function's Versions of buttons
+  // $(questionsetdiv).append(
+  //     '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
+  //     );
+  multipleChoiceCounter++;
+}
+
+
+function addMultipleChoice() {
   // alert('in multiple choice');
 
   // This questionAreaCounter3 is created to balance the questionAreaCounter in id="multiplceChoiceId" of the inputtag of the multiple choice option
@@ -136,15 +179,14 @@ function addMultipleChoice(info) {
     " multipleChoiceOptions" +
     questionAreaCounter +
     '"> <input type="text" class="form-control multipleChoiceInput' +
-    questionAreaCounter +
+    questionAreaCounter3 +
     '" placeholder=" - " id="multipleChoiceid' +
     questionAreaCounter3 +
     multipleChoiceCounter +
     '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
     questionAreaCounter +
     '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
-    info +
-    ')" type="button" id="multipleChoiceBtn' +
+    questionAreaCounter + ')" type="button" id="multipleChoiceBtn' +
     questionAreaCounter +
     '">+</button> </div> </div>';
 
@@ -152,7 +194,7 @@ function addMultipleChoice(info) {
   // infolen = info.length;
   // idno = info[infolen - 1];
 
-  idno = info;
+  idno = questionAreaCounter;
   console.log("idno = ", idno);
 
   let idno2 = idno;
@@ -204,6 +246,90 @@ function addMultipleChoice(info) {
   }
   multipleChoiceCounter++;
 }
+
+function addMultipleChoiceBefore() {
+  // alert('in multiple choice');
+  // This questionAreaCounter3 is created to balance the questionAreaCounter in id="multiplceChoiceId" of the inputtag of the multiple choice option
+  let questionAreaCounter3 = questionAreaCounter;
+  questionAreaCounter3++;
+
+  // alert('option 1 is ' + globalVariable.option1[i].Option1);
+  // This creates an input box for the multiple choice option
+  let multipleChoiceInputTag =
+    '<div class="input-group mb-3 questionsetComponents' +
+    questionAreaCounter +
+    " multipleChoiceOptions" +
+    questionAreaCounter +
+    '"> <input type="text" class="form-control multipleChoiceInput' +
+    questionAreaCounter3 +
+    '" placeholder=" - " id="multipleChoiceid' +
+    questionAreaCounter3 +
+    multipleChoiceCounter +
+    '" aria-label="Recipient\'s username" value="' + globalVariable.option1[questionAreaCounter].Option1 + '"  aria-describedby="multipleChoiceBtn' +
+    questionAreaCounter +
+    '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
+    questionAreaCounter +
+    ')" type="button" id="multipleChoiceBtn' +
+    questionAreaCounter +
+    '">+</button> </div> </div>';
+
+  // alert('in multiple choice');
+  // infolen = info.length;
+  // idno = info[infolen - 1];
+
+  idno = questionAreaCounter;
+  console.log("idno = ", idno);
+
+  let idno2 = idno;
+  idno2++;
+
+  let createMultipleChoice = "#createMultipleChoice" + idno;
+  $(createMultipleChoice).show();
+
+  questionsetId = ".questionsetComponents" + idno2;
+  questionSetComponentsList = $(questionsetId);
+  questionSetComponentsListLen = questionSetComponentsList.length;
+  console.log("options count " + questionSetComponentsListLen);
+  console.log("options objects " + questionSetComponentsList);
+
+  multipleChoiceId = ".multipleChoiceOptions" + idno2;
+  multipleChoiceComponentsList = $(multipleChoiceId);
+  multipleChoiceComponentsListLen = multipleChoiceComponentsList.length;
+
+  let questionsetdiv = "#questionset" + idno;
+
+  // This condition checks if the set is empty or not
+  if (questionSetComponentsListLen == 1) {
+    $(questionsetdiv).append(multipleChoiceInputTag);
+  }
+
+  // This tells us, there are more components then just question area
+  else if (questionSetComponentsListLen > 1) {
+    // This Condition checks weather, there are any multiple choice questions in the set or not
+    let questionSetComponentsListLen2 = questionSetComponentsListLen;
+    questionSetComponentsListLen2 = questionSetComponentsListLen2 - 1;
+    if (multipleChoiceComponentsListLen == questionSetComponentsListLen2) {
+      // alert('in checking are the components multiple choice or not');
+      $(questionsetdiv).append(multipleChoiceInputTag);
+    }
+
+    // This Condition checks are there any other components other than choices already in the set or not,
+    // For Ex: if there is already a Long Answer in the set, it'll first remove that Long Answer and then it'll add the Multiple choice options
+    else if (multipleChoiceComponentsListLen == 0) {
+      console.log(" multiple components list " + multipleChoiceComponentsList);
+      for (let c = 0; c < questionSetComponentsListLen - 1; c++) {
+        console.log("in for loop");
+        // alert('in for loop');
+        questionSetComponentsList[
+          questionSetComponentsListLen - c - 1
+        ].remove();
+      }
+      $(questionsetdiv).append(multipleChoiceInputTag);
+    }
+  }
+  multipleChoiceCounter++;
+}
+
 
 
 function create(btnclass, btnid) {
@@ -391,7 +517,7 @@ function create(btnclass, btnid) {
   // alert('before multiple choice');
 
   if (btnid == 1) {
-    addMultipleChoice(questionAreaCounter);
+    addMultipleChoice();
     // alert('in if else condition of multiple choice');
   } else if (btnid == 2) {} else if (btnid == 3) {
     // createLongAnswer(questionAreaCounter);
@@ -591,7 +717,7 @@ function createBefore(btnclass, btnid) {
   // alert('before multiple choice');
 
   if (btnid == 1) {
-    addMultipleChoice(questionAreaCounter);
+    addMultipleChoiceBefore();
     // alert('in if else condition of multiple choice');
   } else if (btnid == 2) {
   } else if (btnid == 3) {
@@ -618,14 +744,14 @@ function getTheQuestionCount() {
     success: function (data, status) {
       // console.log(data);
       $("#getDataContent").html(data);
-      alert('status value is'+ status);
+      // alert('status value is'+ status);
       // alert('ajac to save ' + questionAreaCounterMinus1);
       // alert('ajac id ' + Id);
       if (status == "success") {
         questionCount = $('#questionCount').text();
         let option1 = $('#option1').text();
         // alert('question count is ' + questionCount);
-        alert('option 1 is ' + option1);
+        // alert('option 1 is ' + option1);
 
         // console.log(questionCount);
       }
@@ -639,9 +765,9 @@ function getTheQuestionCount() {
 }
 
 function creatingTheExistingContent(questionCount, status,option1) {
-  alert(' in creation funciton');
+  // alert(' in creation funciton');
   if (status == "success") {
-    alert('question count is ' + questionCount);
+    // alert('question count is ' + questionCount);
     
   }
   let option1Len = option1.length;
@@ -649,7 +775,7 @@ function creatingTheExistingContent(questionCount, status,option1) {
 
 
 
-  for ( let i=0; i<19;i++)
+  for (let i = 0; i < questionCount; i++)
   {
     // alert(' in the for loop');
     if (globalVariable.option1[i].Option1.length == 0) {
@@ -661,6 +787,34 @@ function creatingTheExistingContent(questionCount, status,option1) {
     else if (globalVariable.option1[i].Option1.length > 1) {
       // this is multiple choice
       createBefore(i, 1);
+      optioncount = 0;
+      optionArray =[];
+      optionArray.push(globalVariable.option1[i].Option1);
+      if (globalVariable.option2[i].Option2.length > 1) {
+        optionArray.push(globalVariable.option2[i].Option2);
+        optioncount++;
+      }
+      if (globalVariable.option3[i].Option3.length > 1) {
+        optionArray.push(globalVariable.option3[i].Option3);
+        optioncount++;
+      }
+      if (globalVariable.option4[i].Option4.length > 1) {
+        optionArray.push(globalVariable.option4[i].Option4);
+        optioncount++;
+
+      }
+      if (globalVariable.option5[i].Option5.length > 1) {
+        optionArray.push(globalVariable.option5[i].Option5);
+        optioncount++;
+
+      }
+      for(let a=1 ; a <= optioncount ; a++ )
+      {
+        createMultipleChoiceBefore(a,i);
+        console.log("in option for loop");
+        console.log('option array is ? ',optionArray);
+      }
+
 
     }
   }
@@ -746,6 +900,7 @@ function ajaxToSave(id, btnid) {
     AId = Id;
     // AId++;
     let questionAreaCounterMinus1 = questionAreaCounter - 1;
+    alert('in long answer save');
 
     let textareaId = "#Q" + id;
     // let answerId = "#longAnswer" + questionAreaCounterMinus1;
@@ -776,43 +931,50 @@ function ajaxToSave(id, btnid) {
   if (btnid == 1) {
     let idLen = id.length;
     Id = id[idLen - 1];
-    Id2 = id +1;
-    Id2++;
+    Id2 = parseInt(id)+1;
+    // Id2=Id2+2;
     AId = Id;
     // AId++;
     let questionAreaCounterMinus1 = questionAreaCounter - 1;
 
     let textareaId = "#Q" + id;
     // let answerId = "#longAnswer" + AId;
-
-    
+    alert('to see its updating');
+    alert('in multiple choice save');
+    console.log('id ',id);
+    console.log('id2 ', Id2);
 
     // Collecting Multiple choice options count
-    let multipleChoiceInputId1 = ".multipleChoiceInput" + id;
-    let multipleChoiceInputId2 = ".multipleChoiceInput" + Id2;
+    let multipleChoiceInputId1 = ".multipleChoiceInput" + Id2;
+    // let multipleChoiceInputId2 = ".multipleChoiceInput" + Id2;
 
     let multipleChoiceInputsCount1 = $(multipleChoiceInputId1);
-    let multipleChoiceInputsCount2 = $(multipleChoiceInputId2);
+    // let multipleChoiceInputsCount2 = $(multipleChoiceInputId2);
+
+    console.log('mulitplechoiceinput id1', multipleChoiceInputId1);
+    // console.log('mulitplechoiceinput id2', multipleChoiceInputId2);
+
 
     let multipleChoiceInputCountLen1 = multipleChoiceInputsCount1.length;
-    let multipleChoiceInputCountLen2 = multipleChoiceInputsCount2.length;
+    // let multipleChoiceInputCountLen2 = multipleChoiceInputsCount2.length;
 
     let totalMultipleChoiceInputCountLen =
-      multipleChoiceInputCountLen1 + multipleChoiceInputCountLen2;
+      multipleChoiceInputCountLen1;
     console.log(
       "total no of multiple choices ",
       totalMultipleChoiceInputCountLen
     );
+    alert(' total number of multiple chocies are '+totalMultipleChoiceInputCountLen);
     let optionValue = []; 
 
     for (a = 1; a < totalMultipleChoiceInputCountLen + 1; a++) {
-      let optionId = "#multipleChoiceid" + id + a;
+      let optionId = "#multipleChoiceid" + Id2 + a;
       console.log("option id = ".optionId);
       optionValue.push($(optionId).val());
     }
 
-    console.log(optionValue);
-    let optionId1 = "#multipleChoiceid" + id + "1";
+    console.log("optionValue ", optionValue);
+    let optionId1 = "#multipleChoiceid" + Id2 + "1";
     console.log("option id ", optionId1);
     let optionValue1 = $(optionId1).val();
 
