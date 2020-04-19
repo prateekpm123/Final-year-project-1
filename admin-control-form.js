@@ -90,6 +90,11 @@ function createLongAnswer(info) {
 
 function createMultipleChoice(info) {
   alert("this.id is  "+info);
+  // idLen = info.length;
+  // alert(idLen);
+  id = info.substring('createMultipleChoice'.length);
+  // alert('new string is ' + newStr);
+
   let multipleChoiceInputTag =
     '<div class="input-group mb-3 questionsetComponents' +
     questionAreaCounter +
@@ -103,14 +108,14 @@ function createMultipleChoice(info) {
     '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
     questionAreaCounter + 
     '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
-    info +
+    id +
     ')" type="button" id="multipleChoiceBtn' +
     questionAreaCounter +
     '">+</button> </div> </div>';
 
   // infolen = info.length;
   // idno = info[infolen - 1];
-  idno = info;
+  idno = id;
   console.log("idno = ", idno);
   //   alert("info add choice funciton");
   let idno2 = idno;
@@ -397,11 +402,9 @@ function create(btnclass, btnid) {
   // This is the button which will appear when multiple choice options is clicked
   let addingMultipleChoiceBtnsButtonTag =
     '<button class="btn btn-primary options' +
-    questionAreaCounter2 +
-    '" onclick="createMultipleChoice('+
-    this.id +
-    ')" id="c' +
-    questionAreaCounter2 +
+    questionAreaCounter +
+    '" onclick="createMultipleChoice(this.id)" id="createMultipleChoice' +
+    questionAreaCounter +
     '">Add Multiple choice</button>';
 
   // This the 4th Column
@@ -598,9 +601,7 @@ function createBefore(btnclass, btnid) {
   let addingMultipleChoiceBtnsButtonTag =
     '<button class="btn btn-primary options' +
     questionAreaCounter +
-    '" onclick="createMultipleChoice(' +
-    this.id +
-    ')" id="createMultipleChoice' +
+    '" onclick="createMultipleChoice(this.id)" id="createMultipleChoice' +
     questionAreaCounter +
     '">Add Multiple choice</button>';
 
@@ -775,7 +776,6 @@ function creatingTheExistingContent(questionCount, status,option1) {
   // alert("option is " + globalVariable.option2[1].Option2);
 
 
-
   for (let i = 0; i < questionCount; i++)
   {
     // alert(' in the for loop');
@@ -832,7 +832,7 @@ function deleted() {
   optionset = $(".options-set");
   // let savebtn = [];
   // savebtn = $('.savebtn');
-
+  alert('in delete funciton');
   // *************** Code for bootstrap dropdownbutton *****************
   // let dropdown = [];
   // dropdown = $('.dropdown');
@@ -878,7 +878,29 @@ function deleted() {
   // i--;
   // j--;
   // k--;
+
+  let q_noArray = globalVariable.q_no;
+  let last_q_no = q_noArray.length;
+  alert(last_q_no);
+
+  $.ajax({
+    url: 'deleteQuestion.php',
+    type: "post",
+    data: {
+      last_q_no : last_q_no,
+      
+    },
+    success: function (data, status) {
+      // console.log(data);
+      $("#display2").html(data);
+      alert(status);
+
+    },
+  });
+
   questionAreaCounter--;
+
+
 }
 
 //************** / AJAX CODE TO SAVE THE QUESTIONS ANSWERS INTO DATABASE WITHOUT REFRESHING ****************

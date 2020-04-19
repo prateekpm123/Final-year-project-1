@@ -200,11 +200,12 @@ include("getData.php");
 
         </div>
         <div class="col-lg-6 right-side " id="display">
+            <div id="display2"></div>
              <?php
                 // $q = "SELECT Q1 FROM `questions` WHERE `Form Number`='Form2'";
                 // $result = mysqli_query($con, $q);
                 // $desc = mysqli_fetch_assoc($result);
-                include("preview-form.php");
+                // include("preview-form.php");
             ?>
             <h5 class="question_display">
                 <?php 
@@ -257,6 +258,7 @@ include("getData.php");
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <script src="admin-control-form.js"></script>
     <script>
+        q_no = <?php echo json_encode($q_no_Array)?>;
         questionArray = <?php echo json_encode($yourQuestionArray)?>;
 
         option1 = <?php echo json_encode($option1)?>;
@@ -270,7 +272,8 @@ include("getData.php");
             option2 : option2,
             option3 : option3,
             option4 : option4,
-            option5 : option5
+            option5 : option5,
+            q_no : q_no
         };
 
 

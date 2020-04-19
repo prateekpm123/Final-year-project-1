@@ -16,6 +16,33 @@ if (!$con) {
 
 
 // *************************  Getting the QUESTIONS from the table  ******************************
+$q_no = "SELECT q_no FROM questions";
+if (mysqli_query($con, $q_no)) 
+    {
+      // echo "<h5>Got the question successfully</h5>";
+    } 
+    else 
+    {
+      // echo "Error: " . $q_no . "<br>" . mysqli_error($con);
+    }
+
+$keys = mysqli_query($con, $q_no);
+
+
+$q_no_Array = array(); // make a new array to hold all your data
+
+$index = 0;
+while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associative array.
+     $q_no_Array[$index] = $row;
+     $index++;
+}  
+
+
+
+// echo json_encode($q_no_Array);
+
+
+// *************************  Getting the QUESTIONS from the table  ******************************
 $questionsArray = "SELECT Questions FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
@@ -63,7 +90,7 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
      $index++;
 }  
 
-echo "<div id='option1' style='display:none;' >".$option1[0]['Option1']."</div>";
+// echo "<div id='option1' style='display:none;' >".$option1[0]['Option1']."</div>";
 
 
 // ************************  Extracting Option 2  **********************************

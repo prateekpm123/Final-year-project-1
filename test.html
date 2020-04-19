@@ -65,60 +65,66 @@
         ];
 
 
-        jsonarray = [{
-            "Option1": ""
-        }, {
-            "Option1": "How are you ?"
-        }, {
-            "Option1": ""
-        }, {
-            "Option1": "I am doing good"
-        }, {
-            "Option1": ""
-        }, {
-            "Option1": ""
-        }, {
-            "Option1": ""
-        }, {
-            "Option1": ""
-        }, {
-            "Option1": ""
-        }, {
-            "Option1": ""
-        }, {
-            "Option1": "Lucy"
-        }, {
-            "Option1": ""
-        }, {
-            "Option1": ""
-        }, {
-            "Option1": ""
-        }, {
-            "Option1": ""
-        }, {
-            "Option1": ""
-        }, {
-            "Option1": "Yeah, I think its a good Idea"
-        }, {
-            "Option1": ""
-        }, {
-            "Option1": ""
-        }]
+        // jsonarray = [{
+        //     "Option1": ""
+        // }, {
+        //     "Option1": "How are you ?"
+        // }, {
+        //     "Option1": ""
+        // }, {
+        //     "Option1": "I am doing good"
+        // }, {
+        //     "Option1": ""
+        // }, {
+        //     "Option1": ""
+        // }, {
+        //     "Option1": ""
+        // }, {
+        //     "Option1": ""
+        // }, {
+        //     "Option1": ""
+        // }, {
+        //     "Option1": ""
+        // }, {
+        //     "Option1": "Lucy"
+        // }, {
+        //     "Option1": ""
+        // }, {
+        //     "Option1": ""
+        // }, {
+        //     "Option1": ""
+        // }, {
+        //     "Option1": ""
+        // }, {
+        //     "Option1": ""
+        // }, {
+        //     "Option1": "Yeah, I think its a good Idea"
+        // }, {
+        //     "Option1": ""
+        // }, {
+        //     "Option1": ""
+        // }]
         // count is 0, because first the question wont be displayed, count is strictly the question number.
         count = 0;
 
-
+        
 
         function displayNext() {
 
-            deletePrevious();
-            count1 = count + 1;
-            $("#display").append('<div class="questions" id="questionArea"></div>');
-            $("#questionArea").append('<p class="para" id="' + count1 + '">' + jsonarray[count].Option1 + '</p>');
-            alert("option is"+jsonarray[count].Option1);
+            // deletePrevious();
+            // count1 = count + 1;
+            // $("#display").append('<div class="questions" id="questionArea"></div>');
+            // $("#questionArea").append('<p class="para" id="' + count1 + '">' + jsonarray[count].Option1 + '</p>');
+            // alert("option is"+jsonarray[count].Option1);
 
-            count++;
-
+            // count++;
+            let num = "multiplechoiceoption42";
+            let numLen = num.length;
+            console.log('thisis the lenvht ',numLen);
+            // let strNew = num.substring(0, ()+20); //strNew is 'Hello World'
+            // var str = 'test_23';
+            newStr = num.substring('multiplechoiceoption'.length);
+            alert('new string is '+newStr);
         }
 
         function deletePrevious() {
