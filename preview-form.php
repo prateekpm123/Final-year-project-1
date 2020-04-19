@@ -496,7 +496,7 @@ echo '</br>';
             // $("#display").append('<div class="questions" id="questionArea"></div>');
             
             // ********************* Appending the questions over here *********************
-            $("#questionArea").append('<p class="para" id="' + count1 + '">' + questionArray[count].Questions + '</p>');
+            $("#questionArea").append('<h1 class="para" id="' + count1 + '">' + questionArray[count].Questions + '</h1>');
             // alert("option is"+questionArray[count].Option1);
             
 
@@ -513,7 +513,7 @@ echo '</br>';
             {
                 if(option1[count].Option1 == 0)
                 {        
-                    $('#answerArea').append('<textarea name="" class="" id="T' + count1 + '" cols="30" rows="3"></textarea>')
+                    $('#answerArea').append('<input name="" class="" id="T' + count1 + '" cols="30" rows="3"></input>')
                     $('#answerArea').attr("class","1");
 
                 }
@@ -552,7 +552,7 @@ echo '</br>';
                     if(option5[count].Option5 != 0)
                     {
 
-                        $('#answerArea').append('<input type="checkbox" id="optionArea5' + count1 + '" name="optionArea5' + count1 + '" value="5" class="align-left"> <label class="align-left" for="optionArea5' + count1 + '" id="optionLabel5' + count1 + '" >'+ option5[count].Option5 +'</label> <br id="tag">');
+                        $('#answerArea').append('<input type="checkbox" id="optionArea5' + count1 + '" name="optionArea5' + count1 + '" value="5" class="align-left"> <label class="align-left optionFont" for="optionArea5' + count1 + '" id="optionLabel5' + count1 + '" >'+ option5[count].Option5 +'</label> <br id="tag">');
                         
                     }
                     else {}
