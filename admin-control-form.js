@@ -12,25 +12,15 @@ questionCount =0;
 
  optionArray = [];
  optioncount = 1;
-// previousIdno = 0;
 
 // ******** DYNAMICALLY CREATING QUESTIONS AND OPTIONS MENu *********
 
-// $("#optionsappear").click(function () {
-//     // Write here the code to append the options list
-// });
 
 // ************************* TO CREATE A NEW SET OF QUESTION AND OPTIONS  *******************
-// $('#create').click(function ()
 
 function createLongAnswer(info) {
-  // alert(" in long answer");
   console.log("questionarea Counter", questionAreaCounter);
-  // alert("into create long answer");
-  // console.log(info);
-  // infolen = info.length;
-  // idno = info[infolen - 1];
-  idno = info;
+ 
   console.log("idno ", idno);
   let idno2 = idno;
   idno2++;
@@ -64,36 +54,13 @@ function createLongAnswer(info) {
       questionSetComponentsList[questionSetComponentsListLen - c - 1].remove();
     }
     let questionsetdiv = "#questionset" + idno;
-    // $(questionsetdiv).append(answerTextareaTag);
+    $(questionsetdiv).append(answerTextareaTag);
   }
-  // console.log("idno "+idno);
-  // let previousIdno;
-  // // let count = longAnswerCounter(idno);
 
-  // oneOrZero = addOrRemoveCounter % 2;
-
-  // let optionbtns = "#optionbtns" + idno;
-  // $(optionbtns).hide();
-
-  // $(longTextAreaAns).remove();
-  let optionbtns = "#optionbtns" + idno;
-  // $(optionbtns).hide();
-
-  // let optionbtns = "#optionbtns" + idno;
-  // $(optionbtns).hide();
-
-  // $(longTextAreaAns).remove();
-
-  // previousIdno = idno;
-  // console.log("previousidno "+ previousIdno);
 }
 
 function createMultipleChoice(info) {
-  alert("this.id is  "+info);
-  // idLen = info.length;
-  // alert(idLen);
   id = info.substring('createMultipleChoice'.length);
-  // alert('new string is ' + newStr);
 
   let multipleChoiceInputTag =
     '<div class="input-group mb-3 questionsetComponents' +
@@ -113,22 +80,13 @@ function createMultipleChoice(info) {
     questionAreaCounter +
     '">+</button> </div> </div>';
 
-  // infolen = info.length;
-  // idno = info[infolen - 1];
   idno = id;
   console.log("idno = ", idno);
-  //   alert("info add choice funciton");
   let idno2 = idno;
-  // idno2 = idno2 - 1;
   let questionsetdiv = "#questionset" + idno;
 
   // CreateMultipleChoice Function's Version of this button
   $(questionsetdiv).append(multipleChoiceInputTag);
-
-  // addMutiplechoice Function's Versions of buttons
-  // $(questionsetdiv).append(
-  //     '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
-  //     );
   multipleChoiceCounter++;
 }
 
@@ -152,28 +110,19 @@ function createMultipleChoiceBefore(a,i) {
     questionAreaCounter +
     '">+</button> </div> </div>';
 
-  // infolen = info.length;
-  // idno = info[infolen - 1];
   idno = i;
   console.log("idno = ", idno);
-  //   alert("info add choice funciton");
   let idno2 = idno;
-  // idno2 = idno2 - 1;
   let questionsetdiv = "#questionset" + idno;
 
   // CreateMultipleChoice Function's Version of this button
   $(questionsetdiv).append(multipleChoiceInputTag);
 
-  // addMutiplechoice Function's Versions of buttons
-  // $(questionsetdiv).append(
-  //     '<div class="input-group mb-3 questionsetComponents' + questionAreaCounter + ' multipleChoiceOptions' + questionAreaCounter + '"> <input type="text" class="form-control multipleChoiceInput' + questionAreaCounter + '" placeholder=" - " aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' + info + ')" type="button" id="multipleChoiceBtn' + questionAreaCounter + '">+</button> </div> </div>'
-  //     );
   multipleChoiceCounter++;
 }
 
 
 function addMultipleChoice() {
-  // alert('in multiple choice');
 
   // This questionAreaCounter3 is created to balance the questionAreaCounter in id="multiplceChoiceId" of the inputtag of the multiple choice option
   let questionAreaCounter3 = questionAreaCounter;
@@ -196,9 +145,6 @@ function addMultipleChoice() {
     questionAreaCounter +
     '">+</button> </div> </div>';
 
-  // alert('in multiple choice');
-  // infolen = info.length;
-  // idno = info[infolen - 1];
 
   idno = questionAreaCounter;
   console.log("idno = ", idno);
@@ -253,14 +199,15 @@ function addMultipleChoice() {
   multipleChoiceCounter++;
 }
 
+
+/***
+ * @ desc Creates an input field from the bootstrap to fill the options
+ */
 function addMultipleChoiceBefore() {
-  // alert('in multiple choice');
-  // This questionAreaCounter3 is created to balance the questionAreaCounter in id="multiplceChoiceId" of the inputtag of the multiple choice option
   let questionAreaCounter3 = questionAreaCounter;
   questionAreaCounter3++;
 
-  // alert('option 1 is ' + globalVariable.option1[i].Option1);
-  // This creates an input box for the multiple choice option
+
   let multipleChoiceInputTag =
     '<div class="input-group mb-3 questionsetComponents' +
     questionAreaCounter +
@@ -278,10 +225,6 @@ function addMultipleChoiceBefore() {
     ')" type="button" id="multipleChoiceBtn' +
     questionAreaCounter +
     '">+</button> </div> </div>';
-
-  // alert('in multiple choice');
-  // infolen = info.length;
-  // idno = info[infolen - 1];
 
   idno = questionAreaCounter;
   console.log("idno = ", idno);
@@ -631,15 +574,26 @@ function createBefore(btnclass, btnid) {
     '"></div>';
   // This is also a dropDown button from Bootstrap but its use it to have extra options like delete and etc
   let dropDownButton2 =
-    '<div class="input-group-prepend"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Del</button> <div class="dropdown-menu"> <button class="dropdown-item extraOptions' +
-    questionAreaCounter +
-    '">Delete Choice</button> <button class="dropdown-item extraOptions' +
-    questionAreaCounter +
-    '">Another action</button> <button class="dropdown-item extraOptions' +
-    questionAreaCounter +
-    '">Something else here</button> <div role="separator" class="dropdown-divider"></div> <button class="dropdown-item extraOptions' +
-    questionAreaCounter +
-    '">Separated link</button> </div> </div>';
+    '<div class="input-group-prepend">'+
+      '<button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
+        'Del'+
+      '</button>'+
+        '<div class="dropdown-menu">'+
+          '<button class="dropdown-item extraOptions' +questionAreaCounter +'">'+
+            'Delete Choice'+
+          '</button> '+
+          '<button class="dropdown-item extraOptions'+questionAreaCounter +'">'+
+            'Another action'+
+          '</button> '+
+          '<button class="dropdown-item extraOptions'+questionAreaCounter +'">'+
+            'Something else here'+
+          '</button>'+
+          '<div role="separator" class="dropdown-divider"></div>'+
+        '<button class="dropdown-item extraOptions' +questionAreaCounter +'">'+
+        'Separated link'+
+        '</button>'+
+      ' </div>'+
+    '</div>';
 
   // This is to rest the counter for the multiple choice inputs spaces and for creating their UNIQUE ID's
   multipleChoiceCounter = 1;
@@ -687,52 +641,26 @@ function createBefore(btnclass, btnid) {
 
   // This is the 4th column and the contents are just besides it
   $(rowOptionset)
-    .append
-    // optionset4thColDivTag
-    ();
+    // .append('optionset4thColDivTag');
+    
   // *************** Code for bootstrap dropdownbutton *****************
   $(col4Optionset)
-    .append
-    // dropDownButton
-    ();
+    // .append('dropDownButton');
+   
 
   // This is the 5th column and the contents are just besides it
   $(rowOptionset).append(optionset5thDivCol);
   $(col5Optionset).append(dropDownButton2);
 
-  // createLongAnswer(Class, id);
-  // **************** My made option buttons *****************
-
-  // $('#form-page1').append(
-  //     // '< button class="btn btn-primary textarea-btn" name="submit" id="optionsappear" > + < /button>'
-  //     '<button class="btn btn-primary textarea-btn" name="submit"  id="optionsappear' + questionAreaCounter + '" onclick=showOptions(this.id)>+</button>'
-  // );
-  // $('#form-page1').append(
-  //     '<div id="optionsarea' + questionAreaCounter + '" class="optionsareaclass"></div>'
-  // );
-  // let questionCounter = "#optionsarea"+questionAreaCounter;
-  // $(questionCounter).append(
-  //     '<button class="options' + questionAreaCounter + ' optionbtns"> Options</button>                <button class= "options' + questionAreaCounter + ' optionbtns"> Ratings</button>            <button class="options' + questionAreaCounter + ' optionbtns">Answers</button>'
-  // );
-
-  // console.log("btnid ", btnid);
-  // alert('before multiple choice');
-
   if (btnid == 1) {
     addMultipleChoiceBefore();
-    // alert('in if else condition of multiple choice');
   } else if (btnid == 2) {
   } else if (btnid == 3) {
-    // createLongAnswer(questionAreaCounter);
-    // alert('in if else condition of long answer');
   } else if (btnid == 4) {
   }
 
   questionAreaCounter++;
 
-  // div1.appendChild(textarea);
-  // provideId(questionAreaCounter);
-  // $("#tbl2").append('<input type="checkbox" id="' + firstId + '-' + secondId + '" >');
 }
 
 
@@ -832,7 +760,7 @@ function deleted() {
   optionset = $(".options-set");
   // let savebtn = [];
   // savebtn = $('.savebtn');
-  alert('in delete funciton');
+  // alert('in delete funciton');
   // *************** Code for bootstrap dropdownbutton *****************
   // let dropdown = [];
   // dropdown = $('.dropdown');
@@ -881,7 +809,7 @@ function deleted() {
 
   let q_noArray = globalVariable.q_no;
   let last_q_no = q_noArray.length;
-  alert(last_q_no);
+  // alert(last_q_no);
 
   $.ajax({
     url: 'deleteQuestion.php',
@@ -893,7 +821,7 @@ function deleted() {
     success: function (data, status) {
       // console.log(data);
       $("#display2").html(data);
-      alert(status);
+      // alert(status);
 
     },
   });
@@ -923,7 +851,7 @@ function ajaxToSave(id, btnid) {
     AId = Id;
     // AId++;
     let questionAreaCounterMinus1 = questionAreaCounter - 1;
-    alert('in long answer save');
+    // alert('in long answer save');
 
     let textareaId = "#Q" + id;
     // let answerId = "#longAnswer" + questionAreaCounterMinus1;

@@ -5,10 +5,10 @@ $questionCount = $_POST['id'];
 $question = $_POST['question'];
 $option = $_POST['option'];
 $btnid = $_POST['btnid'];
-// $questionAreaCounter = $_POST['questionAreaCounter'];
-// $id = $_POST['id'];
+
+
 $questionCount++;
-// echo $option;
+
 // printing these just for testing
 echo '</br>';
 echo '<h4>'.$question.'</h4>';
@@ -31,6 +31,12 @@ if (!$con) {
 
 echo "Connected successfully";
 echo "</br>";
+
+
+// ******* Creating a time function *********
+
+$time = time();
+$actual_time = date('d m Y @ H:i:s', $time);
 
 
 // #############   This whole is to check the get the primary key of the question table and if the same primary key is coming up then just update it !!  ##############
@@ -75,8 +81,6 @@ echo '</br>';
 if ( $btnid == 1)
 {
 
-//   // function addingQuestionsToTheDatabase($con, $add, $questionCount, $question)
-//   // {
   if( $isAlreadyThere == 1)
   {
     $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `id`=1 AND `q_no`=$questionCount";
@@ -141,17 +145,12 @@ if ( $btnid == 1)
     }
   }
     
-//   // }
-
-// }
-//   addingQuestionsToTheDatabase($con, $add, $questionCount , $question);
 
 }
 else if ( $btnid == 3)
 {
 
-//   // function addingQuestionsToTheDatabase($con, $add, $questionCount, $question)
-//   // {
+
   if( $isAlreadyThere == 1)
   {
     $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `id`=1 AND `q_no`=$questionCount";
@@ -207,24 +206,9 @@ else if ( $btnid == 3)
     
   }
     
-//   // }
-
-// }
-//   addingQuestionsToTheDatabase($con, $add, $questionCount , $question);
 
 }
 
 
-
-
-
-// echo "inserted successfully";
-
-// $ans = "insert into options(options) values ('$option')";
-// if (mysqli_query($con, $ans)) {
-//   echo "option record created successfully";
-// } else {
-//   echo "Error: " . $ans . "<br>" . mysqli_error($con);
-// }
 
 ?> 
