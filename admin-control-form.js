@@ -279,13 +279,16 @@ function create(btnclass, btnid) {
   questionAreaCounter2++;
   // This creates the textareatag for the question with gets appended to the questionset Div tag
   let questionTextareaTag =
-    '<textarea name="question' +
-    questionAreaCounter +
-    '" placeholder="Enter the questions..."  style="overflow:hidden"  onkeyup="AutoGrowTextArea(this)" cols="30" rows="3" id="Q' +
-    questionAreaCounter +
-    '" class="questionarea questionsetComponents' +
-    questionAreaCounter2 +
-    '"></textarea>';
+    '<textarea '+
+      'name="question' + questionAreaCounter + '"  '+
+      'placeholder="Enter the questions..."  '+
+      'style="overflow:hidden"  '+
+      'onkeyup="AutoGrowTextArea(this)" '+
+      'cols="30"  '+
+      'rows="3" '+
+      'id="Q' + questionAreaCounter + '" '+
+      'class="questionarea questionsetComponents' + questionAreaCounter2 +'">'+
+    '</textarea>';
 
   // *************** From here and down, we'll be creating a structure for other options to land *************
 
@@ -336,17 +339,39 @@ function create(btnclass, btnid) {
     '"></div>';
   // This is a DropDownButton From Bootstrap which is used for choosing the options for the question, like long Answer, Multiple choice
   let dropDownButton =
-    '<div class="input-group-prepend" id="optionbtns' +
-    questionAreaCounter +
-    '"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</button> <div class="dropdown-menu"> <button class="dropdown-item options' +
-    questionAreaCounter +
-    '" onclick="createMultipleChoice(this.className)">Multiple choice</button> <button class="dropdown-item options' +
-    questionAreaCounter +
-    '" href="#">Ratings</button> <button class="dropdown-item options' +
-    questionAreaCounter +
-    '" onclick="createLongAnswer(this.className)">Long Answer</button> <button class="dropdown-item options' +
-    questionAreaCounter +
-    '">Short Answer</button> </div> </div > ';
+    '<div '+
+      'class="input-group-prepend" '+
+      'id="optionbtns' + questionAreaCounter +'"> '+
+        '<button '+
+          'class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" '+
+          'type="button" '+
+          'data-toggle="dropdown" '+
+          'aria-haspopup="true" '+
+          'aria-expanded="false">+'+
+        '</button> '+
+        '<div '+
+          'class="dropdown-menu"> '+
+            '<button '+
+              'class="dropdown-item options' + questionAreaCounter + '" '+
+              'onclick="createMultipleChoice(this.className)"> '+
+                'Multiple choice '+
+            '</button> '+
+            '<button '+
+              'class="dropdown-item options' + questionAreaCounter + '" '+
+              'href="#">'+
+              'Ratings '+
+            '</button> '+
+            '<button '+
+              'class="dropdown-item options' + questionAreaCounter +'" '+
+              'onclick="createLongAnswer(this.className)"> '+
+              'Long Answer '+
+            '</button> '+
+            '<button '+
+              'class="dropdown-item options' +  questionAreaCounter +'">'+
+              'Short Answer '+
+            '</button> '+
+          '</div> '+
+      '</div > ';
 
   // This is the 5th Column
   let optionset5thDivCol =
@@ -439,8 +464,7 @@ function create(btnclass, btnid) {
 }
 
 
-// Event Listeners
-
+//  ****************** Event Listeners **********************
 
 function myFunction(key,id) {
   if (key.keyCode == "13") {
@@ -648,15 +672,10 @@ function getTheQuestionCount() {
     success: function (data, status) {
       // console.log(data);
       $("#getDataContent").html(data);
-      // alert('status value is'+ status);
-      // alert('ajac to save ' + questionAreaCounterMinus1);
-      // alert('ajac id ' + Id);
+
       if (status == "success") {
         questionCount = $('#questionCount').text();
         let option1 = $('#option1').text();
-        // alert('question count is ' + questionCount);
-        // alert('option 1 is ' + option1);
-
         // console.log(questionCount);
       }
       if (status == "success") {
@@ -671,16 +690,11 @@ function getTheQuestionCount() {
 function creatingTheExistingContent(questionCount, status,option1) {
   // alert(' in creation funciton');
   if (status == "success") {
-    // alert('question count is ' + questionCount);
-    
+
   }
   let option1Len = option1.length;
-  // alert("option is " + globalVariable.option2[1].Option2);
-
-
   for (let i = 0; i < questionCount; i++)
   {
-    // alert(' in the for loop');
     if (globalVariable.option1[i].Option1.length == 0) {
       createBefore(i, 3);
     }
@@ -744,7 +758,6 @@ function deleted() {
 
   let q_noArray = globalVariable.q_no;
   let last_q_no = q_noArray.length;
-  // alert(last_q_no);
 
   $.ajax({
     url: 'deleteQuestion.php',
@@ -756,7 +769,6 @@ function deleted() {
     success: function (data, status) {
       // console.log(data);
       $("#display2").html(data);
-      // alert(status);
 
     },
   });
@@ -773,7 +785,6 @@ function ajaxToSave(id, btnid) {
     let idLen = id.length;
     Id = id[idLen - 1];
     AId = Id;
-    // AId++;
     let questionAreaCounterMinus1 = questionAreaCounter - 1;
 
     let textareaId = "#Q" + id;
@@ -788,13 +799,10 @@ function ajaxToSave(id, btnid) {
         question: textarea,
         option: 1,
         btnid: btnid
-        // for()
       },
       success: function (data, status) {
         // console.log(data);
         $("#display").html(data);
-        // alert('ajac to save ' + questionAreaCounterMinus1);
-        // alert('ajac id ' + Id);
 
       },
     });
@@ -804,15 +812,11 @@ function ajaxToSave(id, btnid) {
     let idLen = id.length;
     Id = id[idLen - 1];
     Id2 = parseInt(id)+1;
-    // Id2=Id2+2;
     AId = Id;
-    // AId++;
     let questionAreaCounterMinus1 = questionAreaCounter - 1;
 
     let textareaId = "#Q" + id;
     // let answerId = "#longAnswer" + AId;
-    alert('to see its updating');
-    alert('in multiple choice save');
     console.log('id ',id);
     console.log('id2 ', Id2);
 
@@ -846,9 +850,6 @@ function ajaxToSave(id, btnid) {
     }
 
     console.log("optionValue ", optionValue);
-    let optionId1 = "#multipleChoiceid" + Id2 + "1";
-    console.log("option id ", optionId1);
-    let optionValue1 = $(optionId1).val();
 
     // console.log('id ', answerId);
     let textarea = $(textareaId).val();
@@ -862,7 +863,6 @@ function ajaxToSave(id, btnid) {
         question: textarea,
         option: optionValue,
         btnid: btnid,
-        // for()
       },
       success: function (data, status) {
         // console.log(data);
