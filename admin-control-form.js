@@ -92,23 +92,6 @@ function createMultipleChoice(info) {
 
 
 function createMultipleChoiceBefore(a,i) {
-  // let multipleChoiceInputTag =
-  //   '<div class="input-group mb-3 questionsetComponents' +
-  //   questionAreaCounter +
-  //   " multipleChoiceOptions" +
-  //   questionAreaCounter +
-  //   '"> <input type="text" class="form-control multipleChoiceInput' +
-  //   questionAreaCounter +
-  //   '" placeholder=" - " id="multipleChoiceid' +
-  //   questionAreaCounter +
-  //   multipleChoiceCounter +
-  //   '" aria-label="Recipient\'s username" value="'+ optionArray[a] +'" aria-describedby="multipleChoiceBtn' +
-  //   questionAreaCounter +
-  //   '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
-  //   i +
-  //   ')" type="button" id="multipleChoiceBtn' +
-  //   questionAreaCounter +
-  //   '">+</button> </div> </div>';
 
     let multipleChoiceInputTag = '<input  type = "text"' +
       'class = "input-choice multipleChoiceInput' + questionAreaCounter + '" ' +
@@ -121,16 +104,6 @@ function createMultipleChoiceBefore(a,i) {
       'onfocus = "cursorFocus(this.id)"' +
       '</input>';
 
-    // let multipleChoiceInputTag = '<input type = "text"' +
-    //     'class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" ' +
-    //     'placeholder=" - " ' +
-    //     'id="multipleChoiceid' + questionAreaCounter3 + multipleChoiceCounter + '" ' +
-    //     'aria-label="Recipient\'s username" ' +
-    //     'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
-    //     'value="' + optionArray[a] + '" ' +
-    //   '</input>';
-
-    // let multipleChoiceInputTag = '<input  type = "text" class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" placeholder=" - " id="multipleChoiceid' + questionAreaCounter3 +multipleChoiceCounter + '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" class="input-choice" value="' + optionArray[a] + '"></input>';
 
   idno = i;
   console.log("idno = ", idno);
@@ -150,23 +123,6 @@ function addMultipleChoice() {
   let questionAreaCounter3 = questionAreaCounter;
   questionAreaCounter3++;
   // This creates an input box for the multiple choice option
-  // let multipleChoiceInputTag =
-    // '<div class="input-group mb-3 questionsetComponents' +
-    // questionAreaCounter +
-    // " multipleChoiceOptions" +
-    // questionAreaCounter +
-    // '"> <input type="text" class="form-control multipleChoiceInput' +
-    // questionAreaCounter3 +
-    // '" placeholder=" - " id="multipleChoiceid' +
-    // questionAreaCounter3 +
-    // multipleChoiceCounter +
-    // '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
-    // questionAreaCounter +
-    // '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
-    // questionAreaCounter + ')" type="button" id="multipleChoiceBtn' +
-    // questionAreaCounter +
-    // '">+</button> </div> </div>';
-
     let multipleChoiceInputTag = '<input  type = "text"' +
         'class = "input-choice multipleChoiceInput'+questionAreaCounter3+'" '+
         'placeholder=" - " '+
@@ -499,8 +455,6 @@ function cursorFocus(x) {
 
 
 function createBefore(btnclass, btnid) {
-  // let saveId = "sub"+questionAreaCounter;
-  // ajaxToSave(saveId, btnid);
   console.log('QuestionAreaCounter is ',questionAreaCounter);
   // ######################  All the common tags used for dynamically creating  ############################
 
@@ -559,6 +513,7 @@ function createBefore(btnclass, btnid) {
     '<div class="col-lg-5 col-md-5 col-sm-5 col-xm-5" id="optionCol-3-' +
     questionAreaCounter +
     '"></div>';
+
   // This is the button which will appear when multiple choice options is clicked
   // let addingMultipleChoiceBtnsButtonTag =
   //   '<button class="btn btn-primary options' +
@@ -778,10 +733,11 @@ function deleted() {
   let optionset = [];
   optionset = $(".options-set");
 
+  j = questionsetdiv.length;
   i = textareaarr.length;
   optionsetLen = optionset.length;
 
-  questionsetdiv[h - 1].remove();
+  questionsetdiv[j - 1].remove();
   textareaarr[i - 1].remove();
   optionset[optionsetLen - 1].remove();
   
@@ -819,14 +775,11 @@ function ajaxToSave(id, btnid) {
     AId = Id;
     // AId++;
     let questionAreaCounterMinus1 = questionAreaCounter - 1;
-    // alert('in long answer save');
 
     let textareaId = "#Q" + id;
-    // let answerId = "#longAnswer" + questionAreaCounterMinus1;
-    // console.log("id ", answerId);
+ 
     let textarea = $(textareaId).val();
-    // let answerarea = $(answerId).val();
-    // console.log(answerarea);
+ 
     $.ajax({
       url: "submit.php",
       type: "post",
@@ -917,51 +870,8 @@ function ajaxToSave(id, btnid) {
       },
     });
 
-    // for(a = 0; a<totalMultipleChoiceInputCountLen; a++)
-    // {
-    //     // Collect the inputs entries from .val() function
-    //     let inputids =
-    //     $.ajax({
-
-    //         url: "submit.php",
-    //         type: "post",
-    //         data: {
-    //             question: textarea
-    //             // for()
-    //         },
-    //         success: function (data, status) {
-    //             // console.log(data);
-    //             $("#display").html(data);
-    //         }
-
-    //     });
-    // }
   }
 }
-
-// ####################### How to send the options data dynamically to the submit.php file  ##########################3
-// for(z=1;z<multiplechoice.length; z++) {
-//     answerid = answerid+z
-//     temp = "#multiplechoiceid" + answerid
-
-//     mutiplechoice = $(temp)
-
-//     $.ajax({
-
-//         url: "submit.php",
-//         type: "post",
-//         data: {
-//             option: multiplechoice,
-//             optionId: temp
-//             // for()
-//         },
-//         success: function (data, status) {
-//             // console.log(data);
-//             $("#display").html(data);
-//         }
-
-//     });
-// }
 
 // ******* CODE TO MAKE A WINDOW APPEAR AND DISAPPEAR *******
 
