@@ -1,7 +1,7 @@
 .input-choice {
     line-height: 1.8;
     width: 100%;
-    border: none;
+    /* border: none; */
     font-size: 1.1rem;
     -webkit-appearance: none;
     font-weight: 430;

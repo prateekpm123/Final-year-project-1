@@ -22,10 +22,13 @@
             <div class="col-lg-6" id="mainDisplayArea">
                 <div id="display">
                     <div class="upper-space"></div>
-                    <input id="" class="input-choice" value="" placeholder=" - "></input>
+                    <!-- <input id="mytext" class="input-choice" value="" placeholder=" - "></input> -->
+                    <input type="text" id="myInput" onkeypress="myFunction(event, this.id)">
+
+                    <p id="demo"></p>
                 </div>
                 <div>
-                    <button class="btn btn-primary" onclick="displayNext()">Next</button>
+                    <!-- <button class="btn btn-primary" onclick="displayNext()">Next</button> -->
                 </div>
             </div>
 
@@ -61,80 +64,99 @@
 
 
     <script>
-        array = ["this is first",
-            "this is second", "This is third", "this is fourth"
-        ];
+        // array = ["this is first",
+        //     "this is second", "This is third", "this is fourth"
+        // ];
 
+        
 
-        // jsonarray = [{
-        //     "Option1": ""
-        // }, {
-        //     "Option1": "How are you ?"
-        // }, {
-        //     "Option1": ""
-        // }, {
-        //     "Option1": "I am doing good"
-        // }, {
-        //     "Option1": ""
-        // }, {
-        //     "Option1": ""
-        // }, {
-        //     "Option1": ""
-        // }, {
-        //     "Option1": ""
-        // }, {
-        //     "Option1": ""
-        // }, {
-        //     "Option1": ""
-        // }, {
-        //     "Option1": "Lucy"
-        // }, {
-        //     "Option1": ""
-        // }, {
-        //     "Option1": ""
-        // }, {
-        //     "Option1": ""
-        // }, {
-        //     "Option1": ""
-        // }, {
-        //     "Option1": ""
-        // }, {
-        //     "Option1": "Yeah, I think its a good Idea"
-        // }, {
-        //     "Option1": ""
-        // }, {
-        //     "Option1": ""
-        // }]
-        // count is 0, because first the question wont be displayed, count is strictly the question number.
-        count = 0;
+        function myFunction(key,id) {
+        var x = document.getElementById("myInput").value;
+        document.getElementById("demo").innerHTML = "You wrote: " + x;
+            alert(key.keyCode+' id is '+id);
+        }
+
+        // // jsonarray = [{
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": "How are you ?"
+        // // }, {
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": "I am doing good"
+        // // }, {
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": "Lucy"
+        // // }, {
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": "Yeah, I think its a good Idea"
+        // // }, {
+        // //     "Option1": ""
+        // // }, {
+        // //     "Option1": ""
+        // // }]
+        // // count is 0, because first the question wont be displayed, count is strictly the question number.
+        // count = 0;
 
         
         
-        function displayNext() {
+        // function displayNext() {
 
-            // deletePrevious();
-            // count1 = count + 1;
-            // $("#display").append('<div class="questions" id="questionArea"></div>');
-            // $("#questionArea").append('<p class="para" id="' + count1 + '">' + jsonarray[count].Option1 + '</p>');
-            // alert("option is"+jsonarray[count].Option1);
+        //     // deletePrevious();
+        //     // count1 = count + 1;
+        //     // $("#display").append('<div class="questions" id="questionArea"></div>');
+        //     // $("#questionArea").append('<p class="para" id="' + count1 + '">' + jsonarray[count].Option1 + '</p>');
+        //     // alert("option is"+jsonarray[count].Option1);
             
-            // count++;
-            let num = "multiplechoiceoption42";
-            let numLen = num.length;
-            console.log('thisis the lenvht ',numLen);
-            // let strNew = num.substring(0, ()+20); //strNew is 'Hello World'
-            // var str = 'test_23';
-            newStr = num.substring('multiplechoiceoption'.length);
-            alert('new string is '+newStr);
-        }
+        //     // count++;
+        //     let num = "multiplechoiceoption42";
+        //     let numLen = num.length;
+        //     console.log('thisis the lenvht ',numLen);
+        //     // let strNew = num.substring(0, ()+20); //strNew is 'Hello World'
+        //     // var str = 'test_23';
+        //     newStr = num.substring('multiplechoiceoption'.length);
+        //     alert('new string is '+newStr);
+        // }
 
-        function deletePrevious() {
-            previousCount = count;
-            previousCountId = "#" + previousCount;
-            $(previousCountId).remove();
-        }
+        // function deletePrevious() {
+        //     previousCount = count;
+        //     previousCountId = "#" + previousCount;
+        //     $(previousCountId).remove();
+        // }
 
+        // let id = "mytext";
+        // input = document.getElementsByClassName("input-choice");
+        // input.addEventListener("keyup", addNewMultipleChoiceOption, false);
 
+        // function addNewMultipleChoiceOption(key) {
+        //     if(key.keyCode == "13")
+        //     {
+        //         createMultipleChoice(this.id);
+        //         // alert("key code is "+ key.keyCode);
+        //     }
+        //         alert("key code is "+ key.keyCode);
+
+        // }
 
 
         // TESTING FOR KEY VALUES

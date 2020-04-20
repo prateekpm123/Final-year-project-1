@@ -13,3 +13,5 @@ $Log->Write('test.txt', 'The function is sucessfully working right now !!');
 ?>
 
 
+
+
