@@ -62,23 +62,41 @@ function createLongAnswer(info) {
 function createMultipleChoice(info) {
   id = info.substring('createMultipleChoice'.length);
 
-  let multipleChoiceInputTag =
-    '<div class="input-group mb-3 questionsetComponents' +
-    questionAreaCounter +
-    " multipleChoiceOptions" +
-    questionAreaCounter +
-    '"> <input type="text" class="form-control multipleChoiceInput' +
-    questionAreaCounter +
-    '" placeholder=" - " id="multipleChoiceid' +
-    questionAreaCounter +
-    multipleChoiceCounter +
-    '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
-    questionAreaCounter + 
-    '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
-    id +
-    ')" type="button" id="multipleChoiceBtn' +
-    questionAreaCounter +
-    '">+</button> </div> </div>';
+  // let multipleChoiceInputTag =
+  //   '<div class="input-group mb-3 questionsetComponents' +
+  //   questionAreaCounter +
+  //   " multipleChoiceOptions" +
+  //   questionAreaCounter +
+  //   '"> <input type="text" class="form-control multipleChoiceInput' +
+  //   questionAreaCounter +
+  //   '" placeholder=" - " id="multipleChoiceid' +
+  //   questionAreaCounter +
+  //   multipleChoiceCounter +
+  //   '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
+  //   questionAreaCounter + 
+  //   '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
+  //   id +
+  //   ')" type="button" id="multipleChoiceBtn' +
+  //   questionAreaCounter +
+  //   '">+</button> </div> </div>';
+
+
+  let multipleChoiceInputTag = '<input  type = "text"' +
+    'class = "input-choice multipleChoiceInput' + questionAreaCounter + '" ' +
+    'placeholder=" - " ' +
+    'id="multipleChoiceid' + questionAreaCounter + multipleChoiceCounter + '" ' +
+    'aria-label= "Recipient\'s username" ' +
+    'aria-describedby= "multipleChoiceBtn' + questionAreaCounter + '" ' +
+    'value="" ' +
+    '</input>';
+
+  // let multipleChoiceInputTag = '<input type = "text"' +
+  //     'class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" ' +
+  //     'placeholder=" - " ' +
+  //     'id="multipleChoiceid' + questionAreaCounter3 + multipleChoiceCounter + '" ' +
+  //     'aria-label="Recipient\'s username" ' +
+  //     'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '">' +
+  //   '</input>';
 
   idno = id;
   console.log("idno = ", idno);
@@ -92,23 +110,43 @@ function createMultipleChoice(info) {
 
 
 function createMultipleChoiceBefore(a,i) {
-  let multipleChoiceInputTag =
-    '<div class="input-group mb-3 questionsetComponents' +
-    questionAreaCounter +
-    " multipleChoiceOptions" +
-    questionAreaCounter +
-    '"> <input type="text" class="form-control multipleChoiceInput' +
-    questionAreaCounter +
-    '" placeholder=" - " id="multipleChoiceid' +
-    questionAreaCounter +
-    multipleChoiceCounter +
-    '" aria-label="Recipient\'s username" value="'+ optionArray[a] +'" aria-describedby="multipleChoiceBtn' +
-    questionAreaCounter +
-    '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
-    i +
-    ')" type="button" id="multipleChoiceBtn' +
-    questionAreaCounter +
-    '">+</button> </div> </div>';
+  // let multipleChoiceInputTag =
+  //   '<div class="input-group mb-3 questionsetComponents' +
+  //   questionAreaCounter +
+  //   " multipleChoiceOptions" +
+  //   questionAreaCounter +
+  //   '"> <input type="text" class="form-control multipleChoiceInput' +
+  //   questionAreaCounter +
+  //   '" placeholder=" - " id="multipleChoiceid' +
+  //   questionAreaCounter +
+  //   multipleChoiceCounter +
+  //   '" aria-label="Recipient\'s username" value="'+ optionArray[a] +'" aria-describedby="multipleChoiceBtn' +
+  //   questionAreaCounter +
+  //   '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
+  //   i +
+  //   ')" type="button" id="multipleChoiceBtn' +
+  //   questionAreaCounter +
+  //   '">+</button> </div> </div>';
+
+    let multipleChoiceInputTag = '<input  type = "text"' +
+      'class = "input-choice multipleChoiceInput' + questionAreaCounter + '" ' +
+      'placeholder=" - " ' +
+      'id="multipleChoiceid' + questionAreaCounter + multipleChoiceCounter + '" ' +
+      'aria-label="Recipient\'s username" ' +
+      'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
+      'value="' + optionArray[a] + '" ' +
+      '</input>';
+
+    // let multipleChoiceInputTag = '<input type = "text"' +
+    //     'class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" ' +
+    //     'placeholder=" - " ' +
+    //     'id="multipleChoiceid' + questionAreaCounter3 + multipleChoiceCounter + '" ' +
+    //     'aria-label="Recipient\'s username" ' +
+    //     'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
+    //     'value="' + optionArray[a] + '" ' +
+    //   '</input>';
+
+    // let multipleChoiceInputTag = '<input  type = "text" class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" placeholder=" - " id="multipleChoiceid' + questionAreaCounter3 +multipleChoiceCounter + '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" class="input-choice" value="' + optionArray[a] + '"></input>';
 
   idno = i;
   console.log("idno = ", idno);
@@ -128,22 +166,31 @@ function addMultipleChoice() {
   let questionAreaCounter3 = questionAreaCounter;
   questionAreaCounter3++;
   // This creates an input box for the multiple choice option
-  let multipleChoiceInputTag =
-    '<div class="input-group mb-3 questionsetComponents' +
-    questionAreaCounter +
-    " multipleChoiceOptions" +
-    questionAreaCounter +
-    '"> <input type="text" class="form-control multipleChoiceInput' +
-    questionAreaCounter3 +
-    '" placeholder=" - " id="multipleChoiceid' +
-    questionAreaCounter3 +
-    multipleChoiceCounter +
-    '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
-    questionAreaCounter +
-    '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
-    questionAreaCounter + ')" type="button" id="multipleChoiceBtn' +
-    questionAreaCounter +
-    '">+</button> </div> </div>';
+  // let multipleChoiceInputTag =
+    // '<div class="input-group mb-3 questionsetComponents' +
+    // questionAreaCounter +
+    // " multipleChoiceOptions" +
+    // questionAreaCounter +
+    // '"> <input type="text" class="form-control multipleChoiceInput' +
+    // questionAreaCounter3 +
+    // '" placeholder=" - " id="multipleChoiceid' +
+    // questionAreaCounter3 +
+    // multipleChoiceCounter +
+    // '" aria-label="Recipient\'s username" aria-describedby="multipleChoiceBtn' +
+    // questionAreaCounter +
+    // '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
+    // questionAreaCounter + ')" type="button" id="multipleChoiceBtn' +
+    // questionAreaCounter +
+    // '">+</button> </div> </div>';
+
+    let multipleChoiceInputTag = '<input  type = "text"' +
+        'class = "input-choice multipleChoiceInput'+questionAreaCounter3+'" '+
+        'placeholder=" - " '+
+        'id="multipleChoiceid' +questionAreaCounter3 +multipleChoiceCounter +'" '+
+        'aria-label="Recipient\'s username" '+
+        'aria-describedby="multipleChoiceBtn' +questionAreaCounter +'" '+
+        'value="" '+
+      '</input>';
 
 
   idno = questionAreaCounter;
@@ -208,23 +255,32 @@ function addMultipleChoiceBefore() {
   questionAreaCounter3++;
 
 
-  let multipleChoiceInputTag =
-    '<div class="input-group mb-3 questionsetComponents' +
-    questionAreaCounter +
-    " multipleChoiceOptions" +
-    questionAreaCounter +
-    '"> <input type="text" class="form-control multipleChoiceInput' +
-    questionAreaCounter3 +
-    '" placeholder=" - " id="multipleChoiceid' +
-    questionAreaCounter3 +
-    multipleChoiceCounter +
-    '" aria-label="Recipient\'s username" value="' + globalVariable.option1[questionAreaCounter].Option1 + '"  aria-describedby="multipleChoiceBtn' +
-    questionAreaCounter +
-    '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
-    questionAreaCounter +
-    ')" type="button" id="multipleChoiceBtn' +
-    questionAreaCounter +
-    '">+</button> </div> </div>';
+  // let multipleChoiceInputTag =
+  //   '<div class="input-group mb-3 questionsetComponents' +
+  //   questionAreaCounter +
+  //   " multipleChoiceOptions" +
+  //   questionAreaCounter +
+  //   '"> <input type="text" class="form-control multipleChoiceInput' +
+  //   questionAreaCounter3 +
+  //   '" placeholder=" - " id="multipleChoiceid' +
+  //   questionAreaCounter3 +
+  //   multipleChoiceCounter +
+  //   '" aria-label="Recipient\'s username" value="' + globalVariable.option1[questionAreaCounter].Option1 + '"  aria-describedby="multipleChoiceBtn' +
+  //   questionAreaCounter +
+  //   '"> <div class="input-group-append"> <button class="btn btn-outline-secondary" onclick="addMultipleChoice(' +
+  //   questionAreaCounter +
+  //   ')" type="button" id="multipleChoiceBtn' +
+  //   questionAreaCounter +
+  //   '">+</button> </div> </div>';
+
+    let multipleChoiceInputTag = '<input  type = "text"' +
+      'class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" ' +
+      'placeholder=" - " ' +
+      'id="multipleChoiceid' + questionAreaCounter3 + multipleChoiceCounter + '" ' +
+      'aria-label="Recipient\'s username" ' +
+      'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
+      'value="' + globalVariable.option1[questionAreaCounter].Option1 + '" ' +
+      '</input>';
 
   idno = questionAreaCounter;
   console.log("idno = ", idno);

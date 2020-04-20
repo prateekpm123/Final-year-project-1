@@ -9,7 +9,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
     <link href="jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="test.css">
 </head>
 
 <body>
@@ -21,7 +21,8 @@
             <div class="col-lg-3"></div>
             <div class="col-lg-6" id="mainDisplayArea">
                 <div id="display">
-                    <input name="asdf" id="" cols="30" rows="10" value="sadsadfsadf"></textarea>
+                    <div class="upper-space"></div>
+                    <input id="" class="input-choice" value="" placeholder=" - "></input>
                 </div>
                 <div>
                     <button class="btn btn-primary" onclick="displayNext()">Next</button>
@@ -108,7 +109,7 @@
         count = 0;
 
         
-
+        
         function displayNext() {
 
             // deletePrevious();
@@ -116,7 +117,7 @@
             // $("#display").append('<div class="questions" id="questionArea"></div>');
             // $("#questionArea").append('<p class="para" id="' + count1 + '">' + jsonarray[count].Option1 + '</p>');
             // alert("option is"+jsonarray[count].Option1);
-
+            
             // count++;
             let num = "multiplechoiceoption42";
             let numLen = num.length;

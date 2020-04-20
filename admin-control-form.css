@@ -58,6 +58,25 @@ textarea.answerarea:hover {
   background-color: rgb(59, 59, 59);
 }
 
+.input-choice {
+  line-height: 1.8;
+  width: 100%;
+  border: none;
+  font-size: 1.1rem;
+  -webkit-appearance: none;
+  font-weight: 430;
+  padding-left: 10px;
+  /* transition: background-color .2s; */
+}
+
+.input-choice:hover {
+  background-color: rgb(201, 233, 231);
+}
+
+/* .input-choice:checked {
+  background-color: rgb(128, 185, 166);
+} */
+
 div.optionsareaclass {
   display: none;
   /* position: absolute; */

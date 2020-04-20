@@ -1,0 +1,17 @@
+.input-choice {
+    line-height: 1.8;
+    width: 100%;
+    border: none;
+    font-size: 1.1rem;
+    -webkit-appearance: none;
+    font-weight: 430;
+    padding-left: 10px;
+}
+
+.input-choice:hover {
+    background-color: rgb(212, 228, 222);
+}
+
+.upper-space {
+    height: 25vh;
+}
