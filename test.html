@@ -22,8 +22,9 @@
             <div class="col-lg-6" id="mainDisplayArea">
                 <div id="display">
                     <div class="upper-space"></div>
-                    <!-- <input id="mytext" class="input-choice" value="" placeholder=" - "></input> -->
-                    <input type="text" id="myInput" onkeypress="myFunction(event, this.id)">
+                    <textarea id="mytext" onkeyup="AutoGrowTextArea(this)" row="1" class="input-choice" value=""
+                        placeholder=" - "></textarea>
+                    <!-- <input type="text" id="myInput" onkeypress="myFunction(event, this.id)"> -->
 
                     <p id="demo"></p>
                 </div>
@@ -68,12 +69,22 @@
         //     "this is second", "This is third", "this is fourth"
         // ];
 
-        
 
-        function myFunction(key,id) {
-        var x = document.getElementById("myInput").value;
-        document.getElementById("demo").innerHTML = "You wrote: " + x;
-            alert(key.keyCode+' id is '+id);
+
+        function myFunction(key, id) {
+            var x = document.getElementById("myInput").value;
+            document.getElementById("demo").innerHTML = "You wrote: " + x;
+            alert(key.keyCode + ' id is ' + id);
+        }
+
+        function AutoGrowTextArea(textField) {
+            if (textField.clientHeight < textField.scrollHeight) {
+                textField.style.height = textField.scrollHeight + "px";
+                if (textField.clientHeight < textField.scrollHeight) {
+                    textField.style.height = textField.scrollHeight * 2 -
+                        textField.clientHeight + "px";
+                }
+            }
         }
 
         // // jsonarray = [{
@@ -118,8 +129,8 @@
         // // count is 0, because first the question wont be displayed, count is strictly the question number.
         // count = 0;
 
-        
-        
+
+
         // function displayNext() {
 
         //     // deletePrevious();
@@ -127,7 +138,7 @@
         //     // $("#display").append('<div class="questions" id="questionArea"></div>');
         //     // $("#questionArea").append('<p class="para" id="' + count1 + '">' + jsonarray[count].Option1 + '</p>');
         //     // alert("option is"+jsonarray[count].Option1);
-            
+
         //     // count++;
         //     let num = "multiplechoiceoption42";
         //     let numLen = num.length;
