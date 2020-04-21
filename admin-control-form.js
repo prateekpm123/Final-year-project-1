@@ -13,12 +13,20 @@ questionCount =0;
  optionArray = [];
  optioncount = 1;
 
+formIdIs = localStorage.getItem("myId");
+alert("the value recieved is " + formIdIs);
+
+
+// let iddd = globalVariable1.formId;
+
 // ******** DYNAMICALLY CREATING QUESTIONS AND OPTIONS MENu *********
 
 
 // ************************* TO CREATE A NEW SET OF QUESTION AND OPTIONS  *******************
 
 function createLongAnswer(info) {
+  // alert('globalVariablei is' + globalVariable1.id);
+
   console.log("questionarea Counter", questionAreaCounter);
  
   console.log("idno ", idno);
@@ -59,9 +67,10 @@ function createLongAnswer(info) {
 
 }
 
-function createMultipleChoice(info) {
-  id = info.substring('multipleChoiceid'.length);
-  id = id[0];
+function createMultipleChoice(Info) {
+  // info = allInfo.className;
+  id = Info.substring('input-choice multipleChoiceInput'.length);
+  id = id;
   // alert(info);
   id = parseInt(id);
   id--;
@@ -69,14 +78,14 @@ function createMultipleChoice(info) {
  
 
   let multipleChoiceInputTag = '<input  type = "text"' +
-    'class = "input-choice multipleChoiceInput' + questionAreaCounter + '" ' +
-    'placeholder=" - " ' +
-    'id="multipleChoiceid' + questionAreaCounter + multipleChoiceCounter + '" ' +
-    'aria-label= "Recipient\'s username" ' +
-    'aria-describedby= "multipleChoiceBtn' + questionAreaCounter + '" ' +
-    'onkeypress="myFunction(event, this.id)"' +
-    'onfocus = "cursorFocus(this.id)"' +
-    'value="" ' +
+      'class = "input-choice multipleChoiceInput' + questionAreaCounter + '" ' +
+      'placeholder=" - " ' +
+      'id="multipleChoiceid' + questionAreaCounter + multipleChoiceCounter + '" ' +
+      'aria-label= "Recipient\'s username" ' +
+      'aria-describedby= "multipleChoiceBtn' + questionAreaCounter + '" ' +
+      'onkeypress="myFunction(event, this.className)"' +
+      'onfocus = "cursorFocus(this.id)"' +
+      'value="" ' +
     '</input>';
 
 
@@ -129,7 +138,7 @@ function addMultipleChoice() {
         'id="multipleChoiceid' +questionAreaCounter3 +multipleChoiceCounter +'" '+
         'aria-label="Recipient\'s username" '+
         'aria-describedby="multipleChoiceBtn' +questionAreaCounter +'" '+
-        'onkeypress="myFunction(event, this.id)"' +
+        'onkeypress="myFunction(event, this.className)"' +
         'onfocus = "cursorFocus(this.id)"' +
         'value="" '+
       '</input>';
@@ -202,7 +211,7 @@ function addMultipleChoiceBefore() {
       'id="multipleChoiceid' + questionAreaCounter3 + multipleChoiceCounter + '" ' +
       'aria-label="Recipient\'s username" ' +
       'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
-      'onkeypress="myFunction(event, this.id)"'+
+      'onkeypress="myFunction(event, this.className)"'+
       'onfocus = "cursorFocus(this.id)"' +
       'value="' + globalVariable.option1[questionAreaCounter].Option1 + '" ' +
       '</input>';
@@ -453,10 +462,16 @@ function create(btnclass, btnid) {
 
   if (btnid == 1) {
     addMultipleChoice();
+    insertQuestion(btnid);
+
     // alert('in if else condition of multiple choice');
-  } else if (btnid == 2) {} else if (btnid == 3) {
+  } else if (btnid == 2) {
+
+  } 
+  else if (btnid == 3) {
+    insertQuestion(btnid);
     // createLongAnswer(questionAreaCounter);
-    // alert('in if else condition of long answer');
+    alert('in if else condition of long answer');
   } else if (btnid == 4) {}
 
   questionAreaCounter++;
@@ -466,9 +481,9 @@ function create(btnclass, btnid) {
 
 //  ****************** Event Listeners **********************
 
-function myFunction(key,id) {
+function myFunction(key,Info) {
   if (key.keyCode == "13") {
-    createMultipleChoice(id);
+    createMultipleChoice(Info);
   }
 }
 
@@ -479,6 +494,8 @@ function cursorFocus(x) {
 
 
 function createBefore(btnclass, btnid) {
+  // alert('globalVariablei is' + iddd);
+
   console.log('QuestionAreaCounter is ',questionAreaCounter);
   // ######################  All the common tags used for dynamically creating  ############################
 
@@ -667,7 +684,7 @@ function getTheQuestionCount() {
     url: "getData.php",
     type: "post",
     data: {
-      
+      formId : formIdIs
     },
     success: function (data, status) {
       // console.log(data);
@@ -677,9 +694,10 @@ function getTheQuestionCount() {
         questionCount = $('#questionCount').text();
         let option1 = $('#option1').text();
         // console.log(questionCount);
+        alert(questionCount);
       }
       if (status == "success") {
-        creatingTheExistingContent(questionCount, status, option1);
+        creatingTheExistingContent(questionCount, status);
       }
     },
   });
@@ -687,8 +705,8 @@ function getTheQuestionCount() {
   
 }
 
-function creatingTheExistingContent(questionCount, status,option1) {
-  // alert(' in creation funciton');
+function creatingTheExistingContent(questionCount, status) {
+  // alert('globalVariablei is' + iddd);
   if (status == "success") {
 
   }
@@ -763,7 +781,7 @@ function deleted() {
     url: 'deleteQuestion.php',
     type: "post",
     data: {
-      last_q_no : last_q_no,
+      
       
     },
     success: function (data, status) {
@@ -778,6 +796,25 @@ function deleted() {
 
 }
 
+function insertQuestion(btnid) {
+  let q_no1 = parseInt(questionAreaCounter);
+  q_no1++;
+  alert(q_no1);
+  $.ajax({
+    url: "insertQuestion.php",
+    type: "post",
+    data: {
+      id: q_no1,
+      formId: formIdIs,
+      btnid : btnid
+    },
+    success: function (data, status) {
+      // console.log(data);
+      $("#display").html(data);
+
+    },
+  });
+}
 
 // *********************** MY VERSION OF THE SAME ABOVE CODE *****************************
 function ajaxToSave(id, btnid) {
@@ -798,7 +835,8 @@ function ajaxToSave(id, btnid) {
         id: id,
         question: textarea,
         option: 1,
-        btnid: btnid
+        btnid: btnid,
+        formId : formIdIs
       },
       success: function (data, status) {
         // console.log(data);
@@ -863,6 +901,8 @@ function ajaxToSave(id, btnid) {
         question: textarea,
         option: optionValue,
         btnid: btnid,
+        formId: formIdIs
+
       },
       success: function (data, status) {
         // console.log(data);
