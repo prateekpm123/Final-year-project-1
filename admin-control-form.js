@@ -781,7 +781,7 @@ function deleted() {
     url: 'deleteQuestion.php',
     type: "post",
     data: {
-      
+      // last_q_no : last_q_no
       
     },
     success: function (data, status) {
