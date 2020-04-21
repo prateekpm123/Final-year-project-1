@@ -5,6 +5,7 @@ $questionCount = $_POST['id'];
 $question = $_POST['question'];
 $option = $_POST['option'];
 $btnid = $_POST['btnid'];
+$formId = $_POST['formId'];
 
 
 $questionCount++;
@@ -83,7 +84,7 @@ if ( $btnid == 1)
 
   if( $isAlreadyThere == 1)
   {
-    $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `id`=1 AND `q_no`=$questionCount";
+    $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `id`=$formId AND `q_no`=$questionCount";
     if (mysqli_query($con, $add)) 
     {
       echo "<h5>Updated record created successfully</h5>";
@@ -100,7 +101,7 @@ if ( $btnid == 1)
       $aPlus = $a + 1;
       $optionSpace = $option[$a];
       $temp = "Option".$aPlus;
-      $addOption = "UPDATE `questions` SET `$temp`='$optionSpace' WHERE `id`=1 AND `q_no`=$questionCount";
+      $addOption = "UPDATE `questions` SET `$temp`='$optionSpace' WHERE `id`=$formId AND `q_no`=$questionCount";
       if (mysqli_query($con, $addOption)) 
         {
           echo "<h5>Added the option sucessfully</h5>";
@@ -115,7 +116,7 @@ if ( $btnid == 1)
   else 
   {
     // ###################   Adding the question to the database   #####################
-    $add = "INSERT INTO `questions`(`id`, `q_no`, `Questions`) VALUES ('1','$questionCount','$question')";
+    $add = "INSERT INTO `questions`(`id`, `q_no`, `Questions`) VALUES ('$formId','$questionCount','$question')";
     echo " <h3> in inset query </h3>";
     // mysqli_query($con, $add);
     if (mysqli_query($con, $add)) 
@@ -132,7 +133,7 @@ if ( $btnid == 1)
       $aPlus = $a + 1;
       $optionSpace = $option[$a];
       $temp = "Option".$aPlus;
-      $addOption = "UPDATE `questions` SET `$temp`='$optionSpace' WHERE `id`=1 AND `q_no`=$questionCount";
+      $addOption = "UPDATE `questions` SET `$temp`='$optionSpace' WHERE `id`=$formId AND `q_no`=$questionCount";
       if (mysqli_query($con, $addOption)) 
         {
           echo "<h5>Added the option sucessfully</h5>";
@@ -153,7 +154,7 @@ else if ( $btnid == 3)
 
   if( $isAlreadyThere == 1)
   {
-    $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `id`=1 AND `q_no`=$questionCount";
+    $add =  "UPDATE `questions` SET `Questions`='$question' WHERE `id`=$formId AND `q_no`=$questionCount";
     if (mysqli_query($con, $add)) 
     {
       echo "<h5>Updated record created successfully</h5>";
@@ -165,7 +166,7 @@ else if ( $btnid == 3)
     }
     echo " <h3> </h3>";
 
-  $updateOptions = "UPDATE `questions` SET `Option1`='' ,`Option2`='' ,`Option3`='',`Option4`='' ,`Option5`='',`Option6`='',`Option7`='',`Option8`='',`Option9`='' ,`Option10`='' WHERE `id`=1 AND `q_no`=$questionCount"; 
+  $updateOptions = "UPDATE `questions` SET `Option1`='' ,`Option2`='' ,`Option3`='',`Option4`='' ,`Option5`='',`Option6`='',`Option7`='',`Option8`='',`Option9`='' ,`Option10`='' WHERE `id`=$formId AND `q_no`=$questionCount"; 
     if (mysqli_query($con, $updateOptions)) 
     {
       echo "<h5>Options removed Sucessfully</h5>";
@@ -179,7 +180,7 @@ else if ( $btnid == 3)
   else 
   {
     // ###################   Adding the question to the database   #####################
-    $add = "INSERT INTO `questions`(`id`, `q_no`, `Questions`) VALUES ('1','$questionCount','$question')";
+    $add = "INSERT INTO `questions`(`id`, `q_no`, `Questions`) VALUES ('$formId','$questionCount','$question')";
     echo " <h3> in inset query </h3>";
     // mysqli_query($con, $add);
     if (mysqli_query($con, $add)) 
@@ -193,7 +194,7 @@ else if ( $btnid == 3)
     }
 
  
-    $updateOptions = "UPDATE `questions` SET `Option1`='' ,`Option2`='' ,`Option3`='',`Option4`='' ,`Option5`='',`Option6`='',`Option7`='',`Option8`='',`Option9`='' ,`Option10`='' WHERE `id`=1 AND `q_no`=$questionCount"; 
+    $updateOptions = "UPDATE `questions` SET `Option1`='' ,`Option2`='' ,`Option3`='',`Option4`='' ,`Option5`='',`Option6`='',`Option7`='',`Option8`='',`Option9`='' ,`Option10`='' WHERE `id`=$formId AND `q_no`=$questionCount"; 
     if (mysqli_query($con, $updateOptions)) 
     {
       echo "<h5>Options removed Sucessfully</h5>";
