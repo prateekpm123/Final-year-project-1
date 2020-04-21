@@ -22,14 +22,14 @@
             <div class="col-lg-6" id="mainDisplayArea">
                 <div id="display">
                     <div class="upper-space"></div>
-                    <textarea id="mytext" onkeyup="AutoGrowTextArea(this)" row="1" class="input-choice" value=""
-                        placeholder=" - "></textarea>
+                    <!-- <textarea id="mytext" onkeyup="AutoGrowTextArea(this)" row="1" class="input-choice" value=""
+                        placeholder=" - "></textarea> -->
                     <!-- <input type="text" id="myInput" onkeypress="myFunction(event, this.id)"> -->
 
                     <p id="demo"></p>
                 </div>
                 <div>
-                    <!-- <button class="btn btn-primary" onclick="displayNext()">Next</button> -->
+                    <button class="btn btn-primary" onclick="displayNext()">Next</button>
                 </div>
             </div>
 
@@ -71,89 +71,89 @@
 
 
 
-        function myFunction(key, id) {
-            var x = document.getElementById("myInput").value;
-            document.getElementById("demo").innerHTML = "You wrote: " + x;
-            alert(key.keyCode + ' id is ' + id);
-        }
-
-        function AutoGrowTextArea(textField) {
-            if (textField.clientHeight < textField.scrollHeight) {
-                textField.style.height = textField.scrollHeight + "px";
-                if (textField.clientHeight < textField.scrollHeight) {
-                    textField.style.height = textField.scrollHeight * 2 -
-                        textField.clientHeight + "px";
-                }
-            }
-        }
-
-        // // jsonarray = [{
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": "How are you ?"
-        // // }, {
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": "I am doing good"
-        // // }, {
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": "Lucy"
-        // // }, {
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": "Yeah, I think its a good Idea"
-        // // }, {
-        // //     "Option1": ""
-        // // }, {
-        // //     "Option1": ""
-        // // }]
-        // // count is 0, because first the question wont be displayed, count is strictly the question number.
-        // count = 0;
-
-
-
-        // function displayNext() {
-
-        //     // deletePrevious();
-        //     // count1 = count + 1;
-        //     // $("#display").append('<div class="questions" id="questionArea"></div>');
-        //     // $("#questionArea").append('<p class="para" id="' + count1 + '">' + jsonarray[count].Option1 + '</p>');
-        //     // alert("option is"+jsonarray[count].Option1);
-
-        //     // count++;
-        //     let num = "multiplechoiceoption42";
-        //     let numLen = num.length;
-        //     console.log('thisis the lenvht ',numLen);
-        //     // let strNew = num.substring(0, ()+20); //strNew is 'Hello World'
-        //     // var str = 'test_23';
-        //     newStr = num.substring('multiplechoiceoption'.length);
-        //     alert('new string is '+newStr);
+        // function myFunction(key, id) {
+        //     var x = document.getElementById("myInput").value;
+        //     document.getElementById("demo").innerHTML = "You wrote: " + x;
+        //     alert(key.keyCode + ' id is ' + id);
         // }
 
-        // function deletePrevious() {
-        //     previousCount = count;
-        //     previousCountId = "#" + previousCount;
-        //     $(previousCountId).remove();
+        // function AutoGrowTextArea(textField) {
+        //     if (textField.clientHeight < textField.scrollHeight) {
+        //         textField.style.height = textField.scrollHeight + "px";
+        //         if (textField.clientHeight < textField.scrollHeight) {
+        //             textField.style.height = textField.scrollHeight * 2 -
+        //                 textField.clientHeight + "px";
+        //         }
+        //     }
         // }
+
+        jsonarray = [{
+            "Option1": "dsgfsdgdsgdsfg "
+        }, {
+            "Option1": "How are you ?"
+        }, {
+            "Option1": "sdfgdsfgs "
+        }, {
+            "Option1": "I am doing good"
+        }, {
+            "Option1": " sdfgsdgdsfgd"
+        }, {
+            "Option1": "sdgdsgfdsgd"
+        }, {
+            "Option1": "dsfgds gdsgdsg"
+        }, {
+            "Option1": "dfgdgdsfg"
+        }, {
+            "Option1": "sdgdsgdsgf"
+        }, {
+            "Option1": "sdgfdsfgdsg"
+        }, {
+            "Option1": "Lucy"
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": "Yeah, I think its a good Idea"
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }]
+        //count is 0, // because first the question wont be displayed, count is strictly the question number.
+        count = 0;
+
+
+
+        function displayNext() {
+
+            deletePrevious();
+            count1 = count + 1;
+            $("#display").append('<div class="questions" id="questionArea"></div>');
+            $("#questionArea").append('<p class="para" id="' + count1 + '">' + jsonarray[count].Option1 + '</p>');
+            // alert("option is"+jsonarray[count].Option1);
+
+            count++;
+            // let num = "multiplechoiceoption42";
+            // let numLen = num.length;
+            // console.log('thisis the lenvht ',numLen);
+            // // let strNew = num.substring(0, ()+20); //strNew is 'Hello World'
+            // // var str = 'test_23';
+            // newStr = num.substring('multiplechoiceoption'.length);
+            // alert('new string is '+newStr);
+        }
+
+        function deletePrevious() {
+            previousCount = count;
+            previousCountId = "#" + previousCount;
+            $(previousCountId).remove();
+        }
 
         // let id = "mytext";
         // input = document.getElementsByClassName("input-choice");
