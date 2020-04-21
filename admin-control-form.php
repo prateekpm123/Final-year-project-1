@@ -107,7 +107,9 @@ include("getData.php");
         <div class="col-lg-6 left-side">
             <div class="addingQuestionBody">
                 <div id="form-page1">
-                    <div id="getDataContent"></div>
+                    <div id="getDataContent">
+                        
+                    </div>
                     <!-- <div class="question-set" id="questionset0">
                         <textarea name="question" placeholder="Enter the questions..." id="Q0"
                             cols="30" rows="2" style="overflow:hidden"
@@ -205,7 +207,7 @@ include("getData.php");
                 // $q = "SELECT Q1 FROM `questions` WHERE `Form Number`='Form2'";
                 // $result = mysqli_query($con, $q);
                 // $desc = mysqli_fetch_assoc($result);
-                // include("preview-form.php");
+                // include_once("preview-form.php");
             ?>
             <h5 class="question_display">
                 <?php 
@@ -257,10 +259,28 @@ include("getData.php");
     <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <script src="admin-control-form.js"></script>
+    <!-- <script src="admin-control.js"></script> -->
+
     <script>
+
+        // formIdIs = localStorage.getItem("myId");
+        // alert("the value recieved is " + formIdIs);
+        // $.ajax({
+        //     url: "getData.php",
+        //     type: "post",
+        //     data: {
+        //         formId: formIdIs,
+        //     },
+        //     success: function (data, status) {
+        //     // console.log(data);
+        //     // $("#display").html(data);
+
+        //     },
+        // });
+
         q_no = <?php echo json_encode($q_no_Array)?>;
         questionArray = <?php echo json_encode($yourQuestionArray)?>;
-
+        alert(questionArray);
         option1 = <?php echo json_encode($option1)?>;
         option2 = <?php echo json_encode($option2)?>;
         option3 = <?php echo json_encode($option3)?>;
@@ -275,6 +295,9 @@ include("getData.php");
             option5 : option5,
             q_no : q_no
         };
+
+        
+        // alert(globalVariable.x);
 
 
     </script>                   
