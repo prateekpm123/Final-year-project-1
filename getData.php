@@ -15,6 +15,183 @@ if (!$con) {
 // echo "Connected successfully";
 
 
+// $formId = $_POST['formId'];
+
+// // *************************  Getting the QUESTIONS from the table  ******************************
+// $q_no = "SELECT q_no FROM questions WHERE `id`=$formId";
+// if (mysqli_query($con, $q_no)) 
+//     {
+//       // echo "<h5>Got the question successfully</h5>";
+//     } 
+//     else 
+//     {
+//       // echo "Error: " . $q_no . "<br>" . mysqli_error($con);
+//     }
+
+// $keys = mysqli_query($con, $q_no);
+
+
+// $q_no_Array = array(); // make a new array to hold all your data
+
+// $index = 0;
+// while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associative array.
+//      $q_no_Array[$index] = $row;
+//      $index++;
+// }  
+
+// $yourQuestionArrayCount = count($q_no_Array);
+
+// echo "<div id='questionCount' style='display:none;' >".$yourQuestionArrayCount."</div>";
+
+
+// // echo json_encode($q_no_Array);
+
+
+// // *************************  Getting the QUESTIONS from the table  ******************************
+// $questionsArray = "SELECT Questions FROM questions WHERE `id`=$formId";
+// if (mysqli_query($con, $questionsArray)) 
+//     {
+//       // echo "<h5>Got the question successfully</h5>";
+//     } 
+//     else 
+//     {
+//       // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+//     }
+
+// $keys = mysqli_query($con, $questionsArray);
+
+
+// $yourQuestionArray = array(); // make a new array to hold all your data
+
+// $index = 0;
+// while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associative array.
+//      $yourQuestionArray[$index] = $row;
+//      $index++;
+// }  
+
+// // $yourQuestionArrayCount = count($yourQuestionArray);
+
+// // echo "<div id='questionCount' style='display:none;' >".$yourQuestionArrayCount."</div>";
+
+// // **********************************  TO EXTRACT OPTIONS  **************************************
+// $questionsArray = "SELECT Option1 FROM questions WHERE `id`=$formId";
+// if (mysqli_query($con, $questionsArray)) 
+//     {
+//       // echo "<h5>Got the option successfully</h5>";
+//     } 
+//     else 
+//     {
+//       // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+//     }
+
+// $keys = mysqli_query($con, $questionsArray);
+
+
+// $option1 = array(); // make a new array to hold all your data
+
+// $index = 0;
+// while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associative array.
+//      $option1[$index] = $row;
+//      $index++;
+// }  
+
+// // echo "<div id='option1' style='display:none;' >".$option1[0]['Option1']."</div>";
+
+
+// // ************************  Extracting Option 2  **********************************
+// $questionsArray = "SELECT Option2 FROM questions WHERE `id`=$formId";
+// if (mysqli_query($con, $questionsArray)) 
+//     {
+//       // echo "<h5>Got the option2 successfully</h5>";
+//     } 
+//     else 
+//     {
+//       // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+//     }
+
+// $keys = mysqli_query($con, $questionsArray);
+
+
+// $option2 = array(); // make a new array to hold all your data
+
+// $index = 0;
+// while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associative array.
+//      $option2[$index] = $row;
+//      $index++;
+// }  
+
+// // ************************  Extracting Option 3  **********************************
+// $questionsArray = "SELECT Option3 FROM questions WHERE `id`=$formId";
+// if (mysqli_query($con, $questionsArray)) 
+//     {
+//       // echo "<h5>Got the Option3 successfully</h5>";
+//     } 
+//     else 
+//     {
+//       // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+//     }
+
+// $keys = mysqli_query($con, $questionsArray);
+
+
+// $option3 = array(); // make a new array to hold all your data
+
+// $index = 0;
+// while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associative array.
+//      $option3[$index] = $row;
+//      $index++;
+// } 
+
+// // ************************  Extracting Option 4  **********************************
+
+// $questionsArray = "SELECT Option4 FROM questions WHERE `id`=$formId";
+// if (mysqli_query($con, $questionsArray)) 
+//     {
+//       // echo "<h5>Got the Option4 successfully</h5>";
+//     } 
+//     else 
+//     {
+//       // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+//     }
+
+// $keys = mysqli_query($con, $questionsArray);
+
+
+// $option4 = array(); // make a new array to hold all your data
+
+// $index = 0;
+// while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associative array.
+//      $option4[$index] = $row;
+//      $index++;
+// } 
+
+// // ************************  Extracting Option 5  **********************************
+
+// $questionsArray = "SELECT Option5 FROM questions WHERE `id`=$formId";
+// if (mysqli_query($con, $questionsArray)) 
+//     {
+//       // echo "<h5>Got the Option5 successfully</h5>";
+//     } 
+//     else 
+//     {
+//       // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+//     }
+
+// $keys = mysqli_query($con, $questionsArray);
+
+
+// $option5 = array(); // make a new array to hold all your data
+
+// $index = 0;
+// while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associative array.
+//      $option5[$index] = $row;
+//      $index++;
+// } 
+
+// $option1Json = json_encode($option1);
+
+
+
 // *************************  Getting the QUESTIONS from the table  ******************************
 $q_no = "SELECT q_no FROM questions";
 if (mysqli_query($con, $q_no)) 
@@ -37,6 +214,9 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
      $index++;
 }  
 
+$yourQuestionArrayCount = count($q_no_Array);
+
+echo "<div id='questionCount' style='display:none;' >".$yourQuestionArrayCount."</div>";
 
 
 // echo json_encode($q_no_Array);
@@ -64,9 +244,9 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
      $index++;
 }  
 
-$yourQuestionArrayCount = count($yourQuestionArray);
+// $yourQuestionArrayCount = count($yourQuestionArray);
 
-echo "<div id='questionCount' style='display:none;' >".$yourQuestionArrayCount."</div>";
+// echo "<div id='questionCount' style='display:none;' >".$yourQuestionArrayCount."</div>";
 
 // **********************************  TO EXTRACT OPTIONS  **************************************
 $questionsArray = "SELECT Option1 FROM questions";
@@ -184,6 +364,8 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
 } 
 
 $option1Json = json_encode($option1);
+
+
 // echo '<pre>'; print_r($option1); echo '</pre>';   // This part prints the whole arrays structure in a formatted way
  
 // ********** printing these values in the #hiddenDisplay Tag ***************
