@@ -8,13 +8,13 @@ multipleChoiceCounter = 1;
 i = 0;
 optionsClick = 0;
 addOrRemoveCounter = 0;
-questionCount =0;
+questionCount = 0;
 
- optionArray = [];
- optioncount = 1;
+optionArray = [];
+optioncount = 1;
 
 formIdIs = localStorage.getItem("myId");
-// alert("the value recieved is " + formIdIs);
+alert("the value recieved is " + formIdIs);
 
 
 // let iddd = globalVariable1.formId;
@@ -28,7 +28,7 @@ function createLongAnswer(info) {
   // alert('globalVariablei is' + globalVariable1.id);
 
   console.log("questionarea Counter", questionAreaCounter);
- 
+
   console.log("idno ", idno);
   let idno2 = idno;
   idno2++;
@@ -75,17 +75,17 @@ function createMultipleChoice(Info) {
   id = parseInt(id);
   id--;
   // alert(id);
- 
+
 
   let multipleChoiceInputTag = '<input  type = "text"' +
-      'class = "input-choice multipleChoiceInput' + questionAreaCounter + '" ' +
-      'placeholder=" - " ' +
-      'id="multipleChoiceid' + questionAreaCounter + multipleChoiceCounter + '" ' +
-      'aria-label= "Recipient\'s username" ' +
-      'aria-describedby= "multipleChoiceBtn' + questionAreaCounter + '" ' +
-      'onkeypress="myFunction(event, this.className)"' +
-      'onfocus = "cursorFocus(this.id)"' +
-      'value="" ' +
+    'class = "input-choice multipleChoiceInput' + questionAreaCounter + '" ' +
+    'placeholder=" - " ' +
+    'id="multipleChoiceid' + questionAreaCounter + multipleChoiceCounter + '" ' +
+    'aria-label= "Recipient\'s username" ' +
+    'aria-describedby= "multipleChoiceBtn' + questionAreaCounter + '" ' +
+    'onkeypress="myFunction(event, this.className)"' +
+    'onfocus = "cursorFocus(this.id)"' +
+    'value="" ' +
     '</input>';
 
 
@@ -100,18 +100,18 @@ function createMultipleChoice(Info) {
 }
 
 
-function createMultipleChoiceBefore(a,i) {
+function createMultipleChoiceBefore(a, i) {
 
-    let multipleChoiceInputTag = '<input  type = "text"' +
-      'class = "input-choice multipleChoiceInput' + questionAreaCounter + '" ' +
-      'placeholder=" - " ' +
-      'id="multipleChoiceid' + questionAreaCounter + multipleChoiceCounter + '" ' +
-      'aria-label="Recipient\'s username" ' +
-      'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
-      'value="' + optionArray[a] + '" ' +
-      'onkeypress="myFunction(event, this.id)"' +
-      'onfocus = "cursorFocus(this.id)"' +
-      '</input>';
+  let multipleChoiceInputTag = '<input  type = "text"' +
+    'class = "input-choice multipleChoiceInput' + questionAreaCounter + '" ' +
+    'placeholder=" - " ' +
+    'id="multipleChoiceid' + questionAreaCounter + multipleChoiceCounter + '" ' +
+    'aria-label="Recipient\'s username" ' +
+    'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
+    'value="' + optionArray[a] + '" ' +
+    'onkeypress="myFunction(event, this.id)"' +
+    'onfocus = "cursorFocus(this.id)"' +
+    '</input>';
 
 
   idno = i;
@@ -132,16 +132,16 @@ function addMultipleChoice() {
   let questionAreaCounter3 = questionAreaCounter;
   questionAreaCounter3++;
   // This creates an input box for the multiple choice option
-    let multipleChoiceInputTag = '<input  type = "text"' +
-        'class = "input-choice multipleChoiceInput'+questionAreaCounter3+'" '+
-        'placeholder=" - " '+
-        'id="multipleChoiceid' +questionAreaCounter3 +multipleChoiceCounter +'" '+
-        'aria-label="Recipient\'s username" '+
-        'aria-describedby="multipleChoiceBtn' +questionAreaCounter +'" '+
-        'onkeypress="myFunction(event, this.className)"' +
-        'onfocus = "cursorFocus(this.id)"' +
-        'value="" '+
-      '</input>';
+  let multipleChoiceInputTag = '<input  type = "text"' +
+    'class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" ' +
+    'placeholder=" - " ' +
+    'id="multipleChoiceid' + questionAreaCounter3 + multipleChoiceCounter + '" ' +
+    'aria-label="Recipient\'s username" ' +
+    'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
+    'onkeypress="myFunction(event, this.className)"' +
+    'onfocus = "cursorFocus(this.id)"' +
+    'value="" ' +
+    '</input>';
 
 
   idno = questionAreaCounter;
@@ -205,16 +205,16 @@ function addMultipleChoiceBefore() {
   let questionAreaCounter3 = questionAreaCounter;
   questionAreaCounter3++;
 
-    let multipleChoiceInputTag = '<input  type = "text"' +
-      'class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" ' +
-      'placeholder=" - " ' +
-      'id="multipleChoiceid' + questionAreaCounter3 + multipleChoiceCounter + '" ' +
-      'aria-label="Recipient\'s username" ' +
-      'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
-      'onkeypress="myFunction(event, this.className)"'+
-      'onfocus = "cursorFocus(this.id)"' +
-      'value="' + globalVariable.option1[questionAreaCounter].Option1 + '" ' +
-      '</input>';
+  let multipleChoiceInputTag = '<input  type = "text"' +
+    'class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" ' +
+    'placeholder=" - " ' +
+    'id="multipleChoiceid' + questionAreaCounter3 + multipleChoiceCounter + '" ' +
+    'aria-label="Recipient\'s username" ' +
+    'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
+    'onkeypress="myFunction(event, this.className)"' +
+    'onfocus = "cursorFocus(this.id)"' +
+    'value="' + globalVariable.option1[questionAreaCounter].Option1 + '" ' +
+    '</input>';
 
   idno = questionAreaCounter;
   console.log("idno = ", idno);
@@ -288,15 +288,15 @@ function create(btnclass, btnid) {
   questionAreaCounter2++;
   // This creates the textareatag for the question with gets appended to the questionset Div tag
   let questionTextareaTag =
-    '<textarea '+
-      'name="question' + questionAreaCounter + '"  '+
-      'placeholder="Enter the questions..."  '+
-      'style="overflow:hidden"  '+
-      'onkeyup="AutoGrowTextArea(this)" '+
-      'cols="30"  '+
-      'rows="3" '+
-      'id="Q' + questionAreaCounter + '" '+
-      'class="questionarea questionsetComponents' + questionAreaCounter2 +'">'+
+    '<textarea ' +
+    'name="question' + questionAreaCounter + '"  ' +
+    'placeholder="Enter the questions..."  ' +
+    'style="overflow:hidden"  ' +
+    'onkeyup="AutoGrowTextArea(this)" ' +
+    'cols="30"  ' +
+    'rows="3" ' +
+    'id="Q' + questionAreaCounter + '" ' +
+    'class="questionarea questionsetComponents' + questionAreaCounter2 + '">' +
     '</textarea>';
 
   // *************** From here and down, we'll be creating a structure for other options to land *************
@@ -348,39 +348,39 @@ function create(btnclass, btnid) {
     '"></div>';
   // This is a DropDownButton From Bootstrap which is used for choosing the options for the question, like long Answer, Multiple choice
   let dropDownButton =
-    '<div '+
-      'class="input-group-prepend" '+
-      'id="optionbtns' + questionAreaCounter +'"> '+
-        '<button '+
-          'class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" '+
-          'type="button" '+
-          'data-toggle="dropdown" '+
-          'aria-haspopup="true" '+
-          'aria-expanded="false">+'+
-        '</button> '+
-        '<div '+
-          'class="dropdown-menu"> '+
-            '<button '+
-              'class="dropdown-item options' + questionAreaCounter + '" '+
-              'onclick="createMultipleChoice(this.className)"> '+
-                'Multiple choice '+
-            '</button> '+
-            '<button '+
-              'class="dropdown-item options' + questionAreaCounter + '" '+
-              'href="#">'+
-              'Ratings '+
-            '</button> '+
-            '<button '+
-              'class="dropdown-item options' + questionAreaCounter +'" '+
-              'onclick="createLongAnswer(this.className)"> '+
-              'Long Answer '+
-            '</button> '+
-            '<button '+
-              'class="dropdown-item options' +  questionAreaCounter +'">'+
-              'Short Answer '+
-            '</button> '+
-          '</div> '+
-      '</div > ';
+    '<div ' +
+    'class="input-group-prepend" ' +
+    'id="optionbtns' + questionAreaCounter + '"> ' +
+    '<button ' +
+    'class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" ' +
+    'type="button" ' +
+    'data-toggle="dropdown" ' +
+    'aria-haspopup="true" ' +
+    'aria-expanded="false">+' +
+    '</button> ' +
+    '<div ' +
+    'class="dropdown-menu"> ' +
+    '<button ' +
+    'class="dropdown-item options' + questionAreaCounter + '" ' +
+    'onclick="createMultipleChoice(this.className)"> ' +
+    'Multiple choice ' +
+    '</button> ' +
+    '<button ' +
+    'class="dropdown-item options' + questionAreaCounter + '" ' +
+    'href="#">' +
+    'Ratings ' +
+    '</button> ' +
+    '<button ' +
+    'class="dropdown-item options' + questionAreaCounter + '" ' +
+    'onclick="createLongAnswer(this.className)"> ' +
+    'Long Answer ' +
+    '</button> ' +
+    '<button ' +
+    'class="dropdown-item options' + questionAreaCounter + '">' +
+    'Short Answer ' +
+    '</button> ' +
+    '</div> ' +
+    '</div > ';
 
   // This is the 5th Column
   let optionset5thDivCol =
@@ -467,11 +467,10 @@ function create(btnclass, btnid) {
     // alert('in if else condition of multiple choice');
   } else if (btnid == 2) {
 
-  } 
-  else if (btnid == 3) {
+  } else if (btnid == 3) {
     insertQuestion(btnid);
     // createLongAnswer(questionAreaCounter);
-    // alert('in if else condition of long answer');
+    alert('in if else condition of long answer');
   } else if (btnid == 4) {}
 
   questionAreaCounter++;
@@ -481,7 +480,7 @@ function create(btnclass, btnid) {
 
 //  ****************** Event Listeners **********************
 
-function myFunction(key,Info) {
+function myFunction(key, Info) {
   if (key.keyCode == "13") {
     createMultipleChoice(Info);
   }
@@ -496,7 +495,7 @@ function cursorFocus(x) {
 function createBefore(btnclass, btnid) {
   // alert('globalVariablei is' + iddd);
 
-  console.log('QuestionAreaCounter is ',questionAreaCounter);
+  console.log('QuestionAreaCounter is ', questionAreaCounter);
   // ######################  All the common tags used for dynamically creating  ############################
 
   // This creates the Questionset Div tag with gets appended to form-page1
@@ -518,7 +517,7 @@ function createBefore(btnclass, btnid) {
     questionAreaCounter +
     '" class="questionarea questionsetComponents' +
     questionAreaCounter2 +
-    '" value="">'+ globalVariable.questionArray[questionAreaCounter].Questions +'</textarea>';
+    '" value="">' + globalVariable.questionArray[questionAreaCounter].Questions + '</textarea>';
 
   // *************** From here and down, we'll be creating a structure for other options to land *************
 
@@ -589,25 +588,25 @@ function createBefore(btnclass, btnid) {
     '"></div>';
   // This is also a dropDown button from Bootstrap but its use it to have extra options like delete and etc
   let dropDownButton2 =
-    '<div class="input-group-prepend">'+
-      '<button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
-        'Del'+
-      '</button>'+
-        '<div class="dropdown-menu">'+
-          '<button class="dropdown-item extraOptions' +questionAreaCounter +'">'+
-            'Delete Choice'+
-          '</button> '+
-          '<button class="dropdown-item extraOptions'+questionAreaCounter +'">'+
-            'Another action'+
-          '</button> '+
-          '<button class="dropdown-item extraOptions'+questionAreaCounter +'">'+
-            'Something else here'+
-          '</button>'+
-          '<div role="separator" class="dropdown-divider"></div>'+
-        '<button class="dropdown-item extraOptions' +questionAreaCounter +'">'+
-        'Separated link'+
-        '</button>'+
-      ' </div>'+
+    '<div class="input-group-prepend">' +
+    '<button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
+    'Del' +
+    '</button>' +
+    '<div class="dropdown-menu">' +
+    '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+    'Delete Choice' +
+    '</button> ' +
+    '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+    'Another action' +
+    '</button> ' +
+    '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+    'Something else here' +
+    '</button>' +
+    '<div role="separator" class="dropdown-divider"></div>' +
+    '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+    'Separated link' +
+    '</button>' +
+    ' </div>' +
     '</div>';
 
   // This is to rest the counter for the multiple choice inputs spaces and for creating their UNIQUE ID's
@@ -656,12 +655,12 @@ function createBefore(btnclass, btnid) {
 
   // This is the 4th column and the contents are just besides it
   $(rowOptionset)
-    // .append('optionset4thColDivTag');
-    
+  // .append('optionset4thColDivTag');
+
   // *************** Code for bootstrap dropdownbutton *****************
   $(col4Optionset)
-    // .append('dropDownButton');
-   
+  // .append('dropDownButton');
+
 
   // This is the 5th column and the contents are just besides it
   $(rowOptionset).append(optionset5thDivCol);
@@ -669,10 +668,7 @@ function createBefore(btnclass, btnid) {
 
   if (btnid == 1) {
     addMultipleChoiceBefore();
-  } else if (btnid == 2) {
-  } else if (btnid == 3) {
-  } else if (btnid == 4) {
-  }
+  } else if (btnid == 2) {} else if (btnid == 3) {} else if (btnid == 4) {}
 
   questionAreaCounter++;
 
@@ -680,12 +676,11 @@ function createBefore(btnclass, btnid) {
 
 
 function getTheQuestionCount() {
-  alert(' in getquestions');
   $.ajax({
     url: "getData.php",
     type: "post",
     data: {
-      formId : formIdIs
+      formId: formIdIs
     },
     success: function (data, status) {
       // console.log(data);
@@ -695,37 +690,33 @@ function getTheQuestionCount() {
         questionCount = $('#questionCount').text();
         let option1 = $('#option1').text();
         // console.log(questionCount);
-        // alert(questionCount);
+        alert(questionCount);
       }
       if (status == "success") {
         creatingTheExistingContent(questionCount, status);
-        alert(questionCount);
       }
     },
   });
-  
-  
+
+
 }
 
 function creatingTheExistingContent(questionCount, status) {
-  alert('globalVariablei is'+questionCount);
+  // alert('globalVariablei is' + iddd);
   if (status == "success") {
 
   }
   let option1Len = option1.length;
-  for (let i = 0; i < questionCount; i++)
-  {
+  for (let i = 0; i < questionCount; i++) {
     if (globalVariable.option1[i].Option1.length == 0) {
       createBefore(i, 3);
-    }
-    else if (globalVariable.option1[i].Option1.length == 1) {
+    } else if (globalVariable.option1[i].Option1.length == 1) {
       // this is for rating
-    }
-    else if (globalVariable.option1[i].Option1.length > 1) {
+    } else if (globalVariable.option1[i].Option1.length > 1) {
       // this is multiple choice
       createBefore(i, 1);
       optioncount = 0;
-      optionArray =[];
+      optionArray = [];
       optionArray.push(globalVariable.option1[i].Option1);
       if (globalVariable.option2[i].Option2.length > 1) {
         optionArray.push(globalVariable.option2[i].Option2);
@@ -745,11 +736,10 @@ function creatingTheExistingContent(questionCount, status) {
         optioncount++;
 
       }
-      for(let a=1 ; a <= optioncount ; a++ )
-      {
-        createMultipleChoiceBefore(a,i);
+      for (let a = 1; a <= optioncount; a++) {
+        createMultipleChoiceBefore(a, i);
         console.log("in option for loop");
-        console.log('option array is ? ',optionArray);
+        console.log('option array is ? ', optionArray);
       }
 
 
@@ -774,7 +764,7 @@ function deleted() {
   questionsetdiv[j - 1].remove();
   textareaarr[i - 1].remove();
   optionset[optionsetLen - 1].remove();
-  
+
 
   let q_noArray = globalVariable.q_no;
   let last_q_no = q_noArray.length;
@@ -784,7 +774,7 @@ function deleted() {
     type: "post",
     data: {
       // last_q_no : last_q_no
-      
+
     },
     success: function (data, status) {
       // console.log(data);
@@ -801,14 +791,14 @@ function deleted() {
 function insertQuestion(btnid) {
   let q_no1 = parseInt(questionAreaCounter);
   q_no1++;
-  // alert(q_no1);
+  alert(q_no1);
   $.ajax({
     url: "insertQuestion.php",
     type: "post",
     data: {
       id: q_no1,
       formId: formIdIs,
-      btnid : btnid
+      btnid: btnid
     },
     success: function (data, status) {
       // console.log(data);
@@ -827,9 +817,9 @@ function ajaxToSave(id, btnid) {
     let questionAreaCounterMinus1 = questionAreaCounter - 1;
 
     let textareaId = "#Q" + id;
- 
+
     let textarea = $(textareaId).val();
- 
+
     $.ajax({
       url: "submit.php",
       type: "post",
@@ -838,7 +828,7 @@ function ajaxToSave(id, btnid) {
         question: textarea,
         option: 1,
         btnid: btnid,
-        formId : formIdIs
+        formId: formIdIs
       },
       success: function (data, status) {
         // console.log(data);
@@ -851,13 +841,13 @@ function ajaxToSave(id, btnid) {
   if (btnid == 1) {
     let idLen = id.length;
     Id = id[idLen - 1];
-    Id2 = parseInt(id)+1;
+    Id2 = parseInt(id) + 1;
     AId = Id;
     let questionAreaCounterMinus1 = questionAreaCounter - 1;
 
     let textareaId = "#Q" + id;
     // let answerId = "#longAnswer" + AId;
-    console.log('id ',id);
+    console.log('id ', id);
     console.log('id2 ', Id2);
 
     // Collecting Multiple choice options count
@@ -880,8 +870,8 @@ function ajaxToSave(id, btnid) {
       "total no of multiple choices ",
       totalMultipleChoiceInputCountLen
     );
-    // alert(' total number of multiple chocies are '+totalMultipleChoiceInputCountLen);
-    let optionValue = []; 
+    alert(' total number of multiple chocies are ' + totalMultipleChoiceInputCountLen);
+    let optionValue = [];
 
     for (a = 1; a < totalMultipleChoiceInputCountLen + 1; a++) {
       let optionId = "#multipleChoiceid" + Id2 + a;
@@ -952,4 +942,3 @@ function AutoShrinkArea(textField) {
 
 
 // #################################################   Code for testing   ####################################################
-

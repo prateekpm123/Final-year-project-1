@@ -1,6 +1,6 @@
-<!-- <?php
+<?php
 session_start();
-$username = $_SESSION['uname'];
+// $username = $_SESSION['uname'];
 include("mydb.php");
 include("getData.php");
 // $con = mysqli_connect('localhost','root');
@@ -30,7 +30,7 @@ include("getData.php");
     //     ini_set('display_errors', 1);
     // }
 // } 
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -162,7 +162,6 @@ include("getData.php");
                                     </div>
                                 </div>
                             </div>  
-
                             
                         </div>     
                     </div> -->
