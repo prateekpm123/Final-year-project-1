@@ -14,7 +14,7 @@ questionCount =0;
  optioncount = 1;
 
 formIdIs = localStorage.getItem("myId");
-alert("the value recieved is " + formIdIs);
+// alert("the value recieved is " + formIdIs);
 
 
 // let iddd = globalVariable1.formId;
@@ -471,7 +471,7 @@ function create(btnclass, btnid) {
   else if (btnid == 3) {
     insertQuestion(btnid);
     // createLongAnswer(questionAreaCounter);
-    alert('in if else condition of long answer');
+    // alert('in if else condition of long answer');
   } else if (btnid == 4) {}
 
   questionAreaCounter++;
@@ -680,6 +680,7 @@ function createBefore(btnclass, btnid) {
 
 
 function getTheQuestionCount() {
+  alert(' in getquestions');
   $.ajax({
     url: "getData.php",
     type: "post",
@@ -694,10 +695,11 @@ function getTheQuestionCount() {
         questionCount = $('#questionCount').text();
         let option1 = $('#option1').text();
         // console.log(questionCount);
-        alert(questionCount);
+        // alert(questionCount);
       }
       if (status == "success") {
         creatingTheExistingContent(questionCount, status);
+        alert(questionCount);
       }
     },
   });
@@ -706,7 +708,7 @@ function getTheQuestionCount() {
 }
 
 function creatingTheExistingContent(questionCount, status) {
-  // alert('globalVariablei is' + iddd);
+  alert('globalVariablei is'+questionCount);
   if (status == "success") {
 
   }
@@ -799,7 +801,7 @@ function deleted() {
 function insertQuestion(btnid) {
   let q_no1 = parseInt(questionAreaCounter);
   q_no1++;
-  alert(q_no1);
+  // alert(q_no1);
   $.ajax({
     url: "insertQuestion.php",
     type: "post",
@@ -878,7 +880,7 @@ function ajaxToSave(id, btnid) {
       "total no of multiple choices ",
       totalMultipleChoiceInputCountLen
     );
-    alert(' total number of multiple chocies are '+totalMultipleChoiceInputCountLen);
+    // alert(' total number of multiple chocies are '+totalMultipleChoiceInputCountLen);
     let optionValue = []; 
 
     for (a = 1; a < totalMultipleChoiceInputCountLen + 1; a++) {
