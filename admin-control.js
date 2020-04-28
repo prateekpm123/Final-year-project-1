@@ -9,4 +9,8 @@ function passTheId(id) {
     window.location.href="admin-conttrol-form.php";
     window.location.href = "preview-form.php";
 
+} 
+
+function newcard() {
+    let cardBody = 
 }

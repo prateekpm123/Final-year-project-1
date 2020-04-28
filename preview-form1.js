@@ -11,7 +11,7 @@ let pressedCount = 0;
 //     })
 // });
 function fetchData() {
-    alert(' fetch the data');
+    // alert(' fetch the data');
     $.ajax({
         url: "getData.php",
         type: "post",
