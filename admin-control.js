@@ -12,5 +12,31 @@ function passTheId(id) {
 } 
 
 function newcard() {
-    let cardBody = 
+    
+    let cardBody = '<a>'+
+                        '<div class="my-card newCard">'+
+                            '<div class="my-card-body">'+
+                                '<h6 class="card-title" contenteditable="true" id="test" >Type here the title</h6>' +
+                            '</div>'+
+                        '</div>'+
+                    '</a>';
+    
+    $('#cardArea').append(cardBody);
+}
+
+function newcardVersion() {
+    let cardBody = '<div class="my-card newCard">' +
+                        '<div class="my-card-body">' +
+                            '<h6 class="card-title" contenteditable="true" id="test">Teachers review on infrastructure</h6>' +
+                            '<a href="admin-control-form.php" onclick="passTheId(this.id)" id="1" class="card-link">Edit</a>' +
+                            '<a href="admin-control-form.php" class="card-link">Delete</a>' +
+                        '</div>' +
+                    '</div>';
+
+    $('#cardAreaVersion').append(cardBody);
+}
+
+function test() {
+    let valueIs = $('#test').text();
+    alert('value is '+valueIs);
 }
