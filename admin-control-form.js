@@ -10,7 +10,7 @@ optionsClick = 0;
 addOrRemoveCounter = 0;
 questionCount = 0;
 
-optionArray = [];
+optionArray = []; 
 optioncount = 1;
 
 formIdIs = localStorage.getItem("myId");
@@ -72,13 +72,14 @@ function createMultipleChoice(Info) {
   id = Info.substring('input-choice multipleChoiceInput'.length);
   id = id;
   // alert(info);
-  id = parseInt(id);
+  id1 = parseInt(id);
   id--;
+  console.log('id in creating multiple choice on enter is ',id);
   // alert(id);
 
 
   let multipleChoiceInputTag = '<input  type = "text"' +
-    'class = "input-choice multipleChoiceInput' + questionAreaCounter + '" ' +
+    'class = "input-choice multipleChoiceInput' + id1 + '" ' +
     'placeholder=" - " ' +
     'id="multipleChoiceid' + questionAreaCounter + multipleChoiceCounter + '" ' +
     'aria-label= "Recipient\'s username" ' +
@@ -90,7 +91,7 @@ function createMultipleChoice(Info) {
 
 
   idno = id;
-  console.log("idno = ", idno);
+  console.log("idno = ", id);
   let idno2 = idno;
   let questionsetdiv = "#questionset" + idno;
 
@@ -109,7 +110,7 @@ function createMultipleChoiceBefore(a, i) {
     'aria-label="Recipient\'s username" ' +
     'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
     'value="' + optionArray[a] + '" ' +
-    'onkeypress="myFunction(event, this.id)"' +
+    'onkeypress="myFunction(event, this.className)"' +
     'onfocus = "cursorFocus(this.id)"' +
     '</input>';
 
@@ -710,9 +711,11 @@ function creatingTheExistingContent(questionCount, status) {
   for (let i = 0; i < questionCount; i++) {
     if (globalVariable.option1[i].Option1.length == 0) {
       createBefore(i, 3);
-    } else if (globalVariable.option1[i].Option1.length == 1) {
+    } 
+    else if (globalVariable.option1[i].Option1.length == 1) {
       // this is for rating
-    } else if (globalVariable.option1[i].Option1.length > 1) {
+    } 
+    else if (globalVariable.option1[i].Option1.length > 1) {
       // this is multiple choice
       createBefore(i, 1);
       optioncount = 0;
@@ -742,8 +745,9 @@ function creatingTheExistingContent(questionCount, status) {
         console.log('option array is ? ', optionArray);
       }
 
-
+      
     }
+    console.log("count value is --------",questionAreaCounter);
   }
 }
 

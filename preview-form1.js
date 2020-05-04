@@ -149,7 +149,7 @@ function displayNext() {
     // $("#display").append('<div class="questions" id="questionArea"></div>');
 
     // ********************* Appending the questions over here *********************
-    $("#questionArea").append('<h1 class="para" id="' + count1 + '">' + questionArray[count].Questions + '</h1>');
+    $("#questionArea").append('<h1 class="para" id="' + count1 + '">' +count1 +'. '+  questionArray[count].Questions + '</h1>');
     // alert("option is"+questionArray[count].Option1);
 
 
