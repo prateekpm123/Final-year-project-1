@@ -70,13 +70,14 @@ function createLongAnswer(info) {
 function createMultipleChoice(Info) {
   // info = allInfo.className;
   id = Info.substring('input-choice multipleChoiceInput'.length);
-  id = id;
+  // id = id.substring(" focus-visible".length);
+  id = id[0];
   // alert(info);
   id1 = parseInt(id);
   console.log('id in creating multiple choice on enter is ', id);
   id--;
   console.log('id in creating multiple choice on enter is ', id);
-
+  alert('testing');
   // alert(id);
 
 
@@ -87,7 +88,6 @@ function createMultipleChoice(Info) {
     'aria-label= "Recipient\'s username" ' +
     'aria-describedby= "multipleChoiceBtn' + questionAreaCounter + '" ' +
     'onkeypress="myFunction(event, this.className)"' +
-    'onfocus = "cursorFocus(this.id)"' +
     'value="" ' +
     '</input>';
 
@@ -135,14 +135,13 @@ function addMultipleChoice() {
   let questionAreaCounter3 = questionAreaCounter;
   questionAreaCounter3++;
   // This creates an input box for the multiple choice option
-  let multipleChoiceInputTag = '<input  type = "text"' +
+  let multipleChoiceInputTag = '<input  type="text"' +
     'class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" ' +
     'placeholder=" - " ' +
     'id="multipleChoiceid' + questionAreaCounter3 + multipleChoiceCounter + '" ' +
     'aria-label="Recipient\'s username" ' +
     'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
     'onkeypress="myFunction(event, this.className)"' +
-    'onfocus = "cursorFocus(this.id)"' +
     'value="" ' +
     '</input>';
 
@@ -215,7 +214,6 @@ function addMultipleChoiceBefore() {
     'aria-label="Recipient\'s username" ' +
     'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
     'onkeypress="myFunction(event, this.className)"' +
-    'onfocus = "cursorFocus(this.id)"' +
     'value="' + globalVariable.option1[questionAreaCounter].Option1 + '" ' +
     '</input>';
 
@@ -392,15 +390,26 @@ function create(btnclass, btnid) {
     '"></div>';
   // This is also a dropDown button from Bootstrap but its use it to have extra options like delete and etc
   let dropDownButton2 =
-    '<div class="input-group-prepend"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Del</button> <div class="dropdown-menu"> <button class="dropdown-item extraOptions' +
-    questionAreaCounter +
-    '">Delete Choice</button> <button class="dropdown-item extraOptions' +
-    questionAreaCounter +
-    '">Another action</button> <button class="dropdown-item extraOptions' +
-    questionAreaCounter +
-    '">Something else here</button> <div role="separator" class="dropdown-divider"></div> <button class="dropdown-item extraOptions' +
-    questionAreaCounter +
-    '">Separated link</button> </div> </div>';
+    '<div class="input-group-prepend">' +
+      '<button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
+        'Del' +
+      '</button>' +
+      '<div class="dropdown-menu">' +
+        '<button onclick="deleteThis(this.className)" class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+          'Delete This !' +
+        '</button> ' +
+        '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+          'Another action' +
+        '</button> ' +
+        '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+          'Something else here' +
+        '</button>' +
+        '<div role="separator" class="dropdown-divider"></div>' +
+        '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+          'Separated link' +
+        '</button>' +
+      ' </div>' +
+    '</div>';
 
   // This is to rest the counter for the multiple choice inputs spaces and for creating their UNIQUE ID's
   multipleChoiceCounter = 1;
@@ -486,7 +495,7 @@ function create(btnclass, btnid) {
 function myFunction(key, Info) {
   if (key.keyCode == "13") {
     createMultipleChoice(Info);
-    alert(Info);
+    alert("in myfunction"+Info);
   }
 }
 
@@ -593,24 +602,24 @@ function createBefore(btnclass, btnid) {
   // This is also a dropDown button from Bootstrap but its use it to have extra options like delete and etc
   let dropDownButton2 =
     '<div class="input-group-prepend">' +
-    '<button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
-    'Del' +
-    '</button>' +
-    '<div class="dropdown-menu">' +
-    '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
-    'Delete Choice' +
-    '</button> ' +
-    '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
-    'Another action' +
-    '</button> ' +
-    '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
-    'Something else here' +
-    '</button>' +
-    '<div role="separator" class="dropdown-divider"></div>' +
-    '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
-    'Separated link' +
-    '</button>' +
-    ' </div>' +
+      '<button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
+        'Del' +
+      '</button>' +
+      '<div class="dropdown-menu">' +
+        '<button onclick="deleteThis(this.className)" class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+          'Delete This !' +
+        '</button> ' +
+        '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+          'Another action' +
+        '</button> ' +
+        '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+          'Something else here' +
+        '</button>' +
+        '<div role="separator" class="dropdown-divider"></div>' +
+        '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+          'Separated link' +
+        '</button>' +
+      ' </div>' +
     '</div>';
 
   // This is to rest the counter for the multiple choice inputs spaces and for creating their UNIQUE ID's
@@ -792,6 +801,17 @@ function deleted() {
 
   questionAreaCounter--;
 
+
+}
+
+function deleteThis(info) {
+  let deleteThisClassId = info;
+  deleteThisClassId = deleteThisClassId.substring('dropdown-item extraOptions'.length);
+  let questionArea = "#questionset"+deleteThisClassId;
+  let optionArea = "#optionset"+deleteThisClassId;
+
+  $(questionArea).remove();
+  $(optionArea).remove();
 
 }
 
