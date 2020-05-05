@@ -1,5 +1,18 @@
 <?php 
 
+require_once('Log.class.php');
+
+$Log = new Log();
+
+$Log -> Write('test.txt',"\r \r ***********:: Saving the questions in submit.php *************");
+
+
+$time = time();
+$actual_time = date(' D M Y @ H:i:s', $time);
+$Log -> Write('test.txt',"todays date is !! .$actual_time");
+
+
+
 // ##########  Collecting the variables from AJAX  ###########
 $questionCount = $_POST['id'];
 $question = $_POST['question'];
@@ -30,25 +43,29 @@ if (!$con) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
+// Log() -> Write('test.txt','Connected successfully');
 echo "Connected successfully";
 echo "</br>";
 
 
 // ******* Creating a time function *********
 
-$time = time();
-$actual_time = date('d m Y @ H:i:s', $time);
+// $time = time();
+// $actual_time = date('d m Y @ H:i:s', $time);
 
 
 // #############   This whole is to check the get the primary key of the question table and if the same primary key is coming up then just update it !!  ##############
 $checkForPrimaryKey = "SELECT q_no FROM questions";
 if (mysqli_query($con, $checkForPrimaryKey)) 
     {
-      echo "<h5>New record created successfully</h5>";
+      echo "<h5>Got the primary key successfully</h5>";
+      $Log -> Write('test.txt',"Got the primary key's successfully");
     } 
     else 
     {
       echo "Error: " . $checkForPrimaryKey . "<br>" . mysqli_error($con);
+      $Log -> Write('test.txt',"Error: . $checkForPrimaryKey . '<br>' ". mysqli_error($con));
+
     }
 
 $keys = mysqli_query($con, $checkForPrimaryKey);
@@ -88,7 +105,7 @@ if ( $btnid == 1)
     if (mysqli_query($con, $add)) 
     {
       echo "<h5>Updated record created successfully</h5>";
-
+      $Log -> Write('test.txt', 'Updated record created successfully');
     } 
     else 
     {
@@ -105,13 +122,14 @@ if ( $btnid == 1)
       if (mysqli_query($con, $addOption)) 
         {
           echo "<h5>Added the option sucessfully</h5>";
-
+          
         } 
         else 
         {
           echo "Error: " . $addOption . "<br>" . mysqli_error($con);
         }
     }
+    $Log -> Write('test.txt', 'Added all the options sucessfully');
   }
   else 
   {
@@ -122,11 +140,15 @@ if ( $btnid == 1)
     if (mysqli_query($con, $add)) 
     {
       echo "<h5>New record created successfully</h5>";
+      $Log -> Write('test.txt', 'New record created successfully');
+
 
     } 
     else 
     {
       echo "Error: " . $add . "<br>" . mysqli_error($con);
+      $Log -> Write('test.txt', "Error:  . $add . \r" . mysqli_error($con));
+
     }
     for ( $a = 0; $a < count($option); $a++)
     {
@@ -137,11 +159,15 @@ if ( $btnid == 1)
       if (mysqli_query($con, $addOption)) 
         {
           echo "<h5>Added the option sucessfully</h5>";
+          $Log -> Write('test.txt', 'Added the option sucessfully');
+
 
         } 
         else 
         {
           echo "Error: " . $addOption . "<br>" . mysqli_error($con);
+          $Log -> Write('test.txt', "Error:  . $addOption . \r" . mysqli_error($con));
+
         }
     }
   }
@@ -158,23 +184,30 @@ else if ( $btnid == 3)
     if (mysqli_query($con, $add)) 
     {
       echo "<h5>Updated record created successfully</h5>";
+      $Log -> Write('test.txt', "Updated record created successfully");
+
 
     } 
     else 
     {
       echo "Error: " . $add . "<br>" . mysqli_error($con);
+      $Log -> Write('test.txt', "Error:  . $add . \r" . mysqli_error($con));
+
     }
     echo " <h3> </h3>";
 
-  $updateOptions = "UPDATE `questions` SET `Option1`='' ,`Option2`='' ,`Option3`='',`Option4`='' ,`Option5`='',`Option6`='',`Option7`='',`Option8`='',`Option9`='' ,`Option10`='' WHERE `id`=$formId AND `q_no`=$questionCount"; 
+  $updateOptions = "UPDATE `questions` SET `Option1`='' ,`Option2`='' ,`Option3`='',`Option4`='' ,`Option5`='',`Option6`='',`Option7`='',`Option8`='',`Option9`='' ,`Option10`='' WHERE `id`=1 AND `q_no`=$questionCount"; 
     if (mysqli_query($con, $updateOptions)) 
     {
       echo "<h5>Options removed Sucessfully</h5>";
+      $Log -> Write('test.txt', "Options removed Sucessfully");
 
     } 
     else  
     {
       echo "Error: " . $updateOptions . "<br>" . mysqli_error($con);
+      $Log -> Write('test.txt', "Error:  . $updateOptions . \r" . mysqli_error($con));
+
     }
   }
   else 
@@ -186,11 +219,14 @@ else if ( $btnid == 3)
     if (mysqli_query($con, $add)) 
     {
       echo "<h5>New record created successfully</h5>";
+      $Log -> Write('test.txt', "New record created successfully");
 
     } 
     else  
     {
       echo "Error: " . $add . "<br>" . mysqli_error($con);
+      $Log -> Write('test.txt', "Error:  . $add . \r" . mysqli_error($con));
+
     }
 
  
@@ -198,11 +234,14 @@ else if ( $btnid == 3)
     if (mysqli_query($con, $updateOptions)) 
     {
       echo "<h5>Options removed Sucessfully</h5>";
+      $Log -> Write('test.txt', "Options removed Sucessfully");
 
     } 
     else  
     {
       echo "Error: " . $updateOptions . "<br>" . mysqli_error($con);
+      $Log -> Write('test.txt', "Error:  . $updateOptions  . \r" . mysqli_error($con));
+
     }
     
   }

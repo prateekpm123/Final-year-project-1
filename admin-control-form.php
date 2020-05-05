@@ -69,7 +69,7 @@ include("getData.php");
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
                         <a class="dropdown-item" href="web/index.php">Stats</a>
-                        <a class="dropdown-item" href="admin-control.html">Forms creation</a>
+                        <a class="dropdown-item" href="admin-control.php">Forms creation</a>
                         <!-- <a class="dropdown-item" href="#">Something else here</a> -->
                     </div>
                 </li>

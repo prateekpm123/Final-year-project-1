@@ -14,7 +14,7 @@ optionArray = [];
 optioncount = 1;
 
 formIdIs = localStorage.getItem("myId");
-// alert("the value recieved is " + formIdIs);
+alert("the value recieved is " + formIdIs);
 
 
 // let iddd = globalVariable1.formId;
@@ -73,8 +73,10 @@ function createMultipleChoice(Info) {
   id = id;
   // alert(info);
   id1 = parseInt(id);
+  console.log('id in creating multiple choice on enter is ', id);
   id--;
-  console.log('id in creating multiple choice on enter is ',id);
+  console.log('id in creating multiple choice on enter is ', id);
+
   // alert(id);
 
 
@@ -484,6 +486,7 @@ function create(btnclass, btnid) {
 function myFunction(key, Info) {
   if (key.keyCode == "13") {
     createMultipleChoice(Info);
+    alert(Info);
   }
 }
 

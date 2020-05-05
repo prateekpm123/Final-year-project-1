@@ -1,1 +1,167 @@
-hey there whats is up my dudehey there whats is up my dudeThe function is sucessfully working right now !!hey there whats is up my dudeThe function is sucessfully working right now !!
+
+
+########### :: This is getdata.php ##############
+line count is = 0
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
+
+########### :: This is getdata.php ##############
+line count is = 1
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
+
+ 
+ ***********:: Saving the questions in submit.php *************
+todays date is !! . Mon May 2020 @ 10:17:35
+Got the primary key's successfully
+Updated record created successfully
+Options removed Sucessfully
+
+ 
+ ***********:: Saving the questions in submit.php *************
+todays date is !! . Mon May 2020 @ 10:17:49
+Got the primary key's successfully
+Updated record created successfully
+Added all the options sucessfully
+
+ 
+ ***********:: Deleting Questions ************* {Prateek deleted: quesiton }  Mon May 2020 @ 10:17:51
+Connection sucessfull
+Got the q_no successfully
+Successfully deleted the current last question
+
+ 
+ ***********:: Deleting Questions *************  Mon May 2020 @ 10:17:53
+Connection sucessfull
+Got the q_no successfully
+Successfully deleted the current last question
+
+########### :: This is getdata.php ############## :  Mon May 2020 @ 14:28:58
+line count is = 1
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
+
+########### :: This is getdata.php ############## :  Mon May 2020 @ 14:29:04
+line count is = 1
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
+
+########### :: This is getdata.php ############## :  Mon May 2020 @ 14:29:18
+line count is = 1
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
+
+########### :: This is getdata.php ############## :  Mon May 2020 @ 14:29:23
+line count is = 1
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
+
+########### :: This is getdata.php ############## :  Mon May 2020 @ 14:29:53
+line count is = 1
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
+
+########### :: This is getdata.php ############## :  Mon May 2020 @ 14:29:57
+line count is = 1
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
+
+########### :: This is getdata.php ############## :  Mon May 2020 @ 14:35:01
+line count is = 1
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
+
+########### :: This is getdata.php ############## :  Mon May 2020 @ 14:35:06
+line count is = 1
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
+
+########### :: This is getdata.php ############## :  Mon May 2020 @ 14:35:22
+line count is = 1
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
+
+########### :: This is getdata.php ############## :  Mon May 2020 @ 14:35:24
+line count is = 1
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
+
+########### :: This is getdata.php ############## :  Mon May 2020 @ 14:40:19
+line count is = 1
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
+
+########### :: This is getdata.php ############## :  Mon May 2020 @ 14:40:23
+line count is = 1
+Got the q_no successfully
+Got the question successfully
+Got the option successfully
+Got the option2 successfully
+Got the Option3 successfully
+Got the Option4 successfully
+Got the Option5 successfully
