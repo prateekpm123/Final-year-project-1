@@ -185,11 +185,11 @@ include("getData.php");
                             aria-expanded="false">Create</button>
                         <div class="dropdown-menu">
                             <button class="dropdown-item options0"
-                                onclick="create(this.className,this.id)" id="1">Multiple
+                                onclick="create(this.className,this.id);insertQuestion(this.id);" id="1">Multiple
                                 choice</button>
                             <button class="dropdown-item options0" id="2">Ratings</button>
                             <button class="dropdown-item options0"
-                                onclick="create(this.className,this.id)" id="3">Long
+                                onclick="create(this.className,this.id);insertQuestion(this.id);" id="3">Long
                                 Answer</button>
                             <button class="dropdown-item options0" id="4">Short
                                 Answer</button>

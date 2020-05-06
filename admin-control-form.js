@@ -10,11 +10,11 @@ optionsClick = 0;
 addOrRemoveCounter = 0;
 questionCount = 0;
 
-optionArray = []; 
+optionArray = [];
 optioncount = 1;
 
-formIdIs = localStorage.getItem("myId");
-alert("the value recieved is " + formIdIs);
+// formIdIs = localStorage.getItem("myId");
+// alert("the value recieved is " + formIdIs);
 
 
 // let iddd = globalVariable1.formId;
@@ -67,27 +67,47 @@ function createLongAnswer(info) {
 
 }
 
-function createMultipleChoice(Info) {
+function createMultipleChoice(Info,ID) {
   // info = allInfo.className;
-  id = Info.substring('input-choice multipleChoiceInput'.length);
-  // id = id.substring(" focus-visible".length);
-  id = id[0];
-  // alert(info);
+  // mcCounter++;
+  console.log('-----------------------');
+  console.log("info is ",Info);
+  // let id = Info.substring('input-choice multipleChoiceInput'.length);
+
+
+  let id = Info.match(/.\d+/g, ''); // this extracts only digits from the string
+  let firstCharacter = id[0];
+  console.log(typeof(firstCharacter));
+  id = firstCharacter.substring('t'.length);
+
+  console.log('passed id is ',ID);
+  let passedID = ID.match(/.\d+/g, ''); // this extracts only digits from the string
+  let firstElement = passedID[0];
+  console.log('first element of passedID is ',typeof (firstElement));
+  // passedID = firstElement.substring('d'.length);
+  // console.log("passedID is ",passedID);
+  passedID = passedID.toString();
+  let passedIDLen = passedID.length;
+  passedID = passedID.substring(1, passedIDLen);
+  let questionCount = getCurrentQuestionId(Info); 
+  let newPassedId = divideAfterAZero(passedID, questionCount);
+  console.log('new passes id is ',newPassedId);
+  console.log('id is ',id);
+  id = id;
+  // alert(Info);
   id1 = parseInt(id);
   console.log('id in creating multiple choice on enter is ', id);
   id--;
   console.log('id in creating multiple choice on enter is ', id);
-  alert('testing');
+
   // alert(id);
 
 
   let multipleChoiceInputTag = '<input  type = "text"' +
     'class = "input-choice multipleChoiceInput' + id1 + '" ' +
-    'placeholder=" - " ' +
-    'id="multipleChoiceid' + questionAreaCounter + multipleChoiceCounter + '" ' +
-    'aria-label= "Recipient\'s username" ' +
-    'aria-describedby= "multipleChoiceBtn' + questionAreaCounter + '" ' +
-    'onkeypress="myFunction(event, this.className)"' +
+    'placeholder=" - type your answer" ' +
+    'id="multipleChoiceid' + newPassedId + '" ' +
+    'onkeypress="myFunction(event, this.className,this.id)"' +
     'value="" ' +
     '</input>';
 
@@ -103,17 +123,87 @@ function createMultipleChoice(Info) {
 }
 
 
+function getCurrentQuestionId(classname) {
+  let id = classname.match(/.\d+/g, ''); // this extracts only digits from the string
+  id = id[0];
+  console.log("id is ", id);
+  id2 = id.substring(1, id.length);
+  console.log("pure id is ", id2);
+  return id2;
+}
+
+
+function divideAfterAZero(passedID, currentQuestionAreaCounter) {
+    if (currentQuestionAreaCounter < 9) {
+      console.log('passedID in this new function is', passedID);
+      // passedID = passedID[0];
+      // passedID = toString(passedID);
+      console.log(passedID);
+      let questionCount = passedID[0];
+      let multipleChoiceCount = passedID[1];
+
+      console.log('separated passed id is', multipleChoiceCount);
+      multipleChoiceCount = parseInt(multipleChoiceCount);
+      multipleChoiceCount++;
+      multipleChoiceCount = multipleChoiceCount.toString();
+      multipleChoiceBoxIdNo = questionCount + multipleChoiceCount;
+      console.log('final answer is ', multipleChoiceBoxIdNo);
+      console.log('current question area coutner is ', currentQuestionAreaCounter);
+      return multipleChoiceBoxIdNo;
+
+    } 
+    else if (currentQuestionAreaCounter < 99) {
+      console.log('in 2nd condition');
+      let questionCount = passedID.substring(0, 2);
+      console.log('question count is ',questionCount);
+      let multipleChoiceCount = passedID.substring(2, passedID.length);
+      console.log('multiplechoicecount is ',multipleChoiceCount);
+      // console.log('question count is', multipleChoiceCount);
+      multipleChoiceCount = parseInt(multipleChoiceCount);
+      multipleChoiceCount++;
+      let multipleChoiceBoxIdNo = questionCount + multipleChoiceCount;
+      console.log("fiunal answer is ", multipleChoiceBoxIdNo);
+      return multipleChoiceBoxIdNo;
+
+      // console.log('passedID in this new function is', passedID);
+      // // passedID = passedID[0];
+      // // passedID = toString(passedID);
+      // console.log(passedID);
+      // let questionCount = passedID[0];
+      // let multipleChoiceCount = passedID[1];
+
+      // console.log('separated passed id is', multipleChoiceCount);
+      // multipleChoiceCount = parseInt(multipleChoiceCount);
+      // multipleChoiceCount++;
+      // multipleChoiceCount = multipleChoiceCount.toString();
+      // multipleChoiceBoxIdNo = questionCount + multipleChoiceCount;
+      // console.log('final answer is ', multipleChoiceBoxIdNo);
+      // console.log('current question area coutner is ', currentQuestionAreaCounter);
+      // return multipleChoiceBoxIdNo;
+    } 
+    
+    else if (currentQuestionAreaCounter < 999) {
+      console.log('in 2nd condition');
+      let questionCount = passedID.substring(0, 3);
+      let multipleChoiceCount = passedID.substring(3, passedID.length);
+      console.log('question count is', multipleChoiceCount);
+      multipleChoiceCount = parseInt(multipleChoiceCount);
+      multipleChoiceCount++;
+      let multipleChoiceBoxIdNo = questionCount + multipleChoiceCount;
+      console.log("fiunal answer is ", multipleChoiceBoxIdNo);
+      return multipleChoiceBoxIdNo;
+
+  }
+}
+
 function createMultipleChoiceBefore(a, i) {
 
   let multipleChoiceInputTag = '<input  type = "text"' +
     'class = "input-choice multipleChoiceInput' + questionAreaCounter + '" ' +
-    'placeholder=" - " ' +
+    'placeholder=" - type your option" ' +
     'id="multipleChoiceid' + questionAreaCounter + multipleChoiceCounter + '" ' +
-    'aria-label="Recipient\'s username" ' +
-    'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
     'value="' + optionArray[a] + '" ' +
-    'onkeypress="myFunction(event, this.className)"' +
-    'onfocus = "cursorFocus(this.id)"' +
+    'onkeypress="myFunction(event, this.className,this.id)"' +
     '</input>';
 
 
@@ -135,14 +225,11 @@ function addMultipleChoice() {
   let questionAreaCounter3 = questionAreaCounter;
   questionAreaCounter3++;
   // This creates an input box for the multiple choice option
-  let multipleChoiceInputTag = '<input  type="text"' +
+  let multipleChoiceInputTag = '<input  type = "text"' +
     'class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" ' +
-    'placeholder=" - " ' +
+    'placeholder=" - type your option" ' +
     'id="multipleChoiceid' + questionAreaCounter3 + multipleChoiceCounter + '" ' +
-    'aria-label="Recipient\'s username" ' +
-    'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
-    'onkeypress="myFunction(event, this.className)"' +
-    'value="" ' +
+    'onkeypress="myFunction(event, this.className, this.id)"' +
     '</input>';
 
 
@@ -209,11 +296,9 @@ function addMultipleChoiceBefore() {
 
   let multipleChoiceInputTag = '<input  type = "text"' +
     'class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" ' +
-    'placeholder=" - " ' +
+    'placeholder=" - type your option" ' +
     'id="multipleChoiceid' + questionAreaCounter3 + multipleChoiceCounter + '" ' +
-    'aria-label="Recipient\'s username" ' +
-    'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
-    'onkeypress="myFunction(event, this.className)"' +
+    'onkeypress="myFunction(event, this.className, this.id)"' +
     'value="' + globalVariable.option1[questionAreaCounter].Option1 + '" ' +
     '</input>';
 
@@ -390,26 +475,15 @@ function create(btnclass, btnid) {
     '"></div>';
   // This is also a dropDown button from Bootstrap but its use it to have extra options like delete and etc
   let dropDownButton2 =
-    '<div class="input-group-prepend">' +
-      '<button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
-        'Del' +
-      '</button>' +
-      '<div class="dropdown-menu">' +
-        '<button onclick="deleteThis(this.className)" class="dropdown-item extraOptions' + questionAreaCounter + '">' +
-          'Delete This !' +
-        '</button> ' +
-        '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
-          'Another action' +
-        '</button> ' +
-        '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
-          'Something else here' +
-        '</button>' +
-        '<div role="separator" class="dropdown-divider"></div>' +
-        '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
-          'Separated link' +
-        '</button>' +
-      ' </div>' +
-    '</div>';
+    '<div class="input-group-prepend"> <button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Del</button> <div class="dropdown-menu"> <button class="dropdown-item extraOptions' +
+    questionAreaCounter +
+    '">Delete Choice</button> <button class="dropdown-item extraOptions' +
+    questionAreaCounter +
+    '">Another action</button> <button class="dropdown-item extraOptions' +
+    questionAreaCounter +
+    '">Something else here</button> <div role="separator" class="dropdown-divider"></div> <button class="dropdown-item extraOptions' +
+    questionAreaCounter +
+    '">Separated link</button> </div> </div>';
 
   // This is to rest the counter for the multiple choice inputs spaces and for creating their UNIQUE ID's
   multipleChoiceCounter = 1;
@@ -492,10 +566,11 @@ function create(btnclass, btnid) {
 
 //  ****************** Event Listeners **********************
 
-function myFunction(key, Info) {
+function myFunction(key, Info,ID) {
   if (key.keyCode == "13") {
-    createMultipleChoice(Info);
-    alert("in myfunction"+Info);
+    createMultipleChoice(Info, ID);
+    console.log('id is in my function',ID);
+    // alert(Info);
   }
 }
 
@@ -602,24 +677,24 @@ function createBefore(btnclass, btnid) {
   // This is also a dropDown button from Bootstrap but its use it to have extra options like delete and etc
   let dropDownButton2 =
     '<div class="input-group-prepend">' +
-      '<button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
-        'Del' +
-      '</button>' +
-      '<div class="dropdown-menu">' +
-        '<button onclick="deleteThis(this.className)" class="dropdown-item extraOptions' + questionAreaCounter + '">' +
-          'Delete This !' +
-        '</button> ' +
-        '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
-          'Another action' +
-        '</button> ' +
-        '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
-          'Something else here' +
-        '</button>' +
-        '<div role="separator" class="dropdown-divider"></div>' +
-        '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
-          'Separated link' +
-        '</button>' +
-      ' </div>' +
+    '<button class="btn btn-outline-secondary dropdown-toggle optionbtn-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
+    'Del' +
+    '</button>' +
+    '<div class="dropdown-menu">' +
+    '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+    'Delete Choice' +
+    '</button> ' +
+    '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+    'Another action' +
+    '</button> ' +
+    '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+    'Something else here' +
+    '</button>' +
+    '<div role="separator" class="dropdown-divider"></div>' +
+    '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
+    'Separated link' +
+    '</button>' +
+    ' </div>' +
     '</div>';
 
   // This is to rest the counter for the multiple choice inputs spaces and for creating their UNIQUE ID's
@@ -716,6 +791,7 @@ function getTheQuestionCount() {
 
 function creatingTheExistingContent(questionCount, status) {
   // alert('globalVariablei is' + iddd);
+  console.log('testing 1 2 3');
   if (status == "success") {
 
   }
@@ -723,11 +799,9 @@ function creatingTheExistingContent(questionCount, status) {
   for (let i = 0; i < questionCount; i++) {
     if (globalVariable.option1[i].Option1.length == 0) {
       createBefore(i, 3);
-    } 
-    else if (globalVariable.option1[i].Option1.length == 1) {
+    } else if (globalVariable.option1[i].Option1.length == 1) {
       // this is for rating
-    } 
-    else if (globalVariable.option1[i].Option1.length > 1) {
+    } else if (globalVariable.option1[i].Option1.length > 1) {
       // this is multiple choice
       createBefore(i, 1);
       optioncount = 0;
@@ -757,9 +831,9 @@ function creatingTheExistingContent(questionCount, status) {
         console.log('option array is ? ', optionArray);
       }
 
-      
+
     }
-    console.log("count value is --------",questionAreaCounter);
+    console.log("count value is --------", questionAreaCounter);
   }
 }
 
@@ -801,17 +875,6 @@ function deleted() {
 
   questionAreaCounter--;
 
-
-}
-
-function deleteThis(info) {
-  let deleteThisClassId = info;
-  deleteThisClassId = deleteThisClassId.substring('dropdown-item extraOptions'.length);
-  let questionArea = "#questionset"+deleteThisClassId;
-  let optionArea = "#optionset"+deleteThisClassId;
-
-  $(questionArea).remove();
-  $(optionArea).remove();
 
 }
 
