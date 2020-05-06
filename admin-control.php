@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <div class="col-lg-10 col-sm-10 right-side">
+        <div class="col-lg-10 col-sm-10 right-side"> 
             <div class="" id="display">
 
             </div>

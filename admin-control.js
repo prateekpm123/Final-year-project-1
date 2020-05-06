@@ -3,18 +3,18 @@
     // };
 
 count = 1;
-vCount = 0;
+vCount = 0; 
 
 
-function passTheId(id) {
-    let val = id;
-    // alert(id);
-    localStorage.setItem("myId", val);
-    window.location.href="admin-conttrol-form.php";
-    window.location.href = "preview-form.php";
-    // window.location.href = "";
+// function passTheId(id) {
+//     let val = id;
+//     // alert(id);
+//     localStorage.setItem("myId", val);
+//     window.location.href="admin-conttrol-form.php";
+//     window.location.href = "preview-form.php";
+//     // window.location.href = ""; 
 
-} 
+// } 
 
 function newcard() {
     // let saveCard = "update";
@@ -22,7 +22,7 @@ function newcard() {
                         '<div class="my-card newCard">'+
                             '<div class="my-card-body">'+
                                 '<h6 class="card-title" contenteditable="true" id="'+count+'" >Type here the title</h6>' +
-                                '<button class="btn btn-primary" id="button'+count+'" onclick="saveTheFormDetails(this.id);passTheId(this.id);">Save</button>' +
+                                '<button class="btn btn-primary" id="button'+count+'" onclick="saveTheFormDetails(this.id)">Save</button>' +
                             '</div>'+
                         '</div>'+
                     '</a>';
