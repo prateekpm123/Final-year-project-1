@@ -13,8 +13,8 @@ questionCount = 0;
 optionArray = [];
 optioncount = 1;
 
-formIdIs = localStorage.getItem("myId");
-alert("the value recieved is " + formIdIs);
+// formIdIs = localStorage.getItem("myId");
+// alert("the value recieved is " + formIdIs);
 
 
 // let iddd = globalVariable1.formId;
@@ -67,30 +67,53 @@ function createLongAnswer(info) {
 
 }
 
-function createMultipleChoice(Info) {
+function createMultipleChoice(Info,ID) {
   // info = allInfo.className;
-  id = Info.substring('input-choice multipleChoiceInput'.length);
+  // mcCounter++;
+  console.log('-----------------------');
+  console.log("info is ",Info);
+  let id = Info.substring('input-choice multipleChoiceInput'.length);
+
+
+  let id = Info.match(/.\d+/g, ''); // this extracts only digits from the string
+  let firstCharacter = id[0];
+  console.log(typeof(firstCharacter));
+  id = firstCharacter.substring('t'.length);
+
+  console.log('passed id is ',ID);
+  let passedID = ID.match(/.\d+/g, ''); // this extracts only digits from the string
+  let firstElement = passedID[0];
+  console.log('first element of passedID is ',typeof (firstElement));
+  // passedID = firstElement.substring('d'.length);
+  // console.log("passedID is ",passedID);
+  passedID = passedID.toString();
+  let passedIDLen = passedID.length;
+  passedID = passedID.substring(1, passedIDLen);
+  let questionCount = getCurrentQuestionId(Info); 
+  let newPassedId = divideAfterAZero(passedID, questionCount);
+  console.log('new passes id is ',newPassedId);
+  console.log('id is ',id);
   id = id;
-  // alert(info);
-  id = parseInt(id);
+  // alert(Info);
+  id1 = parseInt(id);
+  console.log('id in creating multiple choice on enter is ', id);
   id--;
+  console.log('id in creating multiple choice on enter is ', id);
+
   // alert(id);
 
 
   let multipleChoiceInputTag = '<input  type = "text"' +
-    'class = "input-choice multipleChoiceInput' + questionAreaCounter + '" ' +
-    'placeholder=" - " ' +
-    'id="multipleChoiceid' + questionAreaCounter + multipleChoiceCounter + '" ' +
-    'aria-label= "Recipient\'s username" ' +
-    'aria-describedby= "multipleChoiceBtn' + questionAreaCounter + '" ' +
-    'onkeypress="myFunction(event, this.className)"' +
-    'onfocus = "cursorFocus(this.id)"' +
+    'class = "input-choice multipleChoiceInput' + id1 + '" ' +
+    'placeholder=" - type your answer" ' +
+    'id="multipleChoiceid' + newPassedId + '" ' +
+    'onkeypress="myFunction(event, this.className,this.id)"' +
     'value="" ' +
     '</input>';
 
 
   idno = id;
-  console.log("idno = ", idno);
+  console.log("idno = ", id);
   let idno2 = idno;
   let questionsetdiv = "#questionset" + idno;
 
@@ -100,17 +123,87 @@ function createMultipleChoice(Info) {
 }
 
 
+function getCurrentQuestionId(classname) {
+  let id = classname.match(/.\d+/g, ''); // this extracts only digits from the string
+  id = id[0];
+  console.log("id is ", id);
+  id2 = id.substring(1, id.length);
+  console.log("pure id is ", id2);
+  return id2;
+}
+
+
+function divideAfterAZero(passedID, currentQuestionAreaCounter) {
+    if (currentQuestionAreaCounter < 9) {
+      console.log('passedID in this new function is', passedID);
+      // passedID = passedID[0];
+      // passedID = toString(passedID);
+      console.log(passedID);
+      let questionCount = passedID[0];
+      let multipleChoiceCount = passedID[1];
+
+      console.log('separated passed id is', multipleChoiceCount);
+      multipleChoiceCount = parseInt(multipleChoiceCount);
+      multipleChoiceCount++;
+      multipleChoiceCount = multipleChoiceCount.toString();
+      multipleChoiceBoxIdNo = questionCount + multipleChoiceCount;
+      console.log('final answer is ', multipleChoiceBoxIdNo);
+      console.log('current question area coutner is ', currentQuestionAreaCounter);
+      return multipleChoiceBoxIdNo;
+
+    } 
+    else if (currentQuestionAreaCounter < 99) {
+      console.log('in 2nd condition');
+      let questionCount = passedID.substring(0, 2);
+      console.log('question count is ',questionCount);
+      let multipleChoiceCount = passedID.substring(2, passedID.length);
+      console.log('multiplechoicecount is ',multipleChoiceCount);
+      // console.log('question count is', multipleChoiceCount);
+      multipleChoiceCount = parseInt(multipleChoiceCount);
+      multipleChoiceCount++;
+      let multipleChoiceBoxIdNo = questionCount + multipleChoiceCount;
+      console.log("fiunal answer is ", multipleChoiceBoxIdNo);
+      return multipleChoiceBoxIdNo;
+
+      // console.log('passedID in this new function is', passedID);
+      // // passedID = passedID[0];
+      // // passedID = toString(passedID);
+      // console.log(passedID);
+      // let questionCount = passedID[0];
+      // let multipleChoiceCount = passedID[1];
+
+      // console.log('separated passed id is', multipleChoiceCount);
+      // multipleChoiceCount = parseInt(multipleChoiceCount);
+      // multipleChoiceCount++;
+      // multipleChoiceCount = multipleChoiceCount.toString();
+      // multipleChoiceBoxIdNo = questionCount + multipleChoiceCount;
+      // console.log('final answer is ', multipleChoiceBoxIdNo);
+      // console.log('current question area coutner is ', currentQuestionAreaCounter);
+      // return multipleChoiceBoxIdNo;
+    } 
+    
+    else if (currentQuestionAreaCounter < 999) {
+      console.log('in 2nd condition');
+      let questionCount = passedID.substring(0, 3);
+      let multipleChoiceCount = passedID.substring(3, passedID.length);
+      console.log('question count is', multipleChoiceCount);
+      multipleChoiceCount = parseInt(multipleChoiceCount);
+      multipleChoiceCount++;
+      let multipleChoiceBoxIdNo = questionCount + multipleChoiceCount;
+      console.log("fiunal answer is ", multipleChoiceBoxIdNo);
+      return multipleChoiceBoxIdNo;
+
+  }
+}
+
 function createMultipleChoiceBefore(a, i) {
 
   let multipleChoiceInputTag = '<input  type = "text"' +
     'class = "input-choice multipleChoiceInput' + questionAreaCounter + '" ' +
-    'placeholder=" - " ' +
+    'placeholder=" - type your option" ' +
     'id="multipleChoiceid' + questionAreaCounter + multipleChoiceCounter + '" ' +
-    'aria-label="Recipient\'s username" ' +
-    'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
     'value="' + optionArray[a] + '" ' +
-    'onkeypress="myFunction(event, this.id)"' +
-    'onfocus = "cursorFocus(this.id)"' +
+    'onkeypress="myFunction(event, this.className,this.id)"' +
     '</input>';
 
 
@@ -134,13 +227,9 @@ function addMultipleChoice() {
   // This creates an input box for the multiple choice option
   let multipleChoiceInputTag = '<input  type = "text"' +
     'class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" ' +
-    'placeholder=" - " ' +
+    'placeholder=" - type your option" ' +
     'id="multipleChoiceid' + questionAreaCounter3 + multipleChoiceCounter + '" ' +
-    'aria-label="Recipient\'s username" ' +
-    'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
-    'onkeypress="myFunction(event, this.className)"' +
-    'onfocus = "cursorFocus(this.id)"' +
-    'value="" ' +
+    'onkeypress="myFunction(event, this.className, this.id)"' +
     '</input>';
 
 
@@ -207,12 +296,9 @@ function addMultipleChoiceBefore() {
 
   let multipleChoiceInputTag = '<input  type = "text"' +
     'class = "input-choice multipleChoiceInput' + questionAreaCounter3 + '" ' +
-    'placeholder=" - " ' +
+    'placeholder=" - type your option" ' +
     'id="multipleChoiceid' + questionAreaCounter3 + multipleChoiceCounter + '" ' +
-    'aria-label="Recipient\'s username" ' +
-    'aria-describedby="multipleChoiceBtn' + questionAreaCounter + '" ' +
-    'onkeypress="myFunction(event, this.className)"' +
-    'onfocus = "cursorFocus(this.id)"' +
+    'onkeypress="myFunction(event, this.className, this.id)"' +
     'value="' + globalVariable.option1[questionAreaCounter].Option1 + '" ' +
     '</input>';
 
@@ -470,7 +556,7 @@ function create(btnclass, btnid) {
   } else if (btnid == 3) {
     insertQuestion(btnid);
     // createLongAnswer(questionAreaCounter);
-    alert('in if else condition of long answer');
+    // alert('in if else condition of long answer');
   } else if (btnid == 4) {}
 
   questionAreaCounter++;
@@ -480,9 +566,11 @@ function create(btnclass, btnid) {
 
 //  ****************** Event Listeners **********************
 
-function myFunction(key, Info) {
+function myFunction(key, Info,ID) {
   if (key.keyCode == "13") {
-    createMultipleChoice(Info);
+    createMultipleChoice(Info, ID);
+    console.log('id is in my function',ID);
+    // alert(Info);
   }
 }
 
@@ -690,7 +778,7 @@ function getTheQuestionCount() {
         questionCount = $('#questionCount').text();
         let option1 = $('#option1').text();
         // console.log(questionCount);
-        alert(questionCount);
+        // alert(questionCount);
       }
       if (status == "success") {
         creatingTheExistingContent(questionCount, status);
@@ -703,6 +791,7 @@ function getTheQuestionCount() {
 
 function creatingTheExistingContent(questionCount, status) {
   // alert('globalVariablei is' + iddd);
+  console.log('testing 1 2 3');
   if (status == "success") {
 
   }
@@ -744,6 +833,7 @@ function creatingTheExistingContent(questionCount, status) {
 
 
     }
+    console.log("count value is --------", questionAreaCounter);
   }
 }
 
@@ -791,7 +881,7 @@ function deleted() {
 function insertQuestion(btnid) {
   let q_no1 = parseInt(questionAreaCounter);
   q_no1++;
-  alert(q_no1);
+  // alert(q_no1);
   $.ajax({
     url: "insertQuestion.php",
     type: "post",
@@ -870,7 +960,7 @@ function ajaxToSave(id, btnid) {
       "total no of multiple choices ",
       totalMultipleChoiceInputCountLen
     );
-    alert(' total number of multiple chocies are ' + totalMultipleChoiceInputCountLen);
+    // alert(' total number of multiple chocies are ' + totalMultipleChoiceInputCountLen);
     let optionValue = [];
 
     for (a = 1; a < totalMultipleChoiceInputCountLen + 1; a++) {

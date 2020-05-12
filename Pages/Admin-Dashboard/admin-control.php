@@ -44,62 +44,38 @@
     </nav>
     <div class="row">
         <div class="col-lg-2 col-sm-2 col-xm-2 left-side">
-            <h5 >WORKSPACE</h5>
+            <h4> Workspace</h4>
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-              <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="" role="tab" aria-controls="" aria-selected="true">TEACHER'S FORM</a>
+              <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="" role="tab" aria-controls="" aria-selected="true">Teacher's form</a>
 
-              <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="" role="tab" aria-controls="" aria-selected="false">STUDENT'S FORM</a>
+              <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="" role="tab" aria-controls="" aria-selected="false">Students Form</a>
 
-              <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="" role="tab" aria-controls="" aria-selected="false">PARENT'S FORM</a>
+              <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="" role="tab" aria-controls="" aria-selected="false">Parent's form</a>
             </div>
         </div>
 
-        <div class="col-lg-10 col-sm-10 right-side">
-            <div class="row">
-                <div class="col-lg-2 col-md-3 card-col-1">
-                    <div class="my-card">
-                        <div class="my-card-body">
-                            <h5 class="card-title">Teachers review on infrastructure</h5>
-                            <a href="admin-control-form.php" onclick="passTheId(this.id)" id="1" class="card-link">Edit</a>
-                            <a href="admin-control-form.php" class="card-link">Delete</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-lg-10 col-sm-10 right-side"> 
+            <div class="" id="display">
 
-                <div class="col-lg-2 col-md-3 card-col-2">
-                    <div class="my-card">
-                        <div class="my-card-body">
-                            <h5 class="card-title">Teachers review on Event & Workshops</h5>
-                            <a href="admin-control-form.php" onclick="passTheId(this.id)" id="2" class="card-link">Edit</a>
-                            <a href="admin-control-form.php" class="card-link">Delete</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-3 card-col-3">
-                    <div class="my-card">
-                        <div class="my-card-body">
-                            <h5 class="card-title">Teachers review on Placement</h5>
-                            <a href="admin-control-form.php" class="card-link">Edit</a>
-                            <a href="admin-control-form.php" class="card-link">Delete</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-3 card-col-4">
-                    <div class="my-card newcard">
-                        <div class="my-card-body">
-                            <p class="new"><a href="#" onclick="newcard()">+ New</a></p>
-                        </div>
-                    </div>
-                </div>
             </div>
+            <div class="row" id="cardArea">
+                <!-- <div id="cardArea"> -->                
+
+                    <!-- <div class="col-lg-2 col-md-3 card-col-4"> -->
+                        <div class="my-card newcard">
+                            <div class="my-card-body">
+                                <p class="new"><a href="#" onclick="newcard();insertTheFormDetails();">+ New</a></p>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                <!-- </div> -->
+                
+            </div> 
 
             <h5 class="pooja"><i>Versions</i></h5>
             <hr>
             <iframe class="iframe" src="teacher_version.html" height="400" width="1000"></iframe>
-after clickimg on new.. a new card shoulf appear.. and the blacnk new card should shift right.. or bottom.
         </div>
     </div>
 

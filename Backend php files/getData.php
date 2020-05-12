@@ -2,7 +2,12 @@
 //  ||****************************  This is backend for Preview-form.php  *********************************||
 
 // $counter = $_POST['counter'];
+require_once('Log.class.php');
 
+$Log = new Log();
+
+$time = time();
+$actual_time = date(' D M Y @ H:i:s', $time);
 
 // ###########  Making a connection to the database  #############
 $con = mysqli_connect('localhost','root','');
@@ -11,6 +16,11 @@ mysqli_select_db($con, 'final_year_project');
 if (!$con) {
   die("Connection failed: " . mysqli_connect_error());
 }
+
+$lineCount = $Log -> LineCount('test.txt');
+$Log -> Write('test.txt',"\r########### :: This is getdata.php ############## : $actual_time");
+$Log -> Write('test.txt',"line count is = $lineCount");
+
 
 // echo "Connected successfully";
 
@@ -197,10 +207,14 @@ $q_no = "SELECT q_no FROM questions";
 if (mysqli_query($con, $q_no)) 
     {
       // echo "<h5>Got the question successfully</h5>";
+      $Log -> Write('test.txt',"Got the q_no successfully");
+
     } 
     else 
     {
       // echo "Error: " . $q_no . "<br>" . mysqli_error($con);
+      $Log -> Write('test.txt',"Error in getting the q_no");
+
     }
 
 $keys = mysqli_query($con, $q_no);
@@ -227,10 +241,14 @@ $questionsArray = "SELECT Questions FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
       // echo "<h5>Got the question successfully</h5>";
+      $Log -> Write('test.txt',"Got the question successfully");
+
     } 
     else 
     {
       // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+      $Log -> Write('test.txt',"Error in getting the question");
+
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -253,10 +271,14 @@ $questionsArray = "SELECT Option1 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
       // echo "<h5>Got the option successfully</h5>";
+      $Log -> Write('test.txt',"Got the option successfully");
+
     } 
     else 
     {
       // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+      $Log -> Write('test.txt',"Error in getting the option");
+
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -278,10 +300,14 @@ $questionsArray = "SELECT Option2 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
       // echo "<h5>Got the option2 successfully</h5>";
+      $Log -> Write('test.txt',"Got the option2 successfully");
+
     } 
     else 
     {
       // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+      $Log -> Write('test.txt',"Error in getting the option2");
+
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -300,10 +326,14 @@ $questionsArray = "SELECT Option3 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
       // echo "<h5>Got the Option3 successfully</h5>";
+      $Log -> Write('test.txt',"Got the Option3 successfully");
+
     } 
     else 
     {
       // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+      $Log -> Write('test.txt',"Error in getting the Option3");
+
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -323,10 +353,14 @@ $questionsArray = "SELECT Option4 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
       // echo "<h5>Got the Option4 successfully</h5>";
+      $Log -> Write('test.txt',"Got the Option4 successfully");
+
     } 
     else 
     {
       // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+      $Log -> Write('test.txt',"Error in getting the Option4");
+
     }
 
 $keys = mysqli_query($con, $questionsArray);
@@ -346,10 +380,14 @@ $questionsArray = "SELECT Option5 FROM questions";
 if (mysqli_query($con, $questionsArray)) 
     {
       // echo "<h5>Got the Option5 successfully</h5>";
+      $Log -> Write('test.txt',"Got the Option5 successfully");
+
     } 
     else 
     {
       // echo "Error: " . $questionsArray . "<br>" . mysqli_error($con);
+      $Log -> Write('test.txt',"Error in getting the Option5");
+
     }
 
 $keys = mysqli_query($con, $questionsArray);

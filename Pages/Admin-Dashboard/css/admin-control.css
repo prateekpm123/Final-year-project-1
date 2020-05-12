@@ -30,20 +30,19 @@ body, * {
     margin: 0;
 }
 
-h5{
+h6{
     padding: 20px;
 }
 
 .my-card-body {
     margin: 10px 0px 10px 10px ;
-    width: 100%;
+    width: 160px;
     text-align: center;
     align-items: center;
     background-color: rgb(255, 255, 249);
     min-height: 200px;
     border-radius: 5%;
     border: 1px solid rgb(202, 202, 202);
-
 }
 
 .new {

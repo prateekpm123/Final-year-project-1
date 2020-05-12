@@ -22,7 +22,7 @@ $btnid = $_POST['btnid'];
 
 if( $btnid == 3)
 {
-    $insert =  "INSERT INTO `questions`(`id`, `q_no`) VALUES ('$formId', '$q_no');";
+    $insert =  "INSERT INTO `questions`(`id`, `q_no`) VALUES ('1', '$q_no');";
     if (mysqli_query($con, $insert)) 
     {
       echo "<h5>Inserted Blank Insert</h5>";
@@ -35,7 +35,7 @@ if( $btnid == 3)
 }
 else if ($btnid == 1)
 {
-    $insert =  "INSERT INTO `questions`(`id`, `q_no`,`Option1`) VALUES ('$formId', '$q_no','  ');";
+    $insert =  "INSERT INTO `questions`(`id`, `q_no`,`Option1`) VALUES ('1', '$q_no','  ');";
     if (mysqli_query($con, $insert)) 
     {
       echo "<h5>Inserted Blank Insert</h5>";

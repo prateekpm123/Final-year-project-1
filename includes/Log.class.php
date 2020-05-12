@@ -28,6 +28,27 @@ class Log
         
         return file_get_contents($strFileName);
     }
+
+    public function LineCount($strFileName)
+    {
+        // $file="largefile.txt";
+        // $linecount = 0;
+        // $handle = fopen($strFileName, "r");
+        // while(!feof($handle))
+        // {
+        //     $line = fgets($handle, 4096);
+        //     $linecount = $linecount + substr_count($line, PHP_EOL);
+        // }
+
+        // fclose($handle);
+
+        // return $linecount;
+
+        $file = basename('test.txt'); 
+        $no_of_lines = count(file($file)); 
+        // echo "There are $no_of_lines lines in $file"."\n";
+        return $no_of_lines;
+    }
 }
 
 

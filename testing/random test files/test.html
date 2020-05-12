@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
+    <link href="jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="test.css">
+</head>
+
+<body>
+
+    <!-- <input type="text" id="mytext" value="this is how it is ?"> -->
+
+    <!-- <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6" id="mainDisplayArea">
+                <div id="display">
+                    <div class="upper-space"></div> -->
+                    <!-- <textarea id="mytext" onkeyup="AutoGrowTextArea(this)" row="1" class="input-choice" value=""
+                        placeholder=" - "></textarea> -->
+                    <!-- <input type="text" id="myInput" onkeypress="myFunction(event, this.id)"> -->
+
+                    <!-- <p id="demo"></p>
+                </div>
+                <div>
+                    <button class="btn btn-primary" onclick="displayNext()">Next</button>
+                </div>
+            </div>
+
+            <div class="col-lg-3"></div>
+
+        </div>
+    </div> -->
+
+
+
+
+
+    <!-- ##### Bootstrap libraries ##### -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+    <!--  ###### Jquery libraries ##### -->
+    <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+    <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="admin-control-form.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+    <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="test.js"></script>
+
+
+
+    <!-- <script>
+        // array = ["this is first",
+        //     "this is second", "This is third", "this is fourth"
+        // ];
+
+
+
+        // function myFunction(key, id) {
+        //     var x = document.getElementById("myInput").value;
+        //     document.getElementById("demo").innerHTML = "You wrote: " + x;
+        //     alert(key.keyCode + ' id is ' + id);
+        // }
+
+        // function AutoGrowTextArea(textField) {
+        //     if (textField.clientHeight < textField.scrollHeight) {
+        //         textField.style.height = textField.scrollHeight + "px";
+        //         if (textField.clientHeight < textField.scrollHeight) {
+        //             textField.style.height = textField.scrollHeight * 2 -
+        //                 textField.clientHeight + "px";
+        //         }
+        //     }
+        // }
+
+        jsonarray = [{
+            "Option1": "dsgfsdgdsgdsfg "
+        }, {
+            "Option1": "How are you ?"
+        }, {
+            "Option1": "sdfgdsfgs "
+        }, {
+            "Option1": "I am doing good"
+        }, {
+            "Option1": " sdfgsdgdsfgd"
+        }, {
+            "Option1": "sdgdsgfdsgd"
+        }, {
+            "Option1": "dsfgds gdsgdsg"
+        }, {
+            "Option1": "dfgdgdsfg"
+        }, {
+            "Option1": "sdgdsgdsgf"
+        }, {
+            "Option1": "sdgfdsfgdsg"
+        }, {
+            "Option1": "Lucy"
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": "Yeah, I think its a good Idea"
+        }, {
+            "Option1": ""
+        }, {
+            "Option1": ""
+        }]
+        //count is 0, // because first the question wont be displayed, count is strictly the question number.
+        count = 0;
+
+
+
+        function displayNext() {
+
+            deletePrevious();
+            count1 = count + 1;
+            $("#display").append('<div class="questions" id="questionArea"></div>');
+            $("#questionArea").append('<p class="para" id="' + count1 + '">' + jsonarray[count].Option1 + '</p>');
+            // alert("option is"+jsonarray[count].Option1);
+
+            count++;
+            // let num = "multiplechoiceoption42";
+            // let numLen = num.length;
+            // console.log('thisis the lenvht ',numLen);
+            // // let strNew = num.substring(0, ()+20); //strNew is 'Hello World'
+            // // var str = 'test_23';
+            // newStr = num.substring('multiplechoiceoption'.length);
+            // alert('new string is '+newStr);
+        }
+
+        function deletePrevious() {
+            previousCount = count;
+            previousCountId = "#" + previousCount;
+            $(previousCountId).remove();
+        }
+
+        // let id = "mytext";
+        // input = document.getElementsByClassName("input-choice");
+        // input.addEventListener("keyup", addNewMultipleChoiceOption, false);
+
+        // function addNewMultipleChoiceOption(key) {
+        //     if(key.keyCode == "13")
+        //     {
+        //         createMultipleChoice(this.id);
+        //         // alert("key code is "+ key.keyCode);
+        //     }
+        //         alert("key code is "+ key.keyCode);
+
+        // }
+
+
+        // TESTING FOR KEY VALUES
+
+        // text = document.getElementById("mytext");
+
+        // function getTheKeyCode(e) {
+        // console.log(e.type + ' ' + e.keycode + ' ' + String.fromCharCode(e.keycode));
+        // console.log( e.keycode );
+        // alert(e.keycode);
+        // }
+
+        // window.addEventListener("keydown", getTheKeyCode, false);
+        // text.addEventListener("keypress", getTheKeyCode, false);
+        // text.addEventListener("keyup", getTheKeyCode, false);
+    </script> -->
+</body>
+
+</html>
