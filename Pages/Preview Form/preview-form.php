@@ -27,6 +27,11 @@ include('getData.php');
 </head>
 
 <body onload="fetchData()">
+    <?php
+
+        include_once('C:/xampp/htdocs/Final Year Project/Final-year-project-1/includes/Navbar.php');
+
+    ?>
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-header">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -56,15 +61,15 @@ include('getData.php');
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?php
-                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
-                            { 
-                                // echo "$username"; 
-                                echo $_SESSION['uname'];
-                            } 
-                            else 
-                            {
-                                echo "Please log in first to see this page.";
-                            }
+                            // if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
+                            // { 
+                            //     // echo "$username"; 
+                            //     echo $_SESSION['uname'];
+                            // } 
+                            // else 
+                            // {
+                            //     echo "Please log in first to see this page.";
+                            // }
                         ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
