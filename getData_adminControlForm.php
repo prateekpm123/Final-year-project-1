@@ -1,13 +1,6 @@
 <?php
 //  ||****************************  This is backend for Preview-form.php  *********************************||
 
-
-// Start the session
-session_start();
-
-$formId = $_SESSION["formId"];
-
-
 // $counter = $_POST['counter'];
 require_once('Log.class.php');
 // require_once('setTheFormId.php');
@@ -34,10 +27,10 @@ $Log -> Write('test.txt',"line count is = $lineCount");
 
 // echo "Connected successfully";
 
-// $formId = $_POST['formId'];
+$formId = $_POST['formId'];
 echo 'the form id is '.$formId;
 
-// $formId = 1;dd
+// $formId = 1;
 
 // *************************  Getting the QUESTIONS from the table  ******************************
 $q_no = "SELECT q_no FROM questions WHERE `id`=$formId";
@@ -210,7 +203,7 @@ while($row = mysqli_fetch_assoc($keys)){ // loop to store the data in an associa
      $index++;
 } 
 
-// $option1Json = json_encode($option1);
+$option1Json = json_encode($option1);
 
 
 

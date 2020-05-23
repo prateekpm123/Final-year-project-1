@@ -3,6 +3,7 @@ session_start();
 // $username = $_SESSION['uname'];
 include("mydb.php");
 include("getData.php");
+
 // $con = mysqli_connect('localhost','root');
 // if($con) {
 //     // echo "sucess";
@@ -260,6 +261,10 @@ include("getData.php");
     <script src="admin-control-form.js"></script>
     <!-- <script src="admin-control.js"></script> -->
 
+    <?php 
+    // include("getData.php");
+                
+    ?>
     <script>
 
         // formIdIs = localStorage.getItem("myId");

@@ -13,9 +13,12 @@ questionCount = 0;
 optionArray = [];
 optioncount = 1;
 
-// formIdIs = localStorage.getItem("myId");
-// alert("the value recieved is " + formIdIs);
+formIdIs = localStorage.getItem("myId");
+alert("the value recieved is " + formIdIs);
 
+// if( formIdIs ) {
+//   getTheQuestionCount();
+// }
 
 // let iddd = globalVariable1.formId;
 
@@ -682,7 +685,7 @@ function createBefore(btnclass, btnid) {
     '</button>' +
     '<div class="dropdown-menu">' +
     '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
-    'Delete Choice' +
+    'Delete question' +
     '</button> ' +
     '<button class="dropdown-item extraOptions' + questionAreaCounter + '">' +
     'Another action' +
@@ -768,7 +771,7 @@ function getTheQuestionCount() {
     url: "getData.php",
     type: "post",
     data: {
-      formId: formIdIs
+      formId: formIdIs,
     },
     success: function (data, status) {
       // console.log(data);
@@ -785,7 +788,6 @@ function getTheQuestionCount() {
       }
     },
   });
-
 
 }
 

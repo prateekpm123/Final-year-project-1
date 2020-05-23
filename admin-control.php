@@ -42,6 +42,7 @@
             </ul>
         </div>
     </nav>
+    <div id="display"></div>
     <div class="row">
         <div class="col-lg-2 col-sm-2 col-xm-2 left-side">
             <h4> Workspace</h4>
