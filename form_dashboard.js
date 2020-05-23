@@ -8,24 +8,26 @@ vCount = 0;
 
 function passTheId(id) {
     let val = id;
-    alert(id);
+    console.log(id);
+
     // localStorage.setItem("myId", 1);
     // window.location.href="admin-control-form.php";
     // window.location.href = "preview-form.php";
     // window.location.href = ""; 
-
+    let numericIdIs = filterNumericid(id);
+    console.log('numeric id is ',numericIdIs);
     $.ajax({
         url: "setTheFormId.php",
         type: "post",
         data: {
-            id: 2,
+            id: numericIdIs,
         },
         success: function (data, status) {
             console.log(data, status);
             $("#display").html(data);
-            alert(status);
+            console.log(status);
             if(status == "success") {
-                window.location = "admin-control-form.php";
+                window.location = "form_creation.php";
                 // window.location = "setTheFormId.php";
 
             }
@@ -51,6 +53,14 @@ function newcard() {
 
     count++;
 }
+
+
+function filterNumericid(idIs) {
+    let id = idIs.match(/\d+/g, ''); // this extracts only digits from the string
+    console.log("id is ", id);
+    return parseInt(id[0]);
+}
+
 
 function saveTheFormDetails(btnid) {
 

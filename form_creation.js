@@ -13,8 +13,8 @@ questionCount = 0;
 optionArray = [];
 optioncount = 1;
 
-formIdIs = localStorage.getItem("myId");
-alert("the value recieved is " + formIdIs);
+// formIdIs = localStorage.getItem("myId");
+// alert("the value recieved is " + formIdIs);
 
 // if( formIdIs ) {
 //   getTheQuestionCount();
@@ -771,7 +771,7 @@ function getTheQuestionCount() {
     url: "getData.php",
     type: "post",
     data: {
-      formId: formIdIs,
+      // formId: formIdIs,
     },
     success: function (data, status) {
       // console.log(data);

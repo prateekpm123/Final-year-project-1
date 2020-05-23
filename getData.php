@@ -35,7 +35,7 @@ $Log -> Write('test.txt',"line count is = $lineCount");
 // echo "Connected successfully";
 
 // $formId = $_POST['formId'];
-echo 'the form id is '.$formId;
+// echo 'the form id is '.$formId;
 
 // $formId = 1;dd
 
