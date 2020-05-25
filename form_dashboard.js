@@ -10,8 +10,8 @@ function passTheId(id) {
     let val = id;
     console.log(id);
 
-    // localStorage.setItem("myId", 1);
-    // window.location.href="admin-control-form.php";
+    localStorage.setItem("myId", 1);
+    window.location.href="admin-control-form.php";
     // window.location.href = "preview-form.php";
     // window.location.href = ""; 
     let numericIdIs = filterNumericid(id);

@@ -13,8 +13,8 @@ questionCount = 0;
 optionArray = [];
 optioncount = 1;
 
-// formIdIs = localStorage.getItem("myId");
-// alert("the value recieved is " + formIdIs);
+formIdIs = localStorage.getItem("myId");
+alert("the value recieved is " + formIdIs);
 
 // if( formIdIs ) {
 //   getTheQuestionCount();
@@ -358,7 +358,9 @@ function addMultipleChoiceBefore() {
   multipleChoiceCounter++;
 }
 
-
+function takeToPreviewPage() {
+  
+}
 
 function create(btnclass, btnid) {
 
@@ -889,7 +891,7 @@ function insertQuestion(btnid) {
     type: "post",
     data: {
       id: q_no1,
-      formId: formIdIs,
+      // formId: formIdIs,
       btnid: btnid
     },
     success: function (data, status) {
@@ -920,7 +922,7 @@ function ajaxToSave(id, btnid) {
         question: textarea,
         option: 1,
         btnid: btnid,
-        formId: formIdIs
+        formId: formIdIs 
       },
       success: function (data, status) {
         // console.log(data);

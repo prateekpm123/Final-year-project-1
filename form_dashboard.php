@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
     <link href="jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
-    <link rel="stylesheet" href="admin-control.css">
+    <link rel="stylesheet" href="form_dashboard.css">
 
 </head>
 
@@ -92,7 +92,7 @@
     <!--  ###### Jquery libraries ##### -->
     <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-    <script src="admin-control.js"></script>
+    <script src="form_dashboard.js"></script>
 
 </body>
 

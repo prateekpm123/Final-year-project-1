@@ -16,13 +16,16 @@ echo "Connected successfully";
 
 
 $q_no = $_POST['id'];
-$formId = $_POST['formId'];
+// $formId = $_POST['formId'];
 $btnid = $_POST['btnid'];
+// Start the session
+session_start();
 
+$formId =$_SESSION["formId"];
 
 if( $btnid == 3)
 {
-    $insert =  "INSERT INTO `questions`(`id`, `q_no`) VALUES ('1', '$q_no');";
+    $insert =  "INSERT INTO `questions`(`id`, `q_no`) VALUES ('$formId', '$q_no');";
     if (mysqli_query($con, $insert)) 
     {
       echo "<h5>Inserted Blank Insert</h5>";
@@ -35,7 +38,7 @@ if( $btnid == 3)
 }
 else if ($btnid == 1)
 {
-    $insert =  "INSERT INTO `questions`(`id`, `q_no`,`Option1`) VALUES ('1', '$q_no','  ');";
+    $insert =  "INSERT INTO `questions`(`id`, `q_no`,`Option1`) VALUES ('$formId', '$q_no','  ');";
     if (mysqli_query($con, $insert)) 
     {
       echo "<h5>Inserted Blank Insert</h5>";
