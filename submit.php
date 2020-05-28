@@ -19,6 +19,9 @@ $question = $_POST['question'];
 $option = $_POST['option'];
 $btnid = $_POST['btnid'];
 // $formId = $_POST['formId'];
+// SESSION STARTA
+session_start();
+$formId = $_SESSION['formId'];
 
 
 $questionCount++;

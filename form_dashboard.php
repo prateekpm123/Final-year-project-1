@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
     <link href="jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
-    <link rel="stylesheet" href="admin-control.css">
+    <link rel="stylesheet" href="form_dashboard.css">
 
 </head>
 
@@ -71,6 +71,19 @@
                         </div>
                     <!-- </div> -->
                 <!-- </div> -->
+                <div class="my-card newcard">
+                    <div class="my-card-body">
+                        <h6 class="card-title" contenteditable="true" id="1" >Teachers Review of Infrastructure</h6>
+                        <button class="btn btn-primary" id="1" onclick="saveTheFormDetails(this.id);passTheId(this.id)">Save</button>
+                    </div>
+                </div>
+                <div class="my-card newcard">
+                    <div class="my-card-body">
+                        <h6 class="card-title" contenteditable="true" id="2" >Students Survey on Teachers</h6>
+                        <button class="btn btn-primary" id="2" onclick="saveTheFormDetails(this.id);passTheId(this.id)">Save</button>
+                    </div>
+                </div>
+               
                 
             </div> 
 
@@ -92,7 +105,7 @@
     <!--  ###### Jquery libraries ##### -->
     <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-    <script src="admin-control.js"></script>
+    <script src="form_dashboard.js"></script>
 
 </body>
 

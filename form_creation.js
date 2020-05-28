@@ -910,7 +910,7 @@ function ajaxToSave(id, btnid) {
 
     let textareaId = "#Q" + id;
 
-    let textarea = $(textareaId).val();
+    let textarea = $(textareaId).val(); 
 
     $.ajax({
       url: "submit.php",
@@ -985,7 +985,7 @@ function ajaxToSave(id, btnid) {
         question: textarea,
         option: optionValue,
         btnid: btnid,
-        formId: formIdIs
+        // formId: formIdIs
 
       },
       success: function (data, status) {

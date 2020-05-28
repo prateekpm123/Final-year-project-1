@@ -13,7 +13,7 @@ include("getData.php");
 //     // echo "sucess h1";
 // }
 // include_once("mydb.php");
-// if (isset($_POST['submit']))
+// if (isset($_POST['submit'])) 
 // {   
     // $Q1 =$_POST['question'];
     // // $query = "INSERT INTO `questions` (`Q1`) VALUES ('$Q1') WHERE `Form Number`='Form2'";
@@ -44,7 +44,7 @@ include("getData.php");
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
     <link href="jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
-    <link rel="stylesheet" href="admin-control-form.css">
+    <link rel="stylesheet" href="form_creation.css">
 
 </head>
 
@@ -198,10 +198,12 @@ include("getData.php");
                     </div>
                 <!-- </div> -->
             </div>
+            <a href="preview-form.php" class="btn btn-primary">Preview</a>
 
 
         </div>
         <div class="col-lg-6 right-side " id="display">
+            
             <div id="display2"></div>
              <?php
                 // $q = "SELECT Q1 FROM `questions` WHERE `Form Number`='Form2'";
@@ -258,7 +260,7 @@ include("getData.php");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-    <script src="admin-control-form.js"></script>
+    <script src="form_creation.js"></script>
     <!-- <script src="admin-control.js"></script> -->
 
     <?php 
